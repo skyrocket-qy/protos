@@ -1,0 +1,50 @@
+// api.proto
+syntax = "proto3";
+
+package slotpb.v1;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
+
+service SlotService {
+    rpc GateWay (GateWayRequest) returns (GateWayResponse) {}
+}
+
+message GateWayRequest {
+  string request_id = 1;
+  uint32 ope_code = 2;
+  bytes msg = 3;
+}
+
+message GateWayResponse {
+  bytes msg = 1;
+}
+
+message Table {
+  repeated Reel reels = 1;
+}
+message Reel{
+  repeated string symbols = 1;
+}
+
+message Coordinate{
+  int32 x = 1;
+  int32 y = 2;
+}
+
+message PlayOut {
+  bool is_jp = 1;
+  bytes data = 2;
+}
+
+message JpOut{
+  Table table = 1;
+  uint64 score = 2;
+  JPType type = 3;
+}
+
+enum JPType{
+  JP_TYPE_UNSPECIFIED = 0;
+  JP_TYPE_MINOR = 1;
+  JP_TYPE_MAJOR = 2;
+  JP_TYPE_GRAND = 3;
+}
