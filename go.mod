@@ -2,7 +2,6 @@ module github.com/skyrocket-qy/protos
 
 replace github.com/skyrocket-qy/protos => .
 
-
 go 1.24.4
 
 require (
