@@ -5,7 +5,7 @@ package authzpb.v1;
 
 option go_package = "github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1";
 
-message Edge {
+message Tuple {
     Sbj sbj = 1;
     string rel = 2;
     Obj obj = 3;

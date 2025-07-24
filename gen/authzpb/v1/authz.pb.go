@@ -23,7 +23,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Edge struct {
+type Tuple struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Sbj           *Sbj                   `protobuf:"bytes,1,opt,name=sbj,proto3" json:"sbj,omitempty"`
 	Rel           string                 `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty"`
@@ -32,20 +32,20 @@ type Edge struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Edge) Reset() {
-	*x = Edge{}
+func (x *Tuple) Reset() {
+	*x = Tuple{}
 	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Edge) String() string {
+func (x *Tuple) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Edge) ProtoMessage() {}
+func (*Tuple) ProtoMessage() {}
 
-func (x *Edge) ProtoReflect() protoreflect.Message {
+func (x *Tuple) ProtoReflect() protoreflect.Message {
 	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -57,26 +57,26 @@ func (x *Edge) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Edge.ProtoReflect.Descriptor instead.
-func (*Edge) Descriptor() ([]byte, []int) {
+// Deprecated: Use Tuple.ProtoReflect.Descriptor instead.
+func (*Tuple) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Edge) GetSbj() *Sbj {
+func (x *Tuple) GetSbj() *Sbj {
 	if x != nil {
 		return x.Sbj
 	}
 	return nil
 }
 
-func (x *Edge) GetRel() string {
+func (x *Tuple) GetRel() string {
 	if x != nil {
 		return x.Rel
 	}
 	return ""
 }
 
-func (x *Edge) GetObj() *Obj {
+func (x *Tuple) GetObj() *Obj {
 	if x != nil {
 		return x.Obj
 	}
@@ -252,8 +252,8 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\"^\n" +
-	"\x04Edge\x12!\n" +
+	"authzpb.v1\"_\n" +
+	"\x05Tuple\x12!\n" +
 	"\x03sbj\x18\x01 \x01(\v2\x0f.authzpb.v1.SbjR\x03sbj\x12\x10\n" +
 	"\x03rel\x18\x02 \x01(\tR\x03rel\x12!\n" +
 	"\x03obj\x18\x03 \x01(\v2\x0f.authzpb.v1.ObjR\x03obj\"H\n" +
@@ -290,15 +290,15 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 
 var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_authzpb_v1_authz_proto_goTypes = []any{
-	(*Edge)(nil),     // 0: authzpb.v1.Edge
+	(*Tuple)(nil),    // 0: authzpb.v1.Tuple
 	(*Sbj)(nil),      // 1: authzpb.v1.Sbj
 	(*Obj)(nil),      // 2: authzpb.v1.Obj
 	(*TreeNode)(nil), // 3: authzpb.v1.TreeNode
 	nil,              // 4: authzpb.v1.TreeNode.ChildrenEntry
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	1, // 0: authzpb.v1.Edge.sbj:type_name -> authzpb.v1.Sbj
-	2, // 1: authzpb.v1.Edge.obj:type_name -> authzpb.v1.Obj
+	1, // 0: authzpb.v1.Tuple.sbj:type_name -> authzpb.v1.Sbj
+	2, // 1: authzpb.v1.Tuple.obj:type_name -> authzpb.v1.Obj
 	1, // 2: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Sbj
 	4, // 3: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
 	3, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
