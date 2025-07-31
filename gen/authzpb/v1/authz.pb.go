@@ -25,9 +25,9 @@ const (
 
 type Tuple struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Sbj           *Sbj                   `protobuf:"bytes,1,opt,name=sbj,proto3" json:"sbj,omitempty"`
+	Sbj           *Instance              `protobuf:"bytes,1,opt,name=sbj,proto3" json:"sbj,omitempty"`
 	Rel           string                 `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty"`
-	Obj           *Obj                   `protobuf:"bytes,3,opt,name=obj,proto3" json:"obj,omitempty"`
+	Obj           *Instance              `protobuf:"bytes,3,opt,name=obj,proto3" json:"obj,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,7 +62,7 @@ func (*Tuple) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Tuple) GetSbj() *Sbj {
+func (x *Tuple) GetSbj() *Instance {
 	if x != nil {
 		return x.Sbj
 	}
@@ -76,36 +76,35 @@ func (x *Tuple) GetRel() string {
 	return ""
 }
 
-func (x *Tuple) GetObj() *Obj {
+func (x *Tuple) GetObj() *Instance {
 	if x != nil {
 		return x.Obj
 	}
 	return nil
 }
 
-type Sbj struct {
+type Instance struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ns            string                 `protobuf:"bytes,1,opt,name=ns,proto3" json:"ns,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	Rel           *string                `protobuf:"bytes,3,opt,name=rel,proto3,oneof" json:"rel,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *Sbj) Reset() {
-	*x = Sbj{}
+func (x *Instance) Reset() {
+	*x = Instance{}
 	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *Sbj) String() string {
+func (x *Instance) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*Sbj) ProtoMessage() {}
+func (*Instance) ProtoMessage() {}
 
-func (x *Sbj) ProtoReflect() protoreflect.Message {
+func (x *Instance) ProtoReflect() protoreflect.Message {
 	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -117,78 +116,19 @@ func (x *Sbj) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use Sbj.ProtoReflect.Descriptor instead.
-func (*Sbj) Descriptor() ([]byte, []int) {
+// Deprecated: Use Instance.ProtoReflect.Descriptor instead.
+func (*Instance) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *Sbj) GetNs() string {
+func (x *Instance) GetNs() string {
 	if x != nil {
 		return x.Ns
 	}
 	return ""
 }
 
-func (x *Sbj) GetName() string {
-	if x != nil {
-		return x.Name
-	}
-	return ""
-}
-
-func (x *Sbj) GetRel() string {
-	if x != nil && x.Rel != nil {
-		return *x.Rel
-	}
-	return ""
-}
-
-type Obj struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ns            string                 `protobuf:"bytes,1,opt,name=ns,proto3" json:"ns,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Obj) Reset() {
-	*x = Obj{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Obj) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Obj) ProtoMessage() {}
-
-func (x *Obj) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Obj.ProtoReflect.Descriptor instead.
-func (*Obj) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{2}
-}
-
-func (x *Obj) GetNs() string {
-	if x != nil {
-		return x.Ns
-	}
-	return ""
-}
-
-func (x *Obj) GetName() string {
+func (x *Instance) GetName() string {
 	if x != nil {
 		return x.Name
 	}
@@ -197,7 +137,7 @@ func (x *Obj) GetName() string {
 
 type TreeNode struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Root          *Sbj                   `protobuf:"bytes,1,opt,name=root,proto3" json:"root,omitempty"`
+	Root          *Instance              `protobuf:"bytes,1,opt,name=root,proto3" json:"root,omitempty"`
 	Children      map[string]*TreeNode   `protobuf:"bytes,2,rep,name=children,proto3" json:"children,omitempty" protobuf_key:"bytes,1,opt,name=key" protobuf_val:"bytes,2,opt,name=value"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -205,7 +145,7 @@ type TreeNode struct {
 
 func (x *TreeNode) Reset() {
 	*x = TreeNode{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -217,7 +157,7 @@ func (x *TreeNode) String() string {
 func (*TreeNode) ProtoMessage() {}
 
 func (x *TreeNode) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -230,10 +170,10 @@ func (x *TreeNode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TreeNode.ProtoReflect.Descriptor instead.
 func (*TreeNode) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{3}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *TreeNode) GetRoot() *Sbj {
+func (x *TreeNode) GetRoot() *Instance {
 	if x != nil {
 		return x.Root
 	}
@@ -252,21 +192,16 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\"_\n" +
-	"\x05Tuple\x12!\n" +
-	"\x03sbj\x18\x01 \x01(\v2\x0f.authzpb.v1.SbjR\x03sbj\x12\x10\n" +
-	"\x03rel\x18\x02 \x01(\tR\x03rel\x12!\n" +
-	"\x03obj\x18\x03 \x01(\v2\x0f.authzpb.v1.ObjR\x03obj\"H\n" +
-	"\x03Sbj\x12\x0e\n" +
+	"authzpb.v1\"i\n" +
+	"\x05Tuple\x12&\n" +
+	"\x03sbj\x18\x01 \x01(\v2\x14.authzpb.v1.InstanceR\x03sbj\x12\x10\n" +
+	"\x03rel\x18\x02 \x01(\tR\x03rel\x12&\n" +
+	"\x03obj\x18\x03 \x01(\v2\x14.authzpb.v1.InstanceR\x03obj\".\n" +
+	"\bInstance\x12\x0e\n" +
 	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x15\n" +
-	"\x03rel\x18\x03 \x01(\tH\x00R\x03rel\x88\x01\x01B\x06\n" +
-	"\x04_rel\")\n" +
-	"\x03Obj\x12\x0e\n" +
-	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"\xc2\x01\n" +
-	"\bTreeNode\x12#\n" +
-	"\x04root\x18\x01 \x01(\v2\x0f.authzpb.v1.SbjR\x04root\x12>\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\xc7\x01\n" +
+	"\bTreeNode\x12(\n" +
+	"\x04root\x18\x01 \x01(\v2\x14.authzpb.v1.InstanceR\x04root\x12>\n" +
 	"\bchildren\x18\x02 \x03(\v2\".authzpb.v1.TreeNode.ChildrenEntryR\bchildren\x1aQ\n" +
 	"\rChildrenEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
@@ -288,20 +223,19 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),    // 0: authzpb.v1.Tuple
-	(*Sbj)(nil),      // 1: authzpb.v1.Sbj
-	(*Obj)(nil),      // 2: authzpb.v1.Obj
-	(*TreeNode)(nil), // 3: authzpb.v1.TreeNode
-	nil,              // 4: authzpb.v1.TreeNode.ChildrenEntry
+	(*Instance)(nil), // 1: authzpb.v1.Instance
+	(*TreeNode)(nil), // 2: authzpb.v1.TreeNode
+	nil,              // 3: authzpb.v1.TreeNode.ChildrenEntry
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	1, // 0: authzpb.v1.Tuple.sbj:type_name -> authzpb.v1.Sbj
-	2, // 1: authzpb.v1.Tuple.obj:type_name -> authzpb.v1.Obj
-	1, // 2: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Sbj
-	4, // 3: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	3, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	1, // 0: authzpb.v1.Tuple.sbj:type_name -> authzpb.v1.Instance
+	1, // 1: authzpb.v1.Tuple.obj:type_name -> authzpb.v1.Instance
+	1, // 2: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
+	3, // 3: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	2, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
 	5, // [5:5] is the sub-list for method output_type
 	5, // [5:5] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
@@ -314,14 +248,13 @@ func file_authzpb_v1_authz_proto_init() {
 	if File_authzpb_v1_authz_proto != nil {
 		return
 	}
-	file_authzpb_v1_authz_proto_msgTypes[1].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
