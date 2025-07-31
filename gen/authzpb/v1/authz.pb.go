@@ -25,9 +25,11 @@ const (
 
 type Tuple struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Sbj           *Instance              `protobuf:"bytes,1,opt,name=sbj,proto3" json:"sbj,omitempty"`
-	Rel           string                 `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty"`
-	Obj           *Instance              `protobuf:"bytes,3,opt,name=obj,proto3" json:"obj,omitempty"`
+	SbjNs         string                 `protobuf:"bytes,1,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
+	SbjId         string                 `protobuf:"bytes,2,opt,name=sbj_id,json=sbjId,proto3" json:"sbj_id,omitempty"`
+	Rel           string                 `protobuf:"bytes,3,opt,name=rel,proto3" json:"rel,omitempty"`
+	ObjNs         string                 `protobuf:"bytes,4,opt,name=obj_ns,json=objNs,proto3" json:"obj_ns,omitempty"`
+	ObjId         string                 `protobuf:"bytes,5,opt,name=obj_id,json=objId,proto3" json:"obj_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -62,11 +64,18 @@ func (*Tuple) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *Tuple) GetSbj() *Instance {
+func (x *Tuple) GetSbjNs() string {
 	if x != nil {
-		return x.Sbj
+		return x.SbjNs
 	}
-	return nil
+	return ""
+}
+
+func (x *Tuple) GetSbjId() string {
+	if x != nil {
+		return x.SbjId
+	}
+	return ""
 }
 
 func (x *Tuple) GetRel() string {
@@ -76,11 +85,18 @@ func (x *Tuple) GetRel() string {
 	return ""
 }
 
-func (x *Tuple) GetObj() *Instance {
+func (x *Tuple) GetObjNs() string {
 	if x != nil {
-		return x.Obj
+		return x.ObjNs
 	}
-	return nil
+	return ""
+}
+
+func (x *Tuple) GetObjId() string {
+	if x != nil {
+		return x.ObjId
+	}
+	return ""
 }
 
 type Instance struct {
@@ -192,11 +208,13 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\"i\n" +
-	"\x05Tuple\x12&\n" +
-	"\x03sbj\x18\x01 \x01(\v2\x14.authzpb.v1.InstanceR\x03sbj\x12\x10\n" +
-	"\x03rel\x18\x02 \x01(\tR\x03rel\x12&\n" +
-	"\x03obj\x18\x03 \x01(\v2\x14.authzpb.v1.InstanceR\x03obj\".\n" +
+	"authzpb.v1\"u\n" +
+	"\x05Tuple\x12\x15\n" +
+	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
+	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
+	"\x03rel\x18\x03 \x01(\tR\x03rel\x12\x15\n" +
+	"\x06obj_ns\x18\x04 \x01(\tR\x05objNs\x12\x15\n" +
+	"\x06obj_id\x18\x05 \x01(\tR\x05objId\".\n" +
 	"\bInstance\x12\x0e\n" +
 	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"\xc7\x01\n" +
@@ -231,16 +249,14 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	nil,              // 3: authzpb.v1.TreeNode.ChildrenEntry
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	1, // 0: authzpb.v1.Tuple.sbj:type_name -> authzpb.v1.Instance
-	1, // 1: authzpb.v1.Tuple.obj:type_name -> authzpb.v1.Instance
-	1, // 2: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	3, // 3: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	2, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	1, // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
+	3, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	2, // 2: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	3, // [3:3] is the sub-list for method output_type
+	3, // [3:3] is the sub-list for method input_type
+	3, // [3:3] is the sub-list for extension type_name
+	3, // [3:3] is the sub-list for extension extendee
+	0, // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
