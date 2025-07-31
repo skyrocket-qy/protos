@@ -357,8 +357,8 @@ func (x *User) GetCreatedAt() *timestamppb.Timestamp {
 type UpdateUserIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
-	IsActive      bool                   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	Name          *string                `protobuf:"bytes,2,opt,name=name,proto3,oneof" json:"name,omitempty"`
+	IsActive      *bool                  `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3,oneof" json:"is_active,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -401,15 +401,15 @@ func (x *UpdateUserIn) GetId() uint64 {
 }
 
 func (x *UpdateUserIn) GetName() string {
-	if x != nil {
-		return x.Name
+	if x != nil && x.Name != nil {
+		return *x.Name
 	}
 	return ""
 }
 
 func (x *UpdateUserIn) GetIsActive() bool {
-	if x != nil {
-		return x.IsActive
+	if x != nil && x.IsActive != nil {
+		return *x.IsActive
 	}
 	return false
 }
@@ -448,11 +448,14 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"auth_types\x18\x06 \x03(\tR\tauthTypes\x12\x12\n" +
 	"\x04orgs\x18\a \x03(\tR\x04orgs\x129\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"O\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"p\n" +
 	"\fUpdateUserIn\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1b\n" +
-	"\tis_active\x18\x03 \x01(\bR\bisActiveB\x9e\x01\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x17\n" +
+	"\x04name\x18\x02 \x01(\tH\x00R\x04name\x88\x01\x01\x12 \n" +
+	"\tis_active\x18\x03 \x01(\bH\x01R\bisActive\x88\x01\x01B\a\n" +
+	"\x05_nameB\f\n" +
+	"\n" +
+	"_is_activeB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -498,6 +501,7 @@ func file_authzpb_v1_authz_proto_init() {
 	if File_authzpb_v1_authz_proto != nil {
 		return
 	}
+	file_authzpb_v1_authz_proto_msgTypes[5].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
