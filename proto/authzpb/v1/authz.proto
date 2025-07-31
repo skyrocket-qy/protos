@@ -6,9 +6,11 @@ package authzpb.v1;
 option go_package = "github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1";
 
 message Tuple {
-    Instance sbj = 1;
-    string rel = 2;
-    Instance obj = 3;
+    string sbjNs = 1;
+    string sbjId = 2;
+    string rel = 3;
+    string objNs = 4;
+    string objId = 5;
 }
 
 message Instance {
