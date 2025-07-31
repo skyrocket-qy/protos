@@ -11,6 +11,7 @@ package authzpbv1
 import (
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
 	unsafe "unsafe"
@@ -203,12 +204,164 @@ func (x *TreeNode) GetChildren() map[string]*TreeNode {
 	return nil
 }
 
+type Org struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Org) Reset() {
+	*x = Org{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Org) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Org) ProtoMessage() {}
+
+func (x *Org) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Org.ProtoReflect.Descriptor instead.
+func (*Org) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Org) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *Org) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type User struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Email            string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
+	IsActive         bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	IsEmailConfirmed bool                   `protobuf:"varint,5,opt,name=is_email_confirmed,json=isEmailConfirmed,proto3" json:"is_email_confirmed,omitempty"`
+	AuthTypes        []string               `protobuf:"bytes,6,rep,name=auth_types,json=authTypes,proto3" json:"auth_types,omitempty"`
+	Orgs             []*Org                 `protobuf:"bytes,7,rep,name=orgs,proto3" json:"orgs,omitempty"`
+	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *User) Reset() {
+	*x = User{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *User) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*User) ProtoMessage() {}
+
+func (x *User) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use User.ProtoReflect.Descriptor instead.
+func (*User) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *User) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *User) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *User) GetEmail() string {
+	if x != nil {
+		return x.Email
+	}
+	return ""
+}
+
+func (x *User) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
+func (x *User) GetIsEmailConfirmed() bool {
+	if x != nil {
+		return x.IsEmailConfirmed
+	}
+	return false
+}
+
+func (x *User) GetAuthTypes() []string {
+	if x != nil {
+		return x.AuthTypes
+	}
+	return nil
+}
+
+func (x *User) GetOrgs() []*Org {
+	if x != nil {
+		return x.Orgs
+	}
+	return nil
+}
+
+func (x *User) GetCreatedAt() *timestamppb.Timestamp {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return nil
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\"u\n" +
+	"authzpb.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"u\n" +
 	"\x05Tuple\x12\x15\n" +
 	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
 	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
@@ -223,7 +376,21 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\bchildren\x18\x02 \x03(\v2\".authzpb.v1.TreeNode.ChildrenEntryR\bchildren\x1aQ\n" +
 	"\rChildrenEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
-	"\x05value\x18\x02 \x01(\v2\x14.authzpb.v1.TreeNodeR\x05value:\x028\x01B\x9e\x01\n" +
+	"\x05value\x18\x02 \x01(\v2\x14.authzpb.v1.TreeNodeR\x05value:\x028\x01\")\n" +
+	"\x03Org\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\x8a\x02\n" +
+	"\x04User\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
+	"\x05email\x18\x03 \x01(\tR\x05email\x12\x1b\n" +
+	"\tis_active\x18\x04 \x01(\bR\bisActive\x12,\n" +
+	"\x12is_email_confirmed\x18\x05 \x01(\bR\x10isEmailConfirmed\x12\x1d\n" +
+	"\n" +
+	"auth_types\x18\x06 \x03(\tR\tauthTypes\x12#\n" +
+	"\x04orgs\x18\a \x03(\v2\x0f.authzpb.v1.OrgR\x04orgs\x129\n" +
+	"\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -241,22 +408,27 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_authzpb_v1_authz_proto_goTypes = []any{
-	(*Tuple)(nil),    // 0: authzpb.v1.Tuple
-	(*Instance)(nil), // 1: authzpb.v1.Instance
-	(*TreeNode)(nil), // 2: authzpb.v1.TreeNode
-	nil,              // 3: authzpb.v1.TreeNode.ChildrenEntry
+	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
+	(*Instance)(nil),              // 1: authzpb.v1.Instance
+	(*TreeNode)(nil),              // 2: authzpb.v1.TreeNode
+	(*Org)(nil),                   // 3: authzpb.v1.Org
+	(*User)(nil),                  // 4: authzpb.v1.User
+	nil,                           // 5: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1, // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	3, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	2, // 2: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	5, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	3, // 2: authzpb.v1.User.orgs:type_name -> authzpb.v1.Org
+	6, // 3: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	2, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	5, // [5:5] is the sub-list for method output_type
+	5, // [5:5] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -270,7 +442,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

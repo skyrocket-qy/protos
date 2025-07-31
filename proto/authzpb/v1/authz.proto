@@ -3,6 +3,8 @@ syntax = "proto3";
 
 package authzpb.v1;
 
+import "google/protobuf/timestamp.proto";
+
 option go_package = "github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1";
 
 message Tuple {
@@ -21,4 +23,20 @@ message Instance {
 message TreeNode{
     Instance root = 1;
     map<string, TreeNode> children = 2;
+}
+
+message Org {
+    uint32 id = 1;
+    string name = 2;
+}
+
+message User {
+    uint32 id = 1;
+    string name = 2;
+    string email = 3;
+    bool is_active = 4;
+    bool is_email_confirmed = 5;
+    repeated string auth_types = 6;
+    repeated Org orgs = 7;
+    google.protobuf.Timestamp created_at = 8;
 }
