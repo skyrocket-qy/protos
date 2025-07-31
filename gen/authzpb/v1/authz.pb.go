@@ -262,7 +262,7 @@ type User struct {
 	IsActive         bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
 	IsEmailConfirmed bool                   `protobuf:"varint,5,opt,name=is_email_confirmed,json=isEmailConfirmed,proto3" json:"is_email_confirmed,omitempty"`
 	AuthTypes        []string               `protobuf:"bytes,6,rep,name=auth_types,json=authTypes,proto3" json:"auth_types,omitempty"`
-	Orgs             []*Org                 `protobuf:"bytes,7,rep,name=orgs,proto3" json:"orgs,omitempty"`
+	Orgs             []string               `protobuf:"bytes,7,rep,name=orgs,proto3" json:"orgs,omitempty"`
 	CreatedAt        *timestamppb.Timestamp `protobuf:"bytes,8,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
@@ -340,7 +340,7 @@ func (x *User) GetAuthTypes() []string {
 	return nil
 }
 
-func (x *User) GetOrgs() []*Org {
+func (x *User) GetOrgs() []string {
 	if x != nil {
 		return x.Orgs
 	}
@@ -377,7 +377,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x05value\x18\x02 \x01(\v2\x14.authzpb.v1.TreeNodeR\x05value:\x028\x01\")\n" +
 	"\x03Org\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"\x8a\x02\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\xf9\x01\n" +
 	"\x04User\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
@@ -385,8 +385,8 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\tis_active\x18\x04 \x01(\bR\bisActive\x12,\n" +
 	"\x12is_email_confirmed\x18\x05 \x01(\bR\x10isEmailConfirmed\x12\x1d\n" +
 	"\n" +
-	"auth_types\x18\x06 \x03(\tR\tauthTypes\x12#\n" +
-	"\x04orgs\x18\a \x03(\v2\x0f.authzpb.v1.OrgR\x04orgs\x129\n" +
+	"auth_types\x18\x06 \x03(\tR\tauthTypes\x12\x12\n" +
+	"\x04orgs\x18\a \x03(\tR\x04orgs\x129\n" +
 	"\n" +
 	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
@@ -419,14 +419,13 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1, // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
 	5, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	3, // 2: authzpb.v1.User.orgs:type_name -> authzpb.v1.Org
-	6, // 3: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	2, // 4: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	5, // [5:5] is the sub-list for method output_type
-	5, // [5:5] is the sub-list for method input_type
-	5, // [5:5] is the sub-list for extension type_name
-	5, // [5:5] is the sub-list for extension extendee
-	0, // [0:5] is the sub-list for field type_name
+	6, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	2, // 3: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }

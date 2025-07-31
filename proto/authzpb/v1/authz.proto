@@ -36,6 +36,6 @@ message User {
     bool is_active = 4;
     bool is_email_confirmed = 5;
     repeated string auth_types = 6;
-    repeated Org orgs = 7;
+    repeated string orgs = 7;
     google.protobuf.Timestamp created_at = 8;
 }
