@@ -39,3 +39,9 @@ message User {
     repeated string orgs = 7;
     google.protobuf.Timestamp created_at = 8;
 }
+
+message UpdateUserIn {
+    uint64 id = 1;
+    string name = 2;
+    bool is_active = 3;
+}

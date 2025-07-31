@@ -354,6 +354,66 @@ func (x *User) GetCreatedAt() *timestamppb.Timestamp {
 	return nil
 }
 
+type UpdateUserIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	IsActive      bool                   `protobuf:"varint,3,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateUserIn) Reset() {
+	*x = UpdateUserIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateUserIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateUserIn) ProtoMessage() {}
+
+func (x *UpdateUserIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateUserIn.ProtoReflect.Descriptor instead.
+func (*UpdateUserIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *UpdateUserIn) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateUserIn) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+func (x *UpdateUserIn) GetIsActive() bool {
+	if x != nil {
+		return x.IsActive
+	}
+	return false
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
@@ -388,7 +448,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"auth_types\x18\x06 \x03(\tR\tauthTypes\x12\x12\n" +
 	"\x04orgs\x18\a \x03(\tR\x04orgs\x129\n" +
 	"\n" +
-	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAtB\x9e\x01\n" +
+	"created_at\x18\b \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt\"O\n" +
+	"\fUpdateUserIn\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\x12\x1b\n" +
+	"\tis_active\x18\x03 \x01(\bR\bisActiveB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -406,20 +470,21 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
 	(*Instance)(nil),              // 1: authzpb.v1.Instance
 	(*TreeNode)(nil),              // 2: authzpb.v1.TreeNode
 	(*Org)(nil),                   // 3: authzpb.v1.Org
 	(*User)(nil),                  // 4: authzpb.v1.User
-	nil,                           // 5: authzpb.v1.TreeNode.ChildrenEntry
-	(*timestamppb.Timestamp)(nil), // 6: google.protobuf.Timestamp
+	(*UpdateUserIn)(nil),          // 5: authzpb.v1.UpdateUserIn
+	nil,                           // 6: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 7: google.protobuf.Timestamp
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1, // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	5, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	6, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	6, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	7, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
 	2, // 3: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
@@ -439,7 +504,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
