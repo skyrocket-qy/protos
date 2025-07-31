@@ -256,7 +256,7 @@ func (x *Org) GetName() string {
 
 type User struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
-	Id               uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Id               uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name             string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Email            string                 `protobuf:"bytes,3,opt,name=email,proto3" json:"email,omitempty"`
 	IsActive         bool                   `protobuf:"varint,4,opt,name=is_active,json=isActive,proto3" json:"is_active,omitempty"`
@@ -298,7 +298,7 @@ func (*User) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *User) GetId() uint32 {
+func (x *User) GetId() uint64 {
 	if x != nil {
 		return x.Id
 	}
@@ -379,7 +379,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"\x8a\x02\n" +
 	"\x04User\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\rR\x02id\x12\x12\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
 	"\x05email\x18\x03 \x01(\tR\x05email\x12\x1b\n" +
 	"\tis_active\x18\x04 \x01(\bR\bisActive\x12,\n" +

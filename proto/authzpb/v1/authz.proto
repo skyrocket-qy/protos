@@ -30,7 +30,7 @@ message Org {
 }
 
 message User {
-    uint32 id = 1;
+    uint64 id = 1;
     string name = 2;
     string email = 3;
     bool is_active = 4;
