@@ -1,4 +1,3 @@
-// api.proto
 syntax = "proto3";
 
 package authzpb.v1;
