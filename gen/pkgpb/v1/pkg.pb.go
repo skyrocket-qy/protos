@@ -21,72 +21,72 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type FilterOperator int32
+type Operator int32
 
 const (
-	FilterOperator_FILTER_OPERATOR_UNSPECIFIED FilterOperator = 0
-	FilterOperator_FILTER_OPERATOR_EQ          FilterOperator = 1 // =
-	FilterOperator_FILTER_OPERATOR_GT          FilterOperator = 2 // >
-	FilterOperator_FILTER_OPERATOR_GTE         FilterOperator = 3 // >=
-	FilterOperator_FILTER_OPERATOR_LT          FilterOperator = 4 // <
-	FilterOperator_FILTER_OPERATOR_LTE         FilterOperator = 5 // <=
-	FilterOperator_FILTER_OPERATOR_BETWEEN     FilterOperator = 6 // between [val1, val2)
+	Operator_OPERATOR_UNSPECIFIED Operator = 0
+	Operator_OPERATOR_EQ          Operator = 1 // =
+	Operator_OPERATOR_GT          Operator = 2 // >
+	Operator_OPERATOR_GTE         Operator = 3 // >=
+	Operator_OPERATOR_LT          Operator = 4 // <
+	Operator_OPERATOR_LTE         Operator = 5 // <=
+	Operator_OPERATOR_BETWEEN     Operator = 6 // between [val1, val2)
 )
 
-// Enum value maps for FilterOperator.
+// Enum value maps for Operator.
 var (
-	FilterOperator_name = map[int32]string{
-		0: "FILTER_OPERATOR_UNSPECIFIED",
-		1: "FILTER_OPERATOR_EQ",
-		2: "FILTER_OPERATOR_GT",
-		3: "FILTER_OPERATOR_GTE",
-		4: "FILTER_OPERATOR_LT",
-		5: "FILTER_OPERATOR_LTE",
-		6: "FILTER_OPERATOR_BETWEEN",
+	Operator_name = map[int32]string{
+		0: "OPERATOR_UNSPECIFIED",
+		1: "OPERATOR_EQ",
+		2: "OPERATOR_GT",
+		3: "OPERATOR_GTE",
+		4: "OPERATOR_LT",
+		5: "OPERATOR_LTE",
+		6: "OPERATOR_BETWEEN",
 	}
-	FilterOperator_value = map[string]int32{
-		"FILTER_OPERATOR_UNSPECIFIED": 0,
-		"FILTER_OPERATOR_EQ":          1,
-		"FILTER_OPERATOR_GT":          2,
-		"FILTER_OPERATOR_GTE":         3,
-		"FILTER_OPERATOR_LT":          4,
-		"FILTER_OPERATOR_LTE":         5,
-		"FILTER_OPERATOR_BETWEEN":     6,
+	Operator_value = map[string]int32{
+		"OPERATOR_UNSPECIFIED": 0,
+		"OPERATOR_EQ":          1,
+		"OPERATOR_GT":          2,
+		"OPERATOR_GTE":         3,
+		"OPERATOR_LT":          4,
+		"OPERATOR_LTE":         5,
+		"OPERATOR_BETWEEN":     6,
 	}
 )
 
-func (x FilterOperator) Enum() *FilterOperator {
-	p := new(FilterOperator)
+func (x Operator) Enum() *Operator {
+	p := new(Operator)
 	*p = x
 	return p
 }
 
-func (x FilterOperator) String() string {
+func (x Operator) String() string {
 	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
 }
 
-func (FilterOperator) Descriptor() protoreflect.EnumDescriptor {
+func (Operator) Descriptor() protoreflect.EnumDescriptor {
 	return file_pkgpb_v1_pkg_proto_enumTypes[0].Descriptor()
 }
 
-func (FilterOperator) Type() protoreflect.EnumType {
+func (Operator) Type() protoreflect.EnumType {
 	return &file_pkgpb_v1_pkg_proto_enumTypes[0]
 }
 
-func (x FilterOperator) Number() protoreflect.EnumNumber {
+func (x Operator) Number() protoreflect.EnumNumber {
 	return protoreflect.EnumNumber(x)
 }
 
-// Deprecated: Use FilterOperator.Descriptor instead.
-func (FilterOperator) EnumDescriptor() ([]byte, []int) {
+// Deprecated: Use Operator.Descriptor instead.
+func (Operator) EnumDescriptor() ([]byte, []int) {
 	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{0}
 }
 
 type Filter struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Field         string                 `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"`                         // e.g. "email", "created_at"
-	Op            FilterOperator         `protobuf:"varint,2,opt,name=op,proto3,enum=pkgpb.v1.FilterOperator" json:"op,omitempty"` // operation
-	Values        []string               `protobuf:"bytes,3,rep,name=values,proto3" json:"values,omitempty"`                       // can hold 1 or 2 values depending on op
+	Field         string                 `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"` // e.g. "email", "created_at"
+	Op            Operator               `protobuf:"varint,2,opt,name=op,proto3,enum=pkgpb.v1.Operator" json:"op,omitempty"`
+	Values        []string               `protobuf:"bytes,3,rep,name=values,proto3" json:"values,omitempty"` // can hold 1 or 2 values depending on op
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -128,11 +128,11 @@ func (x *Filter) GetField() string {
 	return ""
 }
 
-func (x *Filter) GetOp() FilterOperator {
+func (x *Filter) GetOp() Operator {
 	if x != nil {
 		return x.Op
 	}
-	return FilterOperator_FILTER_OPERATOR_UNSPECIFIED
+	return Operator_OPERATOR_UNSPECIFIED
 }
 
 func (x *Filter) GetValues() []string {
@@ -142,23 +142,133 @@ func (x *Filter) GetValues() []string {
 	return nil
 }
 
+type Sorter struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Field         string                 `protobuf:"bytes,1,opt,name=field,proto3" json:"field,omitempty"`
+	Asc           bool                   `protobuf:"varint,2,opt,name=asc,proto3" json:"asc,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Sorter) Reset() {
+	*x = Sorter{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Sorter) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Sorter) ProtoMessage() {}
+
+func (x *Sorter) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Sorter.ProtoReflect.Descriptor instead.
+func (*Sorter) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Sorter) GetField() string {
+	if x != nil {
+		return x.Field
+	}
+	return ""
+}
+
+func (x *Sorter) GetAsc() bool {
+	if x != nil {
+		return x.Asc
+	}
+	return false
+}
+
+type Pager struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Number        int32                  `protobuf:"varint,1,opt,name=number,proto3" json:"number,omitempty"`
+	Size          int32                  `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Pager) Reset() {
+	*x = Pager{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Pager) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Pager) ProtoMessage() {}
+
+func (x *Pager) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Pager.ProtoReflect.Descriptor instead.
+func (*Pager) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *Pager) GetNumber() int32 {
+	if x != nil {
+		return x.Number
+	}
+	return 0
+}
+
+func (x *Pager) GetSize() int32 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
 var File_pkgpb_v1_pkg_proto protoreflect.FileDescriptor
 
 const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\n" +
-	"\x12pkgpb/v1/pkg.proto\x12\bpkgpb.v1\"`\n" +
+	"\x12pkgpb/v1/pkg.proto\x12\bpkgpb.v1\"Z\n" +
 	"\x06Filter\x12\x14\n" +
-	"\x05field\x18\x01 \x01(\tR\x05field\x12(\n" +
-	"\x02op\x18\x02 \x01(\x0e2\x18.pkgpb.v1.FilterOperatorR\x02op\x12\x16\n" +
-	"\x06values\x18\x03 \x03(\tR\x06values*\xc8\x01\n" +
-	"\x0eFilterOperator\x12\x1f\n" +
-	"\x1bFILTER_OPERATOR_UNSPECIFIED\x10\x00\x12\x16\n" +
-	"\x12FILTER_OPERATOR_EQ\x10\x01\x12\x16\n" +
-	"\x12FILTER_OPERATOR_GT\x10\x02\x12\x17\n" +
-	"\x13FILTER_OPERATOR_GTE\x10\x03\x12\x16\n" +
-	"\x12FILTER_OPERATOR_LT\x10\x04\x12\x17\n" +
-	"\x13FILTER_OPERATOR_LTE\x10\x05\x12\x1b\n" +
-	"\x17FILTER_OPERATOR_BETWEEN\x10\x06B\x8e\x01\n" +
+	"\x05field\x18\x01 \x01(\tR\x05field\x12\"\n" +
+	"\x02op\x18\x02 \x01(\x0e2\x12.pkgpb.v1.OperatorR\x02op\x12\x16\n" +
+	"\x06values\x18\x03 \x03(\tR\x06values\"0\n" +
+	"\x06Sorter\x12\x14\n" +
+	"\x05field\x18\x01 \x01(\tR\x05field\x12\x10\n" +
+	"\x03asc\x18\x02 \x01(\bR\x03asc\"3\n" +
+	"\x05Pager\x12\x16\n" +
+	"\x06number\x18\x01 \x01(\x05R\x06number\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\x05R\x04size*\x91\x01\n" +
+	"\bOperator\x12\x18\n" +
+	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x0f\n" +
+	"\vOPERATOR_EQ\x10\x01\x12\x0f\n" +
+	"\vOPERATOR_GT\x10\x02\x12\x10\n" +
+	"\fOPERATOR_GTE\x10\x03\x12\x0f\n" +
+	"\vOPERATOR_LT\x10\x04\x12\x10\n" +
+	"\fOPERATOR_LTE\x10\x05\x12\x14\n" +
+	"\x10OPERATOR_BETWEEN\x10\x06B\x8e\x01\n" +
 	"\fcom.pkgpb.v1B\bPkgProtoP\x01Z3github.com/skyrocket-qy/protos/gen/pkgpb/v1;pkgpbv1\xa2\x02\x03PXX\xaa\x02\bPkgpb.V1\xca\x02\bPkgpb\\V1\xe2\x02\x14Pkgpb\\V1\\GPBMetadata\xea\x02\tPkgpb::V1b\x06proto3"
 
 var (
@@ -174,13 +284,15 @@ func file_pkgpb_v1_pkg_proto_rawDescGZIP() []byte {
 }
 
 var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
 var file_pkgpb_v1_pkg_proto_goTypes = []any{
-	(FilterOperator)(0), // 0: pkgpb.v1.FilterOperator
-	(*Filter)(nil),      // 1: pkgpb.v1.Filter
+	(Operator)(0),  // 0: pkgpb.v1.Operator
+	(*Filter)(nil), // 1: pkgpb.v1.Filter
+	(*Sorter)(nil), // 2: pkgpb.v1.Sorter
+	(*Pager)(nil),  // 3: pkgpb.v1.Pager
 }
 var file_pkgpb_v1_pkg_proto_depIdxs = []int32{
-	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.FilterOperator
+	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
 	1, // [1:1] is the sub-list for method output_type
 	1, // [1:1] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name
@@ -199,7 +311,7 @@ func file_pkgpb_v1_pkg_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkgpb_v1_pkg_proto_rawDesc), len(file_pkgpb_v1_pkg_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   1,
+			NumMessages:   3,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

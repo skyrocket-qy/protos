@@ -7,6 +7,7 @@
 package authzpbv1
 
 import (
+	v1 "github.com/skyrocket-qy/protos/gen/pkgpb/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
@@ -526,12 +527,74 @@ func (x *Resource) GetName() string {
 	return ""
 }
 
+type ListUsersIn struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+	Filters []*v1.Filter `protobuf:"bytes,1,rep,name=filters,proto3" json:"filters,omitempty"`
+	// created_at, auth_type, org_name
+	Sorters       []*v1.Sorter `protobuf:"bytes,2,rep,name=sorters,proto3" json:"sorters,omitempty"`
+	Pager         *v1.Pager    `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListUsersIn) Reset() {
+	*x = ListUsersIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListUsersIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListUsersIn) ProtoMessage() {}
+
+func (x *ListUsersIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListUsersIn.ProtoReflect.Descriptor instead.
+func (*ListUsersIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *ListUsersIn) GetFilters() []*v1.Filter {
+	if x != nil {
+		return x.Filters
+	}
+	return nil
+}
+
+func (x *ListUsersIn) GetSorters() []*v1.Sorter {
+	if x != nil {
+		return x.Sorters
+	}
+	return nil
+}
+
+func (x *ListUsersIn) GetPager() *v1.Pager {
+	if x != nil {
+		return x.Pager
+	}
+	return nil
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\x1a\x1fgoogle/protobuf/timestamp.proto\"u\n" +
+	"authzpb.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x12pkgpb/v1/pkg.proto\"u\n" +
 	"\x05Tuple\x12\x15\n" +
 	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
 	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
@@ -574,7 +637,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\bResource\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x0e\n" +
 	"\x02ns\x18\x02 \x01(\tR\x02ns\x12\x12\n" +
-	"\x04name\x18\x03 \x01(\tR\x04nameB\x9e\x01\n" +
+	"\x04name\x18\x03 \x01(\tR\x04name\"\x8c\x01\n" +
+	"\vListUsersIn\x12*\n" +
+	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
+	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
+	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pagerB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -592,7 +659,7 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
 	(*Instance)(nil),              // 1: authzpb.v1.Instance
@@ -602,19 +669,26 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*UpdateUserIn)(nil),          // 5: authzpb.v1.UpdateUserIn
 	(*Role)(nil),                  // 6: authzpb.v1.Role
 	(*Resource)(nil),              // 7: authzpb.v1.Resource
-	nil,                           // 8: authzpb.v1.TreeNode.ChildrenEntry
-	(*timestamppb.Timestamp)(nil), // 9: google.protobuf.Timestamp
+	(*ListUsersIn)(nil),           // 8: authzpb.v1.ListUsersIn
+	nil,                           // 9: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 10: google.protobuf.Timestamp
+	(*v1.Filter)(nil),             // 11: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),             // 12: pkgpb.v1.Sorter
+	(*v1.Pager)(nil),              // 13: pkgpb.v1.Pager
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	1, // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	8, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	9, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	2, // 3: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	1,  // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
+	9,  // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	10, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	11, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
+	12, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
+	13, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
+	2,  // 6: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	7,  // [7:7] is the sub-list for method output_type
+	7,  // [7:7] is the sub-list for method input_type
+	7,  // [7:7] is the sub-list for extension type_name
+	7,  // [7:7] is the sub-list for extension extendee
+	0,  // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -629,7 +703,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
