@@ -9,3 +9,5 @@ genpb:
 	rm -rf gen/*
 	buf generate
 	go mod tidy
+
+all: genpb bk

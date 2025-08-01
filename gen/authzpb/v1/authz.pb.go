@@ -589,6 +589,58 @@ func (x *ListUsersIn) GetPager() *v1.Pager {
 	return nil
 }
 
+type ListUsersOut struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Users         []*User                `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
+	Count         uint64                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListUsersOut) Reset() {
+	*x = ListUsersOut{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListUsersOut) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListUsersOut) ProtoMessage() {}
+
+func (x *ListUsersOut) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListUsersOut.ProtoReflect.Descriptor instead.
+func (*ListUsersOut) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *ListUsersOut) GetUsers() []*User {
+	if x != nil {
+		return x.Users
+	}
+	return nil
+}
+
+func (x *ListUsersOut) GetCount() uint64 {
+	if x != nil {
+		return x.Count
+	}
+	return 0
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
@@ -641,7 +693,10 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\vListUsersIn\x12*\n" +
 	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
 	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
-	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pagerB\x9e\x01\n" +
+	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"L\n" +
+	"\fListUsersOut\x12&\n" +
+	"\x05users\x18\x01 \x03(\v2\x10.authzpb.v1.UserR\x05users\x12\x14\n" +
+	"\x05count\x18\x02 \x01(\x04R\x05countB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -659,7 +714,7 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
 	(*Instance)(nil),              // 1: authzpb.v1.Instance
@@ -670,25 +725,27 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Role)(nil),                  // 6: authzpb.v1.Role
 	(*Resource)(nil),              // 7: authzpb.v1.Resource
 	(*ListUsersIn)(nil),           // 8: authzpb.v1.ListUsersIn
-	nil,                           // 9: authzpb.v1.TreeNode.ChildrenEntry
-	(*timestamppb.Timestamp)(nil), // 10: google.protobuf.Timestamp
-	(*v1.Filter)(nil),             // 11: pkgpb.v1.Filter
-	(*v1.Sorter)(nil),             // 12: pkgpb.v1.Sorter
-	(*v1.Pager)(nil),              // 13: pkgpb.v1.Pager
+	(*ListUsersOut)(nil),          // 9: authzpb.v1.ListUsersOut
+	nil,                           // 10: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 11: google.protobuf.Timestamp
+	(*v1.Filter)(nil),             // 12: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),             // 13: pkgpb.v1.Sorter
+	(*v1.Pager)(nil),              // 14: pkgpb.v1.Pager
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1,  // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	9,  // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	10, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	11, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
-	12, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
-	13, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
-	2,  // 6: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	10, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	11, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	12, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
+	13, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
+	14, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
+	4,  // 6: authzpb.v1.ListUsersOut.users:type_name -> authzpb.v1.User
+	2,  // 7: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	8,  // [8:8] is the sub-list for method output_type
+	8,  // [8:8] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -703,7 +760,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

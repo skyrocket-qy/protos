@@ -65,3 +65,8 @@ message ListUsersIn {
     repeated pkgpb.v1.Sorter sorters = 2;
     pkgpb.v1.Pager pager = 3;
 }
+
+message ListUsersOut{
+    repeated User users = 1;
+    uint64 count = 2;
+}
