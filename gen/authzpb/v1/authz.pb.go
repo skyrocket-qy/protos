@@ -641,6 +641,156 @@ func (x *ListUsersOut) GetCount() int64 {
 	return 0
 }
 
+type DeleteUserIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteUserIn) Reset() {
+	*x = DeleteUserIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteUserIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteUserIn) ProtoMessage() {}
+
+func (x *DeleteUserIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteUserIn.ProtoReflect.Descriptor instead.
+func (*DeleteUserIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *DeleteUserIn) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type CreateRoleIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Name          string                 `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateRoleIn) Reset() {
+	*x = CreateRoleIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateRoleIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateRoleIn) ProtoMessage() {}
+
+func (x *CreateRoleIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateRoleIn.ProtoReflect.Descriptor instead.
+func (*CreateRoleIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *CreateRoleIn) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type ListRolesIn struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+	Filters []*v1.Filter `protobuf:"bytes,1,rep,name=filters,proto3" json:"filters,omitempty"`
+	// created_at, auth_type, org_name
+	Sorters       []*v1.Sorter `protobuf:"bytes,2,rep,name=sorters,proto3" json:"sorters,omitempty"`
+	Pager         *v1.Pager    `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRolesIn) Reset() {
+	*x = ListRolesIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRolesIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRolesIn) ProtoMessage() {}
+
+func (x *ListRolesIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRolesIn.ProtoReflect.Descriptor instead.
+func (*ListRolesIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ListRolesIn) GetFilters() []*v1.Filter {
+	if x != nil {
+		return x.Filters
+	}
+	return nil
+}
+
+func (x *ListRolesIn) GetSorters() []*v1.Sorter {
+	if x != nil {
+		return x.Sorters
+	}
+	return nil
+}
+
+func (x *ListRolesIn) GetPager() *v1.Pager {
+	if x != nil {
+		return x.Pager
+	}
+	return nil
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
@@ -696,7 +846,15 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"L\n" +
 	"\fListUsersOut\x12&\n" +
 	"\x05users\x18\x01 \x03(\v2\x10.authzpb.v1.UserR\x05users\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x03R\x05countB\x9e\x01\n" +
+	"\x05count\x18\x02 \x01(\x03R\x05count\"\x1e\n" +
+	"\fDeleteUserIn\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"\"\n" +
+	"\fCreateRoleIn\x12\x12\n" +
+	"\x04name\x18\x01 \x01(\tR\x04name\"\x8c\x01\n" +
+	"\vListRolesIn\x12*\n" +
+	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
+	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
+	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pagerB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -714,7 +872,7 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
 	(*Instance)(nil),              // 1: authzpb.v1.Instance
@@ -726,26 +884,32 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Resource)(nil),              // 7: authzpb.v1.Resource
 	(*ListUsersIn)(nil),           // 8: authzpb.v1.ListUsersIn
 	(*ListUsersOut)(nil),          // 9: authzpb.v1.ListUsersOut
-	nil,                           // 10: authzpb.v1.TreeNode.ChildrenEntry
-	(*timestamppb.Timestamp)(nil), // 11: google.protobuf.Timestamp
-	(*v1.Filter)(nil),             // 12: pkgpb.v1.Filter
-	(*v1.Sorter)(nil),             // 13: pkgpb.v1.Sorter
-	(*v1.Pager)(nil),              // 14: pkgpb.v1.Pager
+	(*DeleteUserIn)(nil),          // 10: authzpb.v1.DeleteUserIn
+	(*CreateRoleIn)(nil),          // 11: authzpb.v1.CreateRoleIn
+	(*ListRolesIn)(nil),           // 12: authzpb.v1.ListRolesIn
+	nil,                           // 13: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 14: google.protobuf.Timestamp
+	(*v1.Filter)(nil),             // 15: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),             // 16: pkgpb.v1.Sorter
+	(*v1.Pager)(nil),              // 17: pkgpb.v1.Pager
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1,  // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	10, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	11, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	12, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
-	13, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
-	14, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
+	13, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	14, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	15, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
+	16, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
+	17, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
 	4,  // 6: authzpb.v1.ListUsersOut.users:type_name -> authzpb.v1.User
-	2,  // 7: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	8,  // [8:8] is the sub-list for method output_type
-	8,  // [8:8] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	15, // 7: authzpb.v1.ListRolesIn.filters:type_name -> pkgpb.v1.Filter
+	16, // 8: authzpb.v1.ListRolesIn.sorters:type_name -> pkgpb.v1.Sorter
+	17, // 9: authzpb.v1.ListRolesIn.pager:type_name -> pkgpb.v1.Pager
+	2,  // 10: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	11, // [11:11] is the sub-list for method output_type
+	11, // [11:11] is the sub-list for method input_type
+	11, // [11:11] is the sub-list for extension type_name
+	11, // [11:11] is the sub-list for extension extendee
+	0,  // [0:11] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -760,7 +924,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

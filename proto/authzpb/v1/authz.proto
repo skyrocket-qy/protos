@@ -70,3 +70,19 @@ message ListUsersOut{
     repeated User users = 1;
     int64 count = 2;
 }
+
+message DeleteUserIn{
+    uint64 id = 1;
+}
+
+message CreateRoleIn{
+    string name = 1;
+}
+
+message ListRolesIn{
+        // created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+    repeated pkgpb.v1.Filter filters = 1;
+    // created_at, auth_type, org_name
+    repeated pkgpb.v1.Sorter sorters = 2;
+    pkgpb.v1.Pager pager = 3;
+}
