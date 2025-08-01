@@ -592,7 +592,7 @@ func (x *ListUsersIn) GetPager() *v1.Pager {
 type ListUsersOut struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Users         []*User                `protobuf:"bytes,1,rep,name=users,proto3" json:"users,omitempty"`
-	Count         uint64                 `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
+	Count         int64                  `protobuf:"varint,2,opt,name=count,proto3" json:"count,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -634,7 +634,7 @@ func (x *ListUsersOut) GetUsers() []*User {
 	return nil
 }
 
-func (x *ListUsersOut) GetCount() uint64 {
+func (x *ListUsersOut) GetCount() int64 {
 	if x != nil {
 		return x.Count
 	}
@@ -696,7 +696,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"L\n" +
 	"\fListUsersOut\x12&\n" +
 	"\x05users\x18\x01 \x03(\v2\x10.authzpb.v1.UserR\x05users\x12\x14\n" +
-	"\x05count\x18\x02 \x01(\x04R\x05countB\x9e\x01\n" +
+	"\x05count\x18\x02 \x01(\x03R\x05countB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +

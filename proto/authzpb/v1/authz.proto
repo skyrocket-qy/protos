@@ -68,5 +68,5 @@ message ListUsersIn {
 
 message ListUsersOut{
     repeated User users = 1;
-    uint64 count = 2;
+    int64 count = 2;
 }
