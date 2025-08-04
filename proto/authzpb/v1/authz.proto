@@ -86,3 +86,61 @@ message ListRolesIn{
     repeated pkgpb.v1.Sorter sorters = 2;
     pkgpb.v1.Pager pager = 3;
 }
+
+message ListRolesOut{
+    repeated Role roles = 1;
+    int64 total = 2;
+}
+
+message UpdateRoleIn{
+    uint64 id = 1;
+    string name = 2;
+}
+
+message DeleteRoleIn{
+    uint64 id = 1;
+}
+
+message ListResourcesIn{
+    // created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+    repeated pkgpb.v1.Filter filters = 1;
+    // created_at, auth_type, org_name
+    repeated pkgpb.v1.Sorter sorters = 2;
+    pkgpb.v1.Pager pager = 3;
+}
+
+message ListResourcesOut{
+    repeated Resource resources = 1;
+    int64 total = 2;
+}
+
+message CreateResourceIn{
+    string ns = 1;
+    string name = 2;
+}
+
+message DeleteResourceIn{
+    uint64 id = 1;
+}
+
+message AssignRoleIn{
+    uint64 role_id = 1;
+    uint64 user_id = 2;
+}
+
+message RevodeRoleIn{
+    uint64 role_id = 1;
+    uint64 user_id = 2;
+}
+
+message GrantPermIn{
+    uint64 role_id = 1;
+    string perm = 2;
+    uint64 resource_id = 3;
+}
+
+message RevokePermIn{
+    uint64 role_id = 1;
+    string perm = 2;
+    uint64 resource_id = 3;
+}

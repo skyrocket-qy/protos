@@ -791,6 +791,588 @@ func (x *ListRolesIn) GetPager() *v1.Pager {
 	return nil
 }
 
+type ListRolesOut struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Roles         []*Role                `protobuf:"bytes,1,rep,name=roles,proto3" json:"roles,omitempty"`
+	Total         int64                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListRolesOut) Reset() {
+	*x = ListRolesOut{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListRolesOut) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListRolesOut) ProtoMessage() {}
+
+func (x *ListRolesOut) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListRolesOut.ProtoReflect.Descriptor instead.
+func (*ListRolesOut) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ListRolesOut) GetRoles() []*Role {
+	if x != nil {
+		return x.Roles
+	}
+	return nil
+}
+
+func (x *ListRolesOut) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type UpdateRoleIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *UpdateRoleIn) Reset() {
+	*x = UpdateRoleIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *UpdateRoleIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRoleIn) ProtoMessage() {}
+
+func (x *UpdateRoleIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRoleIn.ProtoReflect.Descriptor instead.
+func (*UpdateRoleIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *UpdateRoleIn) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *UpdateRoleIn) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type DeleteRoleIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteRoleIn) Reset() {
+	*x = DeleteRoleIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[15]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteRoleIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteRoleIn) ProtoMessage() {}
+
+func (x *DeleteRoleIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[15]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteRoleIn.ProtoReflect.Descriptor instead.
+func (*DeleteRoleIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *DeleteRoleIn) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type ListResourcesIn struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+	Filters []*v1.Filter `protobuf:"bytes,1,rep,name=filters,proto3" json:"filters,omitempty"`
+	// created_at, auth_type, org_name
+	Sorters       []*v1.Sorter `protobuf:"bytes,2,rep,name=sorters,proto3" json:"sorters,omitempty"`
+	Pager         *v1.Pager    `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListResourcesIn) Reset() {
+	*x = ListResourcesIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[16]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListResourcesIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListResourcesIn) ProtoMessage() {}
+
+func (x *ListResourcesIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[16]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListResourcesIn.ProtoReflect.Descriptor instead.
+func (*ListResourcesIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *ListResourcesIn) GetFilters() []*v1.Filter {
+	if x != nil {
+		return x.Filters
+	}
+	return nil
+}
+
+func (x *ListResourcesIn) GetSorters() []*v1.Sorter {
+	if x != nil {
+		return x.Sorters
+	}
+	return nil
+}
+
+func (x *ListResourcesIn) GetPager() *v1.Pager {
+	if x != nil {
+		return x.Pager
+	}
+	return nil
+}
+
+type ListResourcesOut struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Resources     []*Resource            `protobuf:"bytes,1,rep,name=resources,proto3" json:"resources,omitempty"`
+	Total         int64                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListResourcesOut) Reset() {
+	*x = ListResourcesOut{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[17]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListResourcesOut) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListResourcesOut) ProtoMessage() {}
+
+func (x *ListResourcesOut) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[17]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListResourcesOut.ProtoReflect.Descriptor instead.
+func (*ListResourcesOut) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *ListResourcesOut) GetResources() []*Resource {
+	if x != nil {
+		return x.Resources
+	}
+	return nil
+}
+
+func (x *ListResourcesOut) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
+type CreateResourceIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ns            string                 `protobuf:"bytes,1,opt,name=ns,proto3" json:"ns,omitempty"`
+	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateResourceIn) Reset() {
+	*x = CreateResourceIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[18]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateResourceIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateResourceIn) ProtoMessage() {}
+
+func (x *CreateResourceIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[18]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateResourceIn.ProtoReflect.Descriptor instead.
+func (*CreateResourceIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CreateResourceIn) GetNs() string {
+	if x != nil {
+		return x.Ns
+	}
+	return ""
+}
+
+func (x *CreateResourceIn) GetName() string {
+	if x != nil {
+		return x.Name
+	}
+	return ""
+}
+
+type DeleteResourceIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DeleteResourceIn) Reset() {
+	*x = DeleteResourceIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DeleteResourceIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteResourceIn) ProtoMessage() {}
+
+func (x *DeleteResourceIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteResourceIn.ProtoReflect.Descriptor instead.
+func (*DeleteResourceIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *DeleteResourceIn) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type AssignRoleIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RoleId        uint64                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        uint64                 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AssignRoleIn) Reset() {
+	*x = AssignRoleIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AssignRoleIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AssignRoleIn) ProtoMessage() {}
+
+func (x *AssignRoleIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AssignRoleIn.ProtoReflect.Descriptor instead.
+func (*AssignRoleIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *AssignRoleIn) GetRoleId() uint64 {
+	if x != nil {
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *AssignRoleIn) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type RevodeRoleIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RoleId        uint64                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	UserId        uint64                 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RevodeRoleIn) Reset() {
+	*x = RevodeRoleIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevodeRoleIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevodeRoleIn) ProtoMessage() {}
+
+func (x *RevodeRoleIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RevodeRoleIn.ProtoReflect.Descriptor instead.
+func (*RevodeRoleIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *RevodeRoleIn) GetRoleId() uint64 {
+	if x != nil {
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *RevodeRoleIn) GetUserId() uint64 {
+	if x != nil {
+		return x.UserId
+	}
+	return 0
+}
+
+type GrantPermIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RoleId        uint64                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	Perm          string                 `protobuf:"bytes,2,opt,name=perm,proto3" json:"perm,omitempty"`
+	ResourceId    uint64                 `protobuf:"varint,3,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GrantPermIn) Reset() {
+	*x = GrantPermIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GrantPermIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GrantPermIn) ProtoMessage() {}
+
+func (x *GrantPermIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GrantPermIn.ProtoReflect.Descriptor instead.
+func (*GrantPermIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *GrantPermIn) GetRoleId() uint64 {
+	if x != nil {
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *GrantPermIn) GetPerm() string {
+	if x != nil {
+		return x.Perm
+	}
+	return ""
+}
+
+func (x *GrantPermIn) GetResourceId() uint64 {
+	if x != nil {
+		return x.ResourceId
+	}
+	return 0
+}
+
+type RevokePermIn struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	RoleId        uint64                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
+	Perm          string                 `protobuf:"bytes,2,opt,name=perm,proto3" json:"perm,omitempty"`
+	ResourceId    uint64                 `protobuf:"varint,3,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RevokePermIn) Reset() {
+	*x = RevokePermIn{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RevokePermIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RevokePermIn) ProtoMessage() {}
+
+func (x *RevokePermIn) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RevokePermIn.ProtoReflect.Descriptor instead.
+func (*RevokePermIn) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *RevokePermIn) GetRoleId() uint64 {
+	if x != nil {
+		return x.RoleId
+	}
+	return 0
+}
+
+func (x *RevokePermIn) GetPerm() string {
+	if x != nil {
+		return x.Perm
+	}
+	return ""
+}
+
+func (x *RevokePermIn) GetResourceId() uint64 {
+	if x != nil {
+		return x.ResourceId
+	}
+	return 0
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
@@ -854,7 +1436,43 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\vListRolesIn\x12*\n" +
 	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
 	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
-	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pagerB\x9e\x01\n" +
+	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"L\n" +
+	"\fListRolesOut\x12&\n" +
+	"\x05roles\x18\x01 \x03(\v2\x10.authzpb.v1.RoleR\x05roles\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x03R\x05total\"2\n" +
+	"\fUpdateRoleIn\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\x1e\n" +
+	"\fDeleteRoleIn\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"\x90\x01\n" +
+	"\x0fListResourcesIn\x12*\n" +
+	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
+	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
+	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"\\\n" +
+	"\x10ListResourcesOut\x122\n" +
+	"\tresources\x18\x01 \x03(\v2\x14.authzpb.v1.ResourceR\tresources\x12\x14\n" +
+	"\x05total\x18\x02 \x01(\x03R\x05total\"6\n" +
+	"\x10CreateResourceIn\x12\x0e\n" +
+	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
+	"\x04name\x18\x02 \x01(\tR\x04name\"\"\n" +
+	"\x10DeleteResourceIn\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"@\n" +
+	"\fAssignRoleIn\x12\x17\n" +
+	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x04R\x06userId\"@\n" +
+	"\fRevodeRoleIn\x12\x17\n" +
+	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x17\n" +
+	"\auser_id\x18\x02 \x01(\x04R\x06userId\"[\n" +
+	"\vGrantPermIn\x12\x17\n" +
+	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x12\n" +
+	"\x04perm\x18\x02 \x01(\tR\x04perm\x12\x1f\n" +
+	"\vresource_id\x18\x03 \x01(\x04R\n" +
+	"resourceId\"\\\n" +
+	"\fRevokePermIn\x12\x17\n" +
+	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x12\n" +
+	"\x04perm\x18\x02 \x01(\tR\x04perm\x12\x1f\n" +
+	"\vresource_id\x18\x03 \x01(\x04R\n" +
+	"resourceIdB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -872,7 +1490,7 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 25)
 var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*Tuple)(nil),                 // 0: authzpb.v1.Tuple
 	(*Instance)(nil),              // 1: authzpb.v1.Instance
@@ -887,29 +1505,45 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*DeleteUserIn)(nil),          // 10: authzpb.v1.DeleteUserIn
 	(*CreateRoleIn)(nil),          // 11: authzpb.v1.CreateRoleIn
 	(*ListRolesIn)(nil),           // 12: authzpb.v1.ListRolesIn
-	nil,                           // 13: authzpb.v1.TreeNode.ChildrenEntry
-	(*timestamppb.Timestamp)(nil), // 14: google.protobuf.Timestamp
-	(*v1.Filter)(nil),             // 15: pkgpb.v1.Filter
-	(*v1.Sorter)(nil),             // 16: pkgpb.v1.Sorter
-	(*v1.Pager)(nil),              // 17: pkgpb.v1.Pager
+	(*ListRolesOut)(nil),          // 13: authzpb.v1.ListRolesOut
+	(*UpdateRoleIn)(nil),          // 14: authzpb.v1.UpdateRoleIn
+	(*DeleteRoleIn)(nil),          // 15: authzpb.v1.DeleteRoleIn
+	(*ListResourcesIn)(nil),       // 16: authzpb.v1.ListResourcesIn
+	(*ListResourcesOut)(nil),      // 17: authzpb.v1.ListResourcesOut
+	(*CreateResourceIn)(nil),      // 18: authzpb.v1.CreateResourceIn
+	(*DeleteResourceIn)(nil),      // 19: authzpb.v1.DeleteResourceIn
+	(*AssignRoleIn)(nil),          // 20: authzpb.v1.AssignRoleIn
+	(*RevodeRoleIn)(nil),          // 21: authzpb.v1.RevodeRoleIn
+	(*GrantPermIn)(nil),           // 22: authzpb.v1.GrantPermIn
+	(*RevokePermIn)(nil),          // 23: authzpb.v1.RevokePermIn
+	nil,                           // 24: authzpb.v1.TreeNode.ChildrenEntry
+	(*timestamppb.Timestamp)(nil), // 25: google.protobuf.Timestamp
+	(*v1.Filter)(nil),             // 26: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),             // 27: pkgpb.v1.Sorter
+	(*v1.Pager)(nil),              // 28: pkgpb.v1.Pager
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	1,  // 0: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	13, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	14, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
-	15, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
-	16, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
-	17, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
+	24, // 1: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	25, // 2: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
+	26, // 3: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
+	27, // 4: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
+	28, // 5: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
 	4,  // 6: authzpb.v1.ListUsersOut.users:type_name -> authzpb.v1.User
-	15, // 7: authzpb.v1.ListRolesIn.filters:type_name -> pkgpb.v1.Filter
-	16, // 8: authzpb.v1.ListRolesIn.sorters:type_name -> pkgpb.v1.Sorter
-	17, // 9: authzpb.v1.ListRolesIn.pager:type_name -> pkgpb.v1.Pager
-	2,  // 10: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	11, // [11:11] is the sub-list for method output_type
-	11, // [11:11] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	26, // 7: authzpb.v1.ListRolesIn.filters:type_name -> pkgpb.v1.Filter
+	27, // 8: authzpb.v1.ListRolesIn.sorters:type_name -> pkgpb.v1.Sorter
+	28, // 9: authzpb.v1.ListRolesIn.pager:type_name -> pkgpb.v1.Pager
+	6,  // 10: authzpb.v1.ListRolesOut.roles:type_name -> authzpb.v1.Role
+	26, // 11: authzpb.v1.ListResourcesIn.filters:type_name -> pkgpb.v1.Filter
+	27, // 12: authzpb.v1.ListResourcesIn.sorters:type_name -> pkgpb.v1.Sorter
+	28, // 13: authzpb.v1.ListResourcesIn.pager:type_name -> pkgpb.v1.Pager
+	7,  // 14: authzpb.v1.ListResourcesOut.resources:type_name -> authzpb.v1.Resource
+	2,  // 15: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	16, // [16:16] is the sub-list for method output_type
+	16, // [16:16] is the sub-list for method input_type
+	16, // [16:16] is the sub-list for extension type_name
+	16, // [16:16] is the sub-list for extension extendee
+	0,  // [0:16] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -924,7 +1558,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   14,
+			NumMessages:   25,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
