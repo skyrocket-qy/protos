@@ -128,7 +128,7 @@ message AssignRoleIn{
     uint64 user_id = 2;
 }
 
-message RevodeRoleIn{
+message RevokeRoleIn{
     uint64 role_id = 1;
     uint64 user_id = 2;
 }

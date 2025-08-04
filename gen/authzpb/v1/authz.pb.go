@@ -1201,7 +1201,7 @@ func (x *AssignRoleIn) GetUserId() uint64 {
 	return 0
 }
 
-type RevodeRoleIn struct {
+type RevokeRoleIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	RoleId        uint64                 `protobuf:"varint,1,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	UserId        uint64                 `protobuf:"varint,2,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
@@ -1209,20 +1209,20 @@ type RevodeRoleIn struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *RevodeRoleIn) Reset() {
-	*x = RevodeRoleIn{}
+func (x *RevokeRoleIn) Reset() {
+	*x = RevokeRoleIn{}
 	mi := &file_authzpb_v1_authz_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *RevodeRoleIn) String() string {
+func (x *RevokeRoleIn) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*RevodeRoleIn) ProtoMessage() {}
+func (*RevokeRoleIn) ProtoMessage() {}
 
-func (x *RevodeRoleIn) ProtoReflect() protoreflect.Message {
+func (x *RevokeRoleIn) ProtoReflect() protoreflect.Message {
 	mi := &file_authzpb_v1_authz_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1234,19 +1234,19 @@ func (x *RevodeRoleIn) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use RevodeRoleIn.ProtoReflect.Descriptor instead.
-func (*RevodeRoleIn) Descriptor() ([]byte, []int) {
+// Deprecated: Use RevokeRoleIn.ProtoReflect.Descriptor instead.
+func (*RevokeRoleIn) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{21}
 }
 
-func (x *RevodeRoleIn) GetRoleId() uint64 {
+func (x *RevokeRoleIn) GetRoleId() uint64 {
 	if x != nil {
 		return x.RoleId
 	}
 	return 0
 }
 
-func (x *RevodeRoleIn) GetUserId() uint64 {
+func (x *RevokeRoleIn) GetUserId() uint64 {
 	if x != nil {
 		return x.UserId
 	}
@@ -1460,7 +1460,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\fAssignRoleIn\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x04R\x06userId\"@\n" +
-	"\fRevodeRoleIn\x12\x17\n" +
+	"\fRevokeRoleIn\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x04R\x06userId\"[\n" +
 	"\vGrantPermIn\x12\x17\n" +
@@ -1513,7 +1513,7 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*CreateResourceIn)(nil),      // 18: authzpb.v1.CreateResourceIn
 	(*DeleteResourceIn)(nil),      // 19: authzpb.v1.DeleteResourceIn
 	(*AssignRoleIn)(nil),          // 20: authzpb.v1.AssignRoleIn
-	(*RevodeRoleIn)(nil),          // 21: authzpb.v1.RevodeRoleIn
+	(*RevokeRoleIn)(nil),          // 21: authzpb.v1.RevokeRoleIn
 	(*GrantPermIn)(nil),           // 22: authzpb.v1.GrantPermIn
 	(*RevokePermIn)(nil),          // 23: authzpb.v1.RevokePermIn
 	nil,                           // 24: authzpb.v1.TreeNode.ChildrenEntry
