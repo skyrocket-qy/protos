@@ -10,6 +10,7 @@ import (
 	v1 "github.com/skyrocket-qy/protos/gen/pkgpb/v1"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	timestamppb "google.golang.org/protobuf/types/known/timestamppb"
 	reflect "reflect"
 	sync "sync"
@@ -1568,7 +1569,7 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x12pkgpb/v1/pkg.proto\"u\n" +
+	"authzpb.v1\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x12pkgpb/v1/pkg.proto\"u\n" +
 	"\x05Tuple\x12\x15\n" +
 	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
 	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
@@ -1680,7 +1681,34 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x12\n" +
 	"\x04perm\x18\x02 \x01(\tR\x04perm\x12\x1f\n" +
 	"\vresource_id\x18\x03 \x01(\x04R\n" +
-	"resourceIdB\x9e\x01\n" +
+	"resourceId2\xe6\b\n" +
+	"\fAuthzService\x12>\n" +
+	"\tListUsers\x12\x17.authzpb.v1.ListUsersIn\x1a\x18.authzpb.v1.ListUsersOut\x12>\n" +
+	"\n" +
+	"UpdateUser\x12\x18.authzpb.v1.UpdateUserIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"DeleteUser\x12\x18.authzpb.v1.DeleteUserIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"CreateRole\x12\x18.authzpb.v1.CreateRoleIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\tListRoles\x12\x17.authzpb.v1.ListRolesIn\x1a\x18.authzpb.v1.ListRolesOut\x12>\n" +
+	"\n" +
+	"UpdateRole\x12\x18.authzpb.v1.UpdateRoleIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"DeleteRole\x12\x18.authzpb.v1.DeleteRoleIn\x1a\x16.google.protobuf.Empty\x12F\n" +
+	"\x0eCreateResource\x12\x1c.authzpb.v1.CreateResourceIn\x1a\x16.google.protobuf.Empty\x12J\n" +
+	"\rListResources\x12\x1b.authzpb.v1.ListResourcesIn\x1a\x1c.authzpb.v1.ListResourcesOut\x12F\n" +
+	"\x0eDeleteResource\x12\x1c.authzpb.v1.DeleteResourceIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"AssignRole\x12\x18.authzpb.v1.AssignRoleIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"RevokeRole\x12\x18.authzpb.v1.RevokeRoleIn\x1a\x16.google.protobuf.Empty\x12<\n" +
+	"\tGrantPerm\x12\x17.authzpb.v1.GrantPermIn\x1a\x16.google.protobuf.Empty\x12>\n" +
+	"\n" +
+	"RevokePerm\x12\x18.authzpb.v1.RevokePermIn\x1a\x16.google.protobuf.Empty\x128\n" +
+	"\vCreateTuple\x12\x11.authzpb.v1.Tuple\x1a\x16.google.protobuf.Empty\x12A\n" +
+	"\n" +
+	"ListTuples\x12\x18.authzpb.v1.ListTuplesIn\x1a\x19.authzpb.v1.ListTuplesOut\x12?\n" +
+	"\fDeleteTuples\x12\x17.authzpb.v1.TupleFilter\x1a\x16.google.protobuf.EmptyB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -1732,6 +1760,7 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*v1.Sorter)(nil),             // 29: pkgpb.v1.Sorter
 	(*v1.Pager)(nil),              // 30: pkgpb.v1.Pager
 	(*timestamppb.Timestamp)(nil), // 31: google.protobuf.Timestamp
+	(*emptypb.Empty)(nil),         // 32: google.protobuf.Empty
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	28, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
@@ -1754,8 +1783,42 @@ var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	30, // 17: authzpb.v1.ListResourcesIn.pager:type_name -> pkgpb.v1.Pager
 	10, // 18: authzpb.v1.ListResourcesOut.resources:type_name -> authzpb.v1.Resource
 	5,  // 19: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	20, // [20:20] is the sub-list for method output_type
-	20, // [20:20] is the sub-list for method input_type
+	11, // 20: authzpb.v1.AuthzService.ListUsers:input_type -> authzpb.v1.ListUsersIn
+	8,  // 21: authzpb.v1.AuthzService.UpdateUser:input_type -> authzpb.v1.UpdateUserIn
+	13, // 22: authzpb.v1.AuthzService.DeleteUser:input_type -> authzpb.v1.DeleteUserIn
+	14, // 23: authzpb.v1.AuthzService.CreateRole:input_type -> authzpb.v1.CreateRoleIn
+	15, // 24: authzpb.v1.AuthzService.ListRoles:input_type -> authzpb.v1.ListRolesIn
+	17, // 25: authzpb.v1.AuthzService.UpdateRole:input_type -> authzpb.v1.UpdateRoleIn
+	18, // 26: authzpb.v1.AuthzService.DeleteRole:input_type -> authzpb.v1.DeleteRoleIn
+	21, // 27: authzpb.v1.AuthzService.CreateResource:input_type -> authzpb.v1.CreateResourceIn
+	19, // 28: authzpb.v1.AuthzService.ListResources:input_type -> authzpb.v1.ListResourcesIn
+	22, // 29: authzpb.v1.AuthzService.DeleteResource:input_type -> authzpb.v1.DeleteResourceIn
+	23, // 30: authzpb.v1.AuthzService.AssignRole:input_type -> authzpb.v1.AssignRoleIn
+	24, // 31: authzpb.v1.AuthzService.RevokeRole:input_type -> authzpb.v1.RevokeRoleIn
+	25, // 32: authzpb.v1.AuthzService.GrantPerm:input_type -> authzpb.v1.GrantPermIn
+	26, // 33: authzpb.v1.AuthzService.RevokePerm:input_type -> authzpb.v1.RevokePermIn
+	0,  // 34: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
+	2,  // 35: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
+	1,  // 36: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.TupleFilter
+	12, // 37: authzpb.v1.AuthzService.ListUsers:output_type -> authzpb.v1.ListUsersOut
+	32, // 38: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
+	32, // 39: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
+	32, // 40: authzpb.v1.AuthzService.CreateRole:output_type -> google.protobuf.Empty
+	16, // 41: authzpb.v1.AuthzService.ListRoles:output_type -> authzpb.v1.ListRolesOut
+	32, // 42: authzpb.v1.AuthzService.UpdateRole:output_type -> google.protobuf.Empty
+	32, // 43: authzpb.v1.AuthzService.DeleteRole:output_type -> google.protobuf.Empty
+	32, // 44: authzpb.v1.AuthzService.CreateResource:output_type -> google.protobuf.Empty
+	20, // 45: authzpb.v1.AuthzService.ListResources:output_type -> authzpb.v1.ListResourcesOut
+	32, // 46: authzpb.v1.AuthzService.DeleteResource:output_type -> google.protobuf.Empty
+	32, // 47: authzpb.v1.AuthzService.AssignRole:output_type -> google.protobuf.Empty
+	32, // 48: authzpb.v1.AuthzService.RevokeRole:output_type -> google.protobuf.Empty
+	32, // 49: authzpb.v1.AuthzService.GrantPerm:output_type -> google.protobuf.Empty
+	32, // 50: authzpb.v1.AuthzService.RevokePerm:output_type -> google.protobuf.Empty
+	32, // 51: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
+	3,  // 52: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
+	32, // 53: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
+	37, // [37:54] is the sub-list for method output_type
+	20, // [20:37] is the sub-list for method input_type
 	20, // [20:20] is the sub-list for extension type_name
 	20, // [20:20] is the sub-list for extension extendee
 	0,  // [0:20] is the sub-list for field type_name
@@ -1776,7 +1839,7 @@ func file_authzpb_v1_authz_proto_init() {
 			NumEnums:      0,
 			NumMessages:   28,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_authzpb_v1_authz_proto_goTypes,
 		DependencyIndexes: file_authzpb_v1_authz_proto_depIdxs,

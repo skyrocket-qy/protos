@@ -2,10 +2,36 @@ syntax = "proto3";
 
 package authzpb.v1;
 
+import "google/protobuf/empty.proto"; 
 import "google/protobuf/timestamp.proto";
 import "pkgpb/v1/pkg.proto";
 
 option go_package = "github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1";
+
+service AuthzService {
+    rpc ListUsers(ListUsersIn) returns (ListUsersOut);
+    rpc UpdateUser(UpdateUserIn) returns (google.protobuf.Empty);
+    rpc DeleteUser(DeleteUserIn) returns (google.protobuf.Empty);
+
+    rpc CreateRole(CreateRoleIn) returns (google.protobuf.Empty);
+    rpc ListRoles(ListRolesIn) returns (ListRolesOut);
+    rpc UpdateRole(UpdateRoleIn) returns (google.protobuf.Empty);
+    rpc DeleteRole(DeleteRoleIn) returns (google.protobuf.Empty);
+
+    rpc CreateResource(CreateResourceIn) returns (google.protobuf.Empty);
+    rpc ListResources(ListResourcesIn) returns (ListResourcesOut);
+    rpc DeleteResource(DeleteResourceIn) returns (google.protobuf.Empty);
+
+    rpc AssignRole(AssignRoleIn) returns (google.protobuf.Empty);
+    rpc RevokeRole(RevokeRoleIn) returns (google.protobuf.Empty);
+
+    rpc GrantPerm(GrantPermIn) returns (google.protobuf.Empty);
+    rpc RevokePerm(RevokePermIn) returns (google.protobuf.Empty);
+
+    rpc CreateTuple(Tuple) returns (google.protobuf.Empty);
+    rpc ListTuples(ListTuplesIn) returns (ListTuplesOut);
+    rpc DeleteTuples(TupleFilter) returns (google.protobuf.Empty);
+}
 
 message Tuple {
     string sbj_ns = 1;
