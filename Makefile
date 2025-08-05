@@ -5,6 +5,8 @@ bk:
 	./semver
 
 genpb:
+	rm -rf gen/*
+	rm -rf gen-ts/*
 	buf lint
 	rm -rf gen/*
 	buf generate
