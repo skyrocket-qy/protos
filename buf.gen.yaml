@@ -10,12 +10,12 @@ plugins:
     out: gen
     opt: paths=source_relative
 
-  # - remote: buf.build/bufbuild/es:v2.6.3
-  #   out: gen-ts
-  #   opt: target=ts
-
-  - remote: buf.build/community/stephenh-ts-proto:v2.6.1
+  - remote: buf.build/bufbuild/es:v2.6.3
     out: gen-ts
-    opt: paths=source_relative
+    opt: target=ts
+
+  # - remote: buf.build/community/stephenh-ts-proto:v2.6.1
+  #   out: gen-ts
+  #   opt: paths=source_relative
 inputs:
   - directory: proto
