@@ -170,6 +170,10 @@ message DeleteResourceIn{
     uint64 id = 1;
 }
 
+message DeleteTupleIn{
+    repeated Tuple tuples = 1;
+}
+
 message AssignRoleIn{
     uint64 role_id = 1;
     uint64 user_id = 2;
