@@ -172,8 +172,17 @@ message DeleteResourceIn{
 }
 
 message DeleteTuplesIn{
+    oneof mode{
+        DeleteTuples tuples = 1;
+        TupleFilter filter = 2;
+        DeleteTupleIds ids = 3;
+    }
+}
+message DeleteTuples{
     repeated Tuple tuples = 1;
-    optional TupleFilter filter = 2;
+}
+message DeleteTupleIds {
+  repeated uint64 ids = 1;
 }
 
 message AssignRoleIn{
