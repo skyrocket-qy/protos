@@ -246,6 +246,58 @@ func (x *Pager) GetSize() int32 {
 	return 0
 }
 
+type Cursor struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Val           *string                `protobuf:"bytes,1,opt,name=val,proto3,oneof" json:"val,omitempty"`
+	Size          int32                  `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Cursor) Reset() {
+	*x = Cursor{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Cursor) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Cursor) ProtoMessage() {}
+
+func (x *Cursor) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Cursor.ProtoReflect.Descriptor instead.
+func (*Cursor) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *Cursor) GetVal() string {
+	if x != nil && x.Val != nil {
+		return *x.Val
+	}
+	return ""
+}
+
+func (x *Cursor) GetSize() int32 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
 var File_pkgpb_v1_pkg_proto protoreflect.FileDescriptor
 
 const file_pkgpb_v1_pkg_proto_rawDesc = "" +
@@ -260,7 +312,11 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x03asc\x18\x02 \x01(\bR\x03asc\"3\n" +
 	"\x05Pager\x12\x16\n" +
 	"\x06number\x18\x01 \x01(\x05R\x06number\x12\x12\n" +
-	"\x04size\x18\x02 \x01(\x05R\x04size*\x91\x01\n" +
+	"\x04size\x18\x02 \x01(\x05R\x04size\";\n" +
+	"\x06Cursor\x12\x15\n" +
+	"\x03val\x18\x01 \x01(\tH\x00R\x03val\x88\x01\x01\x12\x12\n" +
+	"\x04size\x18\x02 \x01(\x05R\x04sizeB\x06\n" +
+	"\x04_val*\x91\x01\n" +
 	"\bOperator\x12\x18\n" +
 	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vOPERATOR_EQ\x10\x01\x12\x0f\n" +
@@ -284,12 +340,13 @@ func file_pkgpb_v1_pkg_proto_rawDescGZIP() []byte {
 }
 
 var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
 var file_pkgpb_v1_pkg_proto_goTypes = []any{
 	(Operator)(0),  // 0: pkgpb.v1.Operator
 	(*Filter)(nil), // 1: pkgpb.v1.Filter
 	(*Sorter)(nil), // 2: pkgpb.v1.Sorter
 	(*Pager)(nil),  // 3: pkgpb.v1.Pager
+	(*Cursor)(nil), // 4: pkgpb.v1.Cursor
 }
 var file_pkgpb_v1_pkg_proto_depIdxs = []int32{
 	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
@@ -305,13 +362,14 @@ func file_pkgpb_v1_pkg_proto_init() {
 	if File_pkgpb_v1_pkg_proto != nil {
 		return
 	}
+	file_pkgpb_v1_pkg_proto_msgTypes[3].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkgpb_v1_pkg_proto_rawDesc), len(file_pkgpb_v1_pkg_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   3,
+			NumMessages:   4,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

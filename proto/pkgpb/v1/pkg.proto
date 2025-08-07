@@ -32,3 +32,8 @@ message Pager {
     int32 number = 1;
     int32 size = 2;
 }
+
+message Cursor {
+    optional string val = 1;
+    int32 size = 2;
+}

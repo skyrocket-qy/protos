@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file pkgpb/v1/pkg.proto.
  */
 export const file_pkgpb_v1_pkg: GenFile = /*@__PURE__*/
-  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFKpEBCghPcGVyYXRvchIYChRPUEVSQVRPUl9VTlNQRUNJRklFRBAAEg8KC09QRVJBVE9SX0VREAESDwoLT1BFUkFUT1JfR1QQAhIQCgxPUEVSQVRPUl9HVEUQAxIPCgtPUEVSQVRPUl9MVBAEEhAKDE9QRVJBVE9SX0xURRAFEhQKEE9QRVJBVE9SX0JFVFdFRU4QBkKOAQoMY29tLnBrZ3BiLnYxQghQa2dQcm90b1ABWjNnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3BrZ3BiL3YxO3BrZ3BidjGiAgNQWFiqAghQa2dwYi5WMcoCCFBrZ3BiXFYx4gIUUGtncGJcVjFcR1BCTWV0YWRhdGHqAglQa2dwYjo6VjFiBnByb3RvMw");
+  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAlIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwqkQEKCE9wZXJhdG9yEhgKFE9QRVJBVE9SX1VOU1BFQ0lGSUVEEAASDwoLT1BFUkFUT1JfRVEQARIPCgtPUEVSQVRPUl9HVBACEhAKDE9QRVJBVE9SX0dURRADEg8KC09QRVJBVE9SX0xUEAQSEAoMT1BFUkFUT1JfTFRFEAUSFAoQT1BFUkFUT1JfQkVUV0VFThAGQo4BCgxjb20ucGtncGIudjFCCFBrZ1Byb3RvUAFaM2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vcGtncGIvdjE7cGtncGJ2MaICA1BYWKoCCFBrZ3BiLlYxygIIUGtncGJcVjHiAhRQa2dwYlxWMVxHUEJNZXRhZGF0YeoCCVBrZ3BiOjpWMWIGcHJvdG8z");
 
 /**
  * @generated from message pkgpb.v1.Filter
@@ -86,6 +86,28 @@ export type Pager = Message<"pkgpb.v1.Pager"> & {
  */
 export const PagerSchema: GenMessage<Pager> = /*@__PURE__*/
   messageDesc(file_pkgpb_v1_pkg, 2);
+
+/**
+ * @generated from message pkgpb.v1.Cursor
+ */
+export type Cursor = Message<"pkgpb.v1.Cursor"> & {
+  /**
+   * @generated from field: optional string val = 1;
+   */
+  val?: string;
+
+  /**
+   * @generated from field: int32 size = 2;
+   */
+  size: number;
+};
+
+/**
+ * Describes the message pkgpb.v1.Cursor.
+ * Use `create(CursorSchema)` to create a new message.
+ */
+export const CursorSchema: GenMessage<Cursor> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 3);
 
 /**
  * @generated from enum pkgpb.v1.Operator

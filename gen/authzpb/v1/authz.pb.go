@@ -26,11 +26,12 @@ const (
 
 type Tuple struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SbjNs         string                 `protobuf:"bytes,1,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
-	SbjId         string                 `protobuf:"bytes,2,opt,name=sbj_id,json=sbjId,proto3" json:"sbj_id,omitempty"`
-	Rel           string                 `protobuf:"bytes,3,opt,name=rel,proto3" json:"rel,omitempty"`
-	ObjNs         string                 `protobuf:"bytes,4,opt,name=obj_ns,json=objNs,proto3" json:"obj_ns,omitempty"`
-	ObjId         string                 `protobuf:"bytes,5,opt,name=obj_id,json=objId,proto3" json:"obj_id,omitempty"`
+	Id            uint64                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	SbjNs         string                 `protobuf:"bytes,2,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
+	SbjId         string                 `protobuf:"bytes,3,opt,name=sbj_id,json=sbjId,proto3" json:"sbj_id,omitempty"`
+	Rel           string                 `protobuf:"bytes,4,opt,name=rel,proto3" json:"rel,omitempty"`
+	ObjNs         string                 `protobuf:"bytes,5,opt,name=obj_ns,json=objNs,proto3" json:"obj_ns,omitempty"`
+	ObjId         string                 `protobuf:"bytes,6,opt,name=obj_id,json=objId,proto3" json:"obj_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -63,6 +64,13 @@ func (x *Tuple) ProtoReflect() protoreflect.Message {
 // Deprecated: Use Tuple.ProtoReflect.Descriptor instead.
 func (*Tuple) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Tuple) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
 }
 
 func (x *Tuple) GetSbjNs() string {
@@ -182,7 +190,7 @@ type ListTuplesIn struct {
 	Filters []*v1.Filter `protobuf:"bytes,1,rep,name=filters,proto3" json:"filters,omitempty"`
 	// created_at, auth_type, org_name
 	Sorters       []*v1.Sorter `protobuf:"bytes,2,rep,name=sorters,proto3" json:"sorters,omitempty"`
-	Pager         *v1.Pager    `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
+	Pager         *v1.Cursor   `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -231,7 +239,7 @@ func (x *ListTuplesIn) GetSorters() []*v1.Sorter {
 	return nil
 }
 
-func (x *ListTuplesIn) GetPager() *v1.Pager {
+func (x *ListTuplesIn) GetPager() *v1.Cursor {
 	if x != nil {
 		return x.Pager
 	}
@@ -241,7 +249,7 @@ func (x *ListTuplesIn) GetPager() *v1.Pager {
 type ListTuplesOut struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Tuples        []*Tuple               `protobuf:"bytes,1,rep,name=tuples,proto3" json:"tuples,omitempty"`
-	Total         int64                  `protobuf:"varint,2,opt,name=total,proto3" json:"total,omitempty"`
+	NextCursor    string                 `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -283,11 +291,11 @@ func (x *ListTuplesOut) GetTuples() []*Tuple {
 	return nil
 }
 
-func (x *ListTuplesOut) GetTotal() int64 {
+func (x *ListTuplesOut) GetNextCursor() string {
 	if x != nil {
-		return x.Total
+		return x.NextCursor
 	}
-	return 0
+	return ""
 }
 
 type Instance struct {
@@ -1621,13 +1629,14 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x12pkgpb/v1/pkg.proto\"u\n" +
-	"\x05Tuple\x12\x15\n" +
-	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
-	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
-	"\x03rel\x18\x03 \x01(\tR\x03rel\x12\x15\n" +
-	"\x06obj_ns\x18\x04 \x01(\tR\x05objNs\x12\x15\n" +
-	"\x06obj_id\x18\x05 \x01(\tR\x05objId\"\xc8\x01\n" +
+	"authzpb.v1\x1a\x1bgoogle/protobuf/empty.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x12pkgpb/v1/pkg.proto\"\x85\x01\n" +
+	"\x05Tuple\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\x12\x15\n" +
+	"\x06sbj_ns\x18\x02 \x01(\tR\x05sbjNs\x12\x15\n" +
+	"\x06sbj_id\x18\x03 \x01(\tR\x05sbjId\x12\x10\n" +
+	"\x03rel\x18\x04 \x01(\tR\x03rel\x12\x15\n" +
+	"\x06obj_ns\x18\x05 \x01(\tR\x05objNs\x12\x15\n" +
+	"\x06obj_id\x18\x06 \x01(\tR\x05objId\"\xc8\x01\n" +
 	"\vTupleFilter\x12\x1a\n" +
 	"\x06sbj_ns\x18\x01 \x01(\tH\x00R\x05sbjNs\x88\x01\x01\x12\x1a\n" +
 	"\x06sbj_id\x18\x02 \x01(\tH\x01R\x05sbjId\x88\x01\x01\x12\x15\n" +
@@ -1638,14 +1647,15 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\a_sbj_idB\x06\n" +
 	"\x04_relB\t\n" +
 	"\a_obj_nsB\t\n" +
-	"\a_obj_id\"\x8d\x01\n" +
+	"\a_obj_id\"\x8e\x01\n" +
 	"\fListTuplesIn\x12*\n" +
 	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
-	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12%\n" +
-	"\x05pager\x18\x03 \x01(\v2\x0f.pkgpb.v1.PagerR\x05pager\"P\n" +
+	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12&\n" +
+	"\x05pager\x18\x03 \x01(\v2\x10.pkgpb.v1.CursorR\x05pager\"[\n" +
 	"\rListTuplesOut\x12)\n" +
-	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x12\x14\n" +
-	"\x05total\x18\x02 \x01(\x03R\x05total\".\n" +
+	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x12\x1f\n" +
+	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"nextCursor\".\n" +
 	"\bInstance\x12\x0e\n" +
 	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"\xc7\x01\n" +
@@ -1815,29 +1825,30 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	nil,                           // 28: authzpb.v1.TreeNode.ChildrenEntry
 	(*v1.Filter)(nil),             // 29: pkgpb.v1.Filter
 	(*v1.Sorter)(nil),             // 30: pkgpb.v1.Sorter
-	(*v1.Pager)(nil),              // 31: pkgpb.v1.Pager
+	(*v1.Cursor)(nil),             // 31: pkgpb.v1.Cursor
 	(*timestamppb.Timestamp)(nil), // 32: google.protobuf.Timestamp
-	(*emptypb.Empty)(nil),         // 33: google.protobuf.Empty
+	(*v1.Pager)(nil),              // 33: pkgpb.v1.Pager
+	(*emptypb.Empty)(nil),         // 34: google.protobuf.Empty
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	29, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
 	30, // 1: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
-	31, // 2: authzpb.v1.ListTuplesIn.pager:type_name -> pkgpb.v1.Pager
+	31, // 2: authzpb.v1.ListTuplesIn.pager:type_name -> pkgpb.v1.Cursor
 	0,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
 	4,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
 	28, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
 	32, // 6: authzpb.v1.User.created_at:type_name -> google.protobuf.Timestamp
 	29, // 7: authzpb.v1.ListUsersIn.filters:type_name -> pkgpb.v1.Filter
 	30, // 8: authzpb.v1.ListUsersIn.sorters:type_name -> pkgpb.v1.Sorter
-	31, // 9: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
+	33, // 9: authzpb.v1.ListUsersIn.pager:type_name -> pkgpb.v1.Pager
 	7,  // 10: authzpb.v1.ListUsersOut.users:type_name -> authzpb.v1.User
 	29, // 11: authzpb.v1.ListRolesIn.filters:type_name -> pkgpb.v1.Filter
 	30, // 12: authzpb.v1.ListRolesIn.sorters:type_name -> pkgpb.v1.Sorter
-	31, // 13: authzpb.v1.ListRolesIn.pager:type_name -> pkgpb.v1.Pager
+	33, // 13: authzpb.v1.ListRolesIn.pager:type_name -> pkgpb.v1.Pager
 	9,  // 14: authzpb.v1.ListRolesOut.roles:type_name -> authzpb.v1.Role
 	29, // 15: authzpb.v1.ListResourcesIn.filters:type_name -> pkgpb.v1.Filter
 	30, // 16: authzpb.v1.ListResourcesIn.sorters:type_name -> pkgpb.v1.Sorter
-	31, // 17: authzpb.v1.ListResourcesIn.pager:type_name -> pkgpb.v1.Pager
+	33, // 17: authzpb.v1.ListResourcesIn.pager:type_name -> pkgpb.v1.Pager
 	10, // 18: authzpb.v1.ListResourcesOut.resources:type_name -> authzpb.v1.Resource
 	0,  // 19: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.Tuple
 	1,  // 20: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
@@ -1860,22 +1871,22 @@ var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	2,  // 37: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
 	23, // 38: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
 	12, // 39: authzpb.v1.AuthzService.ListUsers:output_type -> authzpb.v1.ListUsersOut
-	33, // 40: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
-	33, // 41: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
-	33, // 42: authzpb.v1.AuthzService.CreateRole:output_type -> google.protobuf.Empty
+	34, // 40: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
+	34, // 41: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
+	34, // 42: authzpb.v1.AuthzService.CreateRole:output_type -> google.protobuf.Empty
 	16, // 43: authzpb.v1.AuthzService.ListRoles:output_type -> authzpb.v1.ListRolesOut
-	33, // 44: authzpb.v1.AuthzService.UpdateRole:output_type -> google.protobuf.Empty
-	33, // 45: authzpb.v1.AuthzService.DeleteRole:output_type -> google.protobuf.Empty
-	33, // 46: authzpb.v1.AuthzService.CreateResource:output_type -> google.protobuf.Empty
+	34, // 44: authzpb.v1.AuthzService.UpdateRole:output_type -> google.protobuf.Empty
+	34, // 45: authzpb.v1.AuthzService.DeleteRole:output_type -> google.protobuf.Empty
+	34, // 46: authzpb.v1.AuthzService.CreateResource:output_type -> google.protobuf.Empty
 	20, // 47: authzpb.v1.AuthzService.ListResources:output_type -> authzpb.v1.ListResourcesOut
-	33, // 48: authzpb.v1.AuthzService.DeleteResource:output_type -> google.protobuf.Empty
-	33, // 49: authzpb.v1.AuthzService.AssignRole:output_type -> google.protobuf.Empty
-	33, // 50: authzpb.v1.AuthzService.RevokeRole:output_type -> google.protobuf.Empty
-	33, // 51: authzpb.v1.AuthzService.GrantPerm:output_type -> google.protobuf.Empty
-	33, // 52: authzpb.v1.AuthzService.RevokePerm:output_type -> google.protobuf.Empty
-	33, // 53: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
+	34, // 48: authzpb.v1.AuthzService.DeleteResource:output_type -> google.protobuf.Empty
+	34, // 49: authzpb.v1.AuthzService.AssignRole:output_type -> google.protobuf.Empty
+	34, // 50: authzpb.v1.AuthzService.RevokeRole:output_type -> google.protobuf.Empty
+	34, // 51: authzpb.v1.AuthzService.GrantPerm:output_type -> google.protobuf.Empty
+	34, // 52: authzpb.v1.AuthzService.RevokePerm:output_type -> google.protobuf.Empty
+	34, // 53: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
 	3,  // 54: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
-	33, // 55: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
+	34, // 55: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
 	39, // [39:56] is the sub-list for method output_type
 	22, // [22:39] is the sub-list for method input_type
 	22, // [22:22] is the sub-list for extension type_name

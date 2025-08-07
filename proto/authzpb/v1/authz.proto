@@ -34,11 +34,12 @@ service AuthzService {
 }
 
 message Tuple {
-    string sbj_ns = 1;
-    string sbj_id = 2;
-    string rel = 3;
-    string obj_ns = 4;
-    string obj_id = 5;
+    uint64 id = 1;
+    string sbj_ns = 2;
+    string sbj_id = 3;
+    string rel = 4;
+    string obj_ns = 5;
+    string obj_id = 6;
 }
 
 message TupleFilter {
@@ -54,12 +55,12 @@ message ListTuplesIn {
     repeated pkgpb.v1.Filter filters = 1;
     // created_at, auth_type, org_name
     repeated pkgpb.v1.Sorter sorters = 2;
-    pkgpb.v1.Pager pager = 3;
+    pkgpb.v1.Cursor pager = 3;
 }
 
 message ListTuplesOut{
     repeated Tuple tuples = 1;
-    int64 total = 2;
+    string next_cursor = 2;
 }
 
 message Instance {
