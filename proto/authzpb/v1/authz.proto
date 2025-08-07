@@ -30,7 +30,7 @@ service AuthzService {
 
     rpc CreateTuple(Tuple) returns (google.protobuf.Empty);
     rpc ListTuples(ListTuplesIn) returns (ListTuplesOut);
-    rpc DeleteTuples(DeleteTupleIn) returns (google.protobuf.Empty);
+    rpc DeleteTuples(DeleteTuplesIn) returns (google.protobuf.Empty);
 }
 
 message Tuple {
@@ -170,8 +170,9 @@ message DeleteResourceIn{
     uint64 id = 1;
 }
 
-message DeleteTupleIn{
+message DeleteTuplesIn{
     repeated Tuple tuples = 1;
+    optional TupleFilter filter = 2;
 }
 
 message AssignRoleIn{

@@ -1340,27 +1340,28 @@ func (x *DeleteResourceIn) GetId() uint64 {
 	return 0
 }
 
-type DeleteTupleIn struct {
+type DeleteTuplesIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Tuples        []*Tuple               `protobuf:"bytes,1,rep,name=tuples,proto3" json:"tuples,omitempty"`
+	Filter        *TupleFilter           `protobuf:"bytes,2,opt,name=filter,proto3,oneof" json:"filter,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *DeleteTupleIn) Reset() {
-	*x = DeleteTupleIn{}
+func (x *DeleteTuplesIn) Reset() {
+	*x = DeleteTuplesIn{}
 	mi := &file_authzpb_v1_authz_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *DeleteTupleIn) String() string {
+func (x *DeleteTuplesIn) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteTupleIn) ProtoMessage() {}
+func (*DeleteTuplesIn) ProtoMessage() {}
 
-func (x *DeleteTupleIn) ProtoReflect() protoreflect.Message {
+func (x *DeleteTuplesIn) ProtoReflect() protoreflect.Message {
 	mi := &file_authzpb_v1_authz_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -1372,14 +1373,21 @@ func (x *DeleteTupleIn) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteTupleIn.ProtoReflect.Descriptor instead.
-func (*DeleteTupleIn) Descriptor() ([]byte, []int) {
+// Deprecated: Use DeleteTuplesIn.ProtoReflect.Descriptor instead.
+func (*DeleteTuplesIn) Descriptor() ([]byte, []int) {
 	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{23}
 }
 
-func (x *DeleteTupleIn) GetTuples() []*Tuple {
+func (x *DeleteTuplesIn) GetTuples() []*Tuple {
 	if x != nil {
 		return x.Tuples
+	}
+	return nil
+}
+
+func (x *DeleteTuplesIn) GetFilter() *TupleFilter {
+	if x != nil {
+		return x.Filter
 	}
 	return nil
 }
@@ -1709,9 +1717,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\"\"\n" +
 	"\x10DeleteResourceIn\x12\x0e\n" +
-	"\x02id\x18\x01 \x01(\x04R\x02id\":\n" +
-	"\rDeleteTupleIn\x12)\n" +
-	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\"@\n" +
+	"\x02id\x18\x01 \x01(\x04R\x02id\"|\n" +
+	"\x0eDeleteTuplesIn\x12)\n" +
+	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x124\n" +
+	"\x06filter\x18\x02 \x01(\v2\x17.authzpb.v1.TupleFilterH\x00R\x06filter\x88\x01\x01B\t\n" +
+	"\a_filter\"@\n" +
 	"\fAssignRoleIn\x12\x17\n" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x17\n" +
 	"\auser_id\x18\x02 \x01(\x04R\x06userId\"@\n" +
@@ -1727,7 +1737,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x12\n" +
 	"\x04perm\x18\x02 \x01(\tR\x04perm\x12\x1f\n" +
 	"\vresource_id\x18\x03 \x01(\x04R\n" +
-	"resourceId2\xe8\b\n" +
+	"resourceId2\xe9\b\n" +
 	"\fAuthzService\x12>\n" +
 	"\tListUsers\x12\x17.authzpb.v1.ListUsersIn\x1a\x18.authzpb.v1.ListUsersOut\x12>\n" +
 	"\n" +
@@ -1753,8 +1763,8 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"RevokePerm\x12\x18.authzpb.v1.RevokePermIn\x1a\x16.google.protobuf.Empty\x128\n" +
 	"\vCreateTuple\x12\x11.authzpb.v1.Tuple\x1a\x16.google.protobuf.Empty\x12A\n" +
 	"\n" +
-	"ListTuples\x12\x18.authzpb.v1.ListTuplesIn\x1a\x19.authzpb.v1.ListTuplesOut\x12A\n" +
-	"\fDeleteTuples\x12\x19.authzpb.v1.DeleteTupleIn\x1a\x16.google.protobuf.EmptyB\x9e\x01\n" +
+	"ListTuples\x12\x18.authzpb.v1.ListTuplesIn\x1a\x19.authzpb.v1.ListTuplesOut\x12B\n" +
+	"\fDeleteTuples\x12\x1a.authzpb.v1.DeleteTuplesIn\x1a\x16.google.protobuf.EmptyB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -1797,7 +1807,7 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 	(*ListResourcesOut)(nil),      // 20: authzpb.v1.ListResourcesOut
 	(*CreateResourceIn)(nil),      // 21: authzpb.v1.CreateResourceIn
 	(*DeleteResourceIn)(nil),      // 22: authzpb.v1.DeleteResourceIn
-	(*DeleteTupleIn)(nil),         // 23: authzpb.v1.DeleteTupleIn
+	(*DeleteTuplesIn)(nil),        // 23: authzpb.v1.DeleteTuplesIn
 	(*AssignRoleIn)(nil),          // 24: authzpb.v1.AssignRoleIn
 	(*RevokeRoleIn)(nil),          // 25: authzpb.v1.RevokeRoleIn
 	(*GrantPermIn)(nil),           // 26: authzpb.v1.GrantPermIn
@@ -1829,47 +1839,48 @@ var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	30, // 16: authzpb.v1.ListResourcesIn.sorters:type_name -> pkgpb.v1.Sorter
 	31, // 17: authzpb.v1.ListResourcesIn.pager:type_name -> pkgpb.v1.Pager
 	10, // 18: authzpb.v1.ListResourcesOut.resources:type_name -> authzpb.v1.Resource
-	0,  // 19: authzpb.v1.DeleteTupleIn.tuples:type_name -> authzpb.v1.Tuple
-	5,  // 20: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	11, // 21: authzpb.v1.AuthzService.ListUsers:input_type -> authzpb.v1.ListUsersIn
-	8,  // 22: authzpb.v1.AuthzService.UpdateUser:input_type -> authzpb.v1.UpdateUserIn
-	13, // 23: authzpb.v1.AuthzService.DeleteUser:input_type -> authzpb.v1.DeleteUserIn
-	14, // 24: authzpb.v1.AuthzService.CreateRole:input_type -> authzpb.v1.CreateRoleIn
-	15, // 25: authzpb.v1.AuthzService.ListRoles:input_type -> authzpb.v1.ListRolesIn
-	17, // 26: authzpb.v1.AuthzService.UpdateRole:input_type -> authzpb.v1.UpdateRoleIn
-	18, // 27: authzpb.v1.AuthzService.DeleteRole:input_type -> authzpb.v1.DeleteRoleIn
-	21, // 28: authzpb.v1.AuthzService.CreateResource:input_type -> authzpb.v1.CreateResourceIn
-	19, // 29: authzpb.v1.AuthzService.ListResources:input_type -> authzpb.v1.ListResourcesIn
-	22, // 30: authzpb.v1.AuthzService.DeleteResource:input_type -> authzpb.v1.DeleteResourceIn
-	24, // 31: authzpb.v1.AuthzService.AssignRole:input_type -> authzpb.v1.AssignRoleIn
-	25, // 32: authzpb.v1.AuthzService.RevokeRole:input_type -> authzpb.v1.RevokeRoleIn
-	26, // 33: authzpb.v1.AuthzService.GrantPerm:input_type -> authzpb.v1.GrantPermIn
-	27, // 34: authzpb.v1.AuthzService.RevokePerm:input_type -> authzpb.v1.RevokePermIn
-	0,  // 35: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
-	2,  // 36: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
-	23, // 37: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTupleIn
-	12, // 38: authzpb.v1.AuthzService.ListUsers:output_type -> authzpb.v1.ListUsersOut
-	33, // 39: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
-	33, // 40: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
-	33, // 41: authzpb.v1.AuthzService.CreateRole:output_type -> google.protobuf.Empty
-	16, // 42: authzpb.v1.AuthzService.ListRoles:output_type -> authzpb.v1.ListRolesOut
-	33, // 43: authzpb.v1.AuthzService.UpdateRole:output_type -> google.protobuf.Empty
-	33, // 44: authzpb.v1.AuthzService.DeleteRole:output_type -> google.protobuf.Empty
-	33, // 45: authzpb.v1.AuthzService.CreateResource:output_type -> google.protobuf.Empty
-	20, // 46: authzpb.v1.AuthzService.ListResources:output_type -> authzpb.v1.ListResourcesOut
-	33, // 47: authzpb.v1.AuthzService.DeleteResource:output_type -> google.protobuf.Empty
-	33, // 48: authzpb.v1.AuthzService.AssignRole:output_type -> google.protobuf.Empty
-	33, // 49: authzpb.v1.AuthzService.RevokeRole:output_type -> google.protobuf.Empty
-	33, // 50: authzpb.v1.AuthzService.GrantPerm:output_type -> google.protobuf.Empty
-	33, // 51: authzpb.v1.AuthzService.RevokePerm:output_type -> google.protobuf.Empty
-	33, // 52: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
-	3,  // 53: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
-	33, // 54: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
-	38, // [38:55] is the sub-list for method output_type
-	21, // [21:38] is the sub-list for method input_type
-	21, // [21:21] is the sub-list for extension type_name
-	21, // [21:21] is the sub-list for extension extendee
-	0,  // [0:21] is the sub-list for field type_name
+	0,  // 19: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.Tuple
+	1,  // 20: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
+	5,  // 21: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	11, // 22: authzpb.v1.AuthzService.ListUsers:input_type -> authzpb.v1.ListUsersIn
+	8,  // 23: authzpb.v1.AuthzService.UpdateUser:input_type -> authzpb.v1.UpdateUserIn
+	13, // 24: authzpb.v1.AuthzService.DeleteUser:input_type -> authzpb.v1.DeleteUserIn
+	14, // 25: authzpb.v1.AuthzService.CreateRole:input_type -> authzpb.v1.CreateRoleIn
+	15, // 26: authzpb.v1.AuthzService.ListRoles:input_type -> authzpb.v1.ListRolesIn
+	17, // 27: authzpb.v1.AuthzService.UpdateRole:input_type -> authzpb.v1.UpdateRoleIn
+	18, // 28: authzpb.v1.AuthzService.DeleteRole:input_type -> authzpb.v1.DeleteRoleIn
+	21, // 29: authzpb.v1.AuthzService.CreateResource:input_type -> authzpb.v1.CreateResourceIn
+	19, // 30: authzpb.v1.AuthzService.ListResources:input_type -> authzpb.v1.ListResourcesIn
+	22, // 31: authzpb.v1.AuthzService.DeleteResource:input_type -> authzpb.v1.DeleteResourceIn
+	24, // 32: authzpb.v1.AuthzService.AssignRole:input_type -> authzpb.v1.AssignRoleIn
+	25, // 33: authzpb.v1.AuthzService.RevokeRole:input_type -> authzpb.v1.RevokeRoleIn
+	26, // 34: authzpb.v1.AuthzService.GrantPerm:input_type -> authzpb.v1.GrantPermIn
+	27, // 35: authzpb.v1.AuthzService.RevokePerm:input_type -> authzpb.v1.RevokePermIn
+	0,  // 36: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
+	2,  // 37: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
+	23, // 38: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
+	12, // 39: authzpb.v1.AuthzService.ListUsers:output_type -> authzpb.v1.ListUsersOut
+	33, // 40: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
+	33, // 41: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
+	33, // 42: authzpb.v1.AuthzService.CreateRole:output_type -> google.protobuf.Empty
+	16, // 43: authzpb.v1.AuthzService.ListRoles:output_type -> authzpb.v1.ListRolesOut
+	33, // 44: authzpb.v1.AuthzService.UpdateRole:output_type -> google.protobuf.Empty
+	33, // 45: authzpb.v1.AuthzService.DeleteRole:output_type -> google.protobuf.Empty
+	33, // 46: authzpb.v1.AuthzService.CreateResource:output_type -> google.protobuf.Empty
+	20, // 47: authzpb.v1.AuthzService.ListResources:output_type -> authzpb.v1.ListResourcesOut
+	33, // 48: authzpb.v1.AuthzService.DeleteResource:output_type -> google.protobuf.Empty
+	33, // 49: authzpb.v1.AuthzService.AssignRole:output_type -> google.protobuf.Empty
+	33, // 50: authzpb.v1.AuthzService.RevokeRole:output_type -> google.protobuf.Empty
+	33, // 51: authzpb.v1.AuthzService.GrantPerm:output_type -> google.protobuf.Empty
+	33, // 52: authzpb.v1.AuthzService.RevokePerm:output_type -> google.protobuf.Empty
+	33, // 53: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
+	3,  // 54: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
+	33, // 55: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
+	39, // [39:56] is the sub-list for method output_type
+	22, // [22:39] is the sub-list for method input_type
+	22, // [22:22] is the sub-list for extension type_name
+	22, // [22:22] is the sub-list for extension extendee
+	0,  // [0:22] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -1879,6 +1890,7 @@ func file_authzpb_v1_authz_proto_init() {
 	}
 	file_authzpb_v1_authz_proto_msgTypes[1].OneofWrappers = []any{}
 	file_authzpb_v1_authz_proto_msgTypes[8].OneofWrappers = []any{}
+	file_authzpb_v1_authz_proto_msgTypes[23].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
