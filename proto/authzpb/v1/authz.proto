@@ -30,7 +30,7 @@ service AuthzService {
 
     rpc CreateTuple(Tuple) returns (google.protobuf.Empty);
     rpc ListTuples(ListTuplesIn) returns (ListTuplesOut);
-    rpc DeleteTuples(TupleFilter) returns (google.protobuf.Empty);
+    rpc DeleteTuples(DeleteTupleIn) returns (google.protobuf.Empty);
 }
 
 message Tuple {

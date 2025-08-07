@@ -93,7 +93,7 @@ type AuthzServiceClient interface {
 	RevokePerm(context.Context, *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error)
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
-	DeleteTuples(context.Context, *connect.Request[v1.TupleFilter]) (*connect.Response[emptypb.Empty], error)
+	DeleteTuples(context.Context, *connect.Request[v1.DeleteTupleIn]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewAuthzServiceClient constructs a client for the authzpb.v1.AuthzService service. By default, it
@@ -203,7 +203,7 @@ func NewAuthzServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(authzServiceMethods.ByName("ListTuples")),
 			connect.WithClientOptions(opts...),
 		),
-		deleteTuples: connect.NewClient[v1.TupleFilter, emptypb.Empty](
+		deleteTuples: connect.NewClient[v1.DeleteTupleIn, emptypb.Empty](
 			httpClient,
 			baseURL+AuthzServiceDeleteTuplesProcedure,
 			connect.WithSchema(authzServiceMethods.ByName("DeleteTuples")),
@@ -230,7 +230,7 @@ type authzServiceClient struct {
 	revokePerm     *connect.Client[v1.RevokePermIn, emptypb.Empty]
 	createTuple    *connect.Client[v1.Tuple, emptypb.Empty]
 	listTuples     *connect.Client[v1.ListTuplesIn, v1.ListTuplesOut]
-	deleteTuples   *connect.Client[v1.TupleFilter, emptypb.Empty]
+	deleteTuples   *connect.Client[v1.DeleteTupleIn, emptypb.Empty]
 }
 
 // ListUsers calls authzpb.v1.AuthzService.ListUsers.
@@ -314,7 +314,7 @@ func (c *authzServiceClient) ListTuples(ctx context.Context, req *connect.Reques
 }
 
 // DeleteTuples calls authzpb.v1.AuthzService.DeleteTuples.
-func (c *authzServiceClient) DeleteTuples(ctx context.Context, req *connect.Request[v1.TupleFilter]) (*connect.Response[emptypb.Empty], error) {
+func (c *authzServiceClient) DeleteTuples(ctx context.Context, req *connect.Request[v1.DeleteTupleIn]) (*connect.Response[emptypb.Empty], error) {
 	return c.deleteTuples.CallUnary(ctx, req)
 }
 
@@ -336,7 +336,7 @@ type AuthzServiceHandler interface {
 	RevokePerm(context.Context, *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error)
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
-	DeleteTuples(context.Context, *connect.Request[v1.TupleFilter]) (*connect.Response[emptypb.Empty], error)
+	DeleteTuples(context.Context, *connect.Request[v1.DeleteTupleIn]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewAuthzServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -557,6 +557,6 @@ func (UnimplementedAuthzServiceHandler) ListTuples(context.Context, *connect.Req
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.ListTuples is not implemented"))
 }
 
-func (UnimplementedAuthzServiceHandler) DeleteTuples(context.Context, *connect.Request[v1.TupleFilter]) (*connect.Response[emptypb.Empty], error) {
+func (UnimplementedAuthzServiceHandler) DeleteTuples(context.Context, *connect.Request[v1.DeleteTupleIn]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.DeleteTuples is not implemented"))
 }

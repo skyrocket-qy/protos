@@ -1727,7 +1727,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\arole_id\x18\x01 \x01(\x04R\x06roleId\x12\x12\n" +
 	"\x04perm\x18\x02 \x01(\tR\x04perm\x12\x1f\n" +
 	"\vresource_id\x18\x03 \x01(\x04R\n" +
-	"resourceId2\xe6\b\n" +
+	"resourceId2\xe8\b\n" +
 	"\fAuthzService\x12>\n" +
 	"\tListUsers\x12\x17.authzpb.v1.ListUsersIn\x1a\x18.authzpb.v1.ListUsersOut\x12>\n" +
 	"\n" +
@@ -1753,8 +1753,8 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"RevokePerm\x12\x18.authzpb.v1.RevokePermIn\x1a\x16.google.protobuf.Empty\x128\n" +
 	"\vCreateTuple\x12\x11.authzpb.v1.Tuple\x1a\x16.google.protobuf.Empty\x12A\n" +
 	"\n" +
-	"ListTuples\x12\x18.authzpb.v1.ListTuplesIn\x1a\x19.authzpb.v1.ListTuplesOut\x12?\n" +
-	"\fDeleteTuples\x12\x17.authzpb.v1.TupleFilter\x1a\x16.google.protobuf.EmptyB\x9e\x01\n" +
+	"ListTuples\x12\x18.authzpb.v1.ListTuplesIn\x1a\x19.authzpb.v1.ListTuplesOut\x12A\n" +
+	"\fDeleteTuples\x12\x19.authzpb.v1.DeleteTupleIn\x1a\x16.google.protobuf.EmptyB\x9e\x01\n" +
 	"\x0ecom.authzpb.v1B\n" +
 	"AuthzProtoP\x01Z7github.com/skyrocket-qy/protos/gen/authzpb/v1;authzpbv1\xa2\x02\x03AXX\xaa\x02\n" +
 	"Authzpb.V1\xca\x02\n" +
@@ -1847,7 +1847,7 @@ var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	27, // 34: authzpb.v1.AuthzService.RevokePerm:input_type -> authzpb.v1.RevokePermIn
 	0,  // 35: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
 	2,  // 36: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
-	1,  // 37: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.TupleFilter
+	23, // 37: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTupleIn
 	12, // 38: authzpb.v1.AuthzService.ListUsers:output_type -> authzpb.v1.ListUsersOut
 	33, // 39: authzpb.v1.AuthzService.UpdateUser:output_type -> google.protobuf.Empty
 	33, // 40: authzpb.v1.AuthzService.DeleteUser:output_type -> google.protobuf.Empty
