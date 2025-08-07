@@ -19,6 +19,7 @@ enum Operator {
     ILIKE = 10;     // ILIKE '...'
     IS_NULL = 11;
     IS_NOT_NULL = 12;
+    BETWEEN = 13;
 }
 
 enum LogicOp {

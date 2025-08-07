@@ -37,6 +37,7 @@ const (
 	Operator_ILIKE                Operator = 10 // ILIKE '...'
 	Operator_IS_NULL              Operator = 11
 	Operator_IS_NOT_NULL          Operator = 12
+	Operator_BETWEEN              Operator = 13
 )
 
 // Enum value maps for Operator.
@@ -55,6 +56,7 @@ var (
 		10: "ILIKE",
 		11: "IS_NULL",
 		12: "IS_NOT_NULL",
+		13: "BETWEEN",
 	}
 	Operator_value = map[string]int32{
 		"OPERATOR_UNSPECIFIED": 0,
@@ -70,6 +72,7 @@ var (
 		"ILIKE":                10,
 		"IS_NULL":              11,
 		"IS_NOT_NULL":          12,
+		"BETWEEN":              13,
 	}
 )
 
@@ -639,7 +642,7 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x04node\"X\n" +
 	"\aLogical\x12!\n" +
 	"\x02op\x18\x01 \x01(\x0e2\x11.pkgpb.v1.LogicOpR\x02op\x12*\n" +
-	"\x05nodes\x18\x02 \x03(\v2\x14.pkgpb.v1.FilterNodeR\x05nodes*\x9e\x01\n" +
+	"\x05nodes\x18\x02 \x03(\v2\x14.pkgpb.v1.FilterNodeR\x05nodes*\xab\x01\n" +
 	"\bOperator\x12\x18\n" +
 	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x06\n" +
 	"\x02EQ\x10\x01\x12\a\n" +
@@ -655,7 +658,8 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x05ILIKE\x10\n" +
 	"\x12\v\n" +
 	"\aIS_NULL\x10\v\x12\x0f\n" +
-	"\vIS_NOT_NULL\x10\f*=\n" +
+	"\vIS_NOT_NULL\x10\f\x12\v\n" +
+	"\aBETWEEN\x10\r*=\n" +
 	"\aLogicOp\x12\x18\n" +
 	"\x14LOGIC_OP_UNSPECIFIED\x10\x00\x12\a\n" +
 	"\x03AND\x10\x01\x12\x06\n" +
