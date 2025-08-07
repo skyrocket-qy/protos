@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file pkgpb/v1/pkg.proto.
  */
 export const file_pkgpb_v1_pkg: GenFile = /*@__PURE__*/
-  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAxIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwiLQoKQ3Vyc29yRGF0YRIfCgZmaWVsZHMYASADKAsyDy5wa2dwYi52MS5GaWVsZCIuCgVGaWVsZBILCgNjb2wYASABKAkSCwoDYXNjGAIgASgIEgsKA3ZhbBgDIAEoCSqRAQoIT3BlcmF0b3ISGAoUT1BFUkFUT1JfVU5TUEVDSUZJRUQQABIPCgtPUEVSQVRPUl9FURABEg8KC09QRVJBVE9SX0dUEAISEAoMT1BFUkFUT1JfR1RFEAMSDwoLT1BFUkFUT1JfTFQQBBIQCgxPUEVSQVRPUl9MVEUQBRIUChBPUEVSQVRPUl9CRVRXRUVOEAZCjgEKDGNvbS5wa2dwYi52MUIIUGtnUHJvdG9QAVozZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9wa2dwYi92MTtwa2dwYnYxogIDUFhYqgIIUGtncGIuVjHKAghQa2dwYlxWMeICFFBrZ3BiXFYxXEdQQk1ldGFkYXRh6gIJUGtncGI6OlYxYgZwcm90bzM");
+  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAxIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwiLQoKQ3Vyc29yRGF0YRIfCgZmaWVsZHMYASADKAsyDy5wa2dwYi52MS5GaWVsZCIuCgVGaWVsZBILCgNjb2wYASABKAkSCwoDYXNjGAIgASgIEgsKA3ZhbBgDIAEoCSJeCgpGaWx0ZXJOb2RlEiIKBmZpbHRlchgBIAEoCzIQLnBrZ3BiLnYxLkZpbHRlckgAEiQKB2xvZ2ljYWwYAiABKAsyES5wa2dwYi52MS5Mb2dpY2FsSABCBgoEbm9kZSJNCgdMb2dpY2FsEh0KAm9wGAEgASgOMhEucGtncGIudjEuTG9naWNPcBIjCgVub2RlcxgCIAMoCzIULnBrZ3BiLnYxLkZpbHRlck5vZGUqngEKCE9wZXJhdG9yEhgKFE9QRVJBVE9SX1VOU1BFQ0lGSUVEEAASBgoCRVEQARIHCgNORVEQAhIGCgJHVBADEgcKA0dURRAEEgYKAkxUEAUSBwoDTFRFEAYSBgoCSU4QBxIKCgZOT1RfSU4QCBIICgRMSUtFEAkSCQoFSUxJS0UQChILCgdJU19OVUxMEAsSDwoLSVNfTk9UX05VTEwQDCo9CgdMb2dpY09wEhgKFExPR0lDX09QX1VOU1BFQ0lGSUVEEAASBwoDQU5EEAESBgoCT1IQAhIHCgNOT1QQA0KOAQoMY29tLnBrZ3BiLnYxQghQa2dQcm90b1ABWjNnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3BrZ3BiL3YxO3BrZ3BidjGiAgNQWFiqAghQa2dwYi5WMcoCCFBrZ3BiXFYx4gIUUGtncGJcVjFcR1BCTWV0YWRhdGHqAglQa2dwYjo6VjFiBnByb3RvMw");
 
 /**
  * @generated from message pkgpb.v1.Filter
@@ -154,55 +154,144 @@ export const FieldSchema: GenMessage<Field> = /*@__PURE__*/
   messageDesc(file_pkgpb_v1_pkg, 5);
 
 /**
+ * @generated from message pkgpb.v1.FilterNode
+ */
+export type FilterNode = Message<"pkgpb.v1.FilterNode"> & {
+  /**
+   * @generated from oneof pkgpb.v1.FilterNode.node
+   */
+  node: {
+    /**
+     * @generated from field: pkgpb.v1.Filter filter = 1;
+     */
+    value: Filter;
+    case: "filter";
+  } | {
+    /**
+     * @generated from field: pkgpb.v1.Logical logical = 2;
+     */
+    value: Logical;
+    case: "logical";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message pkgpb.v1.FilterNode.
+ * Use `create(FilterNodeSchema)` to create a new message.
+ */
+export const FilterNodeSchema: GenMessage<FilterNode> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 6);
+
+/**
+ * @generated from message pkgpb.v1.Logical
+ */
+export type Logical = Message<"pkgpb.v1.Logical"> & {
+  /**
+   * @generated from field: pkgpb.v1.LogicOp op = 1;
+   */
+  op: LogicOp;
+
+  /**
+   * @generated from field: repeated pkgpb.v1.FilterNode nodes = 2;
+   */
+  nodes: FilterNode[];
+};
+
+/**
+ * Describes the message pkgpb.v1.Logical.
+ * Use `create(LogicalSchema)` to create a new message.
+ */
+export const LogicalSchema: GenMessage<Logical> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 7);
+
+/**
  * @generated from enum pkgpb.v1.Operator
  */
 export enum Operator {
   /**
    * @generated from enum value: OPERATOR_UNSPECIFIED = 0;
    */
-  UNSPECIFIED = 0,
+  OPERATOR_UNSPECIFIED = 0,
 
   /**
    * =
    *
-   * @generated from enum value: OPERATOR_EQ = 1;
+   * @generated from enum value: EQ = 1;
    */
   EQ = 1,
 
   /**
+   * !=
+   *
+   * @generated from enum value: NEQ = 2;
+   */
+  NEQ = 2,
+
+  /**
    * >
    *
-   * @generated from enum value: OPERATOR_GT = 2;
+   * @generated from enum value: GT = 3;
    */
-  GT = 2,
+  GT = 3,
 
   /**
    * >=
    *
-   * @generated from enum value: OPERATOR_GTE = 3;
+   * @generated from enum value: GTE = 4;
    */
-  GTE = 3,
+  GTE = 4,
 
   /**
    * <
    *
-   * @generated from enum value: OPERATOR_LT = 4;
+   * @generated from enum value: LT = 5;
    */
-  LT = 4,
+  LT = 5,
 
   /**
    * <=
    *
-   * @generated from enum value: OPERATOR_LTE = 5;
+   * @generated from enum value: LTE = 6;
    */
-  LTE = 5,
+  LTE = 6,
 
   /**
-   * between [val1, val2)
+   * IN (...)
    *
-   * @generated from enum value: OPERATOR_BETWEEN = 6;
+   * @generated from enum value: IN = 7;
    */
-  BETWEEN = 6,
+  IN = 7,
+
+  /**
+   * NOT IN (...)
+   *
+   * @generated from enum value: NOT_IN = 8;
+   */
+  NOT_IN = 8,
+
+  /**
+   * LIKE '...'
+   *
+   * @generated from enum value: LIKE = 9;
+   */
+  LIKE = 9,
+
+  /**
+   * ILIKE '...'
+   *
+   * @generated from enum value: ILIKE = 10;
+   */
+  ILIKE = 10,
+
+  /**
+   * @generated from enum value: IS_NULL = 11;
+   */
+  IS_NULL = 11,
+
+  /**
+   * @generated from enum value: IS_NOT_NULL = 12;
+   */
+  IS_NOT_NULL = 12,
 }
 
 /**
@@ -210,4 +299,35 @@ export enum Operator {
  */
 export const OperatorSchema: GenEnum<Operator> = /*@__PURE__*/
   enumDesc(file_pkgpb_v1_pkg, 0);
+
+/**
+ * @generated from enum pkgpb.v1.LogicOp
+ */
+export enum LogicOp {
+  /**
+   * @generated from enum value: LOGIC_OP_UNSPECIFIED = 0;
+   */
+  LOGIC_OP_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: AND = 1;
+   */
+  AND = 1,
+
+  /**
+   * @generated from enum value: OR = 2;
+   */
+  OR = 2,
+
+  /**
+   * @generated from enum value: NOT = 3;
+   */
+  NOT = 3,
+}
+
+/**
+ * Describes the enum pkgpb.v1.LogicOp.
+ */
+export const LogicOpSchema: GenEnum<LogicOp> = /*@__PURE__*/
+  enumDesc(file_pkgpb_v1_pkg, 1);
 

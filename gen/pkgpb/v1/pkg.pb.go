@@ -25,33 +25,51 @@ type Operator int32
 
 const (
 	Operator_OPERATOR_UNSPECIFIED Operator = 0
-	Operator_OPERATOR_EQ          Operator = 1 // =
-	Operator_OPERATOR_GT          Operator = 2 // >
-	Operator_OPERATOR_GTE         Operator = 3 // >=
-	Operator_OPERATOR_LT          Operator = 4 // <
-	Operator_OPERATOR_LTE         Operator = 5 // <=
-	Operator_OPERATOR_BETWEEN     Operator = 6 // between [val1, val2)
+	Operator_EQ                   Operator = 1  // =
+	Operator_NEQ                  Operator = 2  // !=
+	Operator_GT                   Operator = 3  // >
+	Operator_GTE                  Operator = 4  // >=
+	Operator_LT                   Operator = 5  // <
+	Operator_LTE                  Operator = 6  // <=
+	Operator_IN                   Operator = 7  // IN (...)
+	Operator_NOT_IN               Operator = 8  // NOT IN (...)
+	Operator_LIKE                 Operator = 9  // LIKE '...'
+	Operator_ILIKE                Operator = 10 // ILIKE '...'
+	Operator_IS_NULL              Operator = 11
+	Operator_IS_NOT_NULL          Operator = 12
 )
 
 // Enum value maps for Operator.
 var (
 	Operator_name = map[int32]string{
-		0: "OPERATOR_UNSPECIFIED",
-		1: "OPERATOR_EQ",
-		2: "OPERATOR_GT",
-		3: "OPERATOR_GTE",
-		4: "OPERATOR_LT",
-		5: "OPERATOR_LTE",
-		6: "OPERATOR_BETWEEN",
+		0:  "OPERATOR_UNSPECIFIED",
+		1:  "EQ",
+		2:  "NEQ",
+		3:  "GT",
+		4:  "GTE",
+		5:  "LT",
+		6:  "LTE",
+		7:  "IN",
+		8:  "NOT_IN",
+		9:  "LIKE",
+		10: "ILIKE",
+		11: "IS_NULL",
+		12: "IS_NOT_NULL",
 	}
 	Operator_value = map[string]int32{
 		"OPERATOR_UNSPECIFIED": 0,
-		"OPERATOR_EQ":          1,
-		"OPERATOR_GT":          2,
-		"OPERATOR_GTE":         3,
-		"OPERATOR_LT":          4,
-		"OPERATOR_LTE":         5,
-		"OPERATOR_BETWEEN":     6,
+		"EQ":                   1,
+		"NEQ":                  2,
+		"GT":                   3,
+		"GTE":                  4,
+		"LT":                   5,
+		"LTE":                  6,
+		"IN":                   7,
+		"NOT_IN":               8,
+		"LIKE":                 9,
+		"ILIKE":                10,
+		"IS_NULL":              11,
+		"IS_NOT_NULL":          12,
 	}
 )
 
@@ -80,6 +98,58 @@ func (x Operator) Number() protoreflect.EnumNumber {
 // Deprecated: Use Operator.Descriptor instead.
 func (Operator) EnumDescriptor() ([]byte, []int) {
 	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{0}
+}
+
+type LogicOp int32
+
+const (
+	LogicOp_LOGIC_OP_UNSPECIFIED LogicOp = 0
+	LogicOp_AND                  LogicOp = 1
+	LogicOp_OR                   LogicOp = 2
+	LogicOp_NOT                  LogicOp = 3
+)
+
+// Enum value maps for LogicOp.
+var (
+	LogicOp_name = map[int32]string{
+		0: "LOGIC_OP_UNSPECIFIED",
+		1: "AND",
+		2: "OR",
+		3: "NOT",
+	}
+	LogicOp_value = map[string]int32{
+		"LOGIC_OP_UNSPECIFIED": 0,
+		"AND":                  1,
+		"OR":                   2,
+		"NOT":                  3,
+	}
+)
+
+func (x LogicOp) Enum() *LogicOp {
+	p := new(LogicOp)
+	*p = x
+	return p
+}
+
+func (x LogicOp) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (LogicOp) Descriptor() protoreflect.EnumDescriptor {
+	return file_pkgpb_v1_pkg_proto_enumTypes[1].Descriptor()
+}
+
+func (LogicOp) Type() protoreflect.EnumType {
+	return &file_pkgpb_v1_pkg_proto_enumTypes[1]
+}
+
+func (x LogicOp) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use LogicOp.Descriptor instead.
+func (LogicOp) EnumDescriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{1}
 }
 
 type Filter struct {
@@ -402,6 +472,140 @@ func (x *Field) GetVal() string {
 	return ""
 }
 
+type FilterNode struct {
+	state protoimpl.MessageState `protogen:"open.v1"`
+	// Types that are valid to be assigned to Node:
+	//
+	//	*FilterNode_Filter
+	//	*FilterNode_Logical
+	Node          isFilterNode_Node `protobuf_oneof:"node"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FilterNode) Reset() {
+	*x = FilterNode{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FilterNode) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FilterNode) ProtoMessage() {}
+
+func (x *FilterNode) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FilterNode.ProtoReflect.Descriptor instead.
+func (*FilterNode) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *FilterNode) GetNode() isFilterNode_Node {
+	if x != nil {
+		return x.Node
+	}
+	return nil
+}
+
+func (x *FilterNode) GetFilter() *Filter {
+	if x != nil {
+		if x, ok := x.Node.(*FilterNode_Filter); ok {
+			return x.Filter
+		}
+	}
+	return nil
+}
+
+func (x *FilterNode) GetLogical() *Logical {
+	if x != nil {
+		if x, ok := x.Node.(*FilterNode_Logical); ok {
+			return x.Logical
+		}
+	}
+	return nil
+}
+
+type isFilterNode_Node interface {
+	isFilterNode_Node()
+}
+
+type FilterNode_Filter struct {
+	Filter *Filter `protobuf:"bytes,1,opt,name=filter,proto3,oneof"`
+}
+
+type FilterNode_Logical struct {
+	Logical *Logical `protobuf:"bytes,2,opt,name=logical,proto3,oneof"`
+}
+
+func (*FilterNode_Filter) isFilterNode_Node() {}
+
+func (*FilterNode_Logical) isFilterNode_Node() {}
+
+type Logical struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Op            LogicOp                `protobuf:"varint,1,opt,name=op,proto3,enum=pkgpb.v1.LogicOp" json:"op,omitempty"`
+	Nodes         []*FilterNode          `protobuf:"bytes,2,rep,name=nodes,proto3" json:"nodes,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Logical) Reset() {
+	*x = Logical{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Logical) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Logical) ProtoMessage() {}
+
+func (x *Logical) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Logical.ProtoReflect.Descriptor instead.
+func (*Logical) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *Logical) GetOp() LogicOp {
+	if x != nil {
+		return x.Op
+	}
+	return LogicOp_LOGIC_OP_UNSPECIFIED
+}
+
+func (x *Logical) GetNodes() []*FilterNode {
+	if x != nil {
+		return x.Nodes
+	}
+	return nil
+}
+
 var File_pkgpb_v1_pkg_proto protoreflect.FileDescriptor
 
 const file_pkgpb_v1_pkg_proto_rawDesc = "" +
@@ -427,15 +631,36 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x05Field\x12\x10\n" +
 	"\x03col\x18\x01 \x01(\tR\x03col\x12\x10\n" +
 	"\x03asc\x18\x02 \x01(\bR\x03asc\x12\x10\n" +
-	"\x03val\x18\x03 \x01(\tR\x03val*\x91\x01\n" +
+	"\x03val\x18\x03 \x01(\tR\x03val\"o\n" +
+	"\n" +
+	"FilterNode\x12*\n" +
+	"\x06filter\x18\x01 \x01(\v2\x10.pkgpb.v1.FilterH\x00R\x06filter\x12-\n" +
+	"\alogical\x18\x02 \x01(\v2\x11.pkgpb.v1.LogicalH\x00R\alogicalB\x06\n" +
+	"\x04node\"X\n" +
+	"\aLogical\x12!\n" +
+	"\x02op\x18\x01 \x01(\x0e2\x11.pkgpb.v1.LogicOpR\x02op\x12*\n" +
+	"\x05nodes\x18\x02 \x03(\v2\x14.pkgpb.v1.FilterNodeR\x05nodes*\x9e\x01\n" +
 	"\bOperator\x12\x18\n" +
-	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x0f\n" +
-	"\vOPERATOR_EQ\x10\x01\x12\x0f\n" +
-	"\vOPERATOR_GT\x10\x02\x12\x10\n" +
-	"\fOPERATOR_GTE\x10\x03\x12\x0f\n" +
-	"\vOPERATOR_LT\x10\x04\x12\x10\n" +
-	"\fOPERATOR_LTE\x10\x05\x12\x14\n" +
-	"\x10OPERATOR_BETWEEN\x10\x06B\x8e\x01\n" +
+	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x06\n" +
+	"\x02EQ\x10\x01\x12\a\n" +
+	"\x03NEQ\x10\x02\x12\x06\n" +
+	"\x02GT\x10\x03\x12\a\n" +
+	"\x03GTE\x10\x04\x12\x06\n" +
+	"\x02LT\x10\x05\x12\a\n" +
+	"\x03LTE\x10\x06\x12\x06\n" +
+	"\x02IN\x10\a\x12\n" +
+	"\n" +
+	"\x06NOT_IN\x10\b\x12\b\n" +
+	"\x04LIKE\x10\t\x12\t\n" +
+	"\x05ILIKE\x10\n" +
+	"\x12\v\n" +
+	"\aIS_NULL\x10\v\x12\x0f\n" +
+	"\vIS_NOT_NULL\x10\f*=\n" +
+	"\aLogicOp\x12\x18\n" +
+	"\x14LOGIC_OP_UNSPECIFIED\x10\x00\x12\a\n" +
+	"\x03AND\x10\x01\x12\x06\n" +
+	"\x02OR\x10\x02\x12\a\n" +
+	"\x03NOT\x10\x03B\x8e\x01\n" +
 	"\fcom.pkgpb.v1B\bPkgProtoP\x01Z3github.com/skyrocket-qy/protos/gen/pkgpb/v1;pkgpbv1\xa2\x02\x03PXX\xaa\x02\bPkgpb.V1\xca\x02\bPkgpb\\V1\xe2\x02\x14Pkgpb\\V1\\GPBMetadata\xea\x02\tPkgpb::V1b\x06proto3"
 
 var (
@@ -450,25 +675,32 @@ func file_pkgpb_v1_pkg_proto_rawDescGZIP() []byte {
 	return file_pkgpb_v1_pkg_proto_rawDescData
 }
 
-var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_pkgpb_v1_pkg_proto_goTypes = []any{
 	(Operator)(0),      // 0: pkgpb.v1.Operator
-	(*Filter)(nil),     // 1: pkgpb.v1.Filter
-	(*Sorter)(nil),     // 2: pkgpb.v1.Sorter
-	(*Pager)(nil),      // 3: pkgpb.v1.Pager
-	(*Cursor)(nil),     // 4: pkgpb.v1.Cursor
-	(*CursorData)(nil), // 5: pkgpb.v1.CursorData
-	(*Field)(nil),      // 6: pkgpb.v1.Field
+	(LogicOp)(0),       // 1: pkgpb.v1.LogicOp
+	(*Filter)(nil),     // 2: pkgpb.v1.Filter
+	(*Sorter)(nil),     // 3: pkgpb.v1.Sorter
+	(*Pager)(nil),      // 4: pkgpb.v1.Pager
+	(*Cursor)(nil),     // 5: pkgpb.v1.Cursor
+	(*CursorData)(nil), // 6: pkgpb.v1.CursorData
+	(*Field)(nil),      // 7: pkgpb.v1.Field
+	(*FilterNode)(nil), // 8: pkgpb.v1.FilterNode
+	(*Logical)(nil),    // 9: pkgpb.v1.Logical
 }
 var file_pkgpb_v1_pkg_proto_depIdxs = []int32{
 	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
-	6, // 1: pkgpb.v1.CursorData.fields:type_name -> pkgpb.v1.Field
-	2, // [2:2] is the sub-list for method output_type
-	2, // [2:2] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	7, // 1: pkgpb.v1.CursorData.fields:type_name -> pkgpb.v1.Field
+	2, // 2: pkgpb.v1.FilterNode.filter:type_name -> pkgpb.v1.Filter
+	9, // 3: pkgpb.v1.FilterNode.logical:type_name -> pkgpb.v1.Logical
+	1, // 4: pkgpb.v1.Logical.op:type_name -> pkgpb.v1.LogicOp
+	8, // 5: pkgpb.v1.Logical.nodes:type_name -> pkgpb.v1.FilterNode
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_pkgpb_v1_pkg_proto_init() }
@@ -477,13 +709,17 @@ func file_pkgpb_v1_pkg_proto_init() {
 		return
 	}
 	file_pkgpb_v1_pkg_proto_msgTypes[3].OneofWrappers = []any{}
+	file_pkgpb_v1_pkg_proto_msgTypes[6].OneofWrappers = []any{
+		(*FilterNode_Filter)(nil),
+		(*FilterNode_Logical)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkgpb_v1_pkg_proto_rawDesc), len(file_pkgpb_v1_pkg_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   6,
+			NumEnums:      2,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
