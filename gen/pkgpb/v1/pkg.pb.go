@@ -248,7 +248,7 @@ func (x *Pager) GetSize() int32 {
 
 type Cursor struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Val           *string                `protobuf:"bytes,1,opt,name=val,proto3,oneof" json:"val,omitempty"`
+	Val           []byte                 `protobuf:"bytes,1,opt,name=val,proto3,oneof" json:"val,omitempty"`
 	Size          int32                  `protobuf:"varint,2,opt,name=size,proto3" json:"size,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -284,11 +284,11 @@ func (*Cursor) Descriptor() ([]byte, []int) {
 	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *Cursor) GetVal() string {
-	if x != nil && x.Val != nil {
-		return *x.Val
+func (x *Cursor) GetVal() []byte {
+	if x != nil {
+		return x.Val
 	}
-	return ""
+	return nil
 }
 
 func (x *Cursor) GetSize() int32 {
@@ -418,7 +418,7 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x06number\x18\x01 \x01(\x05R\x06number\x12\x12\n" +
 	"\x04size\x18\x02 \x01(\x05R\x04size\";\n" +
 	"\x06Cursor\x12\x15\n" +
-	"\x03val\x18\x01 \x01(\tH\x00R\x03val\x88\x01\x01\x12\x12\n" +
+	"\x03val\x18\x01 \x01(\fH\x00R\x03val\x88\x01\x01\x12\x12\n" +
 	"\x04size\x18\x02 \x01(\x05R\x04sizeB\x06\n" +
 	"\x04_val\"5\n" +
 	"\n" +

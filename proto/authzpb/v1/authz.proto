@@ -60,7 +60,7 @@ message ListTuplesIn {
 
 message ListTuplesOut{
     repeated Tuple tuples = 1;
-    string next_cursor = 2;
+    bytes next_cursor = 2;
 }
 
 message Instance {

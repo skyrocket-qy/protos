@@ -249,7 +249,7 @@ func (x *ListTuplesIn) GetCursor() *v1.Cursor {
 type ListTuplesOut struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Tuples        []*Tuple               `protobuf:"bytes,1,rep,name=tuples,proto3" json:"tuples,omitempty"`
-	NextCursor    string                 `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
+	NextCursor    []byte                 `protobuf:"bytes,2,opt,name=next_cursor,json=nextCursor,proto3" json:"next_cursor,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -291,11 +291,11 @@ func (x *ListTuplesOut) GetTuples() []*Tuple {
 	return nil
 }
 
-func (x *ListTuplesOut) GetNextCursor() string {
+func (x *ListTuplesOut) GetNextCursor() []byte {
 	if x != nil {
 		return x.NextCursor
 	}
-	return ""
+	return nil
 }
 
 type Instance struct {
@@ -1654,7 +1654,7 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\x06cursor\x18\x03 \x01(\v2\x10.pkgpb.v1.CursorR\x06cursor\"[\n" +
 	"\rListTuplesOut\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x12\x1f\n" +
-	"\vnext_cursor\x18\x02 \x01(\tR\n" +
+	"\vnext_cursor\x18\x02 \x01(\fR\n" +
 	"nextCursor\".\n" +
 	"\bInstance\x12\x0e\n" +
 	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +

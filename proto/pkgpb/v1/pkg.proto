@@ -34,7 +34,7 @@ message Pager {
 }
 
 message Cursor {
-    optional string val = 1;
+    optional bytes val = 1;
     int32 size = 2;
 }
 
