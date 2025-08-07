@@ -37,3 +37,13 @@ message Cursor {
     optional string val = 1;
     int32 size = 2;
 }
+
+message CursorData  {
+	repeated Field fields = 1;
+}
+
+message Field  {
+	string col = 1;
+	bool   asc = 2;
+	string val = 3;
+}

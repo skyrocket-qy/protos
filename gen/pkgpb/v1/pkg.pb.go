@@ -298,6 +298,110 @@ func (x *Cursor) GetSize() int32 {
 	return 0
 }
 
+type CursorData struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Fields        []*Field               `protobuf:"bytes,1,rep,name=fields,proto3" json:"fields,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CursorData) Reset() {
+	*x = CursorData{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CursorData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CursorData) ProtoMessage() {}
+
+func (x *CursorData) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CursorData.ProtoReflect.Descriptor instead.
+func (*CursorData) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *CursorData) GetFields() []*Field {
+	if x != nil {
+		return x.Fields
+	}
+	return nil
+}
+
+type Field struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Col           string                 `protobuf:"bytes,1,opt,name=col,proto3" json:"col,omitempty"`
+	Asc           bool                   `protobuf:"varint,2,opt,name=asc,proto3" json:"asc,omitempty"`
+	Val           string                 `protobuf:"bytes,3,opt,name=val,proto3" json:"val,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Field) Reset() {
+	*x = Field{}
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Field) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Field) ProtoMessage() {}
+
+func (x *Field) ProtoReflect() protoreflect.Message {
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Field.ProtoReflect.Descriptor instead.
+func (*Field) Descriptor() ([]byte, []int) {
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *Field) GetCol() string {
+	if x != nil {
+		return x.Col
+	}
+	return ""
+}
+
+func (x *Field) GetAsc() bool {
+	if x != nil {
+		return x.Asc
+	}
+	return false
+}
+
+func (x *Field) GetVal() string {
+	if x != nil {
+		return x.Val
+	}
+	return ""
+}
+
 var File_pkgpb_v1_pkg_proto protoreflect.FileDescriptor
 
 const file_pkgpb_v1_pkg_proto_rawDesc = "" +
@@ -316,7 +420,14 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x06Cursor\x12\x15\n" +
 	"\x03val\x18\x01 \x01(\tH\x00R\x03val\x88\x01\x01\x12\x12\n" +
 	"\x04size\x18\x02 \x01(\x05R\x04sizeB\x06\n" +
-	"\x04_val*\x91\x01\n" +
+	"\x04_val\"5\n" +
+	"\n" +
+	"CursorData\x12'\n" +
+	"\x06fields\x18\x01 \x03(\v2\x0f.pkgpb.v1.FieldR\x06fields\"=\n" +
+	"\x05Field\x12\x10\n" +
+	"\x03col\x18\x01 \x01(\tR\x03col\x12\x10\n" +
+	"\x03asc\x18\x02 \x01(\bR\x03asc\x12\x10\n" +
+	"\x03val\x18\x03 \x01(\tR\x03val*\x91\x01\n" +
 	"\bOperator\x12\x18\n" +
 	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x0f\n" +
 	"\vOPERATOR_EQ\x10\x01\x12\x0f\n" +
@@ -340,21 +451,24 @@ func file_pkgpb_v1_pkg_proto_rawDescGZIP() []byte {
 }
 
 var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_pkgpb_v1_pkg_proto_goTypes = []any{
-	(Operator)(0),  // 0: pkgpb.v1.Operator
-	(*Filter)(nil), // 1: pkgpb.v1.Filter
-	(*Sorter)(nil), // 2: pkgpb.v1.Sorter
-	(*Pager)(nil),  // 3: pkgpb.v1.Pager
-	(*Cursor)(nil), // 4: pkgpb.v1.Cursor
+	(Operator)(0),      // 0: pkgpb.v1.Operator
+	(*Filter)(nil),     // 1: pkgpb.v1.Filter
+	(*Sorter)(nil),     // 2: pkgpb.v1.Sorter
+	(*Pager)(nil),      // 3: pkgpb.v1.Pager
+	(*Cursor)(nil),     // 4: pkgpb.v1.Cursor
+	(*CursorData)(nil), // 5: pkgpb.v1.CursorData
+	(*Field)(nil),      // 6: pkgpb.v1.Field
 }
 var file_pkgpb_v1_pkg_proto_depIdxs = []int32{
 	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
-	1, // [1:1] is the sub-list for method output_type
-	1, // [1:1] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	6, // 1: pkgpb.v1.CursorData.fields:type_name -> pkgpb.v1.Field
+	2, // [2:2] is the sub-list for method output_type
+	2, // [2:2] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_pkgpb_v1_pkg_proto_init() }
@@ -369,7 +483,7 @@ func file_pkgpb_v1_pkg_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkgpb_v1_pkg_proto_rawDesc), len(file_pkgpb_v1_pkg_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

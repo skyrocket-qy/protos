@@ -190,7 +190,7 @@ type ListTuplesIn struct {
 	Filters []*v1.Filter `protobuf:"bytes,1,rep,name=filters,proto3" json:"filters,omitempty"`
 	// created_at, auth_type, org_name
 	Sorters       []*v1.Sorter `protobuf:"bytes,2,rep,name=sorters,proto3" json:"sorters,omitempty"`
-	Pager         *v1.Cursor   `protobuf:"bytes,3,opt,name=pager,proto3" json:"pager,omitempty"`
+	Cursor        *v1.Cursor   `protobuf:"bytes,3,opt,name=cursor,proto3" json:"cursor,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -239,9 +239,9 @@ func (x *ListTuplesIn) GetSorters() []*v1.Sorter {
 	return nil
 }
 
-func (x *ListTuplesIn) GetPager() *v1.Cursor {
+func (x *ListTuplesIn) GetCursor() *v1.Cursor {
 	if x != nil {
-		return x.Pager
+		return x.Cursor
 	}
 	return nil
 }
@@ -1647,11 +1647,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\a_sbj_idB\x06\n" +
 	"\x04_relB\t\n" +
 	"\a_obj_nsB\t\n" +
-	"\a_obj_id\"\x8e\x01\n" +
+	"\a_obj_id\"\x90\x01\n" +
 	"\fListTuplesIn\x12*\n" +
 	"\afilters\x18\x01 \x03(\v2\x10.pkgpb.v1.FilterR\afilters\x12*\n" +
-	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12&\n" +
-	"\x05pager\x18\x03 \x01(\v2\x10.pkgpb.v1.CursorR\x05pager\"[\n" +
+	"\asorters\x18\x02 \x03(\v2\x10.pkgpb.v1.SorterR\asorters\x12(\n" +
+	"\x06cursor\x18\x03 \x01(\v2\x10.pkgpb.v1.CursorR\x06cursor\"[\n" +
 	"\rListTuplesOut\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\tR\n" +
@@ -1833,7 +1833,7 @@ var file_authzpb_v1_authz_proto_goTypes = []any{
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	29, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
 	30, // 1: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
-	31, // 2: authzpb.v1.ListTuplesIn.pager:type_name -> pkgpb.v1.Cursor
+	31, // 2: authzpb.v1.ListTuplesIn.cursor:type_name -> pkgpb.v1.Cursor
 	0,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
 	4,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
 	28, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry

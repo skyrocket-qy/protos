@@ -55,7 +55,7 @@ message ListTuplesIn {
     repeated pkgpb.v1.Filter filters = 1;
     // created_at, auth_type, org_name
     repeated pkgpb.v1.Sorter sorters = 2;
-    pkgpb.v1.Cursor pager = 3;
+    pkgpb.v1.Cursor cursor = 3;
 }
 
 message ListTuplesOut{

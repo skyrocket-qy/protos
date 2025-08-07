@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file pkgpb/v1/pkg.proto.
  */
 export const file_pkgpb_v1_pkg: GenFile = /*@__PURE__*/
-  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAlIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwqkQEKCE9wZXJhdG9yEhgKFE9QRVJBVE9SX1VOU1BFQ0lGSUVEEAASDwoLT1BFUkFUT1JfRVEQARIPCgtPUEVSQVRPUl9HVBACEhAKDE9QRVJBVE9SX0dURRADEg8KC09QRVJBVE9SX0xUEAQSEAoMT1BFUkFUT1JfTFRFEAUSFAoQT1BFUkFUT1JfQkVUV0VFThAGQo4BCgxjb20ucGtncGIudjFCCFBrZ1Byb3RvUAFaM2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vcGtncGIvdjE7cGtncGJ2MaICA1BYWKoCCFBrZ3BiLlYxygIIUGtncGJcVjHiAhRQa2dwYlxWMVxHUEJNZXRhZGF0YeoCCVBrZ3BiOjpWMWIGcHJvdG8z");
+  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAlIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwiLQoKQ3Vyc29yRGF0YRIfCgZmaWVsZHMYASADKAsyDy5wa2dwYi52MS5GaWVsZCIuCgVGaWVsZBILCgNjb2wYASABKAkSCwoDYXNjGAIgASgIEgsKA3ZhbBgDIAEoCSqRAQoIT3BlcmF0b3ISGAoUT1BFUkFUT1JfVU5TUEVDSUZJRUQQABIPCgtPUEVSQVRPUl9FURABEg8KC09QRVJBVE9SX0dUEAISEAoMT1BFUkFUT1JfR1RFEAMSDwoLT1BFUkFUT1JfTFQQBBIQCgxPUEVSQVRPUl9MVEUQBRIUChBPUEVSQVRPUl9CRVRXRUVOEAZCjgEKDGNvbS5wa2dwYi52MUIIUGtnUHJvdG9QAVozZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9wa2dwYi92MTtwa2dwYnYxogIDUFhYqgIIUGtncGIuVjHKAghQa2dwYlxWMeICFFBrZ3BiXFYxXEdQQk1ldGFkYXRh6gIJUGtncGI6OlYxYgZwcm90bzM");
 
 /**
  * @generated from message pkgpb.v1.Filter
@@ -108,6 +108,50 @@ export type Cursor = Message<"pkgpb.v1.Cursor"> & {
  */
 export const CursorSchema: GenMessage<Cursor> = /*@__PURE__*/
   messageDesc(file_pkgpb_v1_pkg, 3);
+
+/**
+ * @generated from message pkgpb.v1.CursorData
+ */
+export type CursorData = Message<"pkgpb.v1.CursorData"> & {
+  /**
+   * @generated from field: repeated pkgpb.v1.Field fields = 1;
+   */
+  fields: Field[];
+};
+
+/**
+ * Describes the message pkgpb.v1.CursorData.
+ * Use `create(CursorDataSchema)` to create a new message.
+ */
+export const CursorDataSchema: GenMessage<CursorData> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 4);
+
+/**
+ * @generated from message pkgpb.v1.Field
+ */
+export type Field = Message<"pkgpb.v1.Field"> & {
+  /**
+   * @generated from field: string col = 1;
+   */
+  col: string;
+
+  /**
+   * @generated from field: bool asc = 2;
+   */
+  asc: boolean;
+
+  /**
+   * @generated from field: string val = 3;
+   */
+  val: string;
+};
+
+/**
+ * Describes the message pkgpb.v1.Field.
+ * Use `create(FieldSchema)` to create a new message.
+ */
+export const FieldSchema: GenMessage<Field> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 5);
 
 /**
  * @generated from enum pkgpb.v1.Operator
