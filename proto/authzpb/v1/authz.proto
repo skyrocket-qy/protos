@@ -65,7 +65,7 @@ message ListTuplesOut{
 
 message Instance {
     string ns = 1;
-    string name = 2;
+    string id = 2;
 }
 
 message TreeNode{

@@ -301,7 +301,7 @@ func (x *ListTuplesOut) GetNextCursor() []byte {
 type Instance struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Ns            string                 `protobuf:"bytes,1,opt,name=ns,proto3" json:"ns,omitempty"`
-	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
+	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -343,9 +343,9 @@ func (x *Instance) GetNs() string {
 	return ""
 }
 
-func (x *Instance) GetName() string {
+func (x *Instance) GetId() string {
 	if x != nil {
-		return x.Name
+		return x.Id
 	}
 	return ""
 }
@@ -1789,10 +1789,10 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\rListTuplesOut\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\x12\x1f\n" +
 	"\vnext_cursor\x18\x02 \x01(\fR\n" +
-	"nextCursor\".\n" +
+	"nextCursor\"*\n" +
 	"\bInstance\x12\x0e\n" +
-	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x12\n" +
-	"\x04name\x18\x02 \x01(\tR\x04name\"\xc7\x01\n" +
+	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\tR\x02id\"\xc7\x01\n" +
 	"\bTreeNode\x12(\n" +
 	"\x04root\x18\x01 \x01(\v2\x14.authzpb.v1.InstanceR\x04root\x12>\n" +
 	"\bchildren\x18\x02 \x03(\v2\".authzpb.v1.TreeNode.ChildrenEntryR\bchildren\x1aQ\n" +
