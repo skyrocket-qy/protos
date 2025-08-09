@@ -31,6 +31,19 @@ service AuthzService {
     rpc CreateTuple(Tuple) returns (google.protobuf.Empty);
     rpc ListTuples(ListTuplesIn) returns (ListTuplesOut);
     rpc DeleteTuples(DeleteTuplesIn) returns (google.protobuf.Empty);
+    rpc Check(CheckIn) returns (CheckOut);
+}
+
+message CheckIn {
+    string sbj_ns = 1;
+    string sbj_id = 2;
+    string rel = 3;
+    string obj_ns = 4;
+    string obj_id = 5;
+}
+
+message CheckOut {
+    bool is_allowed = 1;
 }
 
 message Tuple {

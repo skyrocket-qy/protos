@@ -73,6 +73,8 @@ const (
 	// AuthzServiceDeleteTuplesProcedure is the fully-qualified name of the AuthzService's DeleteTuples
 	// RPC.
 	AuthzServiceDeleteTuplesProcedure = "/authzpb.v1.AuthzService/DeleteTuples"
+	// AuthzServiceCheckProcedure is the fully-qualified name of the AuthzService's Check RPC.
+	AuthzServiceCheckProcedure = "/authzpb.v1.AuthzService/Check"
 )
 
 // AuthzServiceClient is a client for the authzpb.v1.AuthzService service.
@@ -94,6 +96,7 @@ type AuthzServiceClient interface {
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
 	DeleteTuples(context.Context, *connect.Request[v1.DeleteTuplesIn]) (*connect.Response[emptypb.Empty], error)
+	Check(context.Context, *connect.Request[v1.CheckIn]) (*connect.Response[v1.CheckOut], error)
 }
 
 // NewAuthzServiceClient constructs a client for the authzpb.v1.AuthzService service. By default, it
@@ -209,6 +212,12 @@ func NewAuthzServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 			connect.WithSchema(authzServiceMethods.ByName("DeleteTuples")),
 			connect.WithClientOptions(opts...),
 		),
+		check: connect.NewClient[v1.CheckIn, v1.CheckOut](
+			httpClient,
+			baseURL+AuthzServiceCheckProcedure,
+			connect.WithSchema(authzServiceMethods.ByName("Check")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -231,6 +240,7 @@ type authzServiceClient struct {
 	createTuple    *connect.Client[v1.Tuple, emptypb.Empty]
 	listTuples     *connect.Client[v1.ListTuplesIn, v1.ListTuplesOut]
 	deleteTuples   *connect.Client[v1.DeleteTuplesIn, emptypb.Empty]
+	check          *connect.Client[v1.CheckIn, v1.CheckOut]
 }
 
 // ListUsers calls authzpb.v1.AuthzService.ListUsers.
@@ -318,6 +328,11 @@ func (c *authzServiceClient) DeleteTuples(ctx context.Context, req *connect.Requ
 	return c.deleteTuples.CallUnary(ctx, req)
 }
 
+// Check calls authzpb.v1.AuthzService.Check.
+func (c *authzServiceClient) Check(ctx context.Context, req *connect.Request[v1.CheckIn]) (*connect.Response[v1.CheckOut], error) {
+	return c.check.CallUnary(ctx, req)
+}
+
 // AuthzServiceHandler is an implementation of the authzpb.v1.AuthzService service.
 type AuthzServiceHandler interface {
 	ListUsers(context.Context, *connect.Request[v1.ListUsersIn]) (*connect.Response[v1.ListUsersOut], error)
@@ -337,6 +352,7 @@ type AuthzServiceHandler interface {
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
 	DeleteTuples(context.Context, *connect.Request[v1.DeleteTuplesIn]) (*connect.Response[emptypb.Empty], error)
+	Check(context.Context, *connect.Request[v1.CheckIn]) (*connect.Response[v1.CheckOut], error)
 }
 
 // NewAuthzServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -448,6 +464,12 @@ func NewAuthzServiceHandler(svc AuthzServiceHandler, opts ...connect.HandlerOpti
 		connect.WithSchema(authzServiceMethods.ByName("DeleteTuples")),
 		connect.WithHandlerOptions(opts...),
 	)
+	authzServiceCheckHandler := connect.NewUnaryHandler(
+		AuthzServiceCheckProcedure,
+		svc.Check,
+		connect.WithSchema(authzServiceMethods.ByName("Check")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/authzpb.v1.AuthzService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case AuthzServiceListUsersProcedure:
@@ -484,6 +506,8 @@ func NewAuthzServiceHandler(svc AuthzServiceHandler, opts ...connect.HandlerOpti
 			authzServiceListTuplesHandler.ServeHTTP(w, r)
 		case AuthzServiceDeleteTuplesProcedure:
 			authzServiceDeleteTuplesHandler.ServeHTTP(w, r)
+		case AuthzServiceCheckProcedure:
+			authzServiceCheckHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -559,4 +583,8 @@ func (UnimplementedAuthzServiceHandler) ListTuples(context.Context, *connect.Req
 
 func (UnimplementedAuthzServiceHandler) DeleteTuples(context.Context, *connect.Request[v1.DeleteTuplesIn]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.DeleteTuples is not implemented"))
+}
+
+func (UnimplementedAuthzServiceHandler) Check(context.Context, *connect.Request[v1.CheckIn]) (*connect.Response[v1.CheckOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.Check is not implemented"))
 }
