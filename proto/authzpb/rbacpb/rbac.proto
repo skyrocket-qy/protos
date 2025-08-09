@@ -1,0 +1,174 @@
+syntax = "proto3";
+
+package authzpb.rbacpb;
+
+import "google/protobuf/empty.proto"; 
+import "google/protobuf/timestamp.proto";
+import "pkgpb/v1/pkg.proto";
+
+option go_package = "github.com/skyrocket-qy/protos/gen/authzpb/rbacpb;rbacpb";
+
+service RbacService {
+    rpc ListUsers(ListUsersIn) returns (ListUsersOut);
+    rpc UpdateUser(UpdateUserIn) returns (google.protobuf.Empty);
+    rpc DeleteUser(DeleteUserIn) returns (google.protobuf.Empty);
+
+    rpc CreateRole(CreateRoleIn) returns (google.protobuf.Empty);
+    rpc ListRoles(ListRolesIn) returns (ListRolesOut);
+    rpc UpdateRole(UpdateRoleIn) returns (google.protobuf.Empty);
+    rpc DeleteRole(DeleteRoleIn) returns (google.protobuf.Empty);
+
+    rpc CreateResource(CreateResourceIn) returns (google.protobuf.Empty);
+    rpc ListResources(ListResourcesIn) returns (ListResourcesOut);
+    rpc DeleteResource(DeleteResourceIn) returns (google.protobuf.Empty);
+
+    rpc AssignRole(AssignRoleIn) returns (google.protobuf.Empty);
+    rpc RevokeRole(RevokeRoleIn) returns (google.protobuf.Empty);
+
+    rpc GrantPerm(GrantPermIn) returns (google.protobuf.Empty);
+    rpc RevokePerm(RevokePermIn) returns (google.protobuf.Empty);
+}
+
+
+message CheckIn {
+    string sbj_ns = 1;
+    string sbj_id = 2;
+    string rel = 3;
+    string obj_ns = 4;
+    string obj_id = 5;
+}
+
+message CheckOut {
+    bool is_allowed = 1;
+}
+
+message Instance {
+    string ns = 1;
+    string id = 2;
+}
+
+message TreeNode{
+    Instance root = 1;
+    map<string, TreeNode> children = 2;
+}
+
+message Org {
+    uint32 id = 1;
+    string name = 2;
+}
+
+message User {
+    uint64 id = 1;
+    string name = 2;
+    string email = 3;
+    bool is_active = 4;
+    bool is_email_confirmed = 5;
+    repeated string auth_types = 6;
+    repeated string orgs = 7;
+    google.protobuf.Timestamp created_at = 8;
+}
+
+message UpdateUserIn {
+    uint64 id = 1;
+    optional string name = 2;
+    optional bool is_active = 3;
+}
+
+message Role {
+    uint64 id = 1;
+    string name = 2;
+}
+
+message Resource{
+    uint64 id = 1;
+    string ns = 2;
+    string name = 3;
+}
+
+message ListUsersIn {
+    // created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+    repeated pkgpb.v1.Filter filters = 1;
+    // created_at, auth_type, org_name
+    repeated pkgpb.v1.Sorter sorters = 2;
+    pkgpb.v1.Pager pager = 3;
+}
+
+message ListUsersOut{
+    repeated User users = 1;
+    int64 count = 2;
+}
+
+message DeleteUserIn{
+    uint64 id = 1;
+}
+
+message CreateRoleIn{
+    string name = 1;
+}
+
+message ListRolesIn{
+        // created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+    repeated pkgpb.v1.Filter filters = 1;
+    // created_at, auth_type, org_name
+    repeated pkgpb.v1.Sorter sorters = 2;
+    pkgpb.v1.Pager pager = 3;
+}
+
+message ListRolesOut{
+    repeated Role roles = 1;
+    int64 total = 2;
+}
+
+message UpdateRoleIn{
+    uint64 id = 1;
+    string name = 2;
+}
+
+message DeleteRoleIn{
+    uint64 id = 1;
+}
+
+message ListResourcesIn{
+    // created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
+    repeated pkgpb.v1.Filter filters = 1;
+    // created_at, auth_type, org_name
+    repeated pkgpb.v1.Sorter sorters = 2;
+    pkgpb.v1.Pager pager = 3;
+}
+
+message ListResourcesOut{
+    repeated Resource resources = 1;
+    int64 total = 2;
+}
+
+message CreateResourceIn{
+    string ns = 1;
+    string name = 2;
+}
+
+message DeleteResourceIn{
+    uint64 id = 1;
+}
+
+
+message AssignRoleIn{
+    uint64 role_id = 1;
+    uint64 user_id = 2;
+}
+
+message RevokeRoleIn{
+    uint64 role_id = 1;
+    uint64 user_id = 2;
+}
+
+message GrantPermIn{
+    uint64 role_id = 1;
+    string perm = 2;
+    uint64 resource_id = 3;
+}
+
+message RevokePermIn{
+    uint64 role_id = 1;
+    string perm = 2;
+    uint64 resource_id = 3;
+}

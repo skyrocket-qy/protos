@@ -34,37 +34,6 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// AuthzServiceListUsersProcedure is the fully-qualified name of the AuthzService's ListUsers RPC.
-	AuthzServiceListUsersProcedure = "/authzpb.v1.AuthzService/ListUsers"
-	// AuthzServiceUpdateUserProcedure is the fully-qualified name of the AuthzService's UpdateUser RPC.
-	AuthzServiceUpdateUserProcedure = "/authzpb.v1.AuthzService/UpdateUser"
-	// AuthzServiceDeleteUserProcedure is the fully-qualified name of the AuthzService's DeleteUser RPC.
-	AuthzServiceDeleteUserProcedure = "/authzpb.v1.AuthzService/DeleteUser"
-	// AuthzServiceCreateRoleProcedure is the fully-qualified name of the AuthzService's CreateRole RPC.
-	AuthzServiceCreateRoleProcedure = "/authzpb.v1.AuthzService/CreateRole"
-	// AuthzServiceListRolesProcedure is the fully-qualified name of the AuthzService's ListRoles RPC.
-	AuthzServiceListRolesProcedure = "/authzpb.v1.AuthzService/ListRoles"
-	// AuthzServiceUpdateRoleProcedure is the fully-qualified name of the AuthzService's UpdateRole RPC.
-	AuthzServiceUpdateRoleProcedure = "/authzpb.v1.AuthzService/UpdateRole"
-	// AuthzServiceDeleteRoleProcedure is the fully-qualified name of the AuthzService's DeleteRole RPC.
-	AuthzServiceDeleteRoleProcedure = "/authzpb.v1.AuthzService/DeleteRole"
-	// AuthzServiceCreateResourceProcedure is the fully-qualified name of the AuthzService's
-	// CreateResource RPC.
-	AuthzServiceCreateResourceProcedure = "/authzpb.v1.AuthzService/CreateResource"
-	// AuthzServiceListResourcesProcedure is the fully-qualified name of the AuthzService's
-	// ListResources RPC.
-	AuthzServiceListResourcesProcedure = "/authzpb.v1.AuthzService/ListResources"
-	// AuthzServiceDeleteResourceProcedure is the fully-qualified name of the AuthzService's
-	// DeleteResource RPC.
-	AuthzServiceDeleteResourceProcedure = "/authzpb.v1.AuthzService/DeleteResource"
-	// AuthzServiceAssignRoleProcedure is the fully-qualified name of the AuthzService's AssignRole RPC.
-	AuthzServiceAssignRoleProcedure = "/authzpb.v1.AuthzService/AssignRole"
-	// AuthzServiceRevokeRoleProcedure is the fully-qualified name of the AuthzService's RevokeRole RPC.
-	AuthzServiceRevokeRoleProcedure = "/authzpb.v1.AuthzService/RevokeRole"
-	// AuthzServiceGrantPermProcedure is the fully-qualified name of the AuthzService's GrantPerm RPC.
-	AuthzServiceGrantPermProcedure = "/authzpb.v1.AuthzService/GrantPerm"
-	// AuthzServiceRevokePermProcedure is the fully-qualified name of the AuthzService's RevokePerm RPC.
-	AuthzServiceRevokePermProcedure = "/authzpb.v1.AuthzService/RevokePerm"
 	// AuthzServiceCreateTupleProcedure is the fully-qualified name of the AuthzService's CreateTuple
 	// RPC.
 	AuthzServiceCreateTupleProcedure = "/authzpb.v1.AuthzService/CreateTuple"
@@ -79,20 +48,6 @@ const (
 
 // AuthzServiceClient is a client for the authzpb.v1.AuthzService service.
 type AuthzServiceClient interface {
-	ListUsers(context.Context, *connect.Request[v1.ListUsersIn]) (*connect.Response[v1.ListUsersOut], error)
-	UpdateUser(context.Context, *connect.Request[v1.UpdateUserIn]) (*connect.Response[emptypb.Empty], error)
-	DeleteUser(context.Context, *connect.Request[v1.DeleteUserIn]) (*connect.Response[emptypb.Empty], error)
-	CreateRole(context.Context, *connect.Request[v1.CreateRoleIn]) (*connect.Response[emptypb.Empty], error)
-	ListRoles(context.Context, *connect.Request[v1.ListRolesIn]) (*connect.Response[v1.ListRolesOut], error)
-	UpdateRole(context.Context, *connect.Request[v1.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error)
-	DeleteRole(context.Context, *connect.Request[v1.DeleteRoleIn]) (*connect.Response[emptypb.Empty], error)
-	CreateResource(context.Context, *connect.Request[v1.CreateResourceIn]) (*connect.Response[emptypb.Empty], error)
-	ListResources(context.Context, *connect.Request[v1.ListResourcesIn]) (*connect.Response[v1.ListResourcesOut], error)
-	DeleteResource(context.Context, *connect.Request[v1.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
-	AssignRole(context.Context, *connect.Request[v1.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
-	RevokeRole(context.Context, *connect.Request[v1.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error)
-	GrantPerm(context.Context, *connect.Request[v1.GrantPermIn]) (*connect.Response[emptypb.Empty], error)
-	RevokePerm(context.Context, *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error)
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
 	DeleteTuples(context.Context, *connect.Request[v1.DeleteTuplesIn]) (*connect.Response[emptypb.Empty], error)
@@ -110,90 +65,6 @@ func NewAuthzServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 	baseURL = strings.TrimRight(baseURL, "/")
 	authzServiceMethods := v1.File_authzpb_v1_authz_proto.Services().ByName("AuthzService").Methods()
 	return &authzServiceClient{
-		listUsers: connect.NewClient[v1.ListUsersIn, v1.ListUsersOut](
-			httpClient,
-			baseURL+AuthzServiceListUsersProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("ListUsers")),
-			connect.WithClientOptions(opts...),
-		),
-		updateUser: connect.NewClient[v1.UpdateUserIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceUpdateUserProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("UpdateUser")),
-			connect.WithClientOptions(opts...),
-		),
-		deleteUser: connect.NewClient[v1.DeleteUserIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceDeleteUserProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("DeleteUser")),
-			connect.WithClientOptions(opts...),
-		),
-		createRole: connect.NewClient[v1.CreateRoleIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceCreateRoleProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("CreateRole")),
-			connect.WithClientOptions(opts...),
-		),
-		listRoles: connect.NewClient[v1.ListRolesIn, v1.ListRolesOut](
-			httpClient,
-			baseURL+AuthzServiceListRolesProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("ListRoles")),
-			connect.WithClientOptions(opts...),
-		),
-		updateRole: connect.NewClient[v1.UpdateRoleIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceUpdateRoleProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("UpdateRole")),
-			connect.WithClientOptions(opts...),
-		),
-		deleteRole: connect.NewClient[v1.DeleteRoleIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceDeleteRoleProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("DeleteRole")),
-			connect.WithClientOptions(opts...),
-		),
-		createResource: connect.NewClient[v1.CreateResourceIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceCreateResourceProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("CreateResource")),
-			connect.WithClientOptions(opts...),
-		),
-		listResources: connect.NewClient[v1.ListResourcesIn, v1.ListResourcesOut](
-			httpClient,
-			baseURL+AuthzServiceListResourcesProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("ListResources")),
-			connect.WithClientOptions(opts...),
-		),
-		deleteResource: connect.NewClient[v1.DeleteResourceIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceDeleteResourceProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("DeleteResource")),
-			connect.WithClientOptions(opts...),
-		),
-		assignRole: connect.NewClient[v1.AssignRoleIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceAssignRoleProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("AssignRole")),
-			connect.WithClientOptions(opts...),
-		),
-		revokeRole: connect.NewClient[v1.RevokeRoleIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceRevokeRoleProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("RevokeRole")),
-			connect.WithClientOptions(opts...),
-		),
-		grantPerm: connect.NewClient[v1.GrantPermIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceGrantPermProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("GrantPerm")),
-			connect.WithClientOptions(opts...),
-		),
-		revokePerm: connect.NewClient[v1.RevokePermIn, emptypb.Empty](
-			httpClient,
-			baseURL+AuthzServiceRevokePermProcedure,
-			connect.WithSchema(authzServiceMethods.ByName("RevokePerm")),
-			connect.WithClientOptions(opts...),
-		),
 		createTuple: connect.NewClient[v1.Tuple, emptypb.Empty](
 			httpClient,
 			baseURL+AuthzServiceCreateTupleProcedure,
@@ -223,94 +94,10 @@ func NewAuthzServiceClient(httpClient connect.HTTPClient, baseURL string, opts .
 
 // authzServiceClient implements AuthzServiceClient.
 type authzServiceClient struct {
-	listUsers      *connect.Client[v1.ListUsersIn, v1.ListUsersOut]
-	updateUser     *connect.Client[v1.UpdateUserIn, emptypb.Empty]
-	deleteUser     *connect.Client[v1.DeleteUserIn, emptypb.Empty]
-	createRole     *connect.Client[v1.CreateRoleIn, emptypb.Empty]
-	listRoles      *connect.Client[v1.ListRolesIn, v1.ListRolesOut]
-	updateRole     *connect.Client[v1.UpdateRoleIn, emptypb.Empty]
-	deleteRole     *connect.Client[v1.DeleteRoleIn, emptypb.Empty]
-	createResource *connect.Client[v1.CreateResourceIn, emptypb.Empty]
-	listResources  *connect.Client[v1.ListResourcesIn, v1.ListResourcesOut]
-	deleteResource *connect.Client[v1.DeleteResourceIn, emptypb.Empty]
-	assignRole     *connect.Client[v1.AssignRoleIn, emptypb.Empty]
-	revokeRole     *connect.Client[v1.RevokeRoleIn, emptypb.Empty]
-	grantPerm      *connect.Client[v1.GrantPermIn, emptypb.Empty]
-	revokePerm     *connect.Client[v1.RevokePermIn, emptypb.Empty]
-	createTuple    *connect.Client[v1.Tuple, emptypb.Empty]
-	listTuples     *connect.Client[v1.ListTuplesIn, v1.ListTuplesOut]
-	deleteTuples   *connect.Client[v1.DeleteTuplesIn, emptypb.Empty]
-	check          *connect.Client[v1.CheckIn, v1.CheckOut]
-}
-
-// ListUsers calls authzpb.v1.AuthzService.ListUsers.
-func (c *authzServiceClient) ListUsers(ctx context.Context, req *connect.Request[v1.ListUsersIn]) (*connect.Response[v1.ListUsersOut], error) {
-	return c.listUsers.CallUnary(ctx, req)
-}
-
-// UpdateUser calls authzpb.v1.AuthzService.UpdateUser.
-func (c *authzServiceClient) UpdateUser(ctx context.Context, req *connect.Request[v1.UpdateUserIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.updateUser.CallUnary(ctx, req)
-}
-
-// DeleteUser calls authzpb.v1.AuthzService.DeleteUser.
-func (c *authzServiceClient) DeleteUser(ctx context.Context, req *connect.Request[v1.DeleteUserIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.deleteUser.CallUnary(ctx, req)
-}
-
-// CreateRole calls authzpb.v1.AuthzService.CreateRole.
-func (c *authzServiceClient) CreateRole(ctx context.Context, req *connect.Request[v1.CreateRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.createRole.CallUnary(ctx, req)
-}
-
-// ListRoles calls authzpb.v1.AuthzService.ListRoles.
-func (c *authzServiceClient) ListRoles(ctx context.Context, req *connect.Request[v1.ListRolesIn]) (*connect.Response[v1.ListRolesOut], error) {
-	return c.listRoles.CallUnary(ctx, req)
-}
-
-// UpdateRole calls authzpb.v1.AuthzService.UpdateRole.
-func (c *authzServiceClient) UpdateRole(ctx context.Context, req *connect.Request[v1.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.updateRole.CallUnary(ctx, req)
-}
-
-// DeleteRole calls authzpb.v1.AuthzService.DeleteRole.
-func (c *authzServiceClient) DeleteRole(ctx context.Context, req *connect.Request[v1.DeleteRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.deleteRole.CallUnary(ctx, req)
-}
-
-// CreateResource calls authzpb.v1.AuthzService.CreateResource.
-func (c *authzServiceClient) CreateResource(ctx context.Context, req *connect.Request[v1.CreateResourceIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.createResource.CallUnary(ctx, req)
-}
-
-// ListResources calls authzpb.v1.AuthzService.ListResources.
-func (c *authzServiceClient) ListResources(ctx context.Context, req *connect.Request[v1.ListResourcesIn]) (*connect.Response[v1.ListResourcesOut], error) {
-	return c.listResources.CallUnary(ctx, req)
-}
-
-// DeleteResource calls authzpb.v1.AuthzService.DeleteResource.
-func (c *authzServiceClient) DeleteResource(ctx context.Context, req *connect.Request[v1.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.deleteResource.CallUnary(ctx, req)
-}
-
-// AssignRole calls authzpb.v1.AuthzService.AssignRole.
-func (c *authzServiceClient) AssignRole(ctx context.Context, req *connect.Request[v1.AssignRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.assignRole.CallUnary(ctx, req)
-}
-
-// RevokeRole calls authzpb.v1.AuthzService.RevokeRole.
-func (c *authzServiceClient) RevokeRole(ctx context.Context, req *connect.Request[v1.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.revokeRole.CallUnary(ctx, req)
-}
-
-// GrantPerm calls authzpb.v1.AuthzService.GrantPerm.
-func (c *authzServiceClient) GrantPerm(ctx context.Context, req *connect.Request[v1.GrantPermIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.grantPerm.CallUnary(ctx, req)
-}
-
-// RevokePerm calls authzpb.v1.AuthzService.RevokePerm.
-func (c *authzServiceClient) RevokePerm(ctx context.Context, req *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error) {
-	return c.revokePerm.CallUnary(ctx, req)
+	createTuple  *connect.Client[v1.Tuple, emptypb.Empty]
+	listTuples   *connect.Client[v1.ListTuplesIn, v1.ListTuplesOut]
+	deleteTuples *connect.Client[v1.DeleteTuplesIn, emptypb.Empty]
+	check        *connect.Client[v1.CheckIn, v1.CheckOut]
 }
 
 // CreateTuple calls authzpb.v1.AuthzService.CreateTuple.
@@ -335,20 +122,6 @@ func (c *authzServiceClient) Check(ctx context.Context, req *connect.Request[v1.
 
 // AuthzServiceHandler is an implementation of the authzpb.v1.AuthzService service.
 type AuthzServiceHandler interface {
-	ListUsers(context.Context, *connect.Request[v1.ListUsersIn]) (*connect.Response[v1.ListUsersOut], error)
-	UpdateUser(context.Context, *connect.Request[v1.UpdateUserIn]) (*connect.Response[emptypb.Empty], error)
-	DeleteUser(context.Context, *connect.Request[v1.DeleteUserIn]) (*connect.Response[emptypb.Empty], error)
-	CreateRole(context.Context, *connect.Request[v1.CreateRoleIn]) (*connect.Response[emptypb.Empty], error)
-	ListRoles(context.Context, *connect.Request[v1.ListRolesIn]) (*connect.Response[v1.ListRolesOut], error)
-	UpdateRole(context.Context, *connect.Request[v1.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error)
-	DeleteRole(context.Context, *connect.Request[v1.DeleteRoleIn]) (*connect.Response[emptypb.Empty], error)
-	CreateResource(context.Context, *connect.Request[v1.CreateResourceIn]) (*connect.Response[emptypb.Empty], error)
-	ListResources(context.Context, *connect.Request[v1.ListResourcesIn]) (*connect.Response[v1.ListResourcesOut], error)
-	DeleteResource(context.Context, *connect.Request[v1.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
-	AssignRole(context.Context, *connect.Request[v1.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
-	RevokeRole(context.Context, *connect.Request[v1.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error)
-	GrantPerm(context.Context, *connect.Request[v1.GrantPermIn]) (*connect.Response[emptypb.Empty], error)
-	RevokePerm(context.Context, *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error)
 	CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error)
 	ListTuples(context.Context, *connect.Request[v1.ListTuplesIn]) (*connect.Response[v1.ListTuplesOut], error)
 	DeleteTuples(context.Context, *connect.Request[v1.DeleteTuplesIn]) (*connect.Response[emptypb.Empty], error)
@@ -362,90 +135,6 @@ type AuthzServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewAuthzServiceHandler(svc AuthzServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	authzServiceMethods := v1.File_authzpb_v1_authz_proto.Services().ByName("AuthzService").Methods()
-	authzServiceListUsersHandler := connect.NewUnaryHandler(
-		AuthzServiceListUsersProcedure,
-		svc.ListUsers,
-		connect.WithSchema(authzServiceMethods.ByName("ListUsers")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceUpdateUserHandler := connect.NewUnaryHandler(
-		AuthzServiceUpdateUserProcedure,
-		svc.UpdateUser,
-		connect.WithSchema(authzServiceMethods.ByName("UpdateUser")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceDeleteUserHandler := connect.NewUnaryHandler(
-		AuthzServiceDeleteUserProcedure,
-		svc.DeleteUser,
-		connect.WithSchema(authzServiceMethods.ByName("DeleteUser")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceCreateRoleHandler := connect.NewUnaryHandler(
-		AuthzServiceCreateRoleProcedure,
-		svc.CreateRole,
-		connect.WithSchema(authzServiceMethods.ByName("CreateRole")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceListRolesHandler := connect.NewUnaryHandler(
-		AuthzServiceListRolesProcedure,
-		svc.ListRoles,
-		connect.WithSchema(authzServiceMethods.ByName("ListRoles")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceUpdateRoleHandler := connect.NewUnaryHandler(
-		AuthzServiceUpdateRoleProcedure,
-		svc.UpdateRole,
-		connect.WithSchema(authzServiceMethods.ByName("UpdateRole")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceDeleteRoleHandler := connect.NewUnaryHandler(
-		AuthzServiceDeleteRoleProcedure,
-		svc.DeleteRole,
-		connect.WithSchema(authzServiceMethods.ByName("DeleteRole")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceCreateResourceHandler := connect.NewUnaryHandler(
-		AuthzServiceCreateResourceProcedure,
-		svc.CreateResource,
-		connect.WithSchema(authzServiceMethods.ByName("CreateResource")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceListResourcesHandler := connect.NewUnaryHandler(
-		AuthzServiceListResourcesProcedure,
-		svc.ListResources,
-		connect.WithSchema(authzServiceMethods.ByName("ListResources")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceDeleteResourceHandler := connect.NewUnaryHandler(
-		AuthzServiceDeleteResourceProcedure,
-		svc.DeleteResource,
-		connect.WithSchema(authzServiceMethods.ByName("DeleteResource")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceAssignRoleHandler := connect.NewUnaryHandler(
-		AuthzServiceAssignRoleProcedure,
-		svc.AssignRole,
-		connect.WithSchema(authzServiceMethods.ByName("AssignRole")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceRevokeRoleHandler := connect.NewUnaryHandler(
-		AuthzServiceRevokeRoleProcedure,
-		svc.RevokeRole,
-		connect.WithSchema(authzServiceMethods.ByName("RevokeRole")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceGrantPermHandler := connect.NewUnaryHandler(
-		AuthzServiceGrantPermProcedure,
-		svc.GrantPerm,
-		connect.WithSchema(authzServiceMethods.ByName("GrantPerm")),
-		connect.WithHandlerOptions(opts...),
-	)
-	authzServiceRevokePermHandler := connect.NewUnaryHandler(
-		AuthzServiceRevokePermProcedure,
-		svc.RevokePerm,
-		connect.WithSchema(authzServiceMethods.ByName("RevokePerm")),
-		connect.WithHandlerOptions(opts...),
-	)
 	authzServiceCreateTupleHandler := connect.NewUnaryHandler(
 		AuthzServiceCreateTupleProcedure,
 		svc.CreateTuple,
@@ -472,34 +161,6 @@ func NewAuthzServiceHandler(svc AuthzServiceHandler, opts ...connect.HandlerOpti
 	)
 	return "/authzpb.v1.AuthzService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case AuthzServiceListUsersProcedure:
-			authzServiceListUsersHandler.ServeHTTP(w, r)
-		case AuthzServiceUpdateUserProcedure:
-			authzServiceUpdateUserHandler.ServeHTTP(w, r)
-		case AuthzServiceDeleteUserProcedure:
-			authzServiceDeleteUserHandler.ServeHTTP(w, r)
-		case AuthzServiceCreateRoleProcedure:
-			authzServiceCreateRoleHandler.ServeHTTP(w, r)
-		case AuthzServiceListRolesProcedure:
-			authzServiceListRolesHandler.ServeHTTP(w, r)
-		case AuthzServiceUpdateRoleProcedure:
-			authzServiceUpdateRoleHandler.ServeHTTP(w, r)
-		case AuthzServiceDeleteRoleProcedure:
-			authzServiceDeleteRoleHandler.ServeHTTP(w, r)
-		case AuthzServiceCreateResourceProcedure:
-			authzServiceCreateResourceHandler.ServeHTTP(w, r)
-		case AuthzServiceListResourcesProcedure:
-			authzServiceListResourcesHandler.ServeHTTP(w, r)
-		case AuthzServiceDeleteResourceProcedure:
-			authzServiceDeleteResourceHandler.ServeHTTP(w, r)
-		case AuthzServiceAssignRoleProcedure:
-			authzServiceAssignRoleHandler.ServeHTTP(w, r)
-		case AuthzServiceRevokeRoleProcedure:
-			authzServiceRevokeRoleHandler.ServeHTTP(w, r)
-		case AuthzServiceGrantPermProcedure:
-			authzServiceGrantPermHandler.ServeHTTP(w, r)
-		case AuthzServiceRevokePermProcedure:
-			authzServiceRevokePermHandler.ServeHTTP(w, r)
 		case AuthzServiceCreateTupleProcedure:
 			authzServiceCreateTupleHandler.ServeHTTP(w, r)
 		case AuthzServiceListTuplesProcedure:
@@ -516,62 +177,6 @@ func NewAuthzServiceHandler(svc AuthzServiceHandler, opts ...connect.HandlerOpti
 
 // UnimplementedAuthzServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedAuthzServiceHandler struct{}
-
-func (UnimplementedAuthzServiceHandler) ListUsers(context.Context, *connect.Request[v1.ListUsersIn]) (*connect.Response[v1.ListUsersOut], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.ListUsers is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) UpdateUser(context.Context, *connect.Request[v1.UpdateUserIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.UpdateUser is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) DeleteUser(context.Context, *connect.Request[v1.DeleteUserIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.DeleteUser is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) CreateRole(context.Context, *connect.Request[v1.CreateRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.CreateRole is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) ListRoles(context.Context, *connect.Request[v1.ListRolesIn]) (*connect.Response[v1.ListRolesOut], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.ListRoles is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) UpdateRole(context.Context, *connect.Request[v1.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.UpdateRole is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) DeleteRole(context.Context, *connect.Request[v1.DeleteRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.DeleteRole is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) CreateResource(context.Context, *connect.Request[v1.CreateResourceIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.CreateResource is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) ListResources(context.Context, *connect.Request[v1.ListResourcesIn]) (*connect.Response[v1.ListResourcesOut], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.ListResources is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) DeleteResource(context.Context, *connect.Request[v1.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.DeleteResource is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) AssignRole(context.Context, *connect.Request[v1.AssignRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.AssignRole is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) RevokeRole(context.Context, *connect.Request[v1.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.RevokeRole is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) GrantPerm(context.Context, *connect.Request[v1.GrantPermIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.GrantPerm is not implemented"))
-}
-
-func (UnimplementedAuthzServiceHandler) RevokePerm(context.Context, *connect.Request[v1.RevokePermIn]) (*connect.Response[emptypb.Empty], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.RevokePerm is not implemented"))
-}
 
 func (UnimplementedAuthzServiceHandler) CreateTuple(context.Context, *connect.Request[v1.Tuple]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.v1.AuthzService.CreateTuple is not implemented"))
