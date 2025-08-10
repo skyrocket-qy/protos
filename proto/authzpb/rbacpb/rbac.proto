@@ -13,6 +13,7 @@ service RbacService {
     rpc UpdateUser(UpdateUserIn) returns (google.protobuf.Empty);
     rpc DeleteUser(DeleteUserIn) returns (google.protobuf.Empty);
 
+    rpc GetRole(GetRoleIn) returns (GetRoleOut);
     rpc CreateRole(CreateRoleIn) returns (google.protobuf.Empty);
     rpc ListRoles(ListRolesIn) returns (ListRolesOut);
     rpc UpdateRole(UpdateRoleIn) returns (google.protobuf.Empty);
@@ -22,11 +23,64 @@ service RbacService {
     rpc ListResources(ListResourcesIn) returns (ListResourcesOut);
     rpc DeleteResource(DeleteResourceIn) returns (google.protobuf.Empty);
 
+
+    // used on permission update
+    rpc ListResourceType(ListResourceTypeIn) returns (ListResourceTypeOut);
+    rpc ListResourcesByType(ListResourcesByTypeIn) returns (ListResourcesByTypeOut);
+    rpc ListPermissionByResource(ListPermissionByResourceIn) returns (ListPermissionByResourceOut);
+
     rpc AssignRole(AssignRoleIn) returns (google.protobuf.Empty);
     rpc RevokeRole(RevokeRoleIn) returns (google.protobuf.Empty);
 
     rpc GrantPerm(GrantPermIn) returns (google.protobuf.Empty);
     rpc RevokePerm(RevokePermIn) returns (google.protobuf.Empty);
+}
+
+message GetRoleIn{
+    uint64 id = 1;
+}
+
+enum PermissionType{
+    PERMISSION_TYPE_UNSPECIFIED = 0;
+    TUPLE = 1;
+    COMPUTE = 2;
+}
+
+message GetRoleOut{
+    string ns = 1;
+    string name = 2;
+    repeated Permission permissions = 3;
+}
+
+message Permission{
+    string resource_ns = 1;
+    string resource_id = 2;
+    string permission = 3;
+    PermissionType type = 4;
+}
+
+message ListResourceTypeIn{
+}
+
+message ListResourceTypeOut{
+    repeated string types = 1;
+}
+
+message ListResourcesByTypeIn{
+    string type = 1;
+}
+
+message ListResourcesByTypeOut{
+    repeated Instance ids = 1;
+}
+
+message ListPermissionByResourceIn{
+    string resource_ns = 1;
+    string resource_id = 2;
+}
+
+message ListPermissionByResourceOut{
+    repeated string permissions = 1;
 }
 
 

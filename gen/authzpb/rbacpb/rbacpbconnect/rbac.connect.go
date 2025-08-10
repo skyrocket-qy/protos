@@ -40,6 +40,8 @@ const (
 	RbacServiceUpdateUserProcedure = "/authzpb.rbacpb.RbacService/UpdateUser"
 	// RbacServiceDeleteUserProcedure is the fully-qualified name of the RbacService's DeleteUser RPC.
 	RbacServiceDeleteUserProcedure = "/authzpb.rbacpb.RbacService/DeleteUser"
+	// RbacServiceGetRoleProcedure is the fully-qualified name of the RbacService's GetRole RPC.
+	RbacServiceGetRoleProcedure = "/authzpb.rbacpb.RbacService/GetRole"
 	// RbacServiceCreateRoleProcedure is the fully-qualified name of the RbacService's CreateRole RPC.
 	RbacServiceCreateRoleProcedure = "/authzpb.rbacpb.RbacService/CreateRole"
 	// RbacServiceListRolesProcedure is the fully-qualified name of the RbacService's ListRoles RPC.
@@ -57,6 +59,15 @@ const (
 	// RbacServiceDeleteResourceProcedure is the fully-qualified name of the RbacService's
 	// DeleteResource RPC.
 	RbacServiceDeleteResourceProcedure = "/authzpb.rbacpb.RbacService/DeleteResource"
+	// RbacServiceListResourceTypeProcedure is the fully-qualified name of the RbacService's
+	// ListResourceType RPC.
+	RbacServiceListResourceTypeProcedure = "/authzpb.rbacpb.RbacService/ListResourceType"
+	// RbacServiceListResourcesByTypeProcedure is the fully-qualified name of the RbacService's
+	// ListResourcesByType RPC.
+	RbacServiceListResourcesByTypeProcedure = "/authzpb.rbacpb.RbacService/ListResourcesByType"
+	// RbacServiceListPermissionByResourceProcedure is the fully-qualified name of the RbacService's
+	// ListPermissionByResource RPC.
+	RbacServiceListPermissionByResourceProcedure = "/authzpb.rbacpb.RbacService/ListPermissionByResource"
 	// RbacServiceAssignRoleProcedure is the fully-qualified name of the RbacService's AssignRole RPC.
 	RbacServiceAssignRoleProcedure = "/authzpb.rbacpb.RbacService/AssignRole"
 	// RbacServiceRevokeRoleProcedure is the fully-qualified name of the RbacService's RevokeRole RPC.
@@ -72,6 +83,7 @@ type RbacServiceClient interface {
 	ListUsers(context.Context, *connect.Request[rbacpb.ListUsersIn]) (*connect.Response[rbacpb.ListUsersOut], error)
 	UpdateUser(context.Context, *connect.Request[rbacpb.UpdateUserIn]) (*connect.Response[emptypb.Empty], error)
 	DeleteUser(context.Context, *connect.Request[rbacpb.DeleteUserIn]) (*connect.Response[emptypb.Empty], error)
+	GetRole(context.Context, *connect.Request[rbacpb.GetRoleIn]) (*connect.Response[rbacpb.GetRoleOut], error)
 	CreateRole(context.Context, *connect.Request[rbacpb.CreateRoleIn]) (*connect.Response[emptypb.Empty], error)
 	ListRoles(context.Context, *connect.Request[rbacpb.ListRolesIn]) (*connect.Response[rbacpb.ListRolesOut], error)
 	UpdateRole(context.Context, *connect.Request[rbacpb.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error)
@@ -79,6 +91,10 @@ type RbacServiceClient interface {
 	CreateResource(context.Context, *connect.Request[rbacpb.CreateResourceIn]) (*connect.Response[emptypb.Empty], error)
 	ListResources(context.Context, *connect.Request[rbacpb.ListResourcesIn]) (*connect.Response[rbacpb.ListResourcesOut], error)
 	DeleteResource(context.Context, *connect.Request[rbacpb.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
+	// used on permission update
+	ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
+	ListResourcesByType(context.Context, *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error)
+	ListPermissionByResource(context.Context, *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error)
 	AssignRole(context.Context, *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
 	RevokeRole(context.Context, *connect.Request[rbacpb.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error)
 	GrantPerm(context.Context, *connect.Request[rbacpb.GrantPermIn]) (*connect.Response[emptypb.Empty], error)
@@ -112,6 +128,12 @@ func NewRbacServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			httpClient,
 			baseURL+RbacServiceDeleteUserProcedure,
 			connect.WithSchema(rbacServiceMethods.ByName("DeleteUser")),
+			connect.WithClientOptions(opts...),
+		),
+		getRole: connect.NewClient[rbacpb.GetRoleIn, rbacpb.GetRoleOut](
+			httpClient,
+			baseURL+RbacServiceGetRoleProcedure,
+			connect.WithSchema(rbacServiceMethods.ByName("GetRole")),
 			connect.WithClientOptions(opts...),
 		),
 		createRole: connect.NewClient[rbacpb.CreateRoleIn, emptypb.Empty](
@@ -156,6 +178,24 @@ func NewRbacServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(rbacServiceMethods.ByName("DeleteResource")),
 			connect.WithClientOptions(opts...),
 		),
+		listResourceType: connect.NewClient[rbacpb.ListResourceTypeIn, rbacpb.ListResourceTypeOut](
+			httpClient,
+			baseURL+RbacServiceListResourceTypeProcedure,
+			connect.WithSchema(rbacServiceMethods.ByName("ListResourceType")),
+			connect.WithClientOptions(opts...),
+		),
+		listResourcesByType: connect.NewClient[rbacpb.ListResourcesByTypeIn, rbacpb.ListResourcesByTypeOut](
+			httpClient,
+			baseURL+RbacServiceListResourcesByTypeProcedure,
+			connect.WithSchema(rbacServiceMethods.ByName("ListResourcesByType")),
+			connect.WithClientOptions(opts...),
+		),
+		listPermissionByResource: connect.NewClient[rbacpb.ListPermissionByResourceIn, rbacpb.ListPermissionByResourceOut](
+			httpClient,
+			baseURL+RbacServiceListPermissionByResourceProcedure,
+			connect.WithSchema(rbacServiceMethods.ByName("ListPermissionByResource")),
+			connect.WithClientOptions(opts...),
+		),
 		assignRole: connect.NewClient[rbacpb.AssignRoleIn, emptypb.Empty](
 			httpClient,
 			baseURL+RbacServiceAssignRoleProcedure,
@@ -185,20 +225,24 @@ func NewRbacServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 
 // rbacServiceClient implements RbacServiceClient.
 type rbacServiceClient struct {
-	listUsers      *connect.Client[rbacpb.ListUsersIn, rbacpb.ListUsersOut]
-	updateUser     *connect.Client[rbacpb.UpdateUserIn, emptypb.Empty]
-	deleteUser     *connect.Client[rbacpb.DeleteUserIn, emptypb.Empty]
-	createRole     *connect.Client[rbacpb.CreateRoleIn, emptypb.Empty]
-	listRoles      *connect.Client[rbacpb.ListRolesIn, rbacpb.ListRolesOut]
-	updateRole     *connect.Client[rbacpb.UpdateRoleIn, emptypb.Empty]
-	deleteRole     *connect.Client[rbacpb.DeleteRoleIn, emptypb.Empty]
-	createResource *connect.Client[rbacpb.CreateResourceIn, emptypb.Empty]
-	listResources  *connect.Client[rbacpb.ListResourcesIn, rbacpb.ListResourcesOut]
-	deleteResource *connect.Client[rbacpb.DeleteResourceIn, emptypb.Empty]
-	assignRole     *connect.Client[rbacpb.AssignRoleIn, emptypb.Empty]
-	revokeRole     *connect.Client[rbacpb.RevokeRoleIn, emptypb.Empty]
-	grantPerm      *connect.Client[rbacpb.GrantPermIn, emptypb.Empty]
-	revokePerm     *connect.Client[rbacpb.RevokePermIn, emptypb.Empty]
+	listUsers                *connect.Client[rbacpb.ListUsersIn, rbacpb.ListUsersOut]
+	updateUser               *connect.Client[rbacpb.UpdateUserIn, emptypb.Empty]
+	deleteUser               *connect.Client[rbacpb.DeleteUserIn, emptypb.Empty]
+	getRole                  *connect.Client[rbacpb.GetRoleIn, rbacpb.GetRoleOut]
+	createRole               *connect.Client[rbacpb.CreateRoleIn, emptypb.Empty]
+	listRoles                *connect.Client[rbacpb.ListRolesIn, rbacpb.ListRolesOut]
+	updateRole               *connect.Client[rbacpb.UpdateRoleIn, emptypb.Empty]
+	deleteRole               *connect.Client[rbacpb.DeleteRoleIn, emptypb.Empty]
+	createResource           *connect.Client[rbacpb.CreateResourceIn, emptypb.Empty]
+	listResources            *connect.Client[rbacpb.ListResourcesIn, rbacpb.ListResourcesOut]
+	deleteResource           *connect.Client[rbacpb.DeleteResourceIn, emptypb.Empty]
+	listResourceType         *connect.Client[rbacpb.ListResourceTypeIn, rbacpb.ListResourceTypeOut]
+	listResourcesByType      *connect.Client[rbacpb.ListResourcesByTypeIn, rbacpb.ListResourcesByTypeOut]
+	listPermissionByResource *connect.Client[rbacpb.ListPermissionByResourceIn, rbacpb.ListPermissionByResourceOut]
+	assignRole               *connect.Client[rbacpb.AssignRoleIn, emptypb.Empty]
+	revokeRole               *connect.Client[rbacpb.RevokeRoleIn, emptypb.Empty]
+	grantPerm                *connect.Client[rbacpb.GrantPermIn, emptypb.Empty]
+	revokePerm               *connect.Client[rbacpb.RevokePermIn, emptypb.Empty]
 }
 
 // ListUsers calls authzpb.rbacpb.RbacService.ListUsers.
@@ -214,6 +258,11 @@ func (c *rbacServiceClient) UpdateUser(ctx context.Context, req *connect.Request
 // DeleteUser calls authzpb.rbacpb.RbacService.DeleteUser.
 func (c *rbacServiceClient) DeleteUser(ctx context.Context, req *connect.Request[rbacpb.DeleteUserIn]) (*connect.Response[emptypb.Empty], error) {
 	return c.deleteUser.CallUnary(ctx, req)
+}
+
+// GetRole calls authzpb.rbacpb.RbacService.GetRole.
+func (c *rbacServiceClient) GetRole(ctx context.Context, req *connect.Request[rbacpb.GetRoleIn]) (*connect.Response[rbacpb.GetRoleOut], error) {
+	return c.getRole.CallUnary(ctx, req)
 }
 
 // CreateRole calls authzpb.rbacpb.RbacService.CreateRole.
@@ -251,6 +300,21 @@ func (c *rbacServiceClient) DeleteResource(ctx context.Context, req *connect.Req
 	return c.deleteResource.CallUnary(ctx, req)
 }
 
+// ListResourceType calls authzpb.rbacpb.RbacService.ListResourceType.
+func (c *rbacServiceClient) ListResourceType(ctx context.Context, req *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
+	return c.listResourceType.CallUnary(ctx, req)
+}
+
+// ListResourcesByType calls authzpb.rbacpb.RbacService.ListResourcesByType.
+func (c *rbacServiceClient) ListResourcesByType(ctx context.Context, req *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error) {
+	return c.listResourcesByType.CallUnary(ctx, req)
+}
+
+// ListPermissionByResource calls authzpb.rbacpb.RbacService.ListPermissionByResource.
+func (c *rbacServiceClient) ListPermissionByResource(ctx context.Context, req *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error) {
+	return c.listPermissionByResource.CallUnary(ctx, req)
+}
+
 // AssignRole calls authzpb.rbacpb.RbacService.AssignRole.
 func (c *rbacServiceClient) AssignRole(ctx context.Context, req *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error) {
 	return c.assignRole.CallUnary(ctx, req)
@@ -276,6 +340,7 @@ type RbacServiceHandler interface {
 	ListUsers(context.Context, *connect.Request[rbacpb.ListUsersIn]) (*connect.Response[rbacpb.ListUsersOut], error)
 	UpdateUser(context.Context, *connect.Request[rbacpb.UpdateUserIn]) (*connect.Response[emptypb.Empty], error)
 	DeleteUser(context.Context, *connect.Request[rbacpb.DeleteUserIn]) (*connect.Response[emptypb.Empty], error)
+	GetRole(context.Context, *connect.Request[rbacpb.GetRoleIn]) (*connect.Response[rbacpb.GetRoleOut], error)
 	CreateRole(context.Context, *connect.Request[rbacpb.CreateRoleIn]) (*connect.Response[emptypb.Empty], error)
 	ListRoles(context.Context, *connect.Request[rbacpb.ListRolesIn]) (*connect.Response[rbacpb.ListRolesOut], error)
 	UpdateRole(context.Context, *connect.Request[rbacpb.UpdateRoleIn]) (*connect.Response[emptypb.Empty], error)
@@ -283,6 +348,10 @@ type RbacServiceHandler interface {
 	CreateResource(context.Context, *connect.Request[rbacpb.CreateResourceIn]) (*connect.Response[emptypb.Empty], error)
 	ListResources(context.Context, *connect.Request[rbacpb.ListResourcesIn]) (*connect.Response[rbacpb.ListResourcesOut], error)
 	DeleteResource(context.Context, *connect.Request[rbacpb.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
+	// used on permission update
+	ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
+	ListResourcesByType(context.Context, *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error)
+	ListPermissionByResource(context.Context, *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error)
 	AssignRole(context.Context, *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
 	RevokeRole(context.Context, *connect.Request[rbacpb.RevokeRoleIn]) (*connect.Response[emptypb.Empty], error)
 	GrantPerm(context.Context, *connect.Request[rbacpb.GrantPermIn]) (*connect.Response[emptypb.Empty], error)
@@ -312,6 +381,12 @@ func NewRbacServiceHandler(svc RbacServiceHandler, opts ...connect.HandlerOption
 		RbacServiceDeleteUserProcedure,
 		svc.DeleteUser,
 		connect.WithSchema(rbacServiceMethods.ByName("DeleteUser")),
+		connect.WithHandlerOptions(opts...),
+	)
+	rbacServiceGetRoleHandler := connect.NewUnaryHandler(
+		RbacServiceGetRoleProcedure,
+		svc.GetRole,
+		connect.WithSchema(rbacServiceMethods.ByName("GetRole")),
 		connect.WithHandlerOptions(opts...),
 	)
 	rbacServiceCreateRoleHandler := connect.NewUnaryHandler(
@@ -356,6 +431,24 @@ func NewRbacServiceHandler(svc RbacServiceHandler, opts ...connect.HandlerOption
 		connect.WithSchema(rbacServiceMethods.ByName("DeleteResource")),
 		connect.WithHandlerOptions(opts...),
 	)
+	rbacServiceListResourceTypeHandler := connect.NewUnaryHandler(
+		RbacServiceListResourceTypeProcedure,
+		svc.ListResourceType,
+		connect.WithSchema(rbacServiceMethods.ByName("ListResourceType")),
+		connect.WithHandlerOptions(opts...),
+	)
+	rbacServiceListResourcesByTypeHandler := connect.NewUnaryHandler(
+		RbacServiceListResourcesByTypeProcedure,
+		svc.ListResourcesByType,
+		connect.WithSchema(rbacServiceMethods.ByName("ListResourcesByType")),
+		connect.WithHandlerOptions(opts...),
+	)
+	rbacServiceListPermissionByResourceHandler := connect.NewUnaryHandler(
+		RbacServiceListPermissionByResourceProcedure,
+		svc.ListPermissionByResource,
+		connect.WithSchema(rbacServiceMethods.ByName("ListPermissionByResource")),
+		connect.WithHandlerOptions(opts...),
+	)
 	rbacServiceAssignRoleHandler := connect.NewUnaryHandler(
 		RbacServiceAssignRoleProcedure,
 		svc.AssignRole,
@@ -388,6 +481,8 @@ func NewRbacServiceHandler(svc RbacServiceHandler, opts ...connect.HandlerOption
 			rbacServiceUpdateUserHandler.ServeHTTP(w, r)
 		case RbacServiceDeleteUserProcedure:
 			rbacServiceDeleteUserHandler.ServeHTTP(w, r)
+		case RbacServiceGetRoleProcedure:
+			rbacServiceGetRoleHandler.ServeHTTP(w, r)
 		case RbacServiceCreateRoleProcedure:
 			rbacServiceCreateRoleHandler.ServeHTTP(w, r)
 		case RbacServiceListRolesProcedure:
@@ -402,6 +497,12 @@ func NewRbacServiceHandler(svc RbacServiceHandler, opts ...connect.HandlerOption
 			rbacServiceListResourcesHandler.ServeHTTP(w, r)
 		case RbacServiceDeleteResourceProcedure:
 			rbacServiceDeleteResourceHandler.ServeHTTP(w, r)
+		case RbacServiceListResourceTypeProcedure:
+			rbacServiceListResourceTypeHandler.ServeHTTP(w, r)
+		case RbacServiceListResourcesByTypeProcedure:
+			rbacServiceListResourcesByTypeHandler.ServeHTTP(w, r)
+		case RbacServiceListPermissionByResourceProcedure:
+			rbacServiceListPermissionByResourceHandler.ServeHTTP(w, r)
 		case RbacServiceAssignRoleProcedure:
 			rbacServiceAssignRoleHandler.ServeHTTP(w, r)
 		case RbacServiceRevokeRoleProcedure:
@@ -431,6 +532,10 @@ func (UnimplementedRbacServiceHandler) DeleteUser(context.Context, *connect.Requ
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.DeleteUser is not implemented"))
 }
 
+func (UnimplementedRbacServiceHandler) GetRole(context.Context, *connect.Request[rbacpb.GetRoleIn]) (*connect.Response[rbacpb.GetRoleOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.GetRole is not implemented"))
+}
+
 func (UnimplementedRbacServiceHandler) CreateRole(context.Context, *connect.Request[rbacpb.CreateRoleIn]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.CreateRole is not implemented"))
 }
@@ -457,6 +562,18 @@ func (UnimplementedRbacServiceHandler) ListResources(context.Context, *connect.R
 
 func (UnimplementedRbacServiceHandler) DeleteResource(context.Context, *connect.Request[rbacpb.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.DeleteResource is not implemented"))
+}
+
+func (UnimplementedRbacServiceHandler) ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.ListResourceType is not implemented"))
+}
+
+func (UnimplementedRbacServiceHandler) ListResourcesByType(context.Context, *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.ListResourcesByType is not implemented"))
+}
+
+func (UnimplementedRbacServiceHandler) ListPermissionByResource(context.Context, *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.ListPermissionByResource is not implemented"))
 }
 
 func (UnimplementedRbacServiceHandler) AssignRole(context.Context, *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error) {
