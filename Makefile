@@ -7,6 +7,7 @@ bk:
 genpb:
 	rm -rf gen/*
 	rm -rf gen-ts/*
+	rm -rf gen-js/*
 	buf lint
 	rm -rf gen/*
 	buf generate
