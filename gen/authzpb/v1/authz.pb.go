@@ -23,20 +23,70 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Vertex struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Ns            string                 `protobuf:"bytes,1,opt,name=ns,proto3" json:"ns,omitempty"`
+	Id            string                 `protobuf:"bytes,2,opt,name=id,proto3" json:"id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Vertex) Reset() {
+	*x = Vertex{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Vertex) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Vertex) ProtoMessage() {}
+
+func (x *Vertex) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Vertex.ProtoReflect.Descriptor instead.
+func (*Vertex) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Vertex) GetNs() string {
+	if x != nil {
+		return x.Ns
+	}
+	return ""
+}
+
+func (x *Vertex) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 type CheckIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SbjNs         string                 `protobuf:"bytes,1,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
-	SbjId         string                 `protobuf:"bytes,2,opt,name=sbj_id,json=sbjId,proto3" json:"sbj_id,omitempty"`
-	Rel           string                 `protobuf:"bytes,3,opt,name=rel,proto3" json:"rel,omitempty"`
-	ObjNs         string                 `protobuf:"bytes,4,opt,name=obj_ns,json=objNs,proto3" json:"obj_ns,omitempty"`
-	ObjId         string                 `protobuf:"bytes,5,opt,name=obj_id,json=objId,proto3" json:"obj_id,omitempty"`
+	Sbj           *Vertex                `protobuf:"bytes,1,opt,name=sbj,proto3" json:"sbj,omitempty"`
+	Rel           string                 `protobuf:"bytes,2,opt,name=rel,proto3" json:"rel,omitempty"`
+	Obj           *Vertex                `protobuf:"bytes,3,opt,name=obj,proto3" json:"obj,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CheckIn) Reset() {
 	*x = CheckIn{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -48,7 +98,7 @@ func (x *CheckIn) String() string {
 func (*CheckIn) ProtoMessage() {}
 
 func (x *CheckIn) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[0]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -61,21 +111,14 @@ func (x *CheckIn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckIn.ProtoReflect.Descriptor instead.
 func (*CheckIn) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *CheckIn) GetSbjNs() string {
+func (x *CheckIn) GetSbj() *Vertex {
 	if x != nil {
-		return x.SbjNs
+		return x.Sbj
 	}
-	return ""
-}
-
-func (x *CheckIn) GetSbjId() string {
-	if x != nil {
-		return x.SbjId
-	}
-	return ""
+	return nil
 }
 
 func (x *CheckIn) GetRel() string {
@@ -85,18 +128,11 @@ func (x *CheckIn) GetRel() string {
 	return ""
 }
 
-func (x *CheckIn) GetObjNs() string {
+func (x *CheckIn) GetObj() *Vertex {
 	if x != nil {
-		return x.ObjNs
+		return x.Obj
 	}
-	return ""
-}
-
-func (x *CheckIn) GetObjId() string {
-	if x != nil {
-		return x.ObjId
-	}
-	return ""
+	return nil
 }
 
 type CheckOut struct {
@@ -108,7 +144,7 @@ type CheckOut struct {
 
 func (x *CheckOut) Reset() {
 	*x = CheckOut{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -120,7 +156,7 @@ func (x *CheckOut) String() string {
 func (*CheckOut) ProtoMessage() {}
 
 func (x *CheckOut) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[1]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -133,7 +169,7 @@ func (x *CheckOut) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CheckOut.ProtoReflect.Descriptor instead.
 func (*CheckOut) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{1}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *CheckOut) GetIsAllowed() bool {
@@ -157,7 +193,7 @@ type Tuple struct {
 
 func (x *Tuple) Reset() {
 	*x = Tuple{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -169,7 +205,7 @@ func (x *Tuple) String() string {
 func (*Tuple) ProtoMessage() {}
 
 func (x *Tuple) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[2]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -182,7 +218,7 @@ func (x *Tuple) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Tuple.ProtoReflect.Descriptor instead.
 func (*Tuple) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{2}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Tuple) GetId() uint64 {
@@ -240,7 +276,7 @@ type TupleFilter struct {
 
 func (x *TupleFilter) Reset() {
 	*x = TupleFilter{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -252,7 +288,7 @@ func (x *TupleFilter) String() string {
 func (*TupleFilter) ProtoMessage() {}
 
 func (x *TupleFilter) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[3]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -265,7 +301,7 @@ func (x *TupleFilter) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TupleFilter.ProtoReflect.Descriptor instead.
 func (*TupleFilter) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{3}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *TupleFilter) GetSbjNs() string {
@@ -316,7 +352,7 @@ type ListTuplesIn struct {
 
 func (x *ListTuplesIn) Reset() {
 	*x = ListTuplesIn{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -328,7 +364,7 @@ func (x *ListTuplesIn) String() string {
 func (*ListTuplesIn) ProtoMessage() {}
 
 func (x *ListTuplesIn) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[4]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -341,7 +377,7 @@ func (x *ListTuplesIn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTuplesIn.ProtoReflect.Descriptor instead.
 func (*ListTuplesIn) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{4}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ListTuplesIn) GetFilters() []*v1.Filter {
@@ -375,7 +411,7 @@ type ListTuplesOut struct {
 
 func (x *ListTuplesOut) Reset() {
 	*x = ListTuplesOut{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -387,7 +423,7 @@ func (x *ListTuplesOut) String() string {
 func (*ListTuplesOut) ProtoMessage() {}
 
 func (x *ListTuplesOut) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[5]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -400,7 +436,7 @@ func (x *ListTuplesOut) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListTuplesOut.ProtoReflect.Descriptor instead.
 func (*ListTuplesOut) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{5}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *ListTuplesOut) GetTuples() []*Tuple {
@@ -427,7 +463,7 @@ type Instance struct {
 
 func (x *Instance) Reset() {
 	*x = Instance{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[6]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -439,7 +475,7 @@ func (x *Instance) String() string {
 func (*Instance) ProtoMessage() {}
 
 func (x *Instance) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[6]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -452,7 +488,7 @@ func (x *Instance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Instance.ProtoReflect.Descriptor instead.
 func (*Instance) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{6}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Instance) GetNs() string {
@@ -479,7 +515,7 @@ type TreeNode struct {
 
 func (x *TreeNode) Reset() {
 	*x = TreeNode{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[7]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -491,7 +527,7 @@ func (x *TreeNode) String() string {
 func (*TreeNode) ProtoMessage() {}
 
 func (x *TreeNode) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[7]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -504,7 +540,7 @@ func (x *TreeNode) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TreeNode.ProtoReflect.Descriptor instead.
 func (*TreeNode) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{7}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *TreeNode) GetRoot() *Instance {
@@ -535,7 +571,7 @@ type DeleteTuplesIn struct {
 
 func (x *DeleteTuplesIn) Reset() {
 	*x = DeleteTuplesIn{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -547,7 +583,7 @@ func (x *DeleteTuplesIn) String() string {
 func (*DeleteTuplesIn) ProtoMessage() {}
 
 func (x *DeleteTuplesIn) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[8]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -560,7 +596,7 @@ func (x *DeleteTuplesIn) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTuplesIn.ProtoReflect.Descriptor instead.
 func (*DeleteTuplesIn) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{8}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *DeleteTuplesIn) GetMode() isDeleteTuplesIn_Mode {
@@ -628,7 +664,7 @@ type DeleteTuples struct {
 
 func (x *DeleteTuples) Reset() {
 	*x = DeleteTuples{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -640,7 +676,7 @@ func (x *DeleteTuples) String() string {
 func (*DeleteTuples) ProtoMessage() {}
 
 func (x *DeleteTuples) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[9]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -653,7 +689,7 @@ func (x *DeleteTuples) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTuples.ProtoReflect.Descriptor instead.
 func (*DeleteTuples) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{9}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *DeleteTuples) GetTuples() []*Tuple {
@@ -672,7 +708,7 @@ type DeleteTupleIds struct {
 
 func (x *DeleteTupleIds) Reset() {
 	*x = DeleteTupleIds{}
-	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -684,7 +720,7 @@ func (x *DeleteTupleIds) String() string {
 func (*DeleteTupleIds) ProtoMessage() {}
 
 func (x *DeleteTupleIds) ProtoReflect() protoreflect.Message {
-	mi := &file_authzpb_v1_authz_proto_msgTypes[10]
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -697,7 +733,7 @@ func (x *DeleteTupleIds) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteTupleIds.ProtoReflect.Descriptor instead.
 func (*DeleteTupleIds) Descriptor() ([]byte, []int) {
-	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{10}
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *DeleteTupleIds) GetIds() []uint64 {
@@ -712,13 +748,14 @@ var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\n" +
 	"\x16authzpb/v1/authz.proto\x12\n" +
-	"authzpb.v1\x1a\x1bgoogle/protobuf/empty.proto\x1a\x12pkgpb/v1/pkg.proto\"w\n" +
-	"\aCheckIn\x12\x15\n" +
-	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
-	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
-	"\x03rel\x18\x03 \x01(\tR\x03rel\x12\x15\n" +
-	"\x06obj_ns\x18\x04 \x01(\tR\x05objNs\x12\x15\n" +
-	"\x06obj_id\x18\x05 \x01(\tR\x05objId\")\n" +
+	"authzpb.v1\x1a\x1bgoogle/protobuf/empty.proto\x1a\x12pkgpb/v1/pkg.proto\"(\n" +
+	"\x06Vertex\x12\x0e\n" +
+	"\x02ns\x18\x01 \x01(\tR\x02ns\x12\x0e\n" +
+	"\x02id\x18\x02 \x01(\tR\x02id\"g\n" +
+	"\aCheckIn\x12$\n" +
+	"\x03sbj\x18\x01 \x01(\v2\x12.authzpb.v1.VertexR\x03sbj\x12\x10\n" +
+	"\x03rel\x18\x02 \x01(\tR\x03rel\x12$\n" +
+	"\x03obj\x18\x03 \x01(\v2\x12.authzpb.v1.VertexR\x03obj\")\n" +
 	"\bCheckOut\x12\x1d\n" +
 	"\n" +
 	"is_allowed\x18\x01 \x01(\bR\tisAllowed\"\x85\x01\n" +
@@ -789,50 +826,53 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 13)
 var file_authzpb_v1_authz_proto_goTypes = []any{
-	(*CheckIn)(nil),        // 0: authzpb.v1.CheckIn
-	(*CheckOut)(nil),       // 1: authzpb.v1.CheckOut
-	(*Tuple)(nil),          // 2: authzpb.v1.Tuple
-	(*TupleFilter)(nil),    // 3: authzpb.v1.TupleFilter
-	(*ListTuplesIn)(nil),   // 4: authzpb.v1.ListTuplesIn
-	(*ListTuplesOut)(nil),  // 5: authzpb.v1.ListTuplesOut
-	(*Instance)(nil),       // 6: authzpb.v1.Instance
-	(*TreeNode)(nil),       // 7: authzpb.v1.TreeNode
-	(*DeleteTuplesIn)(nil), // 8: authzpb.v1.DeleteTuplesIn
-	(*DeleteTuples)(nil),   // 9: authzpb.v1.DeleteTuples
-	(*DeleteTupleIds)(nil), // 10: authzpb.v1.DeleteTupleIds
-	nil,                    // 11: authzpb.v1.TreeNode.ChildrenEntry
-	(*v1.Filter)(nil),      // 12: pkgpb.v1.Filter
-	(*v1.Sorter)(nil),      // 13: pkgpb.v1.Sorter
-	(*v1.Cursor)(nil),      // 14: pkgpb.v1.Cursor
-	(*emptypb.Empty)(nil),  // 15: google.protobuf.Empty
+	(*Vertex)(nil),         // 0: authzpb.v1.Vertex
+	(*CheckIn)(nil),        // 1: authzpb.v1.CheckIn
+	(*CheckOut)(nil),       // 2: authzpb.v1.CheckOut
+	(*Tuple)(nil),          // 3: authzpb.v1.Tuple
+	(*TupleFilter)(nil),    // 4: authzpb.v1.TupleFilter
+	(*ListTuplesIn)(nil),   // 5: authzpb.v1.ListTuplesIn
+	(*ListTuplesOut)(nil),  // 6: authzpb.v1.ListTuplesOut
+	(*Instance)(nil),       // 7: authzpb.v1.Instance
+	(*TreeNode)(nil),       // 8: authzpb.v1.TreeNode
+	(*DeleteTuplesIn)(nil), // 9: authzpb.v1.DeleteTuplesIn
+	(*DeleteTuples)(nil),   // 10: authzpb.v1.DeleteTuples
+	(*DeleteTupleIds)(nil), // 11: authzpb.v1.DeleteTupleIds
+	nil,                    // 12: authzpb.v1.TreeNode.ChildrenEntry
+	(*v1.Filter)(nil),      // 13: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),      // 14: pkgpb.v1.Sorter
+	(*v1.Cursor)(nil),      // 15: pkgpb.v1.Cursor
+	(*emptypb.Empty)(nil),  // 16: google.protobuf.Empty
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	12, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
-	13, // 1: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
-	14, // 2: authzpb.v1.ListTuplesIn.cursor:type_name -> pkgpb.v1.Cursor
-	2,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
-	6,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	11, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	9,  // 6: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.DeleteTuples
-	3,  // 7: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
-	10, // 8: authzpb.v1.DeleteTuplesIn.ids:type_name -> authzpb.v1.DeleteTupleIds
-	2,  // 9: authzpb.v1.DeleteTuples.tuples:type_name -> authzpb.v1.Tuple
-	7,  // 10: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	2,  // 11: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
-	4,  // 12: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
-	8,  // 13: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
-	0,  // 14: authzpb.v1.AuthzService.Check:input_type -> authzpb.v1.CheckIn
-	15, // 15: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
-	5,  // 16: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
-	15, // 17: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
-	1,  // 18: authzpb.v1.AuthzService.Check:output_type -> authzpb.v1.CheckOut
-	15, // [15:19] is the sub-list for method output_type
-	11, // [11:15] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	0,  // 0: authzpb.v1.CheckIn.sbj:type_name -> authzpb.v1.Vertex
+	0,  // 1: authzpb.v1.CheckIn.obj:type_name -> authzpb.v1.Vertex
+	13, // 2: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
+	14, // 3: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
+	15, // 4: authzpb.v1.ListTuplesIn.cursor:type_name -> pkgpb.v1.Cursor
+	3,  // 5: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
+	7,  // 6: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
+	12, // 7: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	10, // 8: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.DeleteTuples
+	4,  // 9: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
+	11, // 10: authzpb.v1.DeleteTuplesIn.ids:type_name -> authzpb.v1.DeleteTupleIds
+	3,  // 11: authzpb.v1.DeleteTuples.tuples:type_name -> authzpb.v1.Tuple
+	8,  // 12: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	3,  // 13: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
+	5,  // 14: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
+	9,  // 15: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
+	1,  // 16: authzpb.v1.AuthzService.Check:input_type -> authzpb.v1.CheckIn
+	16, // 17: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
+	6,  // 18: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
+	16, // 19: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
+	2,  // 20: authzpb.v1.AuthzService.Check:output_type -> authzpb.v1.CheckOut
+	17, // [17:21] is the sub-list for method output_type
+	13, // [13:17] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -840,8 +880,8 @@ func file_authzpb_v1_authz_proto_init() {
 	if File_authzpb_v1_authz_proto != nil {
 		return
 	}
-	file_authzpb_v1_authz_proto_msgTypes[3].OneofWrappers = []any{}
-	file_authzpb_v1_authz_proto_msgTypes[8].OneofWrappers = []any{
+	file_authzpb_v1_authz_proto_msgTypes[4].OneofWrappers = []any{}
+	file_authzpb_v1_authz_proto_msgTypes[9].OneofWrappers = []any{
 		(*DeleteTuplesIn_Tuples)(nil),
 		(*DeleteTuplesIn_Filter)(nil),
 		(*DeleteTuplesIn_Ids)(nil),
@@ -852,7 +892,7 @@ func file_authzpb_v1_authz_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   13,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

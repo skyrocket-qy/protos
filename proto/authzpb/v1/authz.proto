@@ -14,12 +14,15 @@ service AuthzService {
     rpc Check(CheckIn) returns (CheckOut);
 }
 
+message Vertex {
+    string ns = 1;
+    string id = 2;
+}
+
 message CheckIn {
-    string sbj_ns = 1;
-    string sbj_id = 2;
-    string rel = 3;
-    string obj_ns = 4;
-    string obj_id = 5;
+    Vertex sbj = 1;
+    string rel = 2;
+    Vertex obj = 3;
 }
 
 message CheckOut {
