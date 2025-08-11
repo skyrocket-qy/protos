@@ -14,48 +14,36 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file authzpb/v1/authz.proto.
  */
 export const file_authzpb_v1_authz: GenFile = /*@__PURE__*/
-  fileDesc("ChZhdXRoenBiL3YxL2F1dGh6LnByb3RvEgphdXRoenBiLnYxIiAKBlZlcnRleBIKCgJucxgBIAEoCRIKCgJpZBgCIAEoCSJYCgdDaGVja0luEh8KA3NiahgBIAEoCzISLmF1dGh6cGIudjEuVmVydGV4EgsKA3JlbBgCIAEoCRIfCgNvYmoYAyABKAsyEi5hdXRoenBiLnYxLlZlcnRleCIeCghDaGVja091dBISCgppc19hbGxvd2VkGAEgASgIImAKBVR1cGxlEgoKAmlkGAEgASgEEg4KBnNial9ucxgCIAEoCRIOCgZzYmpfaWQYAyABKAkSCwoDcmVsGAQgASgJEg4KBm9ial9ucxgFIAEoCRIOCgZvYmpfaWQYBiABKAkipwEKC1R1cGxlRmlsdGVyEhMKBnNial9ucxgBIAEoCUgAiAEBEhMKBnNial9pZBgCIAEoCUgBiAEBEhAKA3JlbBgDIAEoCUgCiAEBEhMKBm9ial9ucxgEIAEoCUgDiAEBEhMKBm9ial9pZBgFIAEoCUgEiAEBQgkKB19zYmpfbnNCCQoHX3Nial9pZEIGCgRfcmVsQgkKB19vYmpfbnNCCQoHX29ial9pZCJ2CgxMaXN0VHVwbGVzSW4SIQoHZmlsdGVycxgBIAMoCzIQLnBrZ3BiLnYxLkZpbHRlchIhCgdzb3J0ZXJzGAIgAygLMhAucGtncGIudjEuU29ydGVyEiAKBmN1cnNvchgDIAEoCzIQLnBrZ3BiLnYxLkN1cnNvciJHCg1MaXN0VHVwbGVzT3V0EiEKBnR1cGxlcxgBIAMoCzIRLmF1dGh6cGIudjEuVHVwbGUSEwoLbmV4dF9jdXJzb3IYAiABKAwiIgoISW5zdGFuY2USCgoCbnMYASABKAkSCgoCaWQYAiABKAkiqwEKCFRyZWVOb2RlEiIKBHJvb3QYASABKAsyFC5hdXRoenBiLnYxLkluc3RhbmNlEjQKCGNoaWxkcmVuGAIgAygLMiIuYXV0aHpwYi52MS5UcmVlTm9kZS5DaGlsZHJlbkVudHJ5GkUKDUNoaWxkcmVuRW50cnkSCwoDa2V5GAEgASgJEiMKBXZhbHVlGAIgASgLMhQuYXV0aHpwYi52MS5UcmVlTm9kZToCOAEimgEKDkRlbGV0ZVR1cGxlc0luEioKBnR1cGxlcxgBIAEoCzIYLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVzSAASKQoGZmlsdGVyGAIgASgLMhcuYXV0aHpwYi52MS5UdXBsZUZpbHRlckgAEikKA2lkcxgDIAEoCzIaLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVJZHNIAEIGCgRtb2RlIjEKDERlbGV0ZVR1cGxlcxIhCgZ0dXBsZXMYASADKAsyES5hdXRoenBiLnYxLlR1cGxlIh0KDkRlbGV0ZVR1cGxlSWRzEgsKA2lkcxgBIAMoBDKDAgoMQXV0aHpTZXJ2aWNlEjgKC0NyZWF0ZVR1cGxlEhEuYXV0aHpwYi52MS5UdXBsZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJBCgpMaXN0VHVwbGVzEhguYXV0aHpwYi52MS5MaXN0VHVwbGVzSW4aGS5hdXRoenBiLnYxLkxpc3RUdXBsZXNPdXQSQgoMRGVsZXRlVHVwbGVzEhouYXV0aHpwYi52MS5EZWxldGVUdXBsZXNJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRIyCgVDaGVjaxITLmF1dGh6cGIudjEuQ2hlY2tJbhoULmF1dGh6cGIudjEuQ2hlY2tPdXRCngEKDmNvbS5hdXRoenBiLnYxQgpBdXRoelByb3RvUAFaN2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi92MTthdXRoenBidjGiAgNBWFiqAgpBdXRoenBiLlYxygIKQXV0aHpwYlxWMeICFkF1dGh6cGJcVjFcR1BCTWV0YWRhdGHqAgtBdXRoenBiOjpWMWIGcHJvdG8z", [file_google_protobuf_empty, file_pkgpb_v1_pkg]);
-
-/**
- * @generated from message authzpb.v1.Vertex
- */
-export type Vertex = Message<"authzpb.v1.Vertex"> & {
-  /**
-   * @generated from field: string ns = 1;
-   */
-  ns: string;
-
-  /**
-   * @generated from field: string id = 2;
-   */
-  id: string;
-};
-
-/**
- * Describes the message authzpb.v1.Vertex.
- * Use `create(VertexSchema)` to create a new message.
- */
-export const VertexSchema: GenMessage<Vertex> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 0);
+  fileDesc("ChZhdXRoenBiL3YxL2F1dGh6LnByb3RvEgphdXRoenBiLnYxIlYKB0NoZWNrSW4SDgoGc2JqX25zGAEgASgJEg4KBnNial9pZBgCIAEoCRILCgNyZWwYAyABKAkSDgoGb2JqX25zGAQgASgJEg4KBm9ial9pZBgFIAEoCSIeCghDaGVja091dBISCgppc19hbGxvd2VkGAEgASgIImAKBVR1cGxlEgoKAmlkGAEgASgEEg4KBnNial9ucxgCIAEoCRIOCgZzYmpfaWQYAyABKAkSCwoDcmVsGAQgASgJEg4KBm9ial9ucxgFIAEoCRIOCgZvYmpfaWQYBiABKAkipwEKC1R1cGxlRmlsdGVyEhMKBnNial9ucxgBIAEoCUgAiAEBEhMKBnNial9pZBgCIAEoCUgBiAEBEhAKA3JlbBgDIAEoCUgCiAEBEhMKBm9ial9ucxgEIAEoCUgDiAEBEhMKBm9ial9pZBgFIAEoCUgEiAEBQgkKB19zYmpfbnNCCQoHX3Nial9pZEIGCgRfcmVsQgkKB19vYmpfbnNCCQoHX29ial9pZCJ2CgxMaXN0VHVwbGVzSW4SIQoHZmlsdGVycxgBIAMoCzIQLnBrZ3BiLnYxLkZpbHRlchIhCgdzb3J0ZXJzGAIgAygLMhAucGtncGIudjEuU29ydGVyEiAKBmN1cnNvchgDIAEoCzIQLnBrZ3BiLnYxLkN1cnNvciJHCg1MaXN0VHVwbGVzT3V0EiEKBnR1cGxlcxgBIAMoCzIRLmF1dGh6cGIudjEuVHVwbGUSEwoLbmV4dF9jdXJzb3IYAiABKAwiIgoISW5zdGFuY2USCgoCbnMYASABKAkSCgoCaWQYAiABKAkiqwEKCFRyZWVOb2RlEiIKBHJvb3QYASABKAsyFC5hdXRoenBiLnYxLkluc3RhbmNlEjQKCGNoaWxkcmVuGAIgAygLMiIuYXV0aHpwYi52MS5UcmVlTm9kZS5DaGlsZHJlbkVudHJ5GkUKDUNoaWxkcmVuRW50cnkSCwoDa2V5GAEgASgJEiMKBXZhbHVlGAIgASgLMhQuYXV0aHpwYi52MS5UcmVlTm9kZToCOAEimgEKDkRlbGV0ZVR1cGxlc0luEioKBnR1cGxlcxgBIAEoCzIYLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVzSAASKQoGZmlsdGVyGAIgASgLMhcuYXV0aHpwYi52MS5UdXBsZUZpbHRlckgAEikKA2lkcxgDIAEoCzIaLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVJZHNIAEIGCgRtb2RlIjEKDERlbGV0ZVR1cGxlcxIhCgZ0dXBsZXMYASADKAsyES5hdXRoenBiLnYxLlR1cGxlIh0KDkRlbGV0ZVR1cGxlSWRzEgsKA2lkcxgBIAMoBDKDAgoMQXV0aHpTZXJ2aWNlEjgKC0NyZWF0ZVR1cGxlEhEuYXV0aHpwYi52MS5UdXBsZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJBCgpMaXN0VHVwbGVzEhguYXV0aHpwYi52MS5MaXN0VHVwbGVzSW4aGS5hdXRoenBiLnYxLkxpc3RUdXBsZXNPdXQSQgoMRGVsZXRlVHVwbGVzEhouYXV0aHpwYi52MS5EZWxldGVUdXBsZXNJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRIyCgVDaGVjaxITLmF1dGh6cGIudjEuQ2hlY2tJbhoULmF1dGh6cGIudjEuQ2hlY2tPdXRCngEKDmNvbS5hdXRoenBiLnYxQgpBdXRoelByb3RvUAFaN2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi92MTthdXRoenBidjGiAgNBWFiqAgpBdXRoenBiLlYxygIKQXV0aHpwYlxWMeICFkF1dGh6cGJcVjFcR1BCTWV0YWRhdGHqAgtBdXRoenBiOjpWMWIGcHJvdG8z", [file_google_protobuf_empty, file_pkgpb_v1_pkg]);
 
 /**
  * @generated from message authzpb.v1.CheckIn
  */
 export type CheckIn = Message<"authzpb.v1.CheckIn"> & {
   /**
-   * @generated from field: authzpb.v1.Vertex sbj = 1;
+   * @generated from field: string sbj_ns = 1;
    */
-  sbj?: Vertex;
+  sbjNs: string;
 
   /**
-   * @generated from field: string rel = 2;
+   * @generated from field: string sbj_id = 2;
+   */
+  sbjId: string;
+
+  /**
+   * @generated from field: string rel = 3;
    */
   rel: string;
 
   /**
-   * @generated from field: authzpb.v1.Vertex obj = 3;
+   * @generated from field: string obj_ns = 4;
    */
-  obj?: Vertex;
+  objNs: string;
+
+  /**
+   * @generated from field: string obj_id = 5;
+   */
+  objId: string;
 };
 
 /**
@@ -63,7 +51,7 @@ export type CheckIn = Message<"authzpb.v1.CheckIn"> & {
  * Use `create(CheckInSchema)` to create a new message.
  */
 export const CheckInSchema: GenMessage<CheckIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 1);
+  messageDesc(file_authzpb_v1_authz, 0);
 
 /**
  * @generated from message authzpb.v1.CheckOut
@@ -80,7 +68,7 @@ export type CheckOut = Message<"authzpb.v1.CheckOut"> & {
  * Use `create(CheckOutSchema)` to create a new message.
  */
 export const CheckOutSchema: GenMessage<CheckOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 2);
+  messageDesc(file_authzpb_v1_authz, 1);
 
 /**
  * @generated from message authzpb.v1.Tuple
@@ -122,7 +110,7 @@ export type Tuple = Message<"authzpb.v1.Tuple"> & {
  * Use `create(TupleSchema)` to create a new message.
  */
 export const TupleSchema: GenMessage<Tuple> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 3);
+  messageDesc(file_authzpb_v1_authz, 2);
 
 /**
  * @generated from message authzpb.v1.TupleFilter
@@ -159,7 +147,7 @@ export type TupleFilter = Message<"authzpb.v1.TupleFilter"> & {
  * Use `create(TupleFilterSchema)` to create a new message.
  */
 export const TupleFilterSchema: GenMessage<TupleFilter> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 4);
+  messageDesc(file_authzpb_v1_authz, 3);
 
 /**
  * @generated from message authzpb.v1.ListTuplesIn
@@ -190,7 +178,7 @@ export type ListTuplesIn = Message<"authzpb.v1.ListTuplesIn"> & {
  * Use `create(ListTuplesInSchema)` to create a new message.
  */
 export const ListTuplesInSchema: GenMessage<ListTuplesIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 5);
+  messageDesc(file_authzpb_v1_authz, 4);
 
 /**
  * @generated from message authzpb.v1.ListTuplesOut
@@ -212,7 +200,7 @@ export type ListTuplesOut = Message<"authzpb.v1.ListTuplesOut"> & {
  * Use `create(ListTuplesOutSchema)` to create a new message.
  */
 export const ListTuplesOutSchema: GenMessage<ListTuplesOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 6);
+  messageDesc(file_authzpb_v1_authz, 5);
 
 /**
  * @generated from message authzpb.v1.Instance
@@ -234,7 +222,7 @@ export type Instance = Message<"authzpb.v1.Instance"> & {
  * Use `create(InstanceSchema)` to create a new message.
  */
 export const InstanceSchema: GenMessage<Instance> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 7);
+  messageDesc(file_authzpb_v1_authz, 6);
 
 /**
  * @generated from message authzpb.v1.TreeNode
@@ -256,7 +244,7 @@ export type TreeNode = Message<"authzpb.v1.TreeNode"> & {
  * Use `create(TreeNodeSchema)` to create a new message.
  */
 export const TreeNodeSchema: GenMessage<TreeNode> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 8);
+  messageDesc(file_authzpb_v1_authz, 7);
 
 /**
  * @generated from message authzpb.v1.DeleteTuplesIn
@@ -291,7 +279,7 @@ export type DeleteTuplesIn = Message<"authzpb.v1.DeleteTuplesIn"> & {
  * Use `create(DeleteTuplesInSchema)` to create a new message.
  */
 export const DeleteTuplesInSchema: GenMessage<DeleteTuplesIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 9);
+  messageDesc(file_authzpb_v1_authz, 8);
 
 /**
  * @generated from message authzpb.v1.DeleteTuples
@@ -308,7 +296,7 @@ export type DeleteTuples = Message<"authzpb.v1.DeleteTuples"> & {
  * Use `create(DeleteTuplesSchema)` to create a new message.
  */
 export const DeleteTuplesSchema: GenMessage<DeleteTuples> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 10);
+  messageDesc(file_authzpb_v1_authz, 9);
 
 /**
  * @generated from message authzpb.v1.DeleteTupleIds
@@ -325,7 +313,7 @@ export type DeleteTupleIds = Message<"authzpb.v1.DeleteTupleIds"> & {
  * Use `create(DeleteTupleIdsSchema)` to create a new message.
  */
 export const DeleteTupleIdsSchema: GenMessage<DeleteTupleIds> = /*@__PURE__*/
-  messageDesc(file_authzpb_v1_authz, 11);
+  messageDesc(file_authzpb_v1_authz, 10);
 
 /**
  * @generated from service authzpb.v1.AuthzService
