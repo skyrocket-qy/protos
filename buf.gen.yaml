@@ -14,6 +14,8 @@ plugins:
     out: gen-ts
     opt: target=ts
 
+  - remote: buf.build/bufbuild/es:v2.6.3
+    out: gen-js
   # - remote: buf.build/community/stephenh-ts-proto:v2.6.1
   #   out: gen-ts
   #   opt: paths=source_relative
