@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file authzpb/rbacpb/rbac.proto.
  */
 export const file_authzpb_rbacpb_rbac: GenFile = /*@__PURE__*/
-  fileDesc("ChlhdXRoenBiL3JiYWNwYi9yYmFjLnByb3RvEg5hdXRoenBiLnJiYWNwYiIXCglHZXRSb2xlSW4SCgoCaWQYASABKAQiVwoKR2V0Um9sZU91dBIKCgJucxgBIAEoCRIMCgRuYW1lGAIgASgJEi8KC3Blcm1pc3Npb25zGAMgAygLMhouYXV0aHpwYi5yYmFjcGIuUGVybWlzc2lvbiJ4CgpQZXJtaXNzaW9uEhMKC3Jlc291cmNlX25zGAEgASgJEhMKC3Jlc291cmNlX2lkGAIgASgJEhIKCnBlcm1pc3Npb24YAyABKAkSLAoEdHlwZRgEIAEoDjIeLmF1dGh6cGIucmJhY3BiLlBlcm1pc3Npb25UeXBlIhQKEkxpc3RSZXNvdXJjZVR5cGVJbiIkChNMaXN0UmVzb3VyY2VUeXBlT3V0Eg0KBXR5cGVzGAEgAygJIiUKFUxpc3RSZXNvdXJjZXNCeVR5cGVJbhIMCgR0eXBlGAEgASgJIiUKFkxpc3RSZXNvdXJjZXNCeVR5cGVPdXQSCwoDaWRzGAEgAygJIlcKGkxpc3RQZXJtaXNzaW9uQnlSZXNvdXJjZUluEhMKC3Jlc291cmNlX25zGAEgASgJEhMKC3Jlc291cmNlX2lkGAIgASgJEg8KB3JvbGVfaWQYAyABKAkiMgobTGlzdFBlcm1pc3Npb25CeVJlc291cmNlT3V0EhMKC3Blcm1pc3Npb25zGAEgAygJIlYKB0NoZWNrSW4SDgoGc2JqX25zGAEgASgJEg4KBnNial9pZBgCIAEoCRILCgNyZWwYAyABKAkSDgoGb2JqX25zGAQgASgJEg4KBm9ial9pZBgFIAEoCSIeCghDaGVja091dBISCgppc19hbGxvd2VkGAEgASgIIiIKCEluc3RhbmNlEgoKAm5zGAEgASgJEgoKAmlkGAIgASgJIrcBCghUcmVlTm9kZRImCgRyb290GAEgASgLMhguYXV0aHpwYi5yYmFjcGIuSW5zdGFuY2USOAoIY2hpbGRyZW4YAiADKAsyJi5hdXRoenBiLnJiYWNwYi5UcmVlTm9kZS5DaGlsZHJlbkVudHJ5GkkKDUNoaWxkcmVuRW50cnkSCwoDa2V5GAEgASgJEicKBXZhbHVlGAIgASgLMhguYXV0aHpwYi5yYmFjcGIuVHJlZU5vZGU6AjgBIh8KA09yZxIKCgJpZBgBIAEoDRIMCgRuYW1lGAIgASgJIrABCgRVc2VyEgoKAmlkGAEgASgEEgwKBG5hbWUYAiABKAkSDQoFZW1haWwYAyABKAkSEQoJaXNfYWN0aXZlGAQgASgIEhoKEmlzX2VtYWlsX2NvbmZpcm1lZBgFIAEoCBISCgphdXRoX3R5cGVzGAYgAygJEgwKBG9yZ3MYByADKAkSLgoKY3JlYXRlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiXAoMVXBkYXRlVXNlckluEgoKAmlkGAEgASgEEhEKBG5hbWUYAiABKAlIAIgBARIWCglpc19hY3RpdmUYAyABKAhIAYgBAUIHCgVfbmFtZUIMCgpfaXNfYWN0aXZlIiAKBFJvbGUSCgoCaWQYASABKAQSDAoEbmFtZRgCIAEoCSIwCghSZXNvdXJjZRIKCgJpZBgBIAEoBBIKCgJucxgCIAEoCRIMCgRuYW1lGAMgASgJInMKC0xpc3RVc2Vyc0luEiEKB2ZpbHRlcnMYASADKAsyEC5wa2dwYi52MS5GaWx0ZXISIQoHc29ydGVycxgCIAMoCzIQLnBrZ3BiLnYxLlNvcnRlchIeCgVwYWdlchgDIAEoCzIPLnBrZ3BiLnYxLlBhZ2VyIkIKDExpc3RVc2Vyc091dBIjCgV1c2VycxgBIAMoCzIULmF1dGh6cGIucmJhY3BiLlVzZXISDQoFY291bnQYAiABKAMiGgoMRGVsZXRlVXNlckluEgoKAmlkGAEgASgEIhwKDENyZWF0ZVJvbGVJbhIMCgRuYW1lGAEgASgJInMKC0xpc3RSb2xlc0luEiEKB2ZpbHRlcnMYASADKAsyEC5wa2dwYi52MS5GaWx0ZXISIQoHc29ydGVycxgCIAMoCzIQLnBrZ3BiLnYxLlNvcnRlchIeCgVwYWdlchgDIAEoCzIPLnBrZ3BiLnYxLlBhZ2VyIkIKDExpc3RSb2xlc091dBIjCgVyb2xlcxgBIAMoCzIULmF1dGh6cGIucmJhY3BiLlJvbGUSDQoFdG90YWwYAiABKAMiKAoMVXBkYXRlUm9sZUluEgoKAmlkGAEgASgEEgwKBG5hbWUYAiABKAkiGgoMRGVsZXRlUm9sZUluEgoKAmlkGAEgASgEIncKD0xpc3RSZXNvdXJjZXNJbhIhCgdmaWx0ZXJzGAEgAygLMhAucGtncGIudjEuRmlsdGVyEiEKB3NvcnRlcnMYAiADKAsyEC5wa2dwYi52MS5Tb3J0ZXISHgoFcGFnZXIYAyABKAsyDy5wa2dwYi52MS5QYWdlciJOChBMaXN0UmVzb3VyY2VzT3V0EisKCXJlc291cmNlcxgBIAMoCzIYLmF1dGh6cGIucmJhY3BiLlJlc291cmNlEg0KBXRvdGFsGAIgASgDIiwKEENyZWF0ZVJlc291cmNlSW4SCgoCbnMYASABKAkSDAoEbmFtZRgCIAEoCSIeChBEZWxldGVSZXNvdXJjZUluEgoKAmlkGAEgASgEIjAKDEFzc2lnblJvbGVJbhIPCgdyb2xlX2lkGAEgASgEEg8KB3VzZXJfaWQYAiABKAQiMAoMUmV2b2tlUm9sZUluEg8KB3JvbGVfaWQYASABKAQSDwoHdXNlcl9pZBgCIAEoBCJBCgtHcmFudFBlcm1JbhIPCgdyb2xlX2lkGAEgASgEEgwKBHBlcm0YAiABKAkSEwoLcmVzb3VyY2VfaWQYAyABKAQiQgoMUmV2b2tlUGVybUluEg8KB3JvbGVfaWQYASABKAQSDAoEcGVybRgCIAEoCRITCgtyZXNvdXJjZV9pZBgDIAEoBCpJCg5QZXJtaXNzaW9uVHlwZRIfChtQRVJNSVNTSU9OX1RZUEVfVU5TUEVDSUZJRUQQABIJCgVUVVBMRRABEgsKB0NPTVBVVEUQAjLlCgoLUmJhY1NlcnZpY2USRgoJTGlzdFVzZXJzEhsuYXV0aHpwYi5yYmFjcGIuTGlzdFVzZXJzSW4aHC5hdXRoenBiLnJiYWNwYi5MaXN0VXNlcnNPdXQSQgoKVXBkYXRlVXNlchIcLmF1dGh6cGIucmJhY3BiLlVwZGF0ZVVzZXJJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpEZWxldGVVc2VyEhwuYXV0aHpwYi5yYmFjcGIuRGVsZXRlVXNlckluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkAKB0dldFJvbGUSGS5hdXRoenBiLnJiYWNwYi5HZXRSb2xlSW4aGi5hdXRoenBiLnJiYWNwYi5HZXRSb2xlT3V0EkIKCkNyZWF0ZVJvbGUSHC5hdXRoenBiLnJiYWNwYi5DcmVhdGVSb2xlSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHkSRgoJTGlzdFJvbGVzEhsuYXV0aHpwYi5yYmFjcGIuTGlzdFJvbGVzSW4aHC5hdXRoenBiLnJiYWNwYi5MaXN0Um9sZXNPdXQSQgoKVXBkYXRlUm9sZRIcLmF1dGh6cGIucmJhY3BiLlVwZGF0ZVJvbGVJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpEZWxldGVSb2xlEhwuYXV0aHpwYi5yYmFjcGIuRGVsZXRlUm9sZUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkoKDkNyZWF0ZVJlc291cmNlEiAuYXV0aHpwYi5yYmFjcGIuQ3JlYXRlUmVzb3VyY2VJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJSCg1MaXN0UmVzb3VyY2VzEh8uYXV0aHpwYi5yYmFjcGIuTGlzdFJlc291cmNlc0luGiAuYXV0aHpwYi5yYmFjcGIuTGlzdFJlc291cmNlc091dBJKCg5EZWxldGVSZXNvdXJjZRIgLmF1dGh6cGIucmJhY3BiLkRlbGV0ZVJlc291cmNlSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHkSWwoQTGlzdFJlc291cmNlVHlwZRIiLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZVR5cGVJbhojLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZVR5cGVPdXQSZAoTTGlzdFJlc291cmNlc0J5VHlwZRIlLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZXNCeVR5cGVJbhomLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZXNCeVR5cGVPdXQScwoYTGlzdFBlcm1pc3Npb25CeVJlc291cmNlEiouYXV0aHpwYi5yYmFjcGIuTGlzdFBlcm1pc3Npb25CeVJlc291cmNlSW4aKy5hdXRoenBiLnJiYWNwYi5MaXN0UGVybWlzc2lvbkJ5UmVzb3VyY2VPdXQSQgoKQXNzaWduUm9sZRIcLmF1dGh6cGIucmJhY3BiLkFzc2lnblJvbGVJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpSZXZva2VSb2xlEhwuYXV0aHpwYi5yYmFjcGIuUmV2b2tlUm9sZUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkAKCUdyYW50UGVybRIbLmF1dGh6cGIucmJhY3BiLkdyYW50UGVybUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkIKClJldm9rZVBlcm0SHC5hdXRoenBiLnJiYWNwYi5SZXZva2VQZXJtSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHlCsgEKEmNvbS5hdXRoenBiLnJiYWNwYkIJUmJhY1Byb3RvUAFaOGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi9yYmFjcGI7cmJhY3BiogIDQVJYqgIOQXV0aHpwYi5SYmFjcGLKAg5BdXRoenBiXFJiYWNwYuICGkF1dGh6cGJcUmJhY3BiXEdQQk1ldGFkYXRh6gIPQXV0aHpwYjo6UmJhY3BiYgZwcm90bzM", [file_google_protobuf_empty, file_google_protobuf_timestamp, file_pkgpb_v1_pkg]);
+  fileDesc("ChlhdXRoenBiL3JiYWNwYi9yYmFjLnByb3RvEg5hdXRoenBiLnJiYWNwYiIXCglHZXRSb2xlSW4SCgoCaWQYASABKAQiVwoKR2V0Um9sZU91dBIKCgJucxgBIAEoCRIMCgRuYW1lGAIgASgJEi8KC3Blcm1pc3Npb25zGAMgAygLMhouYXV0aHpwYi5yYmFjcGIuUGVybWlzc2lvbiJ4CgpQZXJtaXNzaW9uEhMKC3Jlc291cmNlX25zGAEgASgJEhMKC3Jlc291cmNlX2lkGAIgASgJEhIKCnBlcm1pc3Npb24YAyABKAkSLAoEdHlwZRgEIAEoDjIeLmF1dGh6cGIucmJhY3BiLlBlcm1pc3Npb25UeXBlIiQKE0xpc3RSZXNvdXJjZVR5cGVPdXQSDQoFdHlwZXMYASADKAkiJQoVTGlzdFJlc291cmNlc0J5VHlwZUluEgwKBHR5cGUYASABKAkiVAoWTGlzdFJlc291cmNlc0J5VHlwZU91dBI6CglyZXNvdXJjZXMYASADKAsyJy5hdXRoenBiLnJiYWNwYi5MaXN0UmVzb3VyY2VzQnlUeXBlRGF0YSIzChdMaXN0UmVzb3VyY2VzQnlUeXBlRGF0YRIKCgJpZBgBIAEoBBIMCgRuYW1lGAIgASgJIlcKGkxpc3RQZXJtaXNzaW9uQnlSZXNvdXJjZUluEhMKC3Jlc291cmNlX25zGAEgASgJEhMKC3Jlc291cmNlX2lkGAIgASgJEg8KB3JvbGVfaWQYAyABKAkiMgobTGlzdFBlcm1pc3Npb25CeVJlc291cmNlT3V0EhMKC3Blcm1pc3Npb25zGAEgAygJIrABCgRVc2VyEgoKAmlkGAEgASgEEgwKBG5hbWUYAiABKAkSDQoFZW1haWwYAyABKAkSEQoJaXNfYWN0aXZlGAQgASgIEhoKEmlzX2VtYWlsX2NvbmZpcm1lZBgFIAEoCBISCgphdXRoX3R5cGVzGAYgAygJEgwKBG9yZ3MYByADKAkSLgoKY3JlYXRlZF9hdBgIIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXAiXAoMVXBkYXRlVXNlckluEgoKAmlkGAEgASgEEhEKBG5hbWUYAiABKAlIAIgBARIWCglpc19hY3RpdmUYAyABKAhIAYgBAUIHCgVfbmFtZUIMCgpfaXNfYWN0aXZlIiAKBFJvbGUSCgoCaWQYASABKAQSDAoEbmFtZRgCIAEoCSIwCghSZXNvdXJjZRIKCgJpZBgBIAEoBBIKCgJucxgCIAEoCRIMCgRuYW1lGAMgASgJInMKC0xpc3RVc2Vyc0luEiEKB2ZpbHRlcnMYASADKAsyEC5wa2dwYi52MS5GaWx0ZXISIQoHc29ydGVycxgCIAMoCzIQLnBrZ3BiLnYxLlNvcnRlchIeCgVwYWdlchgDIAEoCzIPLnBrZ3BiLnYxLlBhZ2VyIkIKDExpc3RVc2Vyc091dBIjCgV1c2VycxgBIAMoCzIULmF1dGh6cGIucmJhY3BiLlVzZXISDQoFY291bnQYAiABKAMiGgoMRGVsZXRlVXNlckluEgoKAmlkGAEgASgEIhwKDENyZWF0ZVJvbGVJbhIMCgRuYW1lGAEgASgJInMKC0xpc3RSb2xlc0luEiEKB2ZpbHRlcnMYASADKAsyEC5wa2dwYi52MS5GaWx0ZXISIQoHc29ydGVycxgCIAMoCzIQLnBrZ3BiLnYxLlNvcnRlchIeCgVwYWdlchgDIAEoCzIPLnBrZ3BiLnYxLlBhZ2VyIkIKDExpc3RSb2xlc091dBIjCgVyb2xlcxgBIAMoCzIULmF1dGh6cGIucmJhY3BiLlJvbGUSDQoFdG90YWwYAiABKAMiKAoMVXBkYXRlUm9sZUluEgoKAmlkGAEgASgEEgwKBG5hbWUYAiABKAkiGgoMRGVsZXRlUm9sZUluEgoKAmlkGAEgASgEIncKD0xpc3RSZXNvdXJjZXNJbhIhCgdmaWx0ZXJzGAEgAygLMhAucGtncGIudjEuRmlsdGVyEiEKB3NvcnRlcnMYAiADKAsyEC5wa2dwYi52MS5Tb3J0ZXISHgoFcGFnZXIYAyABKAsyDy5wa2dwYi52MS5QYWdlciJOChBMaXN0UmVzb3VyY2VzT3V0EisKCXJlc291cmNlcxgBIAMoCzIYLmF1dGh6cGIucmJhY3BiLlJlc291cmNlEg0KBXRvdGFsGAIgASgDIiwKEENyZWF0ZVJlc291cmNlSW4SCgoCbnMYASABKAkSDAoEbmFtZRgCIAEoCSIeChBEZWxldGVSZXNvdXJjZUluEgoKAmlkGAEgASgEIjAKDEFzc2lnblJvbGVJbhIPCgdyb2xlX2lkGAEgASgEEg8KB3VzZXJfaWQYAiABKAQiMAoMUmV2b2tlUm9sZUluEg8KB3JvbGVfaWQYASABKAQSDwoHdXNlcl9pZBgCIAEoBCJBCgtHcmFudFBlcm1JbhIPCgdyb2xlX2lkGAEgASgEEgwKBHBlcm0YAiABKAkSEwoLcmVzb3VyY2VfaWQYAyABKAQiQgoMUmV2b2tlUGVybUluEg8KB3JvbGVfaWQYASABKAQSDAoEcGVybRgCIAEoCRITCgtyZXNvdXJjZV9pZBgDIAEoBCpJCg5QZXJtaXNzaW9uVHlwZRIfChtQRVJNSVNTSU9OX1RZUEVfVU5TUEVDSUZJRUQQABIJCgVUVVBMRRABEgsKB0NPTVBVVEUQAjLZCgoLUmJhY1NlcnZpY2USRgoJTGlzdFVzZXJzEhsuYXV0aHpwYi5yYmFjcGIuTGlzdFVzZXJzSW4aHC5hdXRoenBiLnJiYWNwYi5MaXN0VXNlcnNPdXQSQgoKVXBkYXRlVXNlchIcLmF1dGh6cGIucmJhY3BiLlVwZGF0ZVVzZXJJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpEZWxldGVVc2VyEhwuYXV0aHpwYi5yYmFjcGIuRGVsZXRlVXNlckluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkAKB0dldFJvbGUSGS5hdXRoenBiLnJiYWNwYi5HZXRSb2xlSW4aGi5hdXRoenBiLnJiYWNwYi5HZXRSb2xlT3V0EkIKCkNyZWF0ZVJvbGUSHC5hdXRoenBiLnJiYWNwYi5DcmVhdGVSb2xlSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHkSRgoJTGlzdFJvbGVzEhsuYXV0aHpwYi5yYmFjcGIuTGlzdFJvbGVzSW4aHC5hdXRoenBiLnJiYWNwYi5MaXN0Um9sZXNPdXQSQgoKVXBkYXRlUm9sZRIcLmF1dGh6cGIucmJhY3BiLlVwZGF0ZVJvbGVJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpEZWxldGVSb2xlEhwuYXV0aHpwYi5yYmFjcGIuRGVsZXRlUm9sZUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkoKDkNyZWF0ZVJlc291cmNlEiAuYXV0aHpwYi5yYmFjcGIuQ3JlYXRlUmVzb3VyY2VJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJSCg1MaXN0UmVzb3VyY2VzEh8uYXV0aHpwYi5yYmFjcGIuTGlzdFJlc291cmNlc0luGiAuYXV0aHpwYi5yYmFjcGIuTGlzdFJlc291cmNlc091dBJKCg5EZWxldGVSZXNvdXJjZRIgLmF1dGh6cGIucmJhY3BiLkRlbGV0ZVJlc291cmNlSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHkSTwoQTGlzdFJlc291cmNlVHlwZRIWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRojLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZVR5cGVPdXQSZAoTTGlzdFJlc291cmNlc0J5VHlwZRIlLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZXNCeVR5cGVJbhomLmF1dGh6cGIucmJhY3BiLkxpc3RSZXNvdXJjZXNCeVR5cGVPdXQScwoYTGlzdFBlcm1pc3Npb25CeVJlc291cmNlEiouYXV0aHpwYi5yYmFjcGIuTGlzdFBlcm1pc3Npb25CeVJlc291cmNlSW4aKy5hdXRoenBiLnJiYWNwYi5MaXN0UGVybWlzc2lvbkJ5UmVzb3VyY2VPdXQSQgoKQXNzaWduUm9sZRIcLmF1dGh6cGIucmJhY3BiLkFzc2lnblJvbGVJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJCCgpSZXZva2VSb2xlEhwuYXV0aHpwYi5yYmFjcGIuUmV2b2tlUm9sZUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkAKCUdyYW50UGVybRIbLmF1dGh6cGIucmJhY3BiLkdyYW50UGVybUluGhYuZ29vZ2xlLnByb3RvYnVmLkVtcHR5EkIKClJldm9rZVBlcm0SHC5hdXRoenBiLnJiYWNwYi5SZXZva2VQZXJtSW4aFi5nb29nbGUucHJvdG9idWYuRW1wdHlCsgEKEmNvbS5hdXRoenBiLnJiYWNwYkIJUmJhY1Byb3RvUAFaOGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi9yYmFjcGI7cmJhY3BiogIDQVJYqgIOQXV0aHpwYi5SYmFjcGLKAg5BdXRoenBiXFJiYWNwYuICGkF1dGh6cGJcUmJhY3BiXEdQQk1ldGFkYXRh6gIPQXV0aHpwYjo6UmJhY3BiYgZwcm90bzM", [file_google_protobuf_empty, file_google_protobuf_timestamp, file_pkgpb_v1_pkg]);
 
 /**
  * @generated from message authzpb.rbacpb.GetRoleIn
@@ -93,19 +93,6 @@ export const PermissionSchema: GenMessage<Permission> = /*@__PURE__*/
   messageDesc(file_authzpb_rbacpb_rbac, 2);
 
 /**
- * @generated from message authzpb.rbacpb.ListResourceTypeIn
- */
-export type ListResourceTypeIn = Message<"authzpb.rbacpb.ListResourceTypeIn"> & {
-};
-
-/**
- * Describes the message authzpb.rbacpb.ListResourceTypeIn.
- * Use `create(ListResourceTypeInSchema)` to create a new message.
- */
-export const ListResourceTypeInSchema: GenMessage<ListResourceTypeIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 3);
-
-/**
  * @generated from message authzpb.rbacpb.ListResourceTypeOut
  */
 export type ListResourceTypeOut = Message<"authzpb.rbacpb.ListResourceTypeOut"> & {
@@ -120,7 +107,7 @@ export type ListResourceTypeOut = Message<"authzpb.rbacpb.ListResourceTypeOut"> 
  * Use `create(ListResourceTypeOutSchema)` to create a new message.
  */
 export const ListResourceTypeOutSchema: GenMessage<ListResourceTypeOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 4);
+  messageDesc(file_authzpb_rbacpb_rbac, 3);
 
 /**
  * @generated from message authzpb.rbacpb.ListResourcesByTypeIn
@@ -137,16 +124,16 @@ export type ListResourcesByTypeIn = Message<"authzpb.rbacpb.ListResourcesByTypeI
  * Use `create(ListResourcesByTypeInSchema)` to create a new message.
  */
 export const ListResourcesByTypeInSchema: GenMessage<ListResourcesByTypeIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 5);
+  messageDesc(file_authzpb_rbacpb_rbac, 4);
 
 /**
  * @generated from message authzpb.rbacpb.ListResourcesByTypeOut
  */
 export type ListResourcesByTypeOut = Message<"authzpb.rbacpb.ListResourcesByTypeOut"> & {
   /**
-   * @generated from field: repeated string ids = 1;
+   * @generated from field: repeated authzpb.rbacpb.ListResourcesByTypeData resources = 1;
    */
-  ids: string[];
+  resources: ListResourcesByTypeData[];
 };
 
 /**
@@ -154,6 +141,28 @@ export type ListResourcesByTypeOut = Message<"authzpb.rbacpb.ListResourcesByType
  * Use `create(ListResourcesByTypeOutSchema)` to create a new message.
  */
 export const ListResourcesByTypeOutSchema: GenMessage<ListResourcesByTypeOut> = /*@__PURE__*/
+  messageDesc(file_authzpb_rbacpb_rbac, 5);
+
+/**
+ * @generated from message authzpb.rbacpb.ListResourcesByTypeData
+ */
+export type ListResourcesByTypeData = Message<"authzpb.rbacpb.ListResourcesByTypeData"> & {
+  /**
+   * @generated from field: uint64 id = 1;
+   */
+  id: bigint;
+
+  /**
+   * @generated from field: string name = 2;
+   */
+  name: string;
+};
+
+/**
+ * Describes the message authzpb.rbacpb.ListResourcesByTypeData.
+ * Use `create(ListResourcesByTypeDataSchema)` to create a new message.
+ */
+export const ListResourcesByTypeDataSchema: GenMessage<ListResourcesByTypeData> = /*@__PURE__*/
   messageDesc(file_authzpb_rbacpb_rbac, 6);
 
 /**
@@ -199,126 +208,6 @@ export type ListPermissionByResourceOut = Message<"authzpb.rbacpb.ListPermission
  */
 export const ListPermissionByResourceOutSchema: GenMessage<ListPermissionByResourceOut> = /*@__PURE__*/
   messageDesc(file_authzpb_rbacpb_rbac, 8);
-
-/**
- * @generated from message authzpb.rbacpb.CheckIn
- */
-export type CheckIn = Message<"authzpb.rbacpb.CheckIn"> & {
-  /**
-   * @generated from field: string sbj_ns = 1;
-   */
-  sbjNs: string;
-
-  /**
-   * @generated from field: string sbj_id = 2;
-   */
-  sbjId: string;
-
-  /**
-   * @generated from field: string rel = 3;
-   */
-  rel: string;
-
-  /**
-   * @generated from field: string obj_ns = 4;
-   */
-  objNs: string;
-
-  /**
-   * @generated from field: string obj_id = 5;
-   */
-  objId: string;
-};
-
-/**
- * Describes the message authzpb.rbacpb.CheckIn.
- * Use `create(CheckInSchema)` to create a new message.
- */
-export const CheckInSchema: GenMessage<CheckIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 9);
-
-/**
- * @generated from message authzpb.rbacpb.CheckOut
- */
-export type CheckOut = Message<"authzpb.rbacpb.CheckOut"> & {
-  /**
-   * @generated from field: bool is_allowed = 1;
-   */
-  isAllowed: boolean;
-};
-
-/**
- * Describes the message authzpb.rbacpb.CheckOut.
- * Use `create(CheckOutSchema)` to create a new message.
- */
-export const CheckOutSchema: GenMessage<CheckOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 10);
-
-/**
- * @generated from message authzpb.rbacpb.Instance
- */
-export type Instance = Message<"authzpb.rbacpb.Instance"> & {
-  /**
-   * @generated from field: string ns = 1;
-   */
-  ns: string;
-
-  /**
-   * @generated from field: string id = 2;
-   */
-  id: string;
-};
-
-/**
- * Describes the message authzpb.rbacpb.Instance.
- * Use `create(InstanceSchema)` to create a new message.
- */
-export const InstanceSchema: GenMessage<Instance> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 11);
-
-/**
- * @generated from message authzpb.rbacpb.TreeNode
- */
-export type TreeNode = Message<"authzpb.rbacpb.TreeNode"> & {
-  /**
-   * @generated from field: authzpb.rbacpb.Instance root = 1;
-   */
-  root?: Instance;
-
-  /**
-   * @generated from field: map<string, authzpb.rbacpb.TreeNode> children = 2;
-   */
-  children: { [key: string]: TreeNode };
-};
-
-/**
- * Describes the message authzpb.rbacpb.TreeNode.
- * Use `create(TreeNodeSchema)` to create a new message.
- */
-export const TreeNodeSchema: GenMessage<TreeNode> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 12);
-
-/**
- * @generated from message authzpb.rbacpb.Org
- */
-export type Org = Message<"authzpb.rbacpb.Org"> & {
-  /**
-   * @generated from field: uint32 id = 1;
-   */
-  id: number;
-
-  /**
-   * @generated from field: string name = 2;
-   */
-  name: string;
-};
-
-/**
- * Describes the message authzpb.rbacpb.Org.
- * Use `create(OrgSchema)` to create a new message.
- */
-export const OrgSchema: GenMessage<Org> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 13);
 
 /**
  * @generated from message authzpb.rbacpb.User
@@ -370,7 +259,7 @@ export type User = Message<"authzpb.rbacpb.User"> & {
  * Use `create(UserSchema)` to create a new message.
  */
 export const UserSchema: GenMessage<User> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 14);
+  messageDesc(file_authzpb_rbacpb_rbac, 9);
 
 /**
  * @generated from message authzpb.rbacpb.UpdateUserIn
@@ -397,7 +286,7 @@ export type UpdateUserIn = Message<"authzpb.rbacpb.UpdateUserIn"> & {
  * Use `create(UpdateUserInSchema)` to create a new message.
  */
 export const UpdateUserInSchema: GenMessage<UpdateUserIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 15);
+  messageDesc(file_authzpb_rbacpb_rbac, 10);
 
 /**
  * @generated from message authzpb.rbacpb.Role
@@ -419,7 +308,7 @@ export type Role = Message<"authzpb.rbacpb.Role"> & {
  * Use `create(RoleSchema)` to create a new message.
  */
 export const RoleSchema: GenMessage<Role> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 16);
+  messageDesc(file_authzpb_rbacpb_rbac, 11);
 
 /**
  * @generated from message authzpb.rbacpb.Resource
@@ -446,7 +335,7 @@ export type Resource = Message<"authzpb.rbacpb.Resource"> & {
  * Use `create(ResourceSchema)` to create a new message.
  */
 export const ResourceSchema: GenMessage<Resource> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 17);
+  messageDesc(file_authzpb_rbacpb_rbac, 12);
 
 /**
  * @generated from message authzpb.rbacpb.ListUsersIn
@@ -477,7 +366,7 @@ export type ListUsersIn = Message<"authzpb.rbacpb.ListUsersIn"> & {
  * Use `create(ListUsersInSchema)` to create a new message.
  */
 export const ListUsersInSchema: GenMessage<ListUsersIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 18);
+  messageDesc(file_authzpb_rbacpb_rbac, 13);
 
 /**
  * @generated from message authzpb.rbacpb.ListUsersOut
@@ -499,7 +388,7 @@ export type ListUsersOut = Message<"authzpb.rbacpb.ListUsersOut"> & {
  * Use `create(ListUsersOutSchema)` to create a new message.
  */
 export const ListUsersOutSchema: GenMessage<ListUsersOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 19);
+  messageDesc(file_authzpb_rbacpb_rbac, 14);
 
 /**
  * @generated from message authzpb.rbacpb.DeleteUserIn
@@ -516,7 +405,7 @@ export type DeleteUserIn = Message<"authzpb.rbacpb.DeleteUserIn"> & {
  * Use `create(DeleteUserInSchema)` to create a new message.
  */
 export const DeleteUserInSchema: GenMessage<DeleteUserIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 20);
+  messageDesc(file_authzpb_rbacpb_rbac, 15);
 
 /**
  * @generated from message authzpb.rbacpb.CreateRoleIn
@@ -533,7 +422,7 @@ export type CreateRoleIn = Message<"authzpb.rbacpb.CreateRoleIn"> & {
  * Use `create(CreateRoleInSchema)` to create a new message.
  */
 export const CreateRoleInSchema: GenMessage<CreateRoleIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 21);
+  messageDesc(file_authzpb_rbacpb_rbac, 16);
 
 /**
  * @generated from message authzpb.rbacpb.ListRolesIn
@@ -564,7 +453,7 @@ export type ListRolesIn = Message<"authzpb.rbacpb.ListRolesIn"> & {
  * Use `create(ListRolesInSchema)` to create a new message.
  */
 export const ListRolesInSchema: GenMessage<ListRolesIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 22);
+  messageDesc(file_authzpb_rbacpb_rbac, 17);
 
 /**
  * @generated from message authzpb.rbacpb.ListRolesOut
@@ -586,7 +475,7 @@ export type ListRolesOut = Message<"authzpb.rbacpb.ListRolesOut"> & {
  * Use `create(ListRolesOutSchema)` to create a new message.
  */
 export const ListRolesOutSchema: GenMessage<ListRolesOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 23);
+  messageDesc(file_authzpb_rbacpb_rbac, 18);
 
 /**
  * @generated from message authzpb.rbacpb.UpdateRoleIn
@@ -608,7 +497,7 @@ export type UpdateRoleIn = Message<"authzpb.rbacpb.UpdateRoleIn"> & {
  * Use `create(UpdateRoleInSchema)` to create a new message.
  */
 export const UpdateRoleInSchema: GenMessage<UpdateRoleIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 24);
+  messageDesc(file_authzpb_rbacpb_rbac, 19);
 
 /**
  * @generated from message authzpb.rbacpb.DeleteRoleIn
@@ -625,7 +514,7 @@ export type DeleteRoleIn = Message<"authzpb.rbacpb.DeleteRoleIn"> & {
  * Use `create(DeleteRoleInSchema)` to create a new message.
  */
 export const DeleteRoleInSchema: GenMessage<DeleteRoleIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 25);
+  messageDesc(file_authzpb_rbacpb_rbac, 20);
 
 /**
  * @generated from message authzpb.rbacpb.ListResourcesIn
@@ -656,7 +545,7 @@ export type ListResourcesIn = Message<"authzpb.rbacpb.ListResourcesIn"> & {
  * Use `create(ListResourcesInSchema)` to create a new message.
  */
 export const ListResourcesInSchema: GenMessage<ListResourcesIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 26);
+  messageDesc(file_authzpb_rbacpb_rbac, 21);
 
 /**
  * @generated from message authzpb.rbacpb.ListResourcesOut
@@ -678,7 +567,7 @@ export type ListResourcesOut = Message<"authzpb.rbacpb.ListResourcesOut"> & {
  * Use `create(ListResourcesOutSchema)` to create a new message.
  */
 export const ListResourcesOutSchema: GenMessage<ListResourcesOut> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 27);
+  messageDesc(file_authzpb_rbacpb_rbac, 22);
 
 /**
  * @generated from message authzpb.rbacpb.CreateResourceIn
@@ -700,7 +589,7 @@ export type CreateResourceIn = Message<"authzpb.rbacpb.CreateResourceIn"> & {
  * Use `create(CreateResourceInSchema)` to create a new message.
  */
 export const CreateResourceInSchema: GenMessage<CreateResourceIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 28);
+  messageDesc(file_authzpb_rbacpb_rbac, 23);
 
 /**
  * @generated from message authzpb.rbacpb.DeleteResourceIn
@@ -717,7 +606,7 @@ export type DeleteResourceIn = Message<"authzpb.rbacpb.DeleteResourceIn"> & {
  * Use `create(DeleteResourceInSchema)` to create a new message.
  */
 export const DeleteResourceInSchema: GenMessage<DeleteResourceIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 29);
+  messageDesc(file_authzpb_rbacpb_rbac, 24);
 
 /**
  * @generated from message authzpb.rbacpb.AssignRoleIn
@@ -739,7 +628,7 @@ export type AssignRoleIn = Message<"authzpb.rbacpb.AssignRoleIn"> & {
  * Use `create(AssignRoleInSchema)` to create a new message.
  */
 export const AssignRoleInSchema: GenMessage<AssignRoleIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 30);
+  messageDesc(file_authzpb_rbacpb_rbac, 25);
 
 /**
  * @generated from message authzpb.rbacpb.RevokeRoleIn
@@ -761,7 +650,7 @@ export type RevokeRoleIn = Message<"authzpb.rbacpb.RevokeRoleIn"> & {
  * Use `create(RevokeRoleInSchema)` to create a new message.
  */
 export const RevokeRoleInSchema: GenMessage<RevokeRoleIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 31);
+  messageDesc(file_authzpb_rbacpb_rbac, 26);
 
 /**
  * @generated from message authzpb.rbacpb.GrantPermIn
@@ -788,7 +677,7 @@ export type GrantPermIn = Message<"authzpb.rbacpb.GrantPermIn"> & {
  * Use `create(GrantPermInSchema)` to create a new message.
  */
 export const GrantPermInSchema: GenMessage<GrantPermIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 32);
+  messageDesc(file_authzpb_rbacpb_rbac, 27);
 
 /**
  * @generated from message authzpb.rbacpb.RevokePermIn
@@ -815,7 +704,7 @@ export type RevokePermIn = Message<"authzpb.rbacpb.RevokePermIn"> & {
  * Use `create(RevokePermInSchema)` to create a new message.
  */
 export const RevokePermInSchema: GenMessage<RevokePermIn> = /*@__PURE__*/
-  messageDesc(file_authzpb_rbacpb_rbac, 33);
+  messageDesc(file_authzpb_rbacpb_rbac, 28);
 
 /**
  * @generated from enum authzpb.rbacpb.PermissionType
@@ -942,7 +831,7 @@ export const RbacService: GenService<{
    */
   listResourceType: {
     methodKind: "unary";
-    input: typeof ListResourceTypeInSchema;
+    input: typeof EmptySchema;
     output: typeof ListResourceTypeOutSchema;
   },
   /**

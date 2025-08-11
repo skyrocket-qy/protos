@@ -68,7 +68,11 @@ message ListResourcesByTypeIn{
 }
 
 message ListResourcesByTypeOut{
-    repeated string ids = 1;
+    repeated ListResourcesByTypeData resources = 1;
+}
+message ListResourcesByTypeData{
+    uint64 id = 1;
+    string name = 2;
 }
 
 message ListPermissionByResourceIn{
@@ -79,34 +83,6 @@ message ListPermissionByResourceIn{
 
 message ListPermissionByResourceOut{
     repeated string permissions = 1;
-}
-
-
-message CheckIn {
-    string sbj_ns = 1;
-    string sbj_id = 2;
-    string rel = 3;
-    string obj_ns = 4;
-    string obj_id = 5;
-}
-
-message CheckOut {
-    bool is_allowed = 1;
-}
-
-message Instance {
-    string ns = 1;
-    string id = 2;
-}
-
-message TreeNode{
-    Instance root = 1;
-    map<string, TreeNode> children = 2;
-}
-
-message Org {
-    uint32 id = 1;
-    string name = 2;
 }
 
 message User {

@@ -92,7 +92,7 @@ type RbacServiceClient interface {
 	ListResources(context.Context, *connect.Request[rbacpb.ListResourcesIn]) (*connect.Response[rbacpb.ListResourcesOut], error)
 	DeleteResource(context.Context, *connect.Request[rbacpb.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
 	// used on permission update
-	ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
+	ListResourceType(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
 	ListResourcesByType(context.Context, *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error)
 	ListPermissionByResource(context.Context, *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error)
 	AssignRole(context.Context, *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
@@ -178,7 +178,7 @@ func NewRbacServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(rbacServiceMethods.ByName("DeleteResource")),
 			connect.WithClientOptions(opts...),
 		),
-		listResourceType: connect.NewClient[rbacpb.ListResourceTypeIn, rbacpb.ListResourceTypeOut](
+		listResourceType: connect.NewClient[emptypb.Empty, rbacpb.ListResourceTypeOut](
 			httpClient,
 			baseURL+RbacServiceListResourceTypeProcedure,
 			connect.WithSchema(rbacServiceMethods.ByName("ListResourceType")),
@@ -236,7 +236,7 @@ type rbacServiceClient struct {
 	createResource           *connect.Client[rbacpb.CreateResourceIn, emptypb.Empty]
 	listResources            *connect.Client[rbacpb.ListResourcesIn, rbacpb.ListResourcesOut]
 	deleteResource           *connect.Client[rbacpb.DeleteResourceIn, emptypb.Empty]
-	listResourceType         *connect.Client[rbacpb.ListResourceTypeIn, rbacpb.ListResourceTypeOut]
+	listResourceType         *connect.Client[emptypb.Empty, rbacpb.ListResourceTypeOut]
 	listResourcesByType      *connect.Client[rbacpb.ListResourcesByTypeIn, rbacpb.ListResourcesByTypeOut]
 	listPermissionByResource *connect.Client[rbacpb.ListPermissionByResourceIn, rbacpb.ListPermissionByResourceOut]
 	assignRole               *connect.Client[rbacpb.AssignRoleIn, emptypb.Empty]
@@ -301,7 +301,7 @@ func (c *rbacServiceClient) DeleteResource(ctx context.Context, req *connect.Req
 }
 
 // ListResourceType calls authzpb.rbacpb.RbacService.ListResourceType.
-func (c *rbacServiceClient) ListResourceType(ctx context.Context, req *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
+func (c *rbacServiceClient) ListResourceType(ctx context.Context, req *connect.Request[emptypb.Empty]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
 	return c.listResourceType.CallUnary(ctx, req)
 }
 
@@ -349,7 +349,7 @@ type RbacServiceHandler interface {
 	ListResources(context.Context, *connect.Request[rbacpb.ListResourcesIn]) (*connect.Response[rbacpb.ListResourcesOut], error)
 	DeleteResource(context.Context, *connect.Request[rbacpb.DeleteResourceIn]) (*connect.Response[emptypb.Empty], error)
 	// used on permission update
-	ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
+	ListResourceType(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[rbacpb.ListResourceTypeOut], error)
 	ListResourcesByType(context.Context, *connect.Request[rbacpb.ListResourcesByTypeIn]) (*connect.Response[rbacpb.ListResourcesByTypeOut], error)
 	ListPermissionByResource(context.Context, *connect.Request[rbacpb.ListPermissionByResourceIn]) (*connect.Response[rbacpb.ListPermissionByResourceOut], error)
 	AssignRole(context.Context, *connect.Request[rbacpb.AssignRoleIn]) (*connect.Response[emptypb.Empty], error)
@@ -564,7 +564,7 @@ func (UnimplementedRbacServiceHandler) DeleteResource(context.Context, *connect.
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.DeleteResource is not implemented"))
 }
 
-func (UnimplementedRbacServiceHandler) ListResourceType(context.Context, *connect.Request[rbacpb.ListResourceTypeIn]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
+func (UnimplementedRbacServiceHandler) ListResourceType(context.Context, *connect.Request[emptypb.Empty]) (*connect.Response[rbacpb.ListResourceTypeOut], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("authzpb.rbacpb.RbacService.ListResourceType is not implemented"))
 }
 
