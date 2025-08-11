@@ -25,7 +25,7 @@ service RbacService {
 
 
     // used on permission update
-    rpc ListResourceType(ListResourceTypeIn) returns (ListResourceTypeOut);
+    rpc ListResourceType(google.protobuf.Empty) returns (ListResourceTypeOut);
     rpc ListResourcesByType(ListResourcesByTypeIn) returns (ListResourcesByTypeOut);
     rpc ListPermissionByResource(ListPermissionByResourceIn) returns (ListPermissionByResourceOut);
 
@@ -57,9 +57,6 @@ message Permission{
     string resource_id = 2;
     string permission = 3;
     PermissionType type = 4;
-}
-
-message ListResourceTypeIn{
 }
 
 message ListResourceTypeOut{
