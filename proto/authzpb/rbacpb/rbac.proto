@@ -77,6 +77,7 @@ message ListResourcesByTypeOut{
 message ListPermissionByResourceIn{
     string resource_ns = 1;
     string resource_id = 2;
+    string role_id = 3;
 }
 
 message ListPermissionByResourceOut{

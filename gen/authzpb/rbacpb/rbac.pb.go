@@ -417,6 +417,7 @@ type ListPermissionByResourceIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ResourceNs    string                 `protobuf:"bytes,1,opt,name=resource_ns,json=resourceNs,proto3" json:"resource_ns,omitempty"`
 	ResourceId    string                 `protobuf:"bytes,2,opt,name=resource_id,json=resourceId,proto3" json:"resource_id,omitempty"`
+	RoleId        string                 `protobuf:"bytes,3,opt,name=role_id,json=roleId,proto3" json:"role_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -461,6 +462,13 @@ func (x *ListPermissionByResourceIn) GetResourceNs() string {
 func (x *ListPermissionByResourceIn) GetResourceId() string {
 	if x != nil {
 		return x.ResourceId
+	}
+	return ""
+}
+
+func (x *ListPermissionByResourceIn) GetRoleId() string {
+	if x != nil {
+		return x.RoleId
 	}
 	return ""
 }
@@ -1931,12 +1939,13 @@ const file_authzpb_rbacpb_rbac_proto_rawDesc = "" +
 	"\x15ListResourcesByTypeIn\x12\x12\n" +
 	"\x04type\x18\x01 \x01(\tR\x04type\"*\n" +
 	"\x16ListResourcesByTypeOut\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\tR\x03ids\"^\n" +
+	"\x03ids\x18\x01 \x03(\tR\x03ids\"w\n" +
 	"\x1aListPermissionByResourceIn\x12\x1f\n" +
 	"\vresource_ns\x18\x01 \x01(\tR\n" +
 	"resourceNs\x12\x1f\n" +
 	"\vresource_id\x18\x02 \x01(\tR\n" +
-	"resourceId\"?\n" +
+	"resourceId\x12\x17\n" +
+	"\arole_id\x18\x03 \x01(\tR\x06roleId\"?\n" +
 	"\x1bListPermissionByResourceOut\x12 \n" +
 	"\vpermissions\x18\x01 \x03(\tR\vpermissions\"w\n" +
 	"\aCheckIn\x12\x15\n" +
