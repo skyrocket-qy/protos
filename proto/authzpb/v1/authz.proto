@@ -80,3 +80,21 @@ message DeleteTuples{
 message DeleteTupleIds {
     repeated uint64 ids = 1;
 }
+
+enum Operation {
+    OPERATION_UNSPECIFIED = 0;
+    CREATE = 1;
+    DELETE = 2;
+}
+
+message GraphUpdate {
+    Operation operation = 1;
+    repeated GraphUpdateTuple tuples = 2;
+}
+message GraphUpdateTuple{
+    string sbj_ns = 1;
+    string sbj_id = 2;
+    string rel = 3;
+    string obj_ns = 4;
+    string obj_id = 5;
+}

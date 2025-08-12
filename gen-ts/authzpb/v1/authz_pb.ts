@@ -2,8 +2,8 @@
 // @generated from file authzpb/v1/authz.proto (package authzpb.v1, syntax proto3)
 /* eslint-disable */
 
-import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import type { EmptySchema } from "@bufbuild/protobuf/wkt";
 import { file_google_protobuf_empty } from "@bufbuild/protobuf/wkt";
 import type { Cursor, Filter, Sorter } from "../../pkgpb/v1/pkg_pb";
@@ -14,7 +14,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file authzpb/v1/authz.proto.
  */
 export const file_authzpb_v1_authz: GenFile = /*@__PURE__*/
-  fileDesc("ChZhdXRoenBiL3YxL2F1dGh6LnByb3RvEgphdXRoenBiLnYxIlYKB0NoZWNrSW4SDgoGc2JqX25zGAEgASgJEg4KBnNial9pZBgCIAEoCRILCgNyZWwYAyABKAkSDgoGb2JqX25zGAQgASgJEg4KBm9ial9pZBgFIAEoCSIeCghDaGVja091dBISCgppc19hbGxvd2VkGAEgASgIImAKBVR1cGxlEgoKAmlkGAEgASgEEg4KBnNial9ucxgCIAEoCRIOCgZzYmpfaWQYAyABKAkSCwoDcmVsGAQgASgJEg4KBm9ial9ucxgFIAEoCRIOCgZvYmpfaWQYBiABKAkipwEKC1R1cGxlRmlsdGVyEhMKBnNial9ucxgBIAEoCUgAiAEBEhMKBnNial9pZBgCIAEoCUgBiAEBEhAKA3JlbBgDIAEoCUgCiAEBEhMKBm9ial9ucxgEIAEoCUgDiAEBEhMKBm9ial9pZBgFIAEoCUgEiAEBQgkKB19zYmpfbnNCCQoHX3Nial9pZEIGCgRfcmVsQgkKB19vYmpfbnNCCQoHX29ial9pZCJ2CgxMaXN0VHVwbGVzSW4SIQoHZmlsdGVycxgBIAMoCzIQLnBrZ3BiLnYxLkZpbHRlchIhCgdzb3J0ZXJzGAIgAygLMhAucGtncGIudjEuU29ydGVyEiAKBmN1cnNvchgDIAEoCzIQLnBrZ3BiLnYxLkN1cnNvciJHCg1MaXN0VHVwbGVzT3V0EiEKBnR1cGxlcxgBIAMoCzIRLmF1dGh6cGIudjEuVHVwbGUSEwoLbmV4dF9jdXJzb3IYAiABKAwiIgoISW5zdGFuY2USCgoCbnMYASABKAkSCgoCaWQYAiABKAkiqwEKCFRyZWVOb2RlEiIKBHJvb3QYASABKAsyFC5hdXRoenBiLnYxLkluc3RhbmNlEjQKCGNoaWxkcmVuGAIgAygLMiIuYXV0aHpwYi52MS5UcmVlTm9kZS5DaGlsZHJlbkVudHJ5GkUKDUNoaWxkcmVuRW50cnkSCwoDa2V5GAEgASgJEiMKBXZhbHVlGAIgASgLMhQuYXV0aHpwYi52MS5UcmVlTm9kZToCOAEimgEKDkRlbGV0ZVR1cGxlc0luEioKBnR1cGxlcxgBIAEoCzIYLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVzSAASKQoGZmlsdGVyGAIgASgLMhcuYXV0aHpwYi52MS5UdXBsZUZpbHRlckgAEikKA2lkcxgDIAEoCzIaLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVJZHNIAEIGCgRtb2RlIjEKDERlbGV0ZVR1cGxlcxIhCgZ0dXBsZXMYASADKAsyES5hdXRoenBiLnYxLlR1cGxlIh0KDkRlbGV0ZVR1cGxlSWRzEgsKA2lkcxgBIAMoBDKDAgoMQXV0aHpTZXJ2aWNlEjgKC0NyZWF0ZVR1cGxlEhEuYXV0aHpwYi52MS5UdXBsZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJBCgpMaXN0VHVwbGVzEhguYXV0aHpwYi52MS5MaXN0VHVwbGVzSW4aGS5hdXRoenBiLnYxLkxpc3RUdXBsZXNPdXQSQgoMRGVsZXRlVHVwbGVzEhouYXV0aHpwYi52MS5EZWxldGVUdXBsZXNJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRIyCgVDaGVjaxITLmF1dGh6cGIudjEuQ2hlY2tJbhoULmF1dGh6cGIudjEuQ2hlY2tPdXRCngEKDmNvbS5hdXRoenBiLnYxQgpBdXRoelByb3RvUAFaN2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi92MTthdXRoenBidjGiAgNBWFiqAgpBdXRoenBiLlYxygIKQXV0aHpwYlxWMeICFkF1dGh6cGJcVjFcR1BCTWV0YWRhdGHqAgtBdXRoenBiOjpWMWIGcHJvdG8z", [file_google_protobuf_empty, file_pkgpb_v1_pkg]);
+  fileDesc("ChZhdXRoenBiL3YxL2F1dGh6LnByb3RvEgphdXRoenBiLnYxIlYKB0NoZWNrSW4SDgoGc2JqX25zGAEgASgJEg4KBnNial9pZBgCIAEoCRILCgNyZWwYAyABKAkSDgoGb2JqX25zGAQgASgJEg4KBm9ial9pZBgFIAEoCSIeCghDaGVja091dBISCgppc19hbGxvd2VkGAEgASgIImAKBVR1cGxlEgoKAmlkGAEgASgEEg4KBnNial9ucxgCIAEoCRIOCgZzYmpfaWQYAyABKAkSCwoDcmVsGAQgASgJEg4KBm9ial9ucxgFIAEoCRIOCgZvYmpfaWQYBiABKAkipwEKC1R1cGxlRmlsdGVyEhMKBnNial9ucxgBIAEoCUgAiAEBEhMKBnNial9pZBgCIAEoCUgBiAEBEhAKA3JlbBgDIAEoCUgCiAEBEhMKBm9ial9ucxgEIAEoCUgDiAEBEhMKBm9ial9pZBgFIAEoCUgEiAEBQgkKB19zYmpfbnNCCQoHX3Nial9pZEIGCgRfcmVsQgkKB19vYmpfbnNCCQoHX29ial9pZCJ2CgxMaXN0VHVwbGVzSW4SIQoHZmlsdGVycxgBIAMoCzIQLnBrZ3BiLnYxLkZpbHRlchIhCgdzb3J0ZXJzGAIgAygLMhAucGtncGIudjEuU29ydGVyEiAKBmN1cnNvchgDIAEoCzIQLnBrZ3BiLnYxLkN1cnNvciJHCg1MaXN0VHVwbGVzT3V0EiEKBnR1cGxlcxgBIAMoCzIRLmF1dGh6cGIudjEuVHVwbGUSEwoLbmV4dF9jdXJzb3IYAiABKAwiIgoISW5zdGFuY2USCgoCbnMYASABKAkSCgoCaWQYAiABKAkiqwEKCFRyZWVOb2RlEiIKBHJvb3QYASABKAsyFC5hdXRoenBiLnYxLkluc3RhbmNlEjQKCGNoaWxkcmVuGAIgAygLMiIuYXV0aHpwYi52MS5UcmVlTm9kZS5DaGlsZHJlbkVudHJ5GkUKDUNoaWxkcmVuRW50cnkSCwoDa2V5GAEgASgJEiMKBXZhbHVlGAIgASgLMhQuYXV0aHpwYi52MS5UcmVlTm9kZToCOAEimgEKDkRlbGV0ZVR1cGxlc0luEioKBnR1cGxlcxgBIAEoCzIYLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVzSAASKQoGZmlsdGVyGAIgASgLMhcuYXV0aHpwYi52MS5UdXBsZUZpbHRlckgAEikKA2lkcxgDIAEoCzIaLmF1dGh6cGIudjEuRGVsZXRlVHVwbGVJZHNIAEIGCgRtb2RlIjEKDERlbGV0ZVR1cGxlcxIhCgZ0dXBsZXMYASADKAsyES5hdXRoenBiLnYxLlR1cGxlIh0KDkRlbGV0ZVR1cGxlSWRzEgsKA2lkcxgBIAMoBCJlCgtHcmFwaFVwZGF0ZRIoCglvcGVyYXRpb24YASABKA4yFS5hdXRoenBiLnYxLk9wZXJhdGlvbhIsCgZ0dXBsZXMYAiADKAsyHC5hdXRoenBiLnYxLkdyYXBoVXBkYXRlVHVwbGUiXwoQR3JhcGhVcGRhdGVUdXBsZRIOCgZzYmpfbnMYASABKAkSDgoGc2JqX2lkGAIgASgJEgsKA3JlbBgDIAEoCRIOCgZvYmpfbnMYBCABKAkSDgoGb2JqX2lkGAUgASgJKj4KCU9wZXJhdGlvbhIZChVPUEVSQVRJT05fVU5TUEVDSUZJRUQQABIKCgZDUkVBVEUQARIKCgZERUxFVEUQAjKDAgoMQXV0aHpTZXJ2aWNlEjgKC0NyZWF0ZVR1cGxlEhEuYXV0aHpwYi52MS5UdXBsZRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJBCgpMaXN0VHVwbGVzEhguYXV0aHpwYi52MS5MaXN0VHVwbGVzSW4aGS5hdXRoenBiLnYxLkxpc3RUdXBsZXNPdXQSQgoMRGVsZXRlVHVwbGVzEhouYXV0aHpwYi52MS5EZWxldGVUdXBsZXNJbhoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRIyCgVDaGVjaxITLmF1dGh6cGIudjEuQ2hlY2tJbhoULmF1dGh6cGIudjEuQ2hlY2tPdXRCngEKDmNvbS5hdXRoenBiLnYxQgpBdXRoelByb3RvUAFaN2dpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYXV0aHpwYi92MTthdXRoenBidjGiAgNBWFiqAgpBdXRoenBiLlYxygIKQXV0aHpwYlxWMeICFkF1dGh6cGJcVjFcR1BCTWV0YWRhdGHqAgtBdXRoenBiOjpWMWIGcHJvdG8z", [file_google_protobuf_empty, file_pkgpb_v1_pkg]);
 
 /**
  * @generated from message authzpb.v1.CheckIn
@@ -314,6 +314,91 @@ export type DeleteTupleIds = Message<"authzpb.v1.DeleteTupleIds"> & {
  */
 export const DeleteTupleIdsSchema: GenMessage<DeleteTupleIds> = /*@__PURE__*/
   messageDesc(file_authzpb_v1_authz, 10);
+
+/**
+ * @generated from message authzpb.v1.GraphUpdate
+ */
+export type GraphUpdate = Message<"authzpb.v1.GraphUpdate"> & {
+  /**
+   * @generated from field: authzpb.v1.Operation operation = 1;
+   */
+  operation: Operation;
+
+  /**
+   * @generated from field: repeated authzpb.v1.GraphUpdateTuple tuples = 2;
+   */
+  tuples: GraphUpdateTuple[];
+};
+
+/**
+ * Describes the message authzpb.v1.GraphUpdate.
+ * Use `create(GraphUpdateSchema)` to create a new message.
+ */
+export const GraphUpdateSchema: GenMessage<GraphUpdate> = /*@__PURE__*/
+  messageDesc(file_authzpb_v1_authz, 11);
+
+/**
+ * @generated from message authzpb.v1.GraphUpdateTuple
+ */
+export type GraphUpdateTuple = Message<"authzpb.v1.GraphUpdateTuple"> & {
+  /**
+   * @generated from field: string sbj_ns = 1;
+   */
+  sbjNs: string;
+
+  /**
+   * @generated from field: string sbj_id = 2;
+   */
+  sbjId: string;
+
+  /**
+   * @generated from field: string rel = 3;
+   */
+  rel: string;
+
+  /**
+   * @generated from field: string obj_ns = 4;
+   */
+  objNs: string;
+
+  /**
+   * @generated from field: string obj_id = 5;
+   */
+  objId: string;
+};
+
+/**
+ * Describes the message authzpb.v1.GraphUpdateTuple.
+ * Use `create(GraphUpdateTupleSchema)` to create a new message.
+ */
+export const GraphUpdateTupleSchema: GenMessage<GraphUpdateTuple> = /*@__PURE__*/
+  messageDesc(file_authzpb_v1_authz, 12);
+
+/**
+ * @generated from enum authzpb.v1.Operation
+ */
+export enum Operation {
+  /**
+   * @generated from enum value: OPERATION_UNSPECIFIED = 0;
+   */
+  OPERATION_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: CREATE = 1;
+   */
+  CREATE = 1,
+
+  /**
+   * @generated from enum value: DELETE = 2;
+   */
+  DELETE = 2,
+}
+
+/**
+ * Describes the enum authzpb.v1.Operation.
+ */
+export const OperationSchema: GenEnum<Operation> = /*@__PURE__*/
+  enumDesc(file_authzpb_v1_authz, 0);
 
 /**
  * @generated from service authzpb.v1.AuthzService

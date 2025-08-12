@@ -23,6 +23,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Operation int32
+
+const (
+	Operation_OPERATION_UNSPECIFIED Operation = 0
+	Operation_CREATE                Operation = 1
+	Operation_DELETE                Operation = 2
+)
+
+// Enum value maps for Operation.
+var (
+	Operation_name = map[int32]string{
+		0: "OPERATION_UNSPECIFIED",
+		1: "CREATE",
+		2: "DELETE",
+	}
+	Operation_value = map[string]int32{
+		"OPERATION_UNSPECIFIED": 0,
+		"CREATE":                1,
+		"DELETE":                2,
+	}
+)
+
+func (x Operation) Enum() *Operation {
+	p := new(Operation)
+	*p = x
+	return p
+}
+
+func (x Operation) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Operation) Descriptor() protoreflect.EnumDescriptor {
+	return file_authzpb_v1_authz_proto_enumTypes[0].Descriptor()
+}
+
+func (Operation) Type() protoreflect.EnumType {
+	return &file_authzpb_v1_authz_proto_enumTypes[0]
+}
+
+func (x Operation) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Operation.Descriptor instead.
+func (Operation) EnumDescriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{0}
+}
+
 type CheckIn struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	SbjNs         string                 `protobuf:"bytes,1,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
@@ -707,6 +756,134 @@ func (x *DeleteTupleIds) GetIds() []uint64 {
 	return nil
 }
 
+type GraphUpdate struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Operation     Operation              `protobuf:"varint,1,opt,name=operation,proto3,enum=authzpb.v1.Operation" json:"operation,omitempty"`
+	Tuples        []*GraphUpdateTuple    `protobuf:"bytes,2,rep,name=tuples,proto3" json:"tuples,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GraphUpdate) Reset() {
+	*x = GraphUpdate{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GraphUpdate) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GraphUpdate) ProtoMessage() {}
+
+func (x *GraphUpdate) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GraphUpdate.ProtoReflect.Descriptor instead.
+func (*GraphUpdate) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *GraphUpdate) GetOperation() Operation {
+	if x != nil {
+		return x.Operation
+	}
+	return Operation_OPERATION_UNSPECIFIED
+}
+
+func (x *GraphUpdate) GetTuples() []*GraphUpdateTuple {
+	if x != nil {
+		return x.Tuples
+	}
+	return nil
+}
+
+type GraphUpdateTuple struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	SbjNs         string                 `protobuf:"bytes,1,opt,name=sbj_ns,json=sbjNs,proto3" json:"sbj_ns,omitempty"`
+	SbjId         string                 `protobuf:"bytes,2,opt,name=sbj_id,json=sbjId,proto3" json:"sbj_id,omitempty"`
+	Rel           string                 `protobuf:"bytes,3,opt,name=rel,proto3" json:"rel,omitempty"`
+	ObjNs         string                 `protobuf:"bytes,4,opt,name=obj_ns,json=objNs,proto3" json:"obj_ns,omitempty"`
+	ObjId         string                 `protobuf:"bytes,5,opt,name=obj_id,json=objId,proto3" json:"obj_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GraphUpdateTuple) Reset() {
+	*x = GraphUpdateTuple{}
+	mi := &file_authzpb_v1_authz_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GraphUpdateTuple) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GraphUpdateTuple) ProtoMessage() {}
+
+func (x *GraphUpdateTuple) ProtoReflect() protoreflect.Message {
+	mi := &file_authzpb_v1_authz_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GraphUpdateTuple.ProtoReflect.Descriptor instead.
+func (*GraphUpdateTuple) Descriptor() ([]byte, []int) {
+	return file_authzpb_v1_authz_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GraphUpdateTuple) GetSbjNs() string {
+	if x != nil {
+		return x.SbjNs
+	}
+	return ""
+}
+
+func (x *GraphUpdateTuple) GetSbjId() string {
+	if x != nil {
+		return x.SbjId
+	}
+	return ""
+}
+
+func (x *GraphUpdateTuple) GetRel() string {
+	if x != nil {
+		return x.Rel
+	}
+	return ""
+}
+
+func (x *GraphUpdateTuple) GetObjNs() string {
+	if x != nil {
+		return x.ObjNs
+	}
+	return ""
+}
+
+func (x *GraphUpdateTuple) GetObjId() string {
+	if x != nil {
+		return x.ObjId
+	}
+	return ""
+}
+
 var File_authzpb_v1_authz_proto protoreflect.FileDescriptor
 
 const file_authzpb_v1_authz_proto_rawDesc = "" +
@@ -765,7 +942,22 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\fDeleteTuples\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\"\"\n" +
 	"\x0eDeleteTupleIds\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\x04R\x03ids2\x83\x02\n" +
+	"\x03ids\x18\x01 \x03(\x04R\x03ids\"x\n" +
+	"\vGraphUpdate\x123\n" +
+	"\toperation\x18\x01 \x01(\x0e2\x15.authzpb.v1.OperationR\toperation\x124\n" +
+	"\x06tuples\x18\x02 \x03(\v2\x1c.authzpb.v1.GraphUpdateTupleR\x06tuples\"\x80\x01\n" +
+	"\x10GraphUpdateTuple\x12\x15\n" +
+	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
+	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +
+	"\x03rel\x18\x03 \x01(\tR\x03rel\x12\x15\n" +
+	"\x06obj_ns\x18\x04 \x01(\tR\x05objNs\x12\x15\n" +
+	"\x06obj_id\x18\x05 \x01(\tR\x05objId*>\n" +
+	"\tOperation\x12\x19\n" +
+	"\x15OPERATION_UNSPECIFIED\x10\x00\x12\n" +
+	"\n" +
+	"\x06CREATE\x10\x01\x12\n" +
+	"\n" +
+	"\x06DELETE\x10\x022\x83\x02\n" +
 	"\fAuthzService\x128\n" +
 	"\vCreateTuple\x12\x11.authzpb.v1.Tuple\x1a\x16.google.protobuf.Empty\x12A\n" +
 	"\n" +
@@ -789,50 +981,56 @@ func file_authzpb_v1_authz_proto_rawDescGZIP() []byte {
 	return file_authzpb_v1_authz_proto_rawDescData
 }
 
-var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_authzpb_v1_authz_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_authzpb_v1_authz_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_authzpb_v1_authz_proto_goTypes = []any{
-	(*CheckIn)(nil),        // 0: authzpb.v1.CheckIn
-	(*CheckOut)(nil),       // 1: authzpb.v1.CheckOut
-	(*Tuple)(nil),          // 2: authzpb.v1.Tuple
-	(*TupleFilter)(nil),    // 3: authzpb.v1.TupleFilter
-	(*ListTuplesIn)(nil),   // 4: authzpb.v1.ListTuplesIn
-	(*ListTuplesOut)(nil),  // 5: authzpb.v1.ListTuplesOut
-	(*Instance)(nil),       // 6: authzpb.v1.Instance
-	(*TreeNode)(nil),       // 7: authzpb.v1.TreeNode
-	(*DeleteTuplesIn)(nil), // 8: authzpb.v1.DeleteTuplesIn
-	(*DeleteTuples)(nil),   // 9: authzpb.v1.DeleteTuples
-	(*DeleteTupleIds)(nil), // 10: authzpb.v1.DeleteTupleIds
-	nil,                    // 11: authzpb.v1.TreeNode.ChildrenEntry
-	(*v1.Filter)(nil),      // 12: pkgpb.v1.Filter
-	(*v1.Sorter)(nil),      // 13: pkgpb.v1.Sorter
-	(*v1.Cursor)(nil),      // 14: pkgpb.v1.Cursor
-	(*emptypb.Empty)(nil),  // 15: google.protobuf.Empty
+	(Operation)(0),           // 0: authzpb.v1.Operation
+	(*CheckIn)(nil),          // 1: authzpb.v1.CheckIn
+	(*CheckOut)(nil),         // 2: authzpb.v1.CheckOut
+	(*Tuple)(nil),            // 3: authzpb.v1.Tuple
+	(*TupleFilter)(nil),      // 4: authzpb.v1.TupleFilter
+	(*ListTuplesIn)(nil),     // 5: authzpb.v1.ListTuplesIn
+	(*ListTuplesOut)(nil),    // 6: authzpb.v1.ListTuplesOut
+	(*Instance)(nil),         // 7: authzpb.v1.Instance
+	(*TreeNode)(nil),         // 8: authzpb.v1.TreeNode
+	(*DeleteTuplesIn)(nil),   // 9: authzpb.v1.DeleteTuplesIn
+	(*DeleteTuples)(nil),     // 10: authzpb.v1.DeleteTuples
+	(*DeleteTupleIds)(nil),   // 11: authzpb.v1.DeleteTupleIds
+	(*GraphUpdate)(nil),      // 12: authzpb.v1.GraphUpdate
+	(*GraphUpdateTuple)(nil), // 13: authzpb.v1.GraphUpdateTuple
+	nil,                      // 14: authzpb.v1.TreeNode.ChildrenEntry
+	(*v1.Filter)(nil),        // 15: pkgpb.v1.Filter
+	(*v1.Sorter)(nil),        // 16: pkgpb.v1.Sorter
+	(*v1.Cursor)(nil),        // 17: pkgpb.v1.Cursor
+	(*emptypb.Empty)(nil),    // 18: google.protobuf.Empty
 }
 var file_authzpb_v1_authz_proto_depIdxs = []int32{
-	12, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
-	13, // 1: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
-	14, // 2: authzpb.v1.ListTuplesIn.cursor:type_name -> pkgpb.v1.Cursor
-	2,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
-	6,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
-	11, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	9,  // 6: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.DeleteTuples
-	3,  // 7: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
-	10, // 8: authzpb.v1.DeleteTuplesIn.ids:type_name -> authzpb.v1.DeleteTupleIds
-	2,  // 9: authzpb.v1.DeleteTuples.tuples:type_name -> authzpb.v1.Tuple
-	7,  // 10: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
-	2,  // 11: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
-	4,  // 12: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
-	8,  // 13: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
-	0,  // 14: authzpb.v1.AuthzService.Check:input_type -> authzpb.v1.CheckIn
-	15, // 15: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
-	5,  // 16: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
-	15, // 17: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
-	1,  // 18: authzpb.v1.AuthzService.Check:output_type -> authzpb.v1.CheckOut
-	15, // [15:19] is the sub-list for method output_type
-	11, // [11:15] is the sub-list for method input_type
-	11, // [11:11] is the sub-list for extension type_name
-	11, // [11:11] is the sub-list for extension extendee
-	0,  // [0:11] is the sub-list for field type_name
+	15, // 0: authzpb.v1.ListTuplesIn.filters:type_name -> pkgpb.v1.Filter
+	16, // 1: authzpb.v1.ListTuplesIn.sorters:type_name -> pkgpb.v1.Sorter
+	17, // 2: authzpb.v1.ListTuplesIn.cursor:type_name -> pkgpb.v1.Cursor
+	3,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
+	7,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
+	14, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
+	10, // 6: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.DeleteTuples
+	4,  // 7: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
+	11, // 8: authzpb.v1.DeleteTuplesIn.ids:type_name -> authzpb.v1.DeleteTupleIds
+	3,  // 9: authzpb.v1.DeleteTuples.tuples:type_name -> authzpb.v1.Tuple
+	0,  // 10: authzpb.v1.GraphUpdate.operation:type_name -> authzpb.v1.Operation
+	13, // 11: authzpb.v1.GraphUpdate.tuples:type_name -> authzpb.v1.GraphUpdateTuple
+	8,  // 12: authzpb.v1.TreeNode.ChildrenEntry.value:type_name -> authzpb.v1.TreeNode
+	3,  // 13: authzpb.v1.AuthzService.CreateTuple:input_type -> authzpb.v1.Tuple
+	5,  // 14: authzpb.v1.AuthzService.ListTuples:input_type -> authzpb.v1.ListTuplesIn
+	9,  // 15: authzpb.v1.AuthzService.DeleteTuples:input_type -> authzpb.v1.DeleteTuplesIn
+	1,  // 16: authzpb.v1.AuthzService.Check:input_type -> authzpb.v1.CheckIn
+	18, // 17: authzpb.v1.AuthzService.CreateTuple:output_type -> google.protobuf.Empty
+	6,  // 18: authzpb.v1.AuthzService.ListTuples:output_type -> authzpb.v1.ListTuplesOut
+	18, // 19: authzpb.v1.AuthzService.DeleteTuples:output_type -> google.protobuf.Empty
+	2,  // 20: authzpb.v1.AuthzService.Check:output_type -> authzpb.v1.CheckOut
+	17, // [17:21] is the sub-list for method output_type
+	13, // [13:17] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_authzpb_v1_authz_proto_init() }
@@ -851,13 +1049,14 @@ func file_authzpb_v1_authz_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_authzpb_v1_authz_proto_rawDesc), len(file_authzpb_v1_authz_proto_rawDesc)),
-			NumEnums:      0,
-			NumMessages:   12,
+			NumEnums:      1,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_authzpb_v1_authz_proto_goTypes,
 		DependencyIndexes: file_authzpb_v1_authz_proto_depIdxs,
+		EnumInfos:         file_authzpb_v1_authz_proto_enumTypes,
 		MessageInfos:      file_authzpb_v1_authz_proto_msgTypes,
 	}.Build()
 	File_authzpb_v1_authz_proto = out.File
