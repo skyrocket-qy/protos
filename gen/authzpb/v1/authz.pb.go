@@ -760,6 +760,7 @@ type GraphUpdate struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Operation     Operation              `protobuf:"varint,1,opt,name=operation,proto3,enum=authzpb.v1.Operation" json:"operation,omitempty"`
 	Tuples        []*GraphUpdateTuple    `protobuf:"bytes,2,rep,name=tuples,proto3" json:"tuples,omitempty"`
+	Version       uint64                 `protobuf:"varint,3,opt,name=version,proto3" json:"version,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -806,6 +807,13 @@ func (x *GraphUpdate) GetTuples() []*GraphUpdateTuple {
 		return x.Tuples
 	}
 	return nil
+}
+
+func (x *GraphUpdate) GetVersion() uint64 {
+	if x != nil {
+		return x.Version
+	}
+	return 0
 }
 
 type GraphUpdateTuple struct {
@@ -942,10 +950,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\fDeleteTuples\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\"\"\n" +
 	"\x0eDeleteTupleIds\x12\x10\n" +
-	"\x03ids\x18\x01 \x03(\x04R\x03ids\"x\n" +
+	"\x03ids\x18\x01 \x03(\x04R\x03ids\"\x92\x01\n" +
 	"\vGraphUpdate\x123\n" +
 	"\toperation\x18\x01 \x01(\x0e2\x15.authzpb.v1.OperationR\toperation\x124\n" +
-	"\x06tuples\x18\x02 \x03(\v2\x1c.authzpb.v1.GraphUpdateTupleR\x06tuples\"\x80\x01\n" +
+	"\x06tuples\x18\x02 \x03(\v2\x1c.authzpb.v1.GraphUpdateTupleR\x06tuples\x12\x18\n" +
+	"\aversion\x18\x03 \x01(\x04R\aversion\"\x80\x01\n" +
 	"\x10GraphUpdateTuple\x12\x15\n" +
 	"\x06sbj_ns\x18\x01 \x01(\tR\x05sbjNs\x12\x15\n" +
 	"\x06sbj_id\x18\x02 \x01(\tR\x05sbjId\x12\x10\n" +

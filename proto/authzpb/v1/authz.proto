@@ -90,6 +90,7 @@ enum Operation {
 message GraphUpdate {
     Operation operation = 1;
     repeated GraphUpdateTuple tuples = 2;
+    uint64 version = 3;
 }
 message GraphUpdateTuple{
     string sbj_ns = 1;
