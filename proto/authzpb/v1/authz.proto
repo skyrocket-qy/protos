@@ -69,9 +69,9 @@ message TreeNode{
 
 message DeleteTuplesIn{
     oneof mode{
-        DeleteTuples tuples = 1;
+        DeleteTuples delete_tuples = 1;
         TupleFilter filter = 2;
-        DeleteTupleIds ids = 3;
+        DeleteTupleIds delete_tuple_ids = 3;
     }
 }
 message DeleteTuples{

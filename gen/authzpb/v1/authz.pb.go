@@ -574,9 +574,9 @@ type DeleteTuplesIn struct {
 	state protoimpl.MessageState `protogen:"open.v1"`
 	// Types that are valid to be assigned to Mode:
 	//
-	//	*DeleteTuplesIn_Tuples
+	//	*DeleteTuplesIn_DeleteTuples
 	//	*DeleteTuplesIn_Filter
-	//	*DeleteTuplesIn_Ids
+	//	*DeleteTuplesIn_DeleteTupleIds
 	Mode          isDeleteTuplesIn_Mode `protobuf_oneof:"mode"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -619,10 +619,10 @@ func (x *DeleteTuplesIn) GetMode() isDeleteTuplesIn_Mode {
 	return nil
 }
 
-func (x *DeleteTuplesIn) GetTuples() *DeleteTuples {
+func (x *DeleteTuplesIn) GetDeleteTuples() *DeleteTuples {
 	if x != nil {
-		if x, ok := x.Mode.(*DeleteTuplesIn_Tuples); ok {
-			return x.Tuples
+		if x, ok := x.Mode.(*DeleteTuplesIn_DeleteTuples); ok {
+			return x.DeleteTuples
 		}
 	}
 	return nil
@@ -637,10 +637,10 @@ func (x *DeleteTuplesIn) GetFilter() *TupleFilter {
 	return nil
 }
 
-func (x *DeleteTuplesIn) GetIds() *DeleteTupleIds {
+func (x *DeleteTuplesIn) GetDeleteTupleIds() *DeleteTupleIds {
 	if x != nil {
-		if x, ok := x.Mode.(*DeleteTuplesIn_Ids); ok {
-			return x.Ids
+		if x, ok := x.Mode.(*DeleteTuplesIn_DeleteTupleIds); ok {
+			return x.DeleteTupleIds
 		}
 	}
 	return nil
@@ -650,23 +650,23 @@ type isDeleteTuplesIn_Mode interface {
 	isDeleteTuplesIn_Mode()
 }
 
-type DeleteTuplesIn_Tuples struct {
-	Tuples *DeleteTuples `protobuf:"bytes,1,opt,name=tuples,proto3,oneof"`
+type DeleteTuplesIn_DeleteTuples struct {
+	DeleteTuples *DeleteTuples `protobuf:"bytes,1,opt,name=delete_tuples,json=deleteTuples,proto3,oneof"`
 }
 
 type DeleteTuplesIn_Filter struct {
 	Filter *TupleFilter `protobuf:"bytes,2,opt,name=filter,proto3,oneof"`
 }
 
-type DeleteTuplesIn_Ids struct {
-	Ids *DeleteTupleIds `protobuf:"bytes,3,opt,name=ids,proto3,oneof"`
+type DeleteTuplesIn_DeleteTupleIds struct {
+	DeleteTupleIds *DeleteTupleIds `protobuf:"bytes,3,opt,name=delete_tuple_ids,json=deleteTupleIds,proto3,oneof"`
 }
 
-func (*DeleteTuplesIn_Tuples) isDeleteTuplesIn_Mode() {}
+func (*DeleteTuplesIn_DeleteTuples) isDeleteTuplesIn_Mode() {}
 
 func (*DeleteTuplesIn_Filter) isDeleteTuplesIn_Mode() {}
 
-func (*DeleteTuplesIn_Ids) isDeleteTuplesIn_Mode() {}
+func (*DeleteTuplesIn_DeleteTupleIds) isDeleteTuplesIn_Mode() {}
 
 type DeleteTuples struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
@@ -941,11 +941,11 @@ const file_authzpb_v1_authz_proto_rawDesc = "" +
 	"\bchildren\x18\x02 \x03(\v2\".authzpb.v1.TreeNode.ChildrenEntryR\bchildren\x1aQ\n" +
 	"\rChildrenEntry\x12\x10\n" +
 	"\x03key\x18\x01 \x01(\tR\x03key\x12*\n" +
-	"\x05value\x18\x02 \x01(\v2\x14.authzpb.v1.TreeNodeR\x05value:\x028\x01\"\xaf\x01\n" +
-	"\x0eDeleteTuplesIn\x122\n" +
-	"\x06tuples\x18\x01 \x01(\v2\x18.authzpb.v1.DeleteTuplesH\x00R\x06tuples\x121\n" +
-	"\x06filter\x18\x02 \x01(\v2\x17.authzpb.v1.TupleFilterH\x00R\x06filter\x12.\n" +
-	"\x03ids\x18\x03 \x01(\v2\x1a.authzpb.v1.DeleteTupleIdsH\x00R\x03idsB\x06\n" +
+	"\x05value\x18\x02 \x01(\v2\x14.authzpb.v1.TreeNodeR\x05value:\x028\x01\"\xd4\x01\n" +
+	"\x0eDeleteTuplesIn\x12?\n" +
+	"\rdelete_tuples\x18\x01 \x01(\v2\x18.authzpb.v1.DeleteTuplesH\x00R\fdeleteTuples\x121\n" +
+	"\x06filter\x18\x02 \x01(\v2\x17.authzpb.v1.TupleFilterH\x00R\x06filter\x12F\n" +
+	"\x10delete_tuple_ids\x18\x03 \x01(\v2\x1a.authzpb.v1.DeleteTupleIdsH\x00R\x0edeleteTupleIdsB\x06\n" +
 	"\x04mode\"9\n" +
 	"\fDeleteTuples\x12)\n" +
 	"\x06tuples\x18\x01 \x03(\v2\x11.authzpb.v1.TupleR\x06tuples\"\"\n" +
@@ -1020,9 +1020,9 @@ var file_authzpb_v1_authz_proto_depIdxs = []int32{
 	3,  // 3: authzpb.v1.ListTuplesOut.tuples:type_name -> authzpb.v1.Tuple
 	7,  // 4: authzpb.v1.TreeNode.root:type_name -> authzpb.v1.Instance
 	14, // 5: authzpb.v1.TreeNode.children:type_name -> authzpb.v1.TreeNode.ChildrenEntry
-	10, // 6: authzpb.v1.DeleteTuplesIn.tuples:type_name -> authzpb.v1.DeleteTuples
+	10, // 6: authzpb.v1.DeleteTuplesIn.delete_tuples:type_name -> authzpb.v1.DeleteTuples
 	4,  // 7: authzpb.v1.DeleteTuplesIn.filter:type_name -> authzpb.v1.TupleFilter
-	11, // 8: authzpb.v1.DeleteTuplesIn.ids:type_name -> authzpb.v1.DeleteTupleIds
+	11, // 8: authzpb.v1.DeleteTuplesIn.delete_tuple_ids:type_name -> authzpb.v1.DeleteTupleIds
 	3,  // 9: authzpb.v1.DeleteTuples.tuples:type_name -> authzpb.v1.Tuple
 	0,  // 10: authzpb.v1.GraphUpdate.operation:type_name -> authzpb.v1.Operation
 	13, // 11: authzpb.v1.GraphUpdate.tuples:type_name -> authzpb.v1.GraphUpdateTuple
@@ -1049,9 +1049,9 @@ func file_authzpb_v1_authz_proto_init() {
 	}
 	file_authzpb_v1_authz_proto_msgTypes[3].OneofWrappers = []any{}
 	file_authzpb_v1_authz_proto_msgTypes[8].OneofWrappers = []any{
-		(*DeleteTuplesIn_Tuples)(nil),
+		(*DeleteTuplesIn_DeleteTuples)(nil),
 		(*DeleteTuplesIn_Filter)(nil),
-		(*DeleteTuplesIn_Ids)(nil),
+		(*DeleteTuplesIn_DeleteTupleIds)(nil),
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
