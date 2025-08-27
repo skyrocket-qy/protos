@@ -609,85 +609,17 @@ func (x *Logical) GetNodes() []*FilterNode {
 	return nil
 }
 
-type CallerInfo struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Function      string                 `protobuf:"bytes,1,opt,name=function,proto3" json:"function,omitempty"` // function name
-	File          string                 `protobuf:"bytes,2,opt,name=file,proto3" json:"file,omitempty"`         // source file
-	Line          int32                  `protobuf:"varint,3,opt,name=line,proto3" json:"line,omitempty"`        // line number
-	Msg           string                 `protobuf:"bytes,4,opt,name=msg,proto3" json:"msg,omitempty"`           // optional message
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *CallerInfo) Reset() {
-	*x = CallerInfo{}
-	mi := &file_pkgpb_v1_pkg_proto_msgTypes[8]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *CallerInfo) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*CallerInfo) ProtoMessage() {}
-
-func (x *CallerInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_pkgpb_v1_pkg_proto_msgTypes[8]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use CallerInfo.ProtoReflect.Descriptor instead.
-func (*CallerInfo) Descriptor() ([]byte, []int) {
-	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{8}
-}
-
-func (x *CallerInfo) GetFunction() string {
-	if x != nil {
-		return x.Function
-	}
-	return ""
-}
-
-func (x *CallerInfo) GetFile() string {
-	if x != nil {
-		return x.File
-	}
-	return ""
-}
-
-func (x *CallerInfo) GetLine() int32 {
-	if x != nil {
-		return x.Line
-	}
-	return 0
-}
-
-func (x *CallerInfo) GetMsg() string {
-	if x != nil {
-		return x.Msg
-	}
-	return ""
-}
-
 type CtxErr struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Code          string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"`                                  // your custom Code type (string like "400.0001")
-	CallerInfos   []*CallerInfo          `protobuf:"bytes,2,rep,name=caller_infos,json=callerInfos,proto3" json:"caller_infos,omitempty"` // stack of caller infos
+	Code          string                 `protobuf:"bytes,1,opt,name=code,proto3" json:"code,omitempty"` // your custom Code type (string like "400.0001")
+	TraceId       string                 `protobuf:"bytes,2,opt,name=trace_id,json=traceId,proto3" json:"trace_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *CtxErr) Reset() {
 	*x = CtxErr{}
-	mi := &file_pkgpb_v1_pkg_proto_msgTypes[9]
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -699,7 +631,7 @@ func (x *CtxErr) String() string {
 func (*CtxErr) ProtoMessage() {}
 
 func (x *CtxErr) ProtoReflect() protoreflect.Message {
-	mi := &file_pkgpb_v1_pkg_proto_msgTypes[9]
+	mi := &file_pkgpb_v1_pkg_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -712,7 +644,7 @@ func (x *CtxErr) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CtxErr.ProtoReflect.Descriptor instead.
 func (*CtxErr) Descriptor() ([]byte, []int) {
-	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{9}
+	return file_pkgpb_v1_pkg_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *CtxErr) GetCode() string {
@@ -722,11 +654,11 @@ func (x *CtxErr) GetCode() string {
 	return ""
 }
 
-func (x *CtxErr) GetCallerInfos() []*CallerInfo {
+func (x *CtxErr) GetTraceId() string {
 	if x != nil {
-		return x.CallerInfos
+		return x.TraceId
 	}
-	return nil
+	return ""
 }
 
 var File_pkgpb_v1_pkg_proto protoreflect.FileDescriptor
@@ -762,16 +694,10 @@ const file_pkgpb_v1_pkg_proto_rawDesc = "" +
 	"\x04node\"X\n" +
 	"\aLogical\x12!\n" +
 	"\x02op\x18\x01 \x01(\x0e2\x11.pkgpb.v1.LogicOpR\x02op\x12*\n" +
-	"\x05nodes\x18\x02 \x03(\v2\x14.pkgpb.v1.FilterNodeR\x05nodes\"b\n" +
-	"\n" +
-	"CallerInfo\x12\x1a\n" +
-	"\bfunction\x18\x01 \x01(\tR\bfunction\x12\x12\n" +
-	"\x04file\x18\x02 \x01(\tR\x04file\x12\x12\n" +
-	"\x04line\x18\x03 \x01(\x05R\x04line\x12\x10\n" +
-	"\x03msg\x18\x04 \x01(\tR\x03msg\"U\n" +
+	"\x05nodes\x18\x02 \x03(\v2\x14.pkgpb.v1.FilterNodeR\x05nodes\"7\n" +
 	"\x06CtxErr\x12\x12\n" +
-	"\x04code\x18\x01 \x01(\tR\x04code\x127\n" +
-	"\fcaller_infos\x18\x02 \x03(\v2\x14.pkgpb.v1.CallerInfoR\vcallerInfos*\xab\x01\n" +
+	"\x04code\x18\x01 \x01(\tR\x04code\x12\x19\n" +
+	"\btrace_id\x18\x02 \x01(\tR\atraceId*\xab\x01\n" +
 	"\bOperator\x12\x18\n" +
 	"\x14OPERATOR_UNSPECIFIED\x10\x00\x12\x06\n" +
 	"\x02EQ\x10\x01\x12\a\n" +
@@ -809,7 +735,7 @@ func file_pkgpb_v1_pkg_proto_rawDescGZIP() []byte {
 }
 
 var file_pkgpb_v1_pkg_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_pkgpb_v1_pkg_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_pkgpb_v1_pkg_proto_goTypes = []any{
 	(Operator)(0),      // 0: pkgpb.v1.Operator
 	(LogicOp)(0),       // 1: pkgpb.v1.LogicOp
@@ -821,22 +747,20 @@ var file_pkgpb_v1_pkg_proto_goTypes = []any{
 	(*Field)(nil),      // 7: pkgpb.v1.Field
 	(*FilterNode)(nil), // 8: pkgpb.v1.FilterNode
 	(*Logical)(nil),    // 9: pkgpb.v1.Logical
-	(*CallerInfo)(nil), // 10: pkgpb.v1.CallerInfo
-	(*CtxErr)(nil),     // 11: pkgpb.v1.CtxErr
+	(*CtxErr)(nil),     // 10: pkgpb.v1.CtxErr
 }
 var file_pkgpb_v1_pkg_proto_depIdxs = []int32{
-	0,  // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
-	7,  // 1: pkgpb.v1.CursorData.fields:type_name -> pkgpb.v1.Field
-	2,  // 2: pkgpb.v1.FilterNode.filter:type_name -> pkgpb.v1.Filter
-	9,  // 3: pkgpb.v1.FilterNode.logical:type_name -> pkgpb.v1.Logical
-	1,  // 4: pkgpb.v1.Logical.op:type_name -> pkgpb.v1.LogicOp
-	8,  // 5: pkgpb.v1.Logical.nodes:type_name -> pkgpb.v1.FilterNode
-	10, // 6: pkgpb.v1.CtxErr.caller_infos:type_name -> pkgpb.v1.CallerInfo
-	7,  // [7:7] is the sub-list for method output_type
-	7,  // [7:7] is the sub-list for method input_type
-	7,  // [7:7] is the sub-list for extension type_name
-	7,  // [7:7] is the sub-list for extension extendee
-	0,  // [0:7] is the sub-list for field type_name
+	0, // 0: pkgpb.v1.Filter.op:type_name -> pkgpb.v1.Operator
+	7, // 1: pkgpb.v1.CursorData.fields:type_name -> pkgpb.v1.Field
+	2, // 2: pkgpb.v1.FilterNode.filter:type_name -> pkgpb.v1.Filter
+	9, // 3: pkgpb.v1.FilterNode.logical:type_name -> pkgpb.v1.Logical
+	1, // 4: pkgpb.v1.Logical.op:type_name -> pkgpb.v1.LogicOp
+	8, // 5: pkgpb.v1.Logical.nodes:type_name -> pkgpb.v1.FilterNode
+	6, // [6:6] is the sub-list for method output_type
+	6, // [6:6] is the sub-list for method input_type
+	6, // [6:6] is the sub-list for extension type_name
+	6, // [6:6] is the sub-list for extension extendee
+	0, // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_pkgpb_v1_pkg_proto_init() }
@@ -855,7 +779,7 @@ func file_pkgpb_v1_pkg_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_pkgpb_v1_pkg_proto_rawDesc), len(file_pkgpb_v1_pkg_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   10,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

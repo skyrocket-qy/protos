@@ -72,14 +72,8 @@ message Logical {
   repeated FilterNode nodes = 2;
 }
 
-message CallerInfo {
-  string function = 1; // function name
-  string file     = 2; // source file
-  int32  line     = 3; // line number
-  string msg      = 4; // optional message
-}
 
 message CtxErr {
   string code = 1; // your custom Code type (string like "400.0001")
-  repeated CallerInfo caller_infos = 2; // stack of caller infos
+  string trace_id = 2;
 }
