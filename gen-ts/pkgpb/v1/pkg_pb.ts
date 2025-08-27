@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file pkgpb/v1/pkg.proto.
  */
 export const file_pkgpb_v1_pkg: GenFile = /*@__PURE__*/
-  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAxIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwiLQoKQ3Vyc29yRGF0YRIfCgZmaWVsZHMYASADKAsyDy5wa2dwYi52MS5GaWVsZCIuCgVGaWVsZBILCgNjb2wYASABKAkSCwoDYXNjGAIgASgIEgsKA3ZhbBgDIAEoCSJeCgpGaWx0ZXJOb2RlEiIKBmZpbHRlchgBIAEoCzIQLnBrZ3BiLnYxLkZpbHRlckgAEiQKB2xvZ2ljYWwYAiABKAsyES5wa2dwYi52MS5Mb2dpY2FsSABCBgoEbm9kZSJNCgdMb2dpY2FsEh0KAm9wGAEgASgOMhEucGtncGIudjEuTG9naWNPcBIjCgVub2RlcxgCIAMoCzIULnBrZ3BiLnYxLkZpbHRlck5vZGUqqwEKCE9wZXJhdG9yEhgKFE9QRVJBVE9SX1VOU1BFQ0lGSUVEEAASBgoCRVEQARIHCgNORVEQAhIGCgJHVBADEgcKA0dURRAEEgYKAkxUEAUSBwoDTFRFEAYSBgoCSU4QBxIKCgZOT1RfSU4QCBIICgRMSUtFEAkSCQoFSUxJS0UQChILCgdJU19OVUxMEAsSDwoLSVNfTk9UX05VTEwQDBILCgdCRVRXRUVOEA0qPQoHTG9naWNPcBIYChRMT0dJQ19PUF9VTlNQRUNJRklFRBAAEgcKA0FORBABEgYKAk9SEAISBwoDTk9UEANCjgEKDGNvbS5wa2dwYi52MUIIUGtnUHJvdG9QAVozZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9wa2dwYi92MTtwa2dwYnYxogIDUFhYqgIIUGtncGIuVjHKAghQa2dwYlxWMeICFFBrZ3BiXFYxXEdQQk1ldGFkYXRh6gIJUGtncGI6OlYxYgZwcm90bzM");
+  fileDesc("ChJwa2dwYi92MS9wa2cucHJvdG8SCHBrZ3BiLnYxIkcKBkZpbHRlchINCgVmaWVsZBgBIAEoCRIeCgJvcBgCIAEoDjISLnBrZ3BiLnYxLk9wZXJhdG9yEg4KBnZhbHVlcxgDIAMoCSIkCgZTb3J0ZXISDQoFZmllbGQYASABKAkSCwoDYXNjGAIgASgIIiUKBVBhZ2VyEg4KBm51bWJlchgBIAEoBRIMCgRzaXplGAIgASgFIjAKBkN1cnNvchIQCgN2YWwYASABKAxIAIgBARIMCgRzaXplGAIgASgFQgYKBF92YWwiLQoKQ3Vyc29yRGF0YRIfCgZmaWVsZHMYASADKAsyDy5wa2dwYi52MS5GaWVsZCIuCgVGaWVsZBILCgNjb2wYASABKAkSCwoDYXNjGAIgASgIEgsKA3ZhbBgDIAEoCSJeCgpGaWx0ZXJOb2RlEiIKBmZpbHRlchgBIAEoCzIQLnBrZ3BiLnYxLkZpbHRlckgAEiQKB2xvZ2ljYWwYAiABKAsyES5wa2dwYi52MS5Mb2dpY2FsSABCBgoEbm9kZSJNCgdMb2dpY2FsEh0KAm9wGAEgASgOMhEucGtncGIudjEuTG9naWNPcBIjCgVub2RlcxgCIAMoCzIULnBrZ3BiLnYxLkZpbHRlck5vZGUiRwoKQ2FsbGVySW5mbxIQCghmdW5jdGlvbhgBIAEoCRIMCgRmaWxlGAIgASgJEgwKBGxpbmUYAyABKAUSCwoDbXNnGAQgASgJIkIKBkN0eEVychIMCgRjb2RlGAEgASgJEioKDGNhbGxlcl9pbmZvcxgCIAMoCzIULnBrZ3BiLnYxLkNhbGxlckluZm8qqwEKCE9wZXJhdG9yEhgKFE9QRVJBVE9SX1VOU1BFQ0lGSUVEEAASBgoCRVEQARIHCgNORVEQAhIGCgJHVBADEgcKA0dURRAEEgYKAkxUEAUSBwoDTFRFEAYSBgoCSU4QBxIKCgZOT1RfSU4QCBIICgRMSUtFEAkSCQoFSUxJS0UQChILCgdJU19OVUxMEAsSDwoLSVNfTk9UX05VTEwQDBILCgdCRVRXRUVOEA0qPQoHTG9naWNPcBIYChRMT0dJQ19PUF9VTlNQRUNJRklFRBAAEgcKA0FORBABEgYKAk9SEAISBwoDTk9UEANCjgEKDGNvbS5wa2dwYi52MUIIUGtnUHJvdG9QAVozZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9wa2dwYi92MTtwa2dwYnYxogIDUFhYqgIIUGtncGIuVjHKAghQa2dwYlxWMeICFFBrZ3BiXFYxXEdQQk1ldGFkYXRh6gIJUGtncGI6OlYxYgZwcm90bzM");
 
 /**
  * @generated from message pkgpb.v1.Filter
@@ -203,6 +203,72 @@ export type Logical = Message<"pkgpb.v1.Logical"> & {
  */
 export const LogicalSchema: GenMessage<Logical> = /*@__PURE__*/
   messageDesc(file_pkgpb_v1_pkg, 7);
+
+/**
+ * @generated from message pkgpb.v1.CallerInfo
+ */
+export type CallerInfo = Message<"pkgpb.v1.CallerInfo"> & {
+  /**
+   * function name
+   *
+   * @generated from field: string function = 1;
+   */
+  function: string;
+
+  /**
+   * source file
+   *
+   * @generated from field: string file = 2;
+   */
+  file: string;
+
+  /**
+   * line number
+   *
+   * @generated from field: int32 line = 3;
+   */
+  line: number;
+
+  /**
+   * optional message
+   *
+   * @generated from field: string msg = 4;
+   */
+  msg: string;
+};
+
+/**
+ * Describes the message pkgpb.v1.CallerInfo.
+ * Use `create(CallerInfoSchema)` to create a new message.
+ */
+export const CallerInfoSchema: GenMessage<CallerInfo> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 8);
+
+/**
+ * @generated from message pkgpb.v1.CtxErr
+ */
+export type CtxErr = Message<"pkgpb.v1.CtxErr"> & {
+  /**
+   * your custom Code type (string like "400.0001")
+   *
+   * @generated from field: string code = 1;
+   */
+  code: string;
+
+  /**
+   * stack of caller infos
+   *
+   * @generated from field: repeated pkgpb.v1.CallerInfo caller_infos = 2;
+   */
+  callerInfos: CallerInfo[];
+};
+
+/**
+ * Describes the message pkgpb.v1.CtxErr.
+ * Use `create(CtxErrSchema)` to create a new message.
+ */
+export const CtxErrSchema: GenMessage<CtxErr> = /*@__PURE__*/
+  messageDesc(file_pkgpb_v1_pkg, 9);
 
 /**
  * @generated from enum pkgpb.v1.Operator
