@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package slotpb.extradatapb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/extradatapb;extradatapb";
+
+import "slotpb/v1/slot.proto";
+
+message Arthur {
+    int32 left_game_cnt = 1;
+    oneof data {
+        ArthurFg fg = 2;
+        ArthurBg bg = 3;
+        ArthurBg sbg = 4;
+    }
+}
+message ArthurFg{
+    slotpb.v1.Table table1 = 1; // before EC
+    slotpb.v1.Table table2 = 2; // after EC
+}
+message ArthurBg{
+    slotpb.v1.Table table = 1;
+    int32 left_spin_cnt = 2;
+}
