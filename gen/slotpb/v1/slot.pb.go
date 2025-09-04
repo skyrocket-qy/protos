@@ -27,24 +27,24 @@ type JPType int32
 
 const (
 	JPType_JP_TYPE_UNSPECIFIED JPType = 0
-	JPType_JP_TYPE_MINOR       JPType = 1
-	JPType_JP_TYPE_MAJOR       JPType = 2
-	JPType_JP_TYPE_GRAND       JPType = 3
+	JPType_MINOR               JPType = 1
+	JPType_MAJOR               JPType = 2
+	JPType_GRAND               JPType = 3
 )
 
 // Enum value maps for JPType.
 var (
 	JPType_name = map[int32]string{
 		0: "JP_TYPE_UNSPECIFIED",
-		1: "JP_TYPE_MINOR",
-		2: "JP_TYPE_MAJOR",
-		3: "JP_TYPE_GRAND",
+		1: "MINOR",
+		2: "MAJOR",
+		3: "GRAND",
 	}
 	JPType_value = map[string]int32{
 		"JP_TYPE_UNSPECIFIED": 0,
-		"JP_TYPE_MINOR":       1,
-		"JP_TYPE_MAJOR":       2,
-		"JP_TYPE_GRAND":       3,
+		"MINOR":               1,
+		"MAJOR":               2,
+		"GRAND":               3,
 	}
 )
 
@@ -457,12 +457,12 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x05JpOut\x12&\n" +
 	"\x05table\x18\x01 \x01(\v2\x10.slotpb.v1.TableR\x05table\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\x04R\x05score\x12%\n" +
-	"\x04type\x18\x03 \x01(\x0e2\x11.slotpb.v1.JPTypeR\x04type*Z\n" +
+	"\x04type\x18\x03 \x01(\x0e2\x11.slotpb.v1.JPTypeR\x04type*B\n" +
 	"\x06JPType\x12\x17\n" +
-	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\x11\n" +
-	"\rJP_TYPE_MINOR\x10\x01\x12\x11\n" +
-	"\rJP_TYPE_MAJOR\x10\x02\x12\x11\n" +
-	"\rJP_TYPE_GRAND\x10\x032Q\n" +
+	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\t\n" +
+	"\x05MINOR\x10\x01\x12\t\n" +
+	"\x05MAJOR\x10\x02\x12\t\n" +
+	"\x05GRAND\x10\x032Q\n" +
 	"\vSlotService\x12B\n" +
 	"\aGateWay\x12\x19.slotpb.v1.GateWayRequest\x1a\x1a.slotpb.v1.GateWayResponse\"\x00B\x96\x01\n" +
 	"\rcom.slotpb.v1B\tSlotProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +

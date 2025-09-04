@@ -44,7 +44,7 @@ message JpOut{
 
 enum JPType{
   JP_TYPE_UNSPECIFIED = 0;
-  JP_TYPE_MINOR = 1;
-  JP_TYPE_MAJOR = 2;
-  JP_TYPE_GRAND = 3;
+  MINOR = 1;
+  MAJOR = 2;
+  GRAND = 3;
 }
