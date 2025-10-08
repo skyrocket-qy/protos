@@ -51,6 +51,14 @@ namespace Slotpb.V1 {
     static readonly grpc::Marshaller<global::Slotpb.V1.PlayReq> __Marshaller_slotpb_v1_PlayReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Slotpb.V1.PlayResp> __Marshaller_slotpb_v1_PlayResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayResp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Slotpb.V1.BuyFgReq> __Marshaller_slotpb_v1_BuyFgReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.BuyFgReq.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Slotpb.V1.BuyFgResp> __Marshaller_slotpb_v1_BuyFgResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.BuyFgResp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Slotpb.V1.GetRoomInfoReq> __Marshaller_slotpb_v1_GetRoomInfoReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.GetRoomInfoReq.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Slotpb.V1.GetRoomInfoResp> __Marshaller_slotpb_v1_GetRoomInfoResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.GetRoomInfoResp.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp> __Method_Play = new grpc::Method<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp>(
@@ -59,6 +67,22 @@ namespace Slotpb.V1 {
         "Play",
         __Marshaller_slotpb_v1_PlayReq,
         __Marshaller_slotpb_v1_PlayResp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Slotpb.V1.BuyFgReq, global::Slotpb.V1.BuyFgResp> __Method_BuyFg = new grpc::Method<global::Slotpb.V1.BuyFgReq, global::Slotpb.V1.BuyFgResp>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "BuyFg",
+        __Marshaller_slotpb_v1_BuyFgReq,
+        __Marshaller_slotpb_v1_BuyFgResp);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Slotpb.V1.GetRoomInfoReq, global::Slotpb.V1.GetRoomInfoResp> __Method_GetRoomInfo = new grpc::Method<global::Slotpb.V1.GetRoomInfoReq, global::Slotpb.V1.GetRoomInfoResp>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetRoomInfo",
+        __Marshaller_slotpb_v1_GetRoomInfoReq,
+        __Marshaller_slotpb_v1_GetRoomInfoResp);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -72,6 +96,18 @@ namespace Slotpb.V1 {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Slotpb.V1.PlayResp> Play(global::Slotpb.V1.PlayReq request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Slotpb.V1.BuyFgResp> BuyFg(global::Slotpb.V1.BuyFgReq request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Slotpb.V1.GetRoomInfoResp> GetRoomInfo(global::Slotpb.V1.GetRoomInfoReq request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -125,6 +161,46 @@ namespace Slotpb.V1 {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Play, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Slotpb.V1.BuyFgResp BuyFg(global::Slotpb.V1.BuyFgReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BuyFg(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Slotpb.V1.BuyFgResp BuyFg(global::Slotpb.V1.BuyFgReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_BuyFg, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.BuyFgResp> BuyFgAsync(global::Slotpb.V1.BuyFgReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return BuyFgAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.BuyFgResp> BuyFgAsync(global::Slotpb.V1.BuyFgReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_BuyFg, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Slotpb.V1.GetRoomInfoResp GetRoomInfo(global::Slotpb.V1.GetRoomInfoReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetRoomInfo(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Slotpb.V1.GetRoomInfoResp GetRoomInfo(global::Slotpb.V1.GetRoomInfoReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetRoomInfo, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.GetRoomInfoResp> GetRoomInfoAsync(global::Slotpb.V1.GetRoomInfoReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetRoomInfoAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.GetRoomInfoResp> GetRoomInfoAsync(global::Slotpb.V1.GetRoomInfoReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetRoomInfo, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override SlotServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -139,7 +215,9 @@ namespace Slotpb.V1 {
     public static grpc::ServerServiceDefinition BindService(SlotServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Play, serviceImpl.Play).Build();
+          .AddMethod(__Method_Play, serviceImpl.Play)
+          .AddMethod(__Method_BuyFg, serviceImpl.BuyFg)
+          .AddMethod(__Method_GetRoomInfo, serviceImpl.GetRoomInfo).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -150,6 +228,8 @@ namespace Slotpb.V1 {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SlotServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_Play, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp>(serviceImpl.Play));
+      serviceBinder.AddMethod(__Method_BuyFg, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.V1.BuyFgReq, global::Slotpb.V1.BuyFgResp>(serviceImpl.BuyFg));
+      serviceBinder.AddMethod(__Method_GetRoomInfo, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.V1.GetRoomInfoReq, global::Slotpb.V1.GetRoomInfoResp>(serviceImpl.GetRoomInfo));
     }
 
   }

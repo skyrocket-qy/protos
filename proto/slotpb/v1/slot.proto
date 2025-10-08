@@ -6,7 +6,40 @@ package slotpb.v1;
 option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
 
 service SlotService {
-    rpc Play(PlayReq) returns (PlayResp);
+  rpc Play(PlayReq) returns (PlayResp);
+  rpc BuyFg(BuyFgReq) returns (BuyFgResp);
+  rpc GetRoomInfo(GetRoomInfoReq) returns (GetRoomInfoResp);
+}
+
+message Event {
+  uint32 code = 1;
+  bytes data = 2;
+}
+
+message BuyFgReq {
+  uint32 bet_amount = 1;
+}
+
+message BuyFgResp {
+  repeated Event events = 1;
+  uint64 balance = 2;
+}
+
+message RoomStatisticInfo {
+  float rtp = 1;
+  uint64 fg_cnt = 2;
+}
+
+message GetRoomInfoReq {
+  uint32 bet_amount = 1;
+  uint32 room_id = 2;
+}
+
+message GetRoomInfoResp {
+  bytes data = 1;
+  RoomStatisticInfo today = 2;
+  RoomStatisticInfo week = 3;
+  RoomStatisticInfo month = 4;
 }
 
 message Table {
@@ -22,12 +55,12 @@ message Coordinate{
 }
 
 message PlayReq {
-
+  uint32 bet_amount = 1;
 }
 
 message PlayResp {
-  bool is_jp = 1;
-  bytes data = 2;
+  repeated Event events = 1;
+  uint64 balance = 2;
 }
 
 message JpOut{

@@ -75,6 +75,326 @@ func (JPType) EnumDescriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
 }
 
+type Event struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Code          uint32                 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
+	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Event) Reset() {
+	*x = Event{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Event) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Event) ProtoMessage() {}
+
+func (x *Event) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Event.ProtoReflect.Descriptor instead.
+func (*Event) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Event) GetCode() uint32 {
+	if x != nil {
+		return x.Code
+	}
+	return 0
+}
+
+func (x *Event) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+type BuyFgReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BetAmount     uint32                 `protobuf:"varint,1,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuyFgReq) Reset() {
+	*x = BuyFgReq{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuyFgReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuyFgReq) ProtoMessage() {}
+
+func (x *BuyFgReq) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuyFgReq.ProtoReflect.Descriptor instead.
+func (*BuyFgReq) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *BuyFgReq) GetBetAmount() uint32 {
+	if x != nil {
+		return x.BetAmount
+	}
+	return 0
+}
+
+type BuyFgResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
+	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuyFgResp) Reset() {
+	*x = BuyFgResp{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuyFgResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuyFgResp) ProtoMessage() {}
+
+func (x *BuyFgResp) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuyFgResp.ProtoReflect.Descriptor instead.
+func (*BuyFgResp) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BuyFgResp) GetEvents() []*Event {
+	if x != nil {
+		return x.Events
+	}
+	return nil
+}
+
+func (x *BuyFgResp) GetBalance() uint64 {
+	if x != nil {
+		return x.Balance
+	}
+	return 0
+}
+
+type RoomStatisticInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Rtp           float32                `protobuf:"fixed32,1,opt,name=rtp,proto3" json:"rtp,omitempty"`
+	FgCnt         uint64                 `protobuf:"varint,2,opt,name=fg_cnt,json=fgCnt,proto3" json:"fg_cnt,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RoomStatisticInfo) Reset() {
+	*x = RoomStatisticInfo{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RoomStatisticInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RoomStatisticInfo) ProtoMessage() {}
+
+func (x *RoomStatisticInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RoomStatisticInfo.ProtoReflect.Descriptor instead.
+func (*RoomStatisticInfo) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *RoomStatisticInfo) GetRtp() float32 {
+	if x != nil {
+		return x.Rtp
+	}
+	return 0
+}
+
+func (x *RoomStatisticInfo) GetFgCnt() uint64 {
+	if x != nil {
+		return x.FgCnt
+	}
+	return 0
+}
+
+type GetRoomInfoReq struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	BetAmount     uint32                 `protobuf:"varint,1,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
+	RoomId        uint32                 `protobuf:"varint,2,opt,name=room_id,json=roomId,proto3" json:"room_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomInfoReq) Reset() {
+	*x = GetRoomInfoReq{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomInfoReq) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomInfoReq) ProtoMessage() {}
+
+func (x *GetRoomInfoReq) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomInfoReq.ProtoReflect.Descriptor instead.
+func (*GetRoomInfoReq) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetRoomInfoReq) GetBetAmount() uint32 {
+	if x != nil {
+		return x.BetAmount
+	}
+	return 0
+}
+
+func (x *GetRoomInfoReq) GetRoomId() uint32 {
+	if x != nil {
+		return x.RoomId
+	}
+	return 0
+}
+
+type GetRoomInfoResp struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Data          []byte                 `protobuf:"bytes,1,opt,name=data,proto3" json:"data,omitempty"`
+	Today         *RoomStatisticInfo     `protobuf:"bytes,2,opt,name=today,proto3" json:"today,omitempty"`
+	Week          *RoomStatisticInfo     `protobuf:"bytes,3,opt,name=week,proto3" json:"week,omitempty"`
+	Month         *RoomStatisticInfo     `protobuf:"bytes,4,opt,name=month,proto3" json:"month,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetRoomInfoResp) Reset() {
+	*x = GetRoomInfoResp{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetRoomInfoResp) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetRoomInfoResp) ProtoMessage() {}
+
+func (x *GetRoomInfoResp) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetRoomInfoResp.ProtoReflect.Descriptor instead.
+func (*GetRoomInfoResp) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *GetRoomInfoResp) GetData() []byte {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+func (x *GetRoomInfoResp) GetToday() *RoomStatisticInfo {
+	if x != nil {
+		return x.Today
+	}
+	return nil
+}
+
+func (x *GetRoomInfoResp) GetWeek() *RoomStatisticInfo {
+	if x != nil {
+		return x.Week
+	}
+	return nil
+}
+
+func (x *GetRoomInfoResp) GetMonth() *RoomStatisticInfo {
+	if x != nil {
+		return x.Month
+	}
+	return nil
+}
+
 type Table struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Reels         []*Reel                `protobuf:"bytes,1,rep,name=reels,proto3" json:"reels,omitempty"`
@@ -84,7 +404,7 @@ type Table struct {
 
 func (x *Table) Reset() {
 	*x = Table{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -96,7 +416,7 @@ func (x *Table) String() string {
 func (*Table) ProtoMessage() {}
 
 func (x *Table) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -109,7 +429,7 @@ func (x *Table) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Table.ProtoReflect.Descriptor instead.
 func (*Table) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *Table) GetReels() []*Reel {
@@ -128,7 +448,7 @@ type Reel struct {
 
 func (x *Reel) Reset() {
 	*x = Reel{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -140,7 +460,7 @@ func (x *Reel) String() string {
 func (*Reel) ProtoMessage() {}
 
 func (x *Reel) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -153,7 +473,7 @@ func (x *Reel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Reel.ProtoReflect.Descriptor instead.
 func (*Reel) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{1}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Reel) GetSymbols() []string {
@@ -173,7 +493,7 @@ type Coordinate struct {
 
 func (x *Coordinate) Reset() {
 	*x = Coordinate{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -185,7 +505,7 @@ func (x *Coordinate) String() string {
 func (*Coordinate) ProtoMessage() {}
 
 func (x *Coordinate) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -198,7 +518,7 @@ func (x *Coordinate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Coordinate.ProtoReflect.Descriptor instead.
 func (*Coordinate) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{2}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Coordinate) GetX() int32 {
@@ -217,13 +537,14 @@ func (x *Coordinate) GetY() int32 {
 
 type PlayReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	BetAmount     uint32                 `protobuf:"varint,1,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PlayReq) Reset() {
 	*x = PlayReq{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -235,7 +556,7 @@ func (x *PlayReq) String() string {
 func (*PlayReq) ProtoMessage() {}
 
 func (x *PlayReq) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -248,20 +569,27 @@ func (x *PlayReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayReq.ProtoReflect.Descriptor instead.
 func (*PlayReq) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{3}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *PlayReq) GetBetAmount() uint32 {
+	if x != nil {
+		return x.BetAmount
+	}
+	return 0
 }
 
 type PlayResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	IsJp          bool                   `protobuf:"varint,1,opt,name=is_jp,json=isJp,proto3" json:"is_jp,omitempty"`
-	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
+	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *PlayResp) Reset() {
 	*x = PlayResp{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -273,7 +601,7 @@ func (x *PlayResp) String() string {
 func (*PlayResp) ProtoMessage() {}
 
 func (x *PlayResp) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -286,21 +614,21 @@ func (x *PlayResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayResp.ProtoReflect.Descriptor instead.
 func (*PlayResp) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{4}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *PlayResp) GetIsJp() bool {
+func (x *PlayResp) GetEvents() []*Event {
 	if x != nil {
-		return x.IsJp
-	}
-	return false
-}
-
-func (x *PlayResp) GetData() []byte {
-	if x != nil {
-		return x.Data
+		return x.Events
 	}
 	return nil
+}
+
+func (x *PlayResp) GetBalance() uint64 {
+	if x != nil {
+		return x.Balance
+	}
+	return 0
 }
 
 type JpOut struct {
@@ -314,7 +642,7 @@ type JpOut struct {
 
 func (x *JpOut) Reset() {
 	*x = JpOut{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -326,7 +654,7 @@ func (x *JpOut) String() string {
 func (*JpOut) ProtoMessage() {}
 
 func (x *JpOut) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -339,7 +667,7 @@ func (x *JpOut) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JpOut.ProtoReflect.Descriptor instead.
 func (*JpOut) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{5}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *JpOut) GetTable() *Table {
@@ -367,7 +695,28 @@ var File_slotpb_v1_slot_proto protoreflect.FileDescriptor
 
 const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
-	"\x14slotpb/v1/slot.proto\x12\tslotpb.v1\".\n" +
+	"\x14slotpb/v1/slot.proto\x12\tslotpb.v1\"/\n" +
+	"\x05Event\x12\x12\n" +
+	"\x04code\x18\x01 \x01(\rR\x04code\x12\x12\n" +
+	"\x04data\x18\x02 \x01(\fR\x04data\")\n" +
+	"\bBuyFgReq\x12\x1d\n" +
+	"\n" +
+	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"O\n" +
+	"\tBuyFgResp\x12(\n" +
+	"\x06events\x18\x01 \x03(\v2\x10.slotpb.v1.EventR\x06events\x12\x18\n" +
+	"\abalance\x18\x02 \x01(\x04R\abalance\"<\n" +
+	"\x11RoomStatisticInfo\x12\x10\n" +
+	"\x03rtp\x18\x01 \x01(\x02R\x03rtp\x12\x15\n" +
+	"\x06fg_cnt\x18\x02 \x01(\x04R\x05fgCnt\"H\n" +
+	"\x0eGetRoomInfoReq\x12\x1d\n" +
+	"\n" +
+	"bet_amount\x18\x01 \x01(\rR\tbetAmount\x12\x17\n" +
+	"\aroom_id\x18\x02 \x01(\rR\x06roomId\"\xbf\x01\n" +
+	"\x0fGetRoomInfoResp\x12\x12\n" +
+	"\x04data\x18\x01 \x01(\fR\x04data\x122\n" +
+	"\x05today\x18\x02 \x01(\v2\x1c.slotpb.v1.RoomStatisticInfoR\x05today\x120\n" +
+	"\x04week\x18\x03 \x01(\v2\x1c.slotpb.v1.RoomStatisticInfoR\x04week\x122\n" +
+	"\x05month\x18\x04 \x01(\v2\x1c.slotpb.v1.RoomStatisticInfoR\x05month\".\n" +
 	"\x05Table\x12%\n" +
 	"\x05reels\x18\x01 \x03(\v2\x0f.slotpb.v1.ReelR\x05reels\" \n" +
 	"\x04Reel\x12\x18\n" +
@@ -375,11 +724,13 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
 	"Coordinate\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
-	"\x01y\x18\x02 \x01(\x05R\x01y\"\t\n" +
-	"\aPlayReq\"3\n" +
-	"\bPlayResp\x12\x13\n" +
-	"\x05is_jp\x18\x01 \x01(\bR\x04isJp\x12\x12\n" +
-	"\x04data\x18\x02 \x01(\fR\x04data\"l\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\"(\n" +
+	"\aPlayReq\x12\x1d\n" +
+	"\n" +
+	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"N\n" +
+	"\bPlayResp\x12(\n" +
+	"\x06events\x18\x01 \x03(\v2\x10.slotpb.v1.EventR\x06events\x12\x18\n" +
+	"\abalance\x18\x02 \x01(\x04R\abalance\"l\n" +
 	"\x05JpOut\x12&\n" +
 	"\x05table\x18\x01 \x01(\v2\x10.slotpb.v1.TableR\x05table\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\x04R\x05score\x12%\n" +
@@ -388,9 +739,11 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\t\n" +
 	"\x05MINOR\x10\x01\x12\t\n" +
 	"\x05MAJOR\x10\x02\x12\t\n" +
-	"\x05GRAND\x10\x032>\n" +
+	"\x05GRAND\x10\x032\xb8\x01\n" +
 	"\vSlotService\x12/\n" +
-	"\x04Play\x12\x12.slotpb.v1.PlayReq\x1a\x13.slotpb.v1.PlayRespB\x96\x01\n" +
+	"\x04Play\x12\x12.slotpb.v1.PlayReq\x1a\x13.slotpb.v1.PlayResp\x122\n" +
+	"\x05BuyFg\x12\x13.slotpb.v1.BuyFgReq\x1a\x14.slotpb.v1.BuyFgResp\x12D\n" +
+	"\vGetRoomInfo\x12\x19.slotpb.v1.GetRoomInfoReq\x1a\x1a.slotpb.v1.GetRoomInfoRespB\x96\x01\n" +
 	"\rcom.slotpb.v1B\tSlotProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +
 	"Slotpb::V1b\x06proto3"
 
@@ -407,27 +760,42 @@ func file_slotpb_v1_slot_proto_rawDescGZIP() []byte {
 }
 
 var file_slotpb_v1_slot_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_slotpb_v1_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_slotpb_v1_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_slotpb_v1_slot_proto_goTypes = []any{
-	(JPType)(0),        // 0: slotpb.v1.JPType
-	(*Table)(nil),      // 1: slotpb.v1.Table
-	(*Reel)(nil),       // 2: slotpb.v1.Reel
-	(*Coordinate)(nil), // 3: slotpb.v1.Coordinate
-	(*PlayReq)(nil),    // 4: slotpb.v1.PlayReq
-	(*PlayResp)(nil),   // 5: slotpb.v1.PlayResp
-	(*JpOut)(nil),      // 6: slotpb.v1.JpOut
+	(JPType)(0),               // 0: slotpb.v1.JPType
+	(*Event)(nil),             // 1: slotpb.v1.Event
+	(*BuyFgReq)(nil),          // 2: slotpb.v1.BuyFgReq
+	(*BuyFgResp)(nil),         // 3: slotpb.v1.BuyFgResp
+	(*RoomStatisticInfo)(nil), // 4: slotpb.v1.RoomStatisticInfo
+	(*GetRoomInfoReq)(nil),    // 5: slotpb.v1.GetRoomInfoReq
+	(*GetRoomInfoResp)(nil),   // 6: slotpb.v1.GetRoomInfoResp
+	(*Table)(nil),             // 7: slotpb.v1.Table
+	(*Reel)(nil),              // 8: slotpb.v1.Reel
+	(*Coordinate)(nil),        // 9: slotpb.v1.Coordinate
+	(*PlayReq)(nil),           // 10: slotpb.v1.PlayReq
+	(*PlayResp)(nil),          // 11: slotpb.v1.PlayResp
+	(*JpOut)(nil),             // 12: slotpb.v1.JpOut
 }
 var file_slotpb_v1_slot_proto_depIdxs = []int32{
-	2, // 0: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
-	1, // 1: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
-	0, // 2: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
-	4, // 3: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
-	5, // 4: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
-	4, // [4:5] is the sub-list for method output_type
-	3, // [3:4] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	1,  // 0: slotpb.v1.BuyFgResp.events:type_name -> slotpb.v1.Event
+	4,  // 1: slotpb.v1.GetRoomInfoResp.today:type_name -> slotpb.v1.RoomStatisticInfo
+	4,  // 2: slotpb.v1.GetRoomInfoResp.week:type_name -> slotpb.v1.RoomStatisticInfo
+	4,  // 3: slotpb.v1.GetRoomInfoResp.month:type_name -> slotpb.v1.RoomStatisticInfo
+	8,  // 4: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
+	1,  // 5: slotpb.v1.PlayResp.events:type_name -> slotpb.v1.Event
+	7,  // 6: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
+	0,  // 7: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
+	10, // 8: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
+	2,  // 9: slotpb.v1.SlotService.BuyFg:input_type -> slotpb.v1.BuyFgReq
+	5,  // 10: slotpb.v1.SlotService.GetRoomInfo:input_type -> slotpb.v1.GetRoomInfoReq
+	11, // 11: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
+	3,  // 12: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
+	6,  // 13: slotpb.v1.SlotService.GetRoomInfo:output_type -> slotpb.v1.GetRoomInfoResp
+	11, // [11:14] is the sub-list for method output_type
+	8,  // [8:11] is the sub-list for method input_type
+	8,  // [8:8] is the sub-list for extension type_name
+	8,  // [8:8] is the sub-list for extension extendee
+	0,  // [0:8] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_v1_slot_proto_init() }
@@ -441,7 +809,7 @@ func file_slotpb_v1_slot_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_v1_slot_proto_rawDesc), len(file_slotpb_v1_slot_proto_rawDesc)),
 			NumEnums:      1,
-			NumMessages:   6,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
