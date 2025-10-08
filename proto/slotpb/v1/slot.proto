@@ -6,17 +6,7 @@ package slotpb.v1;
 option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
 
 service SlotService {
-    rpc GateWay (GateWayRequest) returns (GateWayResponse) {}
-}
-
-message GateWayRequest {
-  string request_id = 1;
-  uint32 ope_code = 2;
-  bytes msg = 3;
-}
-
-message GateWayResponse {
-  bytes msg = 1;
+    rpc Play(PlayIn) returns (PlayOut);
 }
 
 message Table {
@@ -29,6 +19,10 @@ message Reel{
 message Coordinate{
   int32 x = 1;
   int32 y = 2;
+}
+
+message PlayIn {
+  
 }
 
 message PlayOut {

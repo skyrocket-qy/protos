@@ -35,13 +35,13 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// SlotServiceGateWayProcedure is the fully-qualified name of the SlotService's GateWay RPC.
-	SlotServiceGateWayProcedure = "/slotpb.v1.SlotService/GateWay"
+	// SlotServicePlayProcedure is the fully-qualified name of the SlotService's Play RPC.
+	SlotServicePlayProcedure = "/slotpb.v1.SlotService/Play"
 )
 
 // SlotServiceClient is a client for the slotpb.v1.SlotService service.
 type SlotServiceClient interface {
-	GateWay(context.Context, *connect.Request[v1.GateWayRequest]) (*connect.Response[v1.GateWayResponse], error)
+	Play(context.Context, *connect.Request[v1.PlayIn]) (*connect.Response[v1.PlayOut], error)
 }
 
 // NewSlotServiceClient constructs a client for the slotpb.v1.SlotService service. By default, it
@@ -55,10 +55,10 @@ func NewSlotServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 	baseURL = strings.TrimRight(baseURL, "/")
 	slotServiceMethods := v1.File_slotpb_v1_slot_proto.Services().ByName("SlotService").Methods()
 	return &slotServiceClient{
-		gateWay: connect.NewClient[v1.GateWayRequest, v1.GateWayResponse](
+		play: connect.NewClient[v1.PlayIn, v1.PlayOut](
 			httpClient,
-			baseURL+SlotServiceGateWayProcedure,
-			connect.WithSchema(slotServiceMethods.ByName("GateWay")),
+			baseURL+SlotServicePlayProcedure,
+			connect.WithSchema(slotServiceMethods.ByName("Play")),
 			connect.WithClientOptions(opts...),
 		),
 	}
@@ -66,17 +66,17 @@ func NewSlotServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 
 // slotServiceClient implements SlotServiceClient.
 type slotServiceClient struct {
-	gateWay *connect.Client[v1.GateWayRequest, v1.GateWayResponse]
+	play *connect.Client[v1.PlayIn, v1.PlayOut]
 }
 
-// GateWay calls slotpb.v1.SlotService.GateWay.
-func (c *slotServiceClient) GateWay(ctx context.Context, req *connect.Request[v1.GateWayRequest]) (*connect.Response[v1.GateWayResponse], error) {
-	return c.gateWay.CallUnary(ctx, req)
+// Play calls slotpb.v1.SlotService.Play.
+func (c *slotServiceClient) Play(ctx context.Context, req *connect.Request[v1.PlayIn]) (*connect.Response[v1.PlayOut], error) {
+	return c.play.CallUnary(ctx, req)
 }
 
 // SlotServiceHandler is an implementation of the slotpb.v1.SlotService service.
 type SlotServiceHandler interface {
-	GateWay(context.Context, *connect.Request[v1.GateWayRequest]) (*connect.Response[v1.GateWayResponse], error)
+	Play(context.Context, *connect.Request[v1.PlayIn]) (*connect.Response[v1.PlayOut], error)
 }
 
 // NewSlotServiceHandler builds an HTTP handler from the service implementation. It returns the path
@@ -86,16 +86,16 @@ type SlotServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	slotServiceMethods := v1.File_slotpb_v1_slot_proto.Services().ByName("SlotService").Methods()
-	slotServiceGateWayHandler := connect.NewUnaryHandler(
-		SlotServiceGateWayProcedure,
-		svc.GateWay,
-		connect.WithSchema(slotServiceMethods.ByName("GateWay")),
+	slotServicePlayHandler := connect.NewUnaryHandler(
+		SlotServicePlayProcedure,
+		svc.Play,
+		connect.WithSchema(slotServiceMethods.ByName("Play")),
 		connect.WithHandlerOptions(opts...),
 	)
 	return "/slotpb.v1.SlotService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case SlotServiceGateWayProcedure:
-			slotServiceGateWayHandler.ServeHTTP(w, r)
+		case SlotServicePlayProcedure:
+			slotServicePlayHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -105,6 +105,6 @@ func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption
 // UnimplementedSlotServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedSlotServiceHandler struct{}
 
-func (UnimplementedSlotServiceHandler) GateWay(context.Context, *connect.Request[v1.GateWayRequest]) (*connect.Response[v1.GateWayResponse], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.v1.SlotService.GateWay is not implemented"))
+func (UnimplementedSlotServiceHandler) Play(context.Context, *connect.Request[v1.PlayIn]) (*connect.Response[v1.PlayOut], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.v1.SlotService.Play is not implemented"))
 }
