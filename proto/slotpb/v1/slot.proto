@@ -6,7 +6,7 @@ package slotpb.v1;
 option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
 
 service SlotService {
-    rpc Play(PlayIn) returns (PlayOut);
+    rpc Play(PlayReq) returns (PlayResp);
 }
 
 message Table {
@@ -21,11 +21,11 @@ message Coordinate{
   int32 y = 2;
 }
 
-message PlayIn {
-  
+message PlayReq {
+
 }
 
-message PlayOut {
+message PlayResp {
   bool is_jp = 1;
   bytes data = 2;
 }

@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot.proto.
  */
 export const file_slotpb_v1_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIicKBVRhYmxlEh4KBXJlZWxzGAEgAygLMg8uc2xvdHBiLnYxLlJlZWwiFwoEUmVlbBIPCgdzeW1ib2xzGAEgAygJIiIKCkNvb3JkaW5hdGUSCQoBeBgBIAEoBRIJCgF5GAIgASgFIggKBlBsYXlJbiImCgdQbGF5T3V0Eg0KBWlzX2pwGAEgASgIEgwKBGRhdGEYAiABKAwiWAoFSnBPdXQSHwoFdGFibGUYASABKAsyEC5zbG90cGIudjEuVGFibGUSDQoFc2NvcmUYAiABKAQSHwoEdHlwZRgDIAEoDjIRLnNsb3RwYi52MS5KUFR5cGUqQgoGSlBUeXBlEhcKE0pQX1RZUEVfVU5TUEVDSUZJRUQQABIJCgVNSU5PUhABEgkKBU1BSk9SEAISCQoFR1JBTkQQAzI8CgtTbG90U2VydmljZRItCgRQbGF5EhEuc2xvdHBiLnYxLlBsYXlJbhoSLnNsb3RwYi52MS5QbGF5T3V0QpYBCg1jb20uc2xvdHBiLnYxQglTbG90UHJvdG9QAVo1Z2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGIvdjE7c2xvdHBidjGiAgNTWFiqAglTbG90cGIuVjHKAglTbG90cGJcVjHiAhVTbG90cGJcVjFcR1BCTWV0YWRhdGHqAgpTbG90cGI6OlYxYgZwcm90bzM");
+  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIicKBVRhYmxlEh4KBXJlZWxzGAEgAygLMg8uc2xvdHBiLnYxLlJlZWwiFwoEUmVlbBIPCgdzeW1ib2xzGAEgAygJIiIKCkNvb3JkaW5hdGUSCQoBeBgBIAEoBRIJCgF5GAIgASgFIgkKB1BsYXlSZXEiJwoIUGxheVJlc3ASDQoFaXNfanAYASABKAgSDAoEZGF0YRgCIAEoDCJYCgVKcE91dBIfCgV0YWJsZRgBIAEoCzIQLnNsb3RwYi52MS5UYWJsZRINCgVzY29yZRgCIAEoBBIfCgR0eXBlGAMgASgOMhEuc2xvdHBiLnYxLkpQVHlwZSpCCgZKUFR5cGUSFwoTSlBfVFlQRV9VTlNQRUNJRklFRBAAEgkKBU1JTk9SEAESCQoFTUFKT1IQAhIJCgVHUkFORBADMj4KC1Nsb3RTZXJ2aWNlEi8KBFBsYXkSEi5zbG90cGIudjEuUGxheVJlcRoTLnNsb3RwYi52MS5QbGF5UmVzcEKWAQoNY29tLnNsb3RwYi52MUIJU2xvdFByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z");
 
 /**
  * @generated from message slotpb.v1.Table
@@ -71,22 +71,22 @@ export const CoordinateSchema: GenMessage<Coordinate> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 2);
 
 /**
- * @generated from message slotpb.v1.PlayIn
+ * @generated from message slotpb.v1.PlayReq
  */
-export type PlayIn = Message<"slotpb.v1.PlayIn"> & {
+export type PlayReq = Message<"slotpb.v1.PlayReq"> & {
 };
 
 /**
- * Describes the message slotpb.v1.PlayIn.
- * Use `create(PlayInSchema)` to create a new message.
+ * Describes the message slotpb.v1.PlayReq.
+ * Use `create(PlayReqSchema)` to create a new message.
  */
-export const PlayInSchema: GenMessage<PlayIn> = /*@__PURE__*/
+export const PlayReqSchema: GenMessage<PlayReq> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 3);
 
 /**
- * @generated from message slotpb.v1.PlayOut
+ * @generated from message slotpb.v1.PlayResp
  */
-export type PlayOut = Message<"slotpb.v1.PlayOut"> & {
+export type PlayResp = Message<"slotpb.v1.PlayResp"> & {
   /**
    * @generated from field: bool is_jp = 1;
    */
@@ -99,10 +99,10 @@ export type PlayOut = Message<"slotpb.v1.PlayOut"> & {
 };
 
 /**
- * Describes the message slotpb.v1.PlayOut.
- * Use `create(PlayOutSchema)` to create a new message.
+ * Describes the message slotpb.v1.PlayResp.
+ * Use `create(PlayRespSchema)` to create a new message.
  */
-export const PlayOutSchema: GenMessage<PlayOut> = /*@__PURE__*/
+export const PlayRespSchema: GenMessage<PlayResp> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 4);
 
 /**
@@ -172,8 +172,8 @@ export const SlotService: GenService<{
    */
   play: {
     methodKind: "unary";
-    input: typeof PlayInSchema;
-    output: typeof PlayOutSchema;
+    input: typeof PlayReqSchema;
+    output: typeof PlayRespSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_slotpb_v1_slot, 0);

@@ -48,17 +48,17 @@ namespace Slotpb.V1 {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Slotpb.V1.PlayIn> __Marshaller_slotpb_v1_PlayIn = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayIn.Parser));
+    static readonly grpc::Marshaller<global::Slotpb.V1.PlayReq> __Marshaller_slotpb_v1_PlayReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Slotpb.V1.PlayOut> __Marshaller_slotpb_v1_PlayOut = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayOut.Parser));
+    static readonly grpc::Marshaller<global::Slotpb.V1.PlayResp> __Marshaller_slotpb_v1_PlayResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.V1.PlayResp.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Slotpb.V1.PlayIn, global::Slotpb.V1.PlayOut> __Method_Play = new grpc::Method<global::Slotpb.V1.PlayIn, global::Slotpb.V1.PlayOut>(
+    static readonly grpc::Method<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp> __Method_Play = new grpc::Method<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp>(
         grpc::MethodType.Unary,
         __ServiceName,
         "Play",
-        __Marshaller_slotpb_v1_PlayIn,
-        __Marshaller_slotpb_v1_PlayOut);
+        __Marshaller_slotpb_v1_PlayReq,
+        __Marshaller_slotpb_v1_PlayResp);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -71,7 +71,7 @@ namespace Slotpb.V1 {
     public abstract partial class SlotServiceBase
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Slotpb.V1.PlayOut> Play(global::Slotpb.V1.PlayIn request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::Slotpb.V1.PlayResp> Play(global::Slotpb.V1.PlayReq request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -106,22 +106,22 @@ namespace Slotpb.V1 {
       }
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Slotpb.V1.PlayOut Play(global::Slotpb.V1.PlayIn request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::Slotpb.V1.PlayResp Play(global::Slotpb.V1.PlayReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return Play(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Slotpb.V1.PlayOut Play(global::Slotpb.V1.PlayIn request, grpc::CallOptions options)
+      public virtual global::Slotpb.V1.PlayResp Play(global::Slotpb.V1.PlayReq request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_Play, null, options, request);
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.PlayOut> PlayAsync(global::Slotpb.V1.PlayIn request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.PlayResp> PlayAsync(global::Slotpb.V1.PlayReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return PlayAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.PlayOut> PlayAsync(global::Slotpb.V1.PlayIn request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::Slotpb.V1.PlayResp> PlayAsync(global::Slotpb.V1.PlayReq request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_Play, null, options, request);
       }
@@ -149,7 +149,7 @@ namespace Slotpb.V1 {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SlotServiceBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_Play, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.V1.PlayIn, global::Slotpb.V1.PlayOut>(serviceImpl.Play));
+      serviceBinder.AddMethod(__Method_Play, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.V1.PlayReq, global::Slotpb.V1.PlayResp>(serviceImpl.Play));
     }
 
   }

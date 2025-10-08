@@ -215,26 +215,26 @@ func (x *Coordinate) GetY() int32 {
 	return 0
 }
 
-type PlayIn struct {
+type PlayReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *PlayIn) Reset() {
-	*x = PlayIn{}
+func (x *PlayReq) Reset() {
+	*x = PlayReq{}
 	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *PlayIn) String() string {
+func (x *PlayReq) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PlayIn) ProtoMessage() {}
+func (*PlayReq) ProtoMessage() {}
 
-func (x *PlayIn) ProtoReflect() protoreflect.Message {
+func (x *PlayReq) ProtoReflect() protoreflect.Message {
 	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -246,12 +246,12 @@ func (x *PlayIn) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PlayIn.ProtoReflect.Descriptor instead.
-func (*PlayIn) Descriptor() ([]byte, []int) {
+// Deprecated: Use PlayReq.ProtoReflect.Descriptor instead.
+func (*PlayReq) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{3}
 }
 
-type PlayOut struct {
+type PlayResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	IsJp          bool                   `protobuf:"varint,1,opt,name=is_jp,json=isJp,proto3" json:"is_jp,omitempty"`
 	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
@@ -259,20 +259,20 @@ type PlayOut struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *PlayOut) Reset() {
-	*x = PlayOut{}
+func (x *PlayResp) Reset() {
+	*x = PlayResp{}
 	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *PlayOut) String() string {
+func (x *PlayResp) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PlayOut) ProtoMessage() {}
+func (*PlayResp) ProtoMessage() {}
 
-func (x *PlayOut) ProtoReflect() protoreflect.Message {
+func (x *PlayResp) ProtoReflect() protoreflect.Message {
 	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -284,19 +284,19 @@ func (x *PlayOut) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PlayOut.ProtoReflect.Descriptor instead.
-func (*PlayOut) Descriptor() ([]byte, []int) {
+// Deprecated: Use PlayResp.ProtoReflect.Descriptor instead.
+func (*PlayResp) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *PlayOut) GetIsJp() bool {
+func (x *PlayResp) GetIsJp() bool {
 	if x != nil {
 		return x.IsJp
 	}
 	return false
 }
 
-func (x *PlayOut) GetData() []byte {
+func (x *PlayResp) GetData() []byte {
 	if x != nil {
 		return x.Data
 	}
@@ -375,9 +375,9 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
 	"Coordinate\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
-	"\x01y\x18\x02 \x01(\x05R\x01y\"\b\n" +
-	"\x06PlayIn\"2\n" +
-	"\aPlayOut\x12\x13\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\"\t\n" +
+	"\aPlayReq\"3\n" +
+	"\bPlayResp\x12\x13\n" +
 	"\x05is_jp\x18\x01 \x01(\bR\x04isJp\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\"l\n" +
 	"\x05JpOut\x12&\n" +
@@ -388,9 +388,9 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\t\n" +
 	"\x05MINOR\x10\x01\x12\t\n" +
 	"\x05MAJOR\x10\x02\x12\t\n" +
-	"\x05GRAND\x10\x032<\n" +
-	"\vSlotService\x12-\n" +
-	"\x04Play\x12\x11.slotpb.v1.PlayIn\x1a\x12.slotpb.v1.PlayOutB\x96\x01\n" +
+	"\x05GRAND\x10\x032>\n" +
+	"\vSlotService\x12/\n" +
+	"\x04Play\x12\x12.slotpb.v1.PlayReq\x1a\x13.slotpb.v1.PlayRespB\x96\x01\n" +
 	"\rcom.slotpb.v1B\tSlotProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +
 	"Slotpb::V1b\x06proto3"
 
@@ -413,16 +413,16 @@ var file_slotpb_v1_slot_proto_goTypes = []any{
 	(*Table)(nil),      // 1: slotpb.v1.Table
 	(*Reel)(nil),       // 2: slotpb.v1.Reel
 	(*Coordinate)(nil), // 3: slotpb.v1.Coordinate
-	(*PlayIn)(nil),     // 4: slotpb.v1.PlayIn
-	(*PlayOut)(nil),    // 5: slotpb.v1.PlayOut
+	(*PlayReq)(nil),    // 4: slotpb.v1.PlayReq
+	(*PlayResp)(nil),   // 5: slotpb.v1.PlayResp
 	(*JpOut)(nil),      // 6: slotpb.v1.JpOut
 }
 var file_slotpb_v1_slot_proto_depIdxs = []int32{
 	2, // 0: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
 	1, // 1: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
 	0, // 2: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
-	4, // 3: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayIn
-	5, // 4: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayOut
+	4, // 3: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
+	5, // 4: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
 	4, // [4:5] is the sub-list for method output_type
 	3, // [3:4] is the sub-list for method input_type
 	3, // [3:3] is the sub-list for extension type_name
