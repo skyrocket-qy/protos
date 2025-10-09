@@ -11,6 +11,21 @@ service SlotService {
   rpc GetRoomInfo(GetRoomInfoReq) returns (GetRoomInfoResp);
 }
 
+message Wallet {
+  repeated Coin coins = 1;
+}
+
+message Coin {
+  uint64 amount = 1;
+  CoinType type = 2;
+}
+
+enum CoinType {
+  COIN_TYPE_UNSPECIFIED = 0;
+	GOLDEN               = 1;
+	TOKEN                = 2;
+}
+
 message Event {
   uint32 code = 1;
   bytes data = 2;

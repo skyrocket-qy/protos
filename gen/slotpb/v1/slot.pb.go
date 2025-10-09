@@ -23,6 +23,55 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type CoinType int32
+
+const (
+	CoinType_COIN_TYPE_UNSPECIFIED CoinType = 0
+	CoinType_GOLDEN                CoinType = 1
+	CoinType_TOKEN                 CoinType = 2
+)
+
+// Enum value maps for CoinType.
+var (
+	CoinType_name = map[int32]string{
+		0: "COIN_TYPE_UNSPECIFIED",
+		1: "GOLDEN",
+		2: "TOKEN",
+	}
+	CoinType_value = map[string]int32{
+		"COIN_TYPE_UNSPECIFIED": 0,
+		"GOLDEN":                1,
+		"TOKEN":                 2,
+	}
+)
+
+func (x CoinType) Enum() *CoinType {
+	p := new(CoinType)
+	*p = x
+	return p
+}
+
+func (x CoinType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (CoinType) Descriptor() protoreflect.EnumDescriptor {
+	return file_slotpb_v1_slot_proto_enumTypes[0].Descriptor()
+}
+
+func (CoinType) Type() protoreflect.EnumType {
+	return &file_slotpb_v1_slot_proto_enumTypes[0]
+}
+
+func (x CoinType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use CoinType.Descriptor instead.
+func (CoinType) EnumDescriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
+}
+
 type JPType int32
 
 const (
@@ -59,11 +108,11 @@ func (x JPType) String() string {
 }
 
 func (JPType) Descriptor() protoreflect.EnumDescriptor {
-	return file_slotpb_v1_slot_proto_enumTypes[0].Descriptor()
+	return file_slotpb_v1_slot_proto_enumTypes[1].Descriptor()
 }
 
 func (JPType) Type() protoreflect.EnumType {
-	return &file_slotpb_v1_slot_proto_enumTypes[0]
+	return &file_slotpb_v1_slot_proto_enumTypes[1]
 }
 
 func (x JPType) Number() protoreflect.EnumNumber {
@@ -72,7 +121,103 @@ func (x JPType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use JPType.Descriptor instead.
 func (JPType) EnumDescriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{1}
+}
+
+type Wallet struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Coins         []*Coin                `protobuf:"bytes,1,rep,name=coins,proto3" json:"coins,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Wallet) Reset() {
+	*x = Wallet{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Wallet) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Wallet) ProtoMessage() {}
+
+func (x *Wallet) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Wallet.ProtoReflect.Descriptor instead.
+func (*Wallet) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *Wallet) GetCoins() []*Coin {
+	if x != nil {
+		return x.Coins
+	}
+	return nil
+}
+
+type Coin struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Amount        uint64                 `protobuf:"varint,1,opt,name=amount,proto3" json:"amount,omitempty"`
+	Type          CoinType               `protobuf:"varint,2,opt,name=type,proto3,enum=slotpb.v1.CoinType" json:"type,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Coin) Reset() {
+	*x = Coin{}
+	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Coin) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Coin) ProtoMessage() {}
+
+func (x *Coin) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Coin.ProtoReflect.Descriptor instead.
+func (*Coin) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *Coin) GetAmount() uint64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *Coin) GetType() CoinType {
+	if x != nil {
+		return x.Type
+	}
+	return CoinType_COIN_TYPE_UNSPECIFIED
 }
 
 type Event struct {
@@ -85,7 +230,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -97,7 +242,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[0]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -110,7 +255,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{0}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Event) GetCode() uint32 {
@@ -136,7 +281,7 @@ type BuyFgReq struct {
 
 func (x *BuyFgReq) Reset() {
 	*x = BuyFgReq{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -148,7 +293,7 @@ func (x *BuyFgReq) String() string {
 func (*BuyFgReq) ProtoMessage() {}
 
 func (x *BuyFgReq) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[1]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -161,7 +306,7 @@ func (x *BuyFgReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuyFgReq.ProtoReflect.Descriptor instead.
 func (*BuyFgReq) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{1}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *BuyFgReq) GetBetAmount() uint32 {
@@ -181,7 +326,7 @@ type BuyFgResp struct {
 
 func (x *BuyFgResp) Reset() {
 	*x = BuyFgResp{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -193,7 +338,7 @@ func (x *BuyFgResp) String() string {
 func (*BuyFgResp) ProtoMessage() {}
 
 func (x *BuyFgResp) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[2]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -206,7 +351,7 @@ func (x *BuyFgResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuyFgResp.ProtoReflect.Descriptor instead.
 func (*BuyFgResp) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{2}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *BuyFgResp) GetEvents() []*Event {
@@ -233,7 +378,7 @@ type RoomStatisticInfo struct {
 
 func (x *RoomStatisticInfo) Reset() {
 	*x = RoomStatisticInfo{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -245,7 +390,7 @@ func (x *RoomStatisticInfo) String() string {
 func (*RoomStatisticInfo) ProtoMessage() {}
 
 func (x *RoomStatisticInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[3]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -258,7 +403,7 @@ func (x *RoomStatisticInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RoomStatisticInfo.ProtoReflect.Descriptor instead.
 func (*RoomStatisticInfo) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{3}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *RoomStatisticInfo) GetRtp() float32 {
@@ -285,7 +430,7 @@ type GetRoomInfoReq struct {
 
 func (x *GetRoomInfoReq) Reset() {
 	*x = GetRoomInfoReq{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -297,7 +442,7 @@ func (x *GetRoomInfoReq) String() string {
 func (*GetRoomInfoReq) ProtoMessage() {}
 
 func (x *GetRoomInfoReq) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[4]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,7 +455,7 @@ func (x *GetRoomInfoReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomInfoReq.ProtoReflect.Descriptor instead.
 func (*GetRoomInfoReq) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{4}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetRoomInfoReq) GetBetAmount() uint32 {
@@ -339,7 +484,7 @@ type GetRoomInfoResp struct {
 
 func (x *GetRoomInfoResp) Reset() {
 	*x = GetRoomInfoResp{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -351,7 +496,7 @@ func (x *GetRoomInfoResp) String() string {
 func (*GetRoomInfoResp) ProtoMessage() {}
 
 func (x *GetRoomInfoResp) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[5]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -364,7 +509,7 @@ func (x *GetRoomInfoResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRoomInfoResp.ProtoReflect.Descriptor instead.
 func (*GetRoomInfoResp) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{5}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetRoomInfoResp) GetData() []byte {
@@ -404,7 +549,7 @@ type Table struct {
 
 func (x *Table) Reset() {
 	*x = Table{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +561,7 @@ func (x *Table) String() string {
 func (*Table) ProtoMessage() {}
 
 func (x *Table) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[6]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +574,7 @@ func (x *Table) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Table.ProtoReflect.Descriptor instead.
 func (*Table) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{6}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Table) GetReels() []*Reel {
@@ -448,7 +593,7 @@ type Reel struct {
 
 func (x *Reel) Reset() {
 	*x = Reel{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -460,7 +605,7 @@ func (x *Reel) String() string {
 func (*Reel) ProtoMessage() {}
 
 func (x *Reel) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[7]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -473,7 +618,7 @@ func (x *Reel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Reel.ProtoReflect.Descriptor instead.
 func (*Reel) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{7}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *Reel) GetSymbols() []string {
@@ -493,7 +638,7 @@ type Coordinate struct {
 
 func (x *Coordinate) Reset() {
 	*x = Coordinate{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -505,7 +650,7 @@ func (x *Coordinate) String() string {
 func (*Coordinate) ProtoMessage() {}
 
 func (x *Coordinate) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[8]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -518,7 +663,7 @@ func (x *Coordinate) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Coordinate.ProtoReflect.Descriptor instead.
 func (*Coordinate) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{8}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Coordinate) GetX() int32 {
@@ -544,7 +689,7 @@ type PlayReq struct {
 
 func (x *PlayReq) Reset() {
 	*x = PlayReq{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -556,7 +701,7 @@ func (x *PlayReq) String() string {
 func (*PlayReq) ProtoMessage() {}
 
 func (x *PlayReq) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[9]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -569,7 +714,7 @@ func (x *PlayReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayReq.ProtoReflect.Descriptor instead.
 func (*PlayReq) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{9}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *PlayReq) GetBetAmount() uint32 {
@@ -589,7 +734,7 @@ type PlayResp struct {
 
 func (x *PlayResp) Reset() {
 	*x = PlayResp{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -601,7 +746,7 @@ func (x *PlayResp) String() string {
 func (*PlayResp) ProtoMessage() {}
 
 func (x *PlayResp) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[10]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -614,7 +759,7 @@ func (x *PlayResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use PlayResp.ProtoReflect.Descriptor instead.
 func (*PlayResp) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{10}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *PlayResp) GetEvents() []*Event {
@@ -642,7 +787,7 @@ type JpOut struct {
 
 func (x *JpOut) Reset() {
 	*x = JpOut{}
-	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -654,7 +799,7 @@ func (x *JpOut) String() string {
 func (*JpOut) ProtoMessage() {}
 
 func (x *JpOut) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_proto_msgTypes[11]
+	mi := &file_slotpb_v1_slot_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -667,7 +812,7 @@ func (x *JpOut) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use JpOut.ProtoReflect.Descriptor instead.
 func (*JpOut) Descriptor() ([]byte, []int) {
-	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{11}
+	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *JpOut) GetTable() *Table {
@@ -696,6 +841,11 @@ var File_slotpb_v1_slot_proto protoreflect.FileDescriptor
 const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
 	"\x14slotpb/v1/slot.proto\x12\tslotpb.v1\"/\n" +
+	"\x06Wallet\x12%\n" +
+	"\x05coins\x18\x01 \x03(\v2\x0f.slotpb.v1.CoinR\x05coins\"G\n" +
+	"\x04Coin\x12\x16\n" +
+	"\x06amount\x18\x01 \x01(\x04R\x06amount\x12'\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x13.slotpb.v1.CoinTypeR\x04type\"/\n" +
 	"\x05Event\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\rR\x04code\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\")\n" +
@@ -734,7 +884,12 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x05JpOut\x12&\n" +
 	"\x05table\x18\x01 \x01(\v2\x10.slotpb.v1.TableR\x05table\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\x04R\x05score\x12%\n" +
-	"\x04type\x18\x03 \x01(\x0e2\x11.slotpb.v1.JPTypeR\x04type*B\n" +
+	"\x04type\x18\x03 \x01(\x0e2\x11.slotpb.v1.JPTypeR\x04type*<\n" +
+	"\bCoinType\x12\x19\n" +
+	"\x15COIN_TYPE_UNSPECIFIED\x10\x00\x12\n" +
+	"\n" +
+	"\x06GOLDEN\x10\x01\x12\t\n" +
+	"\x05TOKEN\x10\x02*B\n" +
 	"\x06JPType\x12\x17\n" +
 	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\t\n" +
 	"\x05MINOR\x10\x01\x12\t\n" +
@@ -759,43 +914,48 @@ func file_slotpb_v1_slot_proto_rawDescGZIP() []byte {
 	return file_slotpb_v1_slot_proto_rawDescData
 }
 
-var file_slotpb_v1_slot_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
-var file_slotpb_v1_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_slotpb_v1_slot_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_slotpb_v1_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_slotpb_v1_slot_proto_goTypes = []any{
-	(JPType)(0),               // 0: slotpb.v1.JPType
-	(*Event)(nil),             // 1: slotpb.v1.Event
-	(*BuyFgReq)(nil),          // 2: slotpb.v1.BuyFgReq
-	(*BuyFgResp)(nil),         // 3: slotpb.v1.BuyFgResp
-	(*RoomStatisticInfo)(nil), // 4: slotpb.v1.RoomStatisticInfo
-	(*GetRoomInfoReq)(nil),    // 5: slotpb.v1.GetRoomInfoReq
-	(*GetRoomInfoResp)(nil),   // 6: slotpb.v1.GetRoomInfoResp
-	(*Table)(nil),             // 7: slotpb.v1.Table
-	(*Reel)(nil),              // 8: slotpb.v1.Reel
-	(*Coordinate)(nil),        // 9: slotpb.v1.Coordinate
-	(*PlayReq)(nil),           // 10: slotpb.v1.PlayReq
-	(*PlayResp)(nil),          // 11: slotpb.v1.PlayResp
-	(*JpOut)(nil),             // 12: slotpb.v1.JpOut
+	(CoinType)(0),             // 0: slotpb.v1.CoinType
+	(JPType)(0),               // 1: slotpb.v1.JPType
+	(*Wallet)(nil),            // 2: slotpb.v1.Wallet
+	(*Coin)(nil),              // 3: slotpb.v1.Coin
+	(*Event)(nil),             // 4: slotpb.v1.Event
+	(*BuyFgReq)(nil),          // 5: slotpb.v1.BuyFgReq
+	(*BuyFgResp)(nil),         // 6: slotpb.v1.BuyFgResp
+	(*RoomStatisticInfo)(nil), // 7: slotpb.v1.RoomStatisticInfo
+	(*GetRoomInfoReq)(nil),    // 8: slotpb.v1.GetRoomInfoReq
+	(*GetRoomInfoResp)(nil),   // 9: slotpb.v1.GetRoomInfoResp
+	(*Table)(nil),             // 10: slotpb.v1.Table
+	(*Reel)(nil),              // 11: slotpb.v1.Reel
+	(*Coordinate)(nil),        // 12: slotpb.v1.Coordinate
+	(*PlayReq)(nil),           // 13: slotpb.v1.PlayReq
+	(*PlayResp)(nil),          // 14: slotpb.v1.PlayResp
+	(*JpOut)(nil),             // 15: slotpb.v1.JpOut
 }
 var file_slotpb_v1_slot_proto_depIdxs = []int32{
-	1,  // 0: slotpb.v1.BuyFgResp.events:type_name -> slotpb.v1.Event
-	4,  // 1: slotpb.v1.GetRoomInfoResp.today:type_name -> slotpb.v1.RoomStatisticInfo
-	4,  // 2: slotpb.v1.GetRoomInfoResp.week:type_name -> slotpb.v1.RoomStatisticInfo
-	4,  // 3: slotpb.v1.GetRoomInfoResp.month:type_name -> slotpb.v1.RoomStatisticInfo
-	8,  // 4: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
-	1,  // 5: slotpb.v1.PlayResp.events:type_name -> slotpb.v1.Event
-	7,  // 6: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
-	0,  // 7: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
-	10, // 8: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
-	2,  // 9: slotpb.v1.SlotService.BuyFg:input_type -> slotpb.v1.BuyFgReq
-	5,  // 10: slotpb.v1.SlotService.GetRoomInfo:input_type -> slotpb.v1.GetRoomInfoReq
-	11, // 11: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
-	3,  // 12: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
-	6,  // 13: slotpb.v1.SlotService.GetRoomInfo:output_type -> slotpb.v1.GetRoomInfoResp
-	11, // [11:14] is the sub-list for method output_type
-	8,  // [8:11] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	3,  // 0: slotpb.v1.Wallet.coins:type_name -> slotpb.v1.Coin
+	0,  // 1: slotpb.v1.Coin.type:type_name -> slotpb.v1.CoinType
+	4,  // 2: slotpb.v1.BuyFgResp.events:type_name -> slotpb.v1.Event
+	7,  // 3: slotpb.v1.GetRoomInfoResp.today:type_name -> slotpb.v1.RoomStatisticInfo
+	7,  // 4: slotpb.v1.GetRoomInfoResp.week:type_name -> slotpb.v1.RoomStatisticInfo
+	7,  // 5: slotpb.v1.GetRoomInfoResp.month:type_name -> slotpb.v1.RoomStatisticInfo
+	11, // 6: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
+	4,  // 7: slotpb.v1.PlayResp.events:type_name -> slotpb.v1.Event
+	10, // 8: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
+	1,  // 9: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
+	13, // 10: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
+	5,  // 11: slotpb.v1.SlotService.BuyFg:input_type -> slotpb.v1.BuyFgReq
+	8,  // 12: slotpb.v1.SlotService.GetRoomInfo:input_type -> slotpb.v1.GetRoomInfoReq
+	14, // 13: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
+	6,  // 14: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
+	9,  // 15: slotpb.v1.SlotService.GetRoomInfo:output_type -> slotpb.v1.GetRoomInfoResp
+	13, // [13:16] is the sub-list for method output_type
+	10, // [10:13] is the sub-list for method input_type
+	10, // [10:10] is the sub-list for extension type_name
+	10, // [10:10] is the sub-list for extension extendee
+	0,  // [0:10] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_v1_slot_proto_init() }
@@ -808,8 +968,8 @@ func file_slotpb_v1_slot_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_v1_slot_proto_rawDesc), len(file_slotpb_v1_slot_proto_rawDesc)),
-			NumEnums:      1,
-			NumMessages:   12,
+			NumEnums:      2,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

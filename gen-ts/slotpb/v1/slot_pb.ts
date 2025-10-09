@@ -12,7 +12,46 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot.proto.
  */
 export const file_slotpb_v1_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIiMKBUV2ZW50EgwKBGNvZGUYASABKA0SDAoEZGF0YRgCIAEoDCIeCghCdXlGZ1JlcRISCgpiZXRfYW1vdW50GAEgASgNIj4KCUJ1eUZnUmVzcBIgCgZldmVudHMYASADKAsyEC5zbG90cGIudjEuRXZlbnQSDwoHYmFsYW5jZRgCIAEoBCIwChFSb29tU3RhdGlzdGljSW5mbxILCgNydHAYASABKAISDgoGZmdfY250GAIgASgEIjUKDkdldFJvb21JbmZvUmVxEhIKCmJldF9hbW91bnQYASABKA0SDwoHcm9vbV9pZBgCIAEoDSKlAQoPR2V0Um9vbUluZm9SZXNwEgwKBGRhdGEYASABKAwSKwoFdG9kYXkYAiABKAsyHC5zbG90cGIudjEuUm9vbVN0YXRpc3RpY0luZm8SKgoEd2VlaxgDIAEoCzIcLnNsb3RwYi52MS5Sb29tU3RhdGlzdGljSW5mbxIrCgVtb250aBgEIAEoCzIcLnNsb3RwYi52MS5Sb29tU3RhdGlzdGljSW5mbyInCgVUYWJsZRIeCgVyZWVscxgBIAMoCzIPLnNsb3RwYi52MS5SZWVsIhcKBFJlZWwSDwoHc3ltYm9scxgBIAMoCSIiCgpDb29yZGluYXRlEgkKAXgYASABKAUSCQoBeRgCIAEoBSIdCgdQbGF5UmVxEhIKCmJldF9hbW91bnQYASABKA0iPQoIUGxheVJlc3ASIAoGZXZlbnRzGAEgAygLMhAuc2xvdHBiLnYxLkV2ZW50Eg8KB2JhbGFuY2UYAiABKAQiWAoFSnBPdXQSHwoFdGFibGUYASABKAsyEC5zbG90cGIudjEuVGFibGUSDQoFc2NvcmUYAiABKAQSHwoEdHlwZRgDIAEoDjIRLnNsb3RwYi52MS5KUFR5cGUqQgoGSlBUeXBlEhcKE0pQX1RZUEVfVU5TUEVDSUZJRUQQABIJCgVNSU5PUhABEgkKBU1BSk9SEAISCQoFR1JBTkQQAzK4AQoLU2xvdFNlcnZpY2USLwoEUGxheRISLnNsb3RwYi52MS5QbGF5UmVxGhMuc2xvdHBiLnYxLlBsYXlSZXNwEjIKBUJ1eUZnEhMuc2xvdHBiLnYxLkJ1eUZnUmVxGhQuc2xvdHBiLnYxLkJ1eUZnUmVzcBJECgtHZXRSb29tSW5mbxIZLnNsb3RwYi52MS5HZXRSb29tSW5mb1JlcRoaLnNsb3RwYi52MS5HZXRSb29tSW5mb1Jlc3BClgEKDWNvbS5zbG90cGIudjFCCVNsb3RQcm90b1ABWjVnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYi92MTtzbG90cGJ2MaICA1NYWKoCCVNsb3RwYi5WMcoCCVNsb3RwYlxWMeICFVNsb3RwYlxWMVxHUEJNZXRhZGF0YeoCClNsb3RwYjo6VjFiBnByb3RvMw");
+  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIigKBldhbGxldBIeCgVjb2lucxgBIAMoCzIPLnNsb3RwYi52MS5Db2luIjkKBENvaW4SDgoGYW1vdW50GAEgASgEEiEKBHR5cGUYAiABKA4yEy5zbG90cGIudjEuQ29pblR5cGUiIwoFRXZlbnQSDAoEY29kZRgBIAEoDRIMCgRkYXRhGAIgASgMIh4KCEJ1eUZnUmVxEhIKCmJldF9hbW91bnQYASABKA0iPgoJQnV5RmdSZXNwEiAKBmV2ZW50cxgBIAMoCzIQLnNsb3RwYi52MS5FdmVudBIPCgdiYWxhbmNlGAIgASgEIjAKEVJvb21TdGF0aXN0aWNJbmZvEgsKA3J0cBgBIAEoAhIOCgZmZ19jbnQYAiABKAQiNQoOR2V0Um9vbUluZm9SZXESEgoKYmV0X2Ftb3VudBgBIAEoDRIPCgdyb29tX2lkGAIgASgNIqUBCg9HZXRSb29tSW5mb1Jlc3ASDAoEZGF0YRgBIAEoDBIrCgV0b2RheRgCIAEoCzIcLnNsb3RwYi52MS5Sb29tU3RhdGlzdGljSW5mbxIqCgR3ZWVrGAMgASgLMhwuc2xvdHBiLnYxLlJvb21TdGF0aXN0aWNJbmZvEisKBW1vbnRoGAQgASgLMhwuc2xvdHBiLnYxLlJvb21TdGF0aXN0aWNJbmZvIicKBVRhYmxlEh4KBXJlZWxzGAEgAygLMg8uc2xvdHBiLnYxLlJlZWwiFwoEUmVlbBIPCgdzeW1ib2xzGAEgAygJIiIKCkNvb3JkaW5hdGUSCQoBeBgBIAEoBRIJCgF5GAIgASgFIh0KB1BsYXlSZXESEgoKYmV0X2Ftb3VudBgBIAEoDSI9CghQbGF5UmVzcBIgCgZldmVudHMYASADKAsyEC5zbG90cGIudjEuRXZlbnQSDwoHYmFsYW5jZRgCIAEoBCJYCgVKcE91dBIfCgV0YWJsZRgBIAEoCzIQLnNsb3RwYi52MS5UYWJsZRINCgVzY29yZRgCIAEoBBIfCgR0eXBlGAMgASgOMhEuc2xvdHBiLnYxLkpQVHlwZSo8CghDb2luVHlwZRIZChVDT0lOX1RZUEVfVU5TUEVDSUZJRUQQABIKCgZHT0xERU4QARIJCgVUT0tFThACKkIKBkpQVHlwZRIXChNKUF9UWVBFX1VOU1BFQ0lGSUVEEAASCQoFTUlOT1IQARIJCgVNQUpPUhACEgkKBUdSQU5EEAMyuAEKC1Nsb3RTZXJ2aWNlEi8KBFBsYXkSEi5zbG90cGIudjEuUGxheVJlcRoTLnNsb3RwYi52MS5QbGF5UmVzcBIyCgVCdXlGZxITLnNsb3RwYi52MS5CdXlGZ1JlcRoULnNsb3RwYi52MS5CdXlGZ1Jlc3ASRAoLR2V0Um9vbUluZm8SGS5zbG90cGIudjEuR2V0Um9vbUluZm9SZXEaGi5zbG90cGIudjEuR2V0Um9vbUluZm9SZXNwQpYBCg1jb20uc2xvdHBiLnYxQglTbG90UHJvdG9QAVo1Z2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGIvdjE7c2xvdHBidjGiAgNTWFiqAglTbG90cGIuVjHKAglTbG90cGJcVjHiAhVTbG90cGJcVjFcR1BCTWV0YWRhdGHqAgpTbG90cGI6OlYxYgZwcm90bzM");
+
+/**
+ * @generated from message slotpb.v1.Wallet
+ */
+export type Wallet = Message<"slotpb.v1.Wallet"> & {
+  /**
+   * @generated from field: repeated slotpb.v1.Coin coins = 1;
+   */
+  coins: Coin[];
+};
+
+/**
+ * Describes the message slotpb.v1.Wallet.
+ * Use `create(WalletSchema)` to create a new message.
+ */
+export const WalletSchema: GenMessage<Wallet> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot, 0);
+
+/**
+ * @generated from message slotpb.v1.Coin
+ */
+export type Coin = Message<"slotpb.v1.Coin"> & {
+  /**
+   * @generated from field: uint64 amount = 1;
+   */
+  amount: bigint;
+
+  /**
+   * @generated from field: slotpb.v1.CoinType type = 2;
+   */
+  type: CoinType;
+};
+
+/**
+ * Describes the message slotpb.v1.Coin.
+ * Use `create(CoinSchema)` to create a new message.
+ */
+export const CoinSchema: GenMessage<Coin> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot, 1);
 
 /**
  * @generated from message slotpb.v1.Event
@@ -34,7 +73,7 @@ export type Event = Message<"slotpb.v1.Event"> & {
  * Use `create(EventSchema)` to create a new message.
  */
 export const EventSchema: GenMessage<Event> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 0);
+  messageDesc(file_slotpb_v1_slot, 2);
 
 /**
  * @generated from message slotpb.v1.BuyFgReq
@@ -51,7 +90,7 @@ export type BuyFgReq = Message<"slotpb.v1.BuyFgReq"> & {
  * Use `create(BuyFgReqSchema)` to create a new message.
  */
 export const BuyFgReqSchema: GenMessage<BuyFgReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 1);
+  messageDesc(file_slotpb_v1_slot, 3);
 
 /**
  * @generated from message slotpb.v1.BuyFgResp
@@ -73,7 +112,7 @@ export type BuyFgResp = Message<"slotpb.v1.BuyFgResp"> & {
  * Use `create(BuyFgRespSchema)` to create a new message.
  */
 export const BuyFgRespSchema: GenMessage<BuyFgResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 2);
+  messageDesc(file_slotpb_v1_slot, 4);
 
 /**
  * @generated from message slotpb.v1.RoomStatisticInfo
@@ -95,7 +134,7 @@ export type RoomStatisticInfo = Message<"slotpb.v1.RoomStatisticInfo"> & {
  * Use `create(RoomStatisticInfoSchema)` to create a new message.
  */
 export const RoomStatisticInfoSchema: GenMessage<RoomStatisticInfo> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 3);
+  messageDesc(file_slotpb_v1_slot, 5);
 
 /**
  * @generated from message slotpb.v1.GetRoomInfoReq
@@ -117,7 +156,7 @@ export type GetRoomInfoReq = Message<"slotpb.v1.GetRoomInfoReq"> & {
  * Use `create(GetRoomInfoReqSchema)` to create a new message.
  */
 export const GetRoomInfoReqSchema: GenMessage<GetRoomInfoReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 4);
+  messageDesc(file_slotpb_v1_slot, 6);
 
 /**
  * @generated from message slotpb.v1.GetRoomInfoResp
@@ -149,7 +188,7 @@ export type GetRoomInfoResp = Message<"slotpb.v1.GetRoomInfoResp"> & {
  * Use `create(GetRoomInfoRespSchema)` to create a new message.
  */
 export const GetRoomInfoRespSchema: GenMessage<GetRoomInfoResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 5);
+  messageDesc(file_slotpb_v1_slot, 7);
 
 /**
  * @generated from message slotpb.v1.Table
@@ -166,7 +205,7 @@ export type Table = Message<"slotpb.v1.Table"> & {
  * Use `create(TableSchema)` to create a new message.
  */
 export const TableSchema: GenMessage<Table> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 6);
+  messageDesc(file_slotpb_v1_slot, 8);
 
 /**
  * @generated from message slotpb.v1.Reel
@@ -183,7 +222,7 @@ export type Reel = Message<"slotpb.v1.Reel"> & {
  * Use `create(ReelSchema)` to create a new message.
  */
 export const ReelSchema: GenMessage<Reel> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 7);
+  messageDesc(file_slotpb_v1_slot, 9);
 
 /**
  * @generated from message slotpb.v1.Coordinate
@@ -205,7 +244,7 @@ export type Coordinate = Message<"slotpb.v1.Coordinate"> & {
  * Use `create(CoordinateSchema)` to create a new message.
  */
 export const CoordinateSchema: GenMessage<Coordinate> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 8);
+  messageDesc(file_slotpb_v1_slot, 10);
 
 /**
  * @generated from message slotpb.v1.PlayReq
@@ -222,7 +261,7 @@ export type PlayReq = Message<"slotpb.v1.PlayReq"> & {
  * Use `create(PlayReqSchema)` to create a new message.
  */
 export const PlayReqSchema: GenMessage<PlayReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 9);
+  messageDesc(file_slotpb_v1_slot, 11);
 
 /**
  * @generated from message slotpb.v1.PlayResp
@@ -244,7 +283,7 @@ export type PlayResp = Message<"slotpb.v1.PlayResp"> & {
  * Use `create(PlayRespSchema)` to create a new message.
  */
 export const PlayRespSchema: GenMessage<PlayResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 10);
+  messageDesc(file_slotpb_v1_slot, 12);
 
 /**
  * @generated from message slotpb.v1.JpOut
@@ -271,7 +310,33 @@ export type JpOut = Message<"slotpb.v1.JpOut"> & {
  * Use `create(JpOutSchema)` to create a new message.
  */
 export const JpOutSchema: GenMessage<JpOut> = /*@__PURE__*/
-  messageDesc(file_slotpb_v1_slot, 11);
+  messageDesc(file_slotpb_v1_slot, 13);
+
+/**
+ * @generated from enum slotpb.v1.CoinType
+ */
+export enum CoinType {
+  /**
+   * @generated from enum value: COIN_TYPE_UNSPECIFIED = 0;
+   */
+  COIN_TYPE_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: GOLDEN = 1;
+   */
+  GOLDEN = 1,
+
+  /**
+   * @generated from enum value: TOKEN = 2;
+   */
+  TOKEN = 2,
+}
+
+/**
+ * Describes the enum slotpb.v1.CoinType.
+ */
+export const CoinTypeSchema: GenEnum<CoinType> = /*@__PURE__*/
+  enumDesc(file_slotpb_v1_slot, 0);
 
 /**
  * @generated from enum slotpb.v1.JPType
@@ -302,7 +367,7 @@ export enum JPType {
  * Describes the enum slotpb.v1.JPType.
  */
 export const JPTypeSchema: GenEnum<JPType> = /*@__PURE__*/
-  enumDesc(file_slotpb_v1_slot, 0);
+  enumDesc(file_slotpb_v1_slot, 1);
 
 /**
  * @generated from service slotpb.v1.SlotService
