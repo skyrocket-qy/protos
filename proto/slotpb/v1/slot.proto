@@ -11,6 +11,21 @@ service SlotService {
   rpc GetRoomInfo(GetRoomInfoReq) returns (GetRoomInfoResp);
 }
 
+message RoomInfo {
+  uint64 room_id = 1;
+  RoomType room_type = 2;
+  uint64 user_id = 3;
+}
+
+enum RoomType {
+  ROOM_TYPE_UNSPECIFIED = 0;
+  EXPERIENCE         = 1; // 試玩廳
+	NEWBIE             = 2; // 新手廳
+	GENERALLY          = 3; // 一般廳
+	VIP                = 4; // 貴賓廳
+	BOSS               = 5; // 頭家廳
+}
+
 message Wallet {
   repeated Coin coins = 1;
 }
