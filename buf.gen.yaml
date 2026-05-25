@@ -22,5 +22,13 @@ plugins:
     # This sets the base output directory to ./protoscsharp
     out: gen-csharp
 
+  - remote: buf.build/anthropics/connect-rust:v0.6.0
+    out: gen
+    opt:
+      - extern_path=.=crate::gen_rust
+  # anthropics/connect-rust depends on anthropics/buffa
+  - remote: buf.build/anthropics/buffa:v0.6.0
+    out: gen_rust
+
 inputs:
   - directory: proto
