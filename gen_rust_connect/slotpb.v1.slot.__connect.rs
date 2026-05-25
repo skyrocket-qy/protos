@@ -14,14 +14,6 @@ pub type OwnedBuyFgReqView = ::buffa::view::OwnedView<
 pub type OwnedBuyFgRespView = ::buffa::view::OwnedView<
     crate::gen_rust::slotpb::v1::__buffa::view::BuyFgRespView<'static>,
 >;
-///Shorthand for `OwnedView<GetRoomInfoReqView<'static>>`.
-pub type OwnedGetRoomInfoReqView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoReqView<'static>,
->;
-///Shorthand for `OwnedView<GetRoomInfoRespView<'static>>`.
-pub type OwnedGetRoomInfoRespView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'static>,
->;
 impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::SpinResp>
 for crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'_> {
     fn encode(
@@ -62,26 +54,6 @@ for ::buffa::view::OwnedView<
         ::connectrpc::__codegen::encode_view_body(&**self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::GetRoomInfoResp>
-for crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'_> {
-    fn encode(
-        &self,
-        codec: ::connectrpc::CodecFormat,
-    ) -> ::std::result::Result<::buffa::bytes::Bytes, ::connectrpc::ConnectError> {
-        ::connectrpc::__codegen::encode_view_body(self, codec)
-    }
-}
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::GetRoomInfoResp>
-for ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'static>,
-> {
-    fn encode(
-        &self,
-        codec: ::connectrpc::CodecFormat,
-    ) -> ::std::result::Result<::buffa::bytes::Bytes, ::connectrpc::ConnectError> {
-        ::connectrpc::__codegen::encode_view_body(&**self, codec)
-    }
-}
 /// Full service name for this service.
 pub const SLOT_SERVICE_SERVICE_NAME: &str = "slotpb.v1.SlotService";
 /// Static [`Spec`](::connectrpc::Spec) for the server-side `Spin` RPC.
@@ -99,15 +71,6 @@ pub const SLOT_SERVICE_SPIN_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::serve
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
 pub const SLOT_SERVICE_BUY_FG_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
         "/slotpb.v1.SlotService/BuyFg",
-        ::connectrpc::StreamType::Unary,
-    )
-    .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `GetRoomInfo` RPC.
-///
-/// The dispatcher surfaces this on
-/// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const SLOT_SERVICE_GET_ROOM_INFO_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/slotpb.v1.SlotService/GetRoomInfo",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
@@ -176,20 +139,6 @@ pub trait SlotService: Send + Sync + 'static {
             > + Send + use<'a, Self>,
         >,
     > + Send;
-    /// Handle the GetRoomInfo RPC.
-    ///
-    /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn get_room_info<'a>(
-        &'a self,
-        ctx: ::connectrpc::RequestContext,
-        request: OwnedGetRoomInfoReqView,
-    ) -> impl ::std::future::Future<
-        Output = ::connectrpc::ServiceResult<
-            impl ::connectrpc::Encodable<
-                crate::gen_rust::slotpb::v1::GetRoomInfoResp,
-            > + Send + use<'a, Self>,
-        >,
-    > + Send;
 }
 /// Extension trait for registering a service implementation with a Router.
 ///
@@ -251,24 +200,6 @@ impl<S: SlotService> SlotServiceExt for S {
                 },
             )
             .with_spec(SLOT_SERVICE_BUY_FG_SPEC)
-            .route_view(
-                SLOT_SERVICE_SERVICE_NAME,
-                "GetRoomInfo",
-                {
-                    let svc = ::std::sync::Arc::clone(&self);
-                    ::connectrpc::view_handler_fn(move |ctx, req, format| {
-                        let svc = ::std::sync::Arc::clone(&svc);
-                        async move {
-                            svc.get_room_info(ctx, req)
-                                .await?
-                                .encode::<
-                                    crate::gen_rust::slotpb::v1::GetRoomInfoResp,
-                                >(format)
-                        }
-                    })
-                },
-            )
-            .with_spec(SLOT_SERVICE_GET_ROOM_INFO_SPEC)
     }
 }
 /// Monomorphic dispatcher for `SlotService`.
@@ -326,12 +257,6 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
                         .with_spec(SLOT_SERVICE_BUY_FG_SPEC),
                 )
             }
-            "GetRoomInfo" => {
-                Some(
-                    ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(SLOT_SERVICE_GET_ROOM_INFO_SPEC),
-                )
-            }
             _ => None,
         }
     }
@@ -367,17 +292,6 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
                     svc.buy_fg(ctx, req)
                         .await?
                         .encode::<crate::gen_rust::slotpb::v1::BuyFgResp>(format)
-                })
-            }
-            "GetRoomInfo" => {
-                let svc = ::std::sync::Arc::clone(&self.inner);
-                Box::pin(async move {
-                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoReqView,
-                    >(request.encoded()?, format)?;
-                    svc.get_room_info(ctx, req)
-                        .await?
-                        .encode::<crate::gen_rust::slotpb::v1::GetRoomInfoResp>(format)
                 })
             }
             _ => ::connectrpc::dispatcher::codegen::unimplemented_unary(path),
@@ -571,47 +485,6 @@ where
                 &self.config,
                 SLOT_SERVICE_SERVICE_NAME,
                 "BuyFg",
-                request,
-                options,
-            )
-            .await
-    }
-    /// Call the GetRoomInfo RPC. Sends a request to /slotpb.v1.SlotService/GetRoomInfo.
-    pub async fn get_room_info(
-        &self,
-        request: crate::gen_rust::slotpb::v1::GetRoomInfoReq,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        self.get_room_info_with_options(
-                request,
-                ::connectrpc::client::CallOptions::default(),
-            )
-            .await
-    }
-    /// Call the GetRoomInfo RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn get_room_info_with_options(
-        &self,
-        request: crate::gen_rust::slotpb::v1::GetRoomInfoReq,
-        options: ::connectrpc::client::CallOptions,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        ::connectrpc::client::call_unary(
-                &self.transport,
-                &self.config,
-                SLOT_SERVICE_SERVICE_NAME,
-                "GetRoomInfo",
                 request,
                 options,
             )

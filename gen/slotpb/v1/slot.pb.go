@@ -1034,11 +1034,10 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x13JP_TYPE_UNSPECIFIED\x10\x00\x12\t\n" +
 	"\x05MINOR\x10\x01\x12\t\n" +
 	"\x05MAJOR\x10\x02\x12\t\n" +
-	"\x05GRAND\x10\x032\xb8\x01\n" +
+	"\x05GRAND\x10\x032r\n" +
 	"\vSlotService\x12/\n" +
 	"\x04Spin\x12\x12.slotpb.v1.SpinReq\x1a\x13.slotpb.v1.SpinResp\x122\n" +
-	"\x05BuyFg\x12\x13.slotpb.v1.BuyFgReq\x1a\x14.slotpb.v1.BuyFgResp\x12D\n" +
-	"\vGetRoomInfo\x12\x19.slotpb.v1.GetRoomInfoReq\x1a\x1a.slotpb.v1.GetRoomInfoRespB\x96\x01\n" +
+	"\x05BuyFg\x12\x13.slotpb.v1.BuyFgReq\x1a\x14.slotpb.v1.BuyFgRespB\x96\x01\n" +
 	"\rcom.slotpb.v1B\tSlotProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +
 	"Slotpb::V1b\x06proto3"
 
@@ -1090,12 +1089,10 @@ var file_slotpb_v1_slot_proto_depIdxs = []int32{
 	2,  // 10: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
 	15, // 11: slotpb.v1.SlotService.Spin:input_type -> slotpb.v1.SpinReq
 	7,  // 12: slotpb.v1.SlotService.BuyFg:input_type -> slotpb.v1.BuyFgReq
-	10, // 13: slotpb.v1.SlotService.GetRoomInfo:input_type -> slotpb.v1.GetRoomInfoReq
-	16, // 14: slotpb.v1.SlotService.Spin:output_type -> slotpb.v1.SpinResp
-	8,  // 15: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
-	11, // 16: slotpb.v1.SlotService.GetRoomInfo:output_type -> slotpb.v1.GetRoomInfoResp
-	14, // [14:17] is the sub-list for method output_type
-	11, // [11:14] is the sub-list for method input_type
+	16, // 13: slotpb.v1.SlotService.Spin:output_type -> slotpb.v1.SpinResp
+	8,  // 14: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
+	13, // [13:15] is the sub-list for method output_type
+	11, // [11:13] is the sub-list for method input_type
 	11, // [11:11] is the sub-list for extension type_name
 	11, // [11:11] is the sub-list for extension extendee
 	0,  // [0:11] is the sub-list for field type_name
