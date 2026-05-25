@@ -8,6 +8,7 @@ genpb:
 	rm -rf gen/*
 	rm -rf gen-ts/*
 	rm -rf gen_rust/*
+	rm -rf gen_rust_connect/*
 	rm -rf gen-csharp/*
 
 	buf lint

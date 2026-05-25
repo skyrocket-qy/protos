@@ -23,12 +23,15 @@ plugins:
     out: gen-csharp
 
   - remote: buf.build/anthropics/connect-rust:v0.6.0
-    out: gen
+    out: gen_rust_connect
     opt:
       - extern_path=.=crate::gen_rust
   # anthropics/connect-rust depends on anthropics/buffa
   - remote: buf.build/anthropics/buffa:v0.6.0
     out: gen_rust
+    # opt:
+    #   - json=true
+
 
 inputs:
   - directory: proto
