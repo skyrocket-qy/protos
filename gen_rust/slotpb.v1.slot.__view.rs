@@ -2665,7 +2665,9 @@ impl ::buffa::ViewReborrow for CoordinateView<'static> {
 }
 #[derive(Clone, Debug, Default)]
 pub struct SpinReqView<'a> {
-    /// Field 1: `bet_amount`
+    /// Field 1: `game_id`
+    pub game_id: u32,
+    /// Field 2: `bet_amount`
     pub bet_amount: u32,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
@@ -2715,6 +2717,16 @@ impl<'a> SpinReqView<'a> {
                             actual: tag.wire_type() as u8,
                         });
                     }
+                    view.game_id = ::buffa::types::decode_uint32(&mut cur)?;
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
                     view.bet_amount = ::buffa::types::decode_uint32(&mut cur)?;
                 }
                 _ => {
@@ -2750,6 +2762,7 @@ impl<'a> ::buffa::MessageView<'a> for SpinReqView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::SpinReq {
+            game_id: self.game_id,
             bet_amount: self.bet_amount,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
@@ -2766,6 +2779,9 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinReqView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
+        if self.game_id != 0u32 {
+            size += 1u32 + ::buffa::types::uint32_encoded_len(self.game_id) as u32;
+        }
         if self.bet_amount != 0u32 {
             size += 1u32 + ::buffa::types::uint32_encoded_len(self.bet_amount) as u32;
         }
@@ -2780,8 +2796,13 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinReqView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if self.bet_amount != 0u32 {
+        if self.game_id != 0u32 {
             ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.game_id, buf);
+        }
+        if self.bet_amount != 0u32 {
+            ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
                 .encode(buf);
             ::buffa::types::encode_uint32(self.bet_amount, buf);
         }
@@ -2806,6 +2827,18 @@ impl<'__a> ::serde::Serialize for SpinReqView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u32(&self.game_id) {
+            struct _W(u32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("gameId", &_W(self.game_id))?;
+        }
         if !::buffa::json_helpers::skip_if::is_zero_u32(&self.bet_amount) {
             struct _W(u32);
             impl ::serde::Serialize for _W {

@@ -2421,7 +2421,15 @@ pub const __COORDINATE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa:
 #[derive(::serde::Serialize, ::serde::Deserialize)]
 #[serde(default)]
 pub struct SpinReq {
-    /// Field 1: `bet_amount`
+    /// Field 1: `game_id`
+    #[serde(
+        rename = "gameId",
+        alias = "game_id",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
+    pub game_id: u32,
+    /// Field 2: `bet_amount`
     #[serde(
         rename = "betAmount",
         alias = "bet_amount",
@@ -2435,7 +2443,10 @@ pub struct SpinReq {
 }
 impl ::core::fmt::Debug for SpinReq {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("SpinReq").field("bet_amount", &self.bet_amount).finish()
+        f.debug_struct("SpinReq")
+            .field("game_id", &self.game_id)
+            .field("bet_amount", &self.bet_amount)
+            .finish()
     }
 }
 impl SpinReq {
@@ -2468,6 +2479,9 @@ impl ::buffa::Message for SpinReq {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
+        if self.game_id != 0u32 {
+            size += 1u32 + ::buffa::types::uint32_encoded_len(self.game_id) as u32;
+        }
         if self.bet_amount != 0u32 {
             size += 1u32 + ::buffa::types::uint32_encoded_len(self.bet_amount) as u32;
         }
@@ -2481,8 +2495,13 @@ impl ::buffa::Message for SpinReq {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if self.bet_amount != 0u32 {
+        if self.game_id != 0u32 {
             ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.game_id, buf);
+        }
+        if self.bet_amount != 0u32 {
+            ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
                 .encode(buf);
             ::buffa::types::encode_uint32(self.bet_amount, buf);
         }
@@ -2507,6 +2526,16 @@ impl ::buffa::Message for SpinReq {
                         actual: tag.wire_type() as u8,
                     });
                 }
+                self.game_id = ::buffa::types::decode_uint32(buf)?;
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
                 self.bet_amount = ::buffa::types::decode_uint32(buf)?;
             }
             _ => {
@@ -2517,6 +2546,7 @@ impl ::buffa::Message for SpinReq {
         ::core::result::Result::Ok(())
     }
     fn clear(&mut self) {
+        self.game_id = 0u32;
         self.bet_amount = 0u32;
         self.__buffa_unknown_fields.clear();
     }

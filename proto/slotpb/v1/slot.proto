@@ -19,16 +19,14 @@ message RoomInfo {
 
 enum RoomType {
   ROOM_TYPE_UNSPECIFIED = 0;
-  EXPERIENCE         = 1; // 試玩廳
-	NEWBIE             = 2; // 新手廳
-	GENERALLY          = 3; // 一般廳
-	VIP                = 4; // 貴賓廳
-	BOSS               = 5; // 頭家廳
+  EXPERIENCE = 1; // 試玩廳
+  NEWBIE = 2;     // 新手廳
+  GENERALLY = 3;  // 一般廳
+  VIP = 4;        // 貴賓廳
+  BOSS = 5;       // 頭家廳
 }
 
-message Wallet {
-  repeated Coin coins = 1;
-}
+message Wallet { repeated Coin coins = 1; }
 
 message Coin {
   uint64 amount = 1;
@@ -37,8 +35,8 @@ message Coin {
 
 enum CoinType {
   COIN_TYPE_UNSPECIFIED = 0;
-	GOLDEN               = 1;
-	TOKEN                = 2;
+  GOLDEN = 1;
+  TOKEN = 2;
 }
 
 message Event {
@@ -46,9 +44,7 @@ message Event {
   bytes data = 2;
 }
 
-message BuyFgReq {
-  uint32 bet_amount = 1;
-}
+message BuyFgReq { uint32 bet_amount = 1; }
 
 message BuyFgResp {
   repeated Event events = 1;
@@ -72,20 +68,17 @@ message GetRoomInfoResp {
   RoomStatisticInfo month = 4;
 }
 
-message Table {
-  repeated Reel reels = 1;
-}
-message Reel{
-  repeated string symbols = 1;
-}
+message Table { repeated Reel reels = 1; }
+message Reel { repeated string symbols = 1; }
 
-message Coordinate{
+message Coordinate {
   int32 x = 1;
   int32 y = 2;
 }
 
 message SpinReq {
-  uint32 bet_amount = 1;
+  uint32 game_id = 1;
+  uint32 bet_amount = 2;
 }
 
 message SpinResp {
@@ -93,13 +86,13 @@ message SpinResp {
   uint64 balance = 2;
 }
 
-message JpOut{
+message JpOut {
   Table table = 1;
   uint64 score = 2;
   JPType type = 3;
 }
 
-enum JPType{
+enum JPType {
   JP_TYPE_UNSPECIFIED = 0;
   MINOR = 1;
   MAJOR = 2;

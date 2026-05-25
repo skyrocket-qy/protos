@@ -800,7 +800,8 @@ func (x *Coordinate) GetY() int32 {
 
 type SpinReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	BetAmount     uint32                 `protobuf:"varint,1,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
+	GameId        uint32                 `protobuf:"varint,1,opt,name=game_id,json=gameId,proto3" json:"game_id,omitempty"`
+	BetAmount     uint32                 `protobuf:"varint,2,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -833,6 +834,13 @@ func (x *SpinReq) ProtoReflect() protoreflect.Message {
 // Deprecated: Use SpinReq.ProtoReflect.Descriptor instead.
 func (*SpinReq) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *SpinReq) GetGameId() uint32 {
+	if x != nil {
+		return x.GameId
+	}
+	return 0
 }
 
 func (x *SpinReq) GetBetAmount() uint32 {
@@ -996,10 +1004,11 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
 	"Coordinate\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
-	"\x01y\x18\x02 \x01(\x05R\x01y\"(\n" +
-	"\aSpinReq\x12\x1d\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\"A\n" +
+	"\aSpinReq\x12\x17\n" +
+	"\agame_id\x18\x01 \x01(\rR\x06gameId\x12\x1d\n" +
 	"\n" +
-	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"N\n" +
+	"bet_amount\x18\x02 \x01(\rR\tbetAmount\"N\n" +
 	"\bSpinResp\x12(\n" +
 	"\x06events\x18\x01 \x03(\v2\x10.slotpb.v1.EventR\x06events\x12\x18\n" +
 	"\abalance\x18\x02 \x01(\x04R\abalance\"l\n" +
