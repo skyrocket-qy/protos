@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot.proto.
  */
 export const file_slotpb_v1_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIlQKCFJvb21JbmZvEg8KB3Jvb21faWQYASABKAQSJgoJcm9vbV90eXBlGAIgASgOMhMuc2xvdHBiLnYxLlJvb21UeXBlEg8KB3VzZXJfaWQYAyABKAQiKAoGV2FsbGV0Eh4KBWNvaW5zGAEgAygLMg8uc2xvdHBiLnYxLkNvaW4iOQoEQ29pbhIOCgZhbW91bnQYASABKAQSIQoEdHlwZRgCIAEoDjITLnNsb3RwYi52MS5Db2luVHlwZSIjCgVFdmVudBIMCgRjb2RlGAEgASgNEgwKBGRhdGEYAiABKAwiHgoIQnV5RmdSZXESEgoKYmV0X2Ftb3VudBgBIAEoDSI+CglCdXlGZ1Jlc3ASIAoGZXZlbnRzGAEgAygLMhAuc2xvdHBiLnYxLkV2ZW50Eg8KB2JhbGFuY2UYAiABKAQiMAoRUm9vbVN0YXRpc3RpY0luZm8SCwoDcnRwGAEgASgCEg4KBmZnX2NudBgCIAEoBCI1Cg5HZXRSb29tSW5mb1JlcRISCgpiZXRfYW1vdW50GAEgASgNEg8KB3Jvb21faWQYAiABKA0ipQEKD0dldFJvb21JbmZvUmVzcBIMCgRkYXRhGAEgASgMEisKBXRvZGF5GAIgASgLMhwuc2xvdHBiLnYxLlJvb21TdGF0aXN0aWNJbmZvEioKBHdlZWsYAyABKAsyHC5zbG90cGIudjEuUm9vbVN0YXRpc3RpY0luZm8SKwoFbW9udGgYBCABKAsyHC5zbG90cGIudjEuUm9vbVN0YXRpc3RpY0luZm8iJwoFVGFibGUSHgoFcmVlbHMYASADKAsyDy5zbG90cGIudjEuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiIgoKQ29vcmRpbmF0ZRIJCgF4GAEgASgFEgkKAXkYAiABKAUiHQoHUGxheVJlcRISCgpiZXRfYW1vdW50GAEgASgNIj0KCFBsYXlSZXNwEiAKBmV2ZW50cxgBIAMoCzIQLnNsb3RwYi52MS5FdmVudBIPCgdiYWxhbmNlGAIgASgEIlgKBUpwT3V0Eh8KBXRhYmxlGAEgASgLMhAuc2xvdHBiLnYxLlRhYmxlEg0KBXNjb3JlGAIgASgEEh8KBHR5cGUYAyABKA4yES5zbG90cGIudjEuSlBUeXBlKmMKCFJvb21UeXBlEhkKFVJPT01fVFlQRV9VTlNQRUNJRklFRBAAEg4KCkVYUEVSSUVOQ0UQARIKCgZORVdCSUUQAhINCglHRU5FUkFMTFkQAxIHCgNWSVAQBBIICgRCT1NTEAUqPAoIQ29pblR5cGUSGQoVQ09JTl9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGR09MREVOEAESCQoFVE9LRU4QAipCCgZKUFR5cGUSFwoTSlBfVFlQRV9VTlNQRUNJRklFRBAAEgkKBU1JTk9SEAESCQoFTUFKT1IQAhIJCgVHUkFORBADMrgBCgtTbG90U2VydmljZRIvCgRQbGF5EhIuc2xvdHBiLnYxLlBsYXlSZXEaEy5zbG90cGIudjEuUGxheVJlc3ASMgoFQnV5RmcSEy5zbG90cGIudjEuQnV5RmdSZXEaFC5zbG90cGIudjEuQnV5RmdSZXNwEkQKC0dldFJvb21JbmZvEhkuc2xvdHBiLnYxLkdldFJvb21JbmZvUmVxGhouc2xvdHBiLnYxLkdldFJvb21JbmZvUmVzcEKWAQoNY29tLnNsb3RwYi52MUIJU2xvdFByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z");
+  fileDesc("ChRzbG90cGIvdjEvc2xvdC5wcm90bxIJc2xvdHBiLnYxIlQKCFJvb21JbmZvEg8KB3Jvb21faWQYASABKAQSJgoJcm9vbV90eXBlGAIgASgOMhMuc2xvdHBiLnYxLlJvb21UeXBlEg8KB3VzZXJfaWQYAyABKAQiKAoGV2FsbGV0Eh4KBWNvaW5zGAEgAygLMg8uc2xvdHBiLnYxLkNvaW4iOQoEQ29pbhIOCgZhbW91bnQYASABKAQSIQoEdHlwZRgCIAEoDjITLnNsb3RwYi52MS5Db2luVHlwZSIjCgVFdmVudBIMCgRjb2RlGAEgASgNEgwKBGRhdGEYAiABKAwiHgoIQnV5RmdSZXESEgoKYmV0X2Ftb3VudBgBIAEoDSI+CglCdXlGZ1Jlc3ASIAoGZXZlbnRzGAEgAygLMhAuc2xvdHBiLnYxLkV2ZW50Eg8KB2JhbGFuY2UYAiABKAQiMAoRUm9vbVN0YXRpc3RpY0luZm8SCwoDcnRwGAEgASgCEg4KBmZnX2NudBgCIAEoBCI1Cg5HZXRSb29tSW5mb1JlcRISCgpiZXRfYW1vdW50GAEgASgNEg8KB3Jvb21faWQYAiABKA0ipQEKD0dldFJvb21JbmZvUmVzcBIMCgRkYXRhGAEgASgMEisKBXRvZGF5GAIgASgLMhwuc2xvdHBiLnYxLlJvb21TdGF0aXN0aWNJbmZvEioKBHdlZWsYAyABKAsyHC5zbG90cGIudjEuUm9vbVN0YXRpc3RpY0luZm8SKwoFbW9udGgYBCABKAsyHC5zbG90cGIudjEuUm9vbVN0YXRpc3RpY0luZm8iJwoFVGFibGUSHgoFcmVlbHMYASADKAsyDy5zbG90cGIudjEuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiIgoKQ29vcmRpbmF0ZRIJCgF4GAEgASgFEgkKAXkYAiABKAUiHQoHU3BpblJlcRISCgpiZXRfYW1vdW50GAEgASgNIj0KCFNwaW5SZXNwEiAKBmV2ZW50cxgBIAMoCzIQLnNsb3RwYi52MS5FdmVudBIPCgdiYWxhbmNlGAIgASgEIlgKBUpwT3V0Eh8KBXRhYmxlGAEgASgLMhAuc2xvdHBiLnYxLlRhYmxlEg0KBXNjb3JlGAIgASgEEh8KBHR5cGUYAyABKA4yES5zbG90cGIudjEuSlBUeXBlKmMKCFJvb21UeXBlEhkKFVJPT01fVFlQRV9VTlNQRUNJRklFRBAAEg4KCkVYUEVSSUVOQ0UQARIKCgZORVdCSUUQAhINCglHRU5FUkFMTFkQAxIHCgNWSVAQBBIICgRCT1NTEAUqPAoIQ29pblR5cGUSGQoVQ09JTl9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGR09MREVOEAESCQoFVE9LRU4QAipCCgZKUFR5cGUSFwoTSlBfVFlQRV9VTlNQRUNJRklFRBAAEgkKBU1JTk9SEAESCQoFTUFKT1IQAhIJCgVHUkFORBADMrgBCgtTbG90U2VydmljZRIvCgRTcGluEhIuc2xvdHBiLnYxLlNwaW5SZXEaEy5zbG90cGIudjEuU3BpblJlc3ASMgoFQnV5RmcSEy5zbG90cGIudjEuQnV5RmdSZXEaFC5zbG90cGIudjEuQnV5RmdSZXNwEkQKC0dldFJvb21JbmZvEhkuc2xvdHBiLnYxLkdldFJvb21JbmZvUmVxGhouc2xvdHBiLnYxLkdldFJvb21JbmZvUmVzcEKWAQoNY29tLnNsb3RwYi52MUIJU2xvdFByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z");
 
 /**
  * @generated from message slotpb.v1.RoomInfo
@@ -274,9 +274,9 @@ export const CoordinateSchema: GenMessage<Coordinate> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 11);
 
 /**
- * @generated from message slotpb.v1.PlayReq
+ * @generated from message slotpb.v1.SpinReq
  */
-export type PlayReq = Message<"slotpb.v1.PlayReq"> & {
+export type SpinReq = Message<"slotpb.v1.SpinReq"> & {
   /**
    * @generated from field: uint32 bet_amount = 1;
    */
@@ -284,16 +284,16 @@ export type PlayReq = Message<"slotpb.v1.PlayReq"> & {
 };
 
 /**
- * Describes the message slotpb.v1.PlayReq.
- * Use `create(PlayReqSchema)` to create a new message.
+ * Describes the message slotpb.v1.SpinReq.
+ * Use `create(SpinReqSchema)` to create a new message.
  */
-export const PlayReqSchema: GenMessage<PlayReq> = /*@__PURE__*/
+export const SpinReqSchema: GenMessage<SpinReq> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 12);
 
 /**
- * @generated from message slotpb.v1.PlayResp
+ * @generated from message slotpb.v1.SpinResp
  */
-export type PlayResp = Message<"slotpb.v1.PlayResp"> & {
+export type SpinResp = Message<"slotpb.v1.SpinResp"> & {
   /**
    * @generated from field: repeated slotpb.v1.Event events = 1;
    */
@@ -306,10 +306,10 @@ export type PlayResp = Message<"slotpb.v1.PlayResp"> & {
 };
 
 /**
- * Describes the message slotpb.v1.PlayResp.
- * Use `create(PlayRespSchema)` to create a new message.
+ * Describes the message slotpb.v1.SpinResp.
+ * Use `create(SpinRespSchema)` to create a new message.
  */
-export const PlayRespSchema: GenMessage<PlayResp> = /*@__PURE__*/
+export const SpinRespSchema: GenMessage<SpinResp> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot, 13);
 
 /**
@@ -452,12 +452,12 @@ export const JPTypeSchema: GenEnum<JPType> = /*@__PURE__*/
  */
 export const SlotService: GenService<{
   /**
-   * @generated from rpc slotpb.v1.SlotService.Play
+   * @generated from rpc slotpb.v1.SlotService.Spin
    */
-  play: {
+  spin: {
     methodKind: "unary";
-    input: typeof PlayReqSchema;
-    output: typeof PlayRespSchema;
+    input: typeof SpinReqSchema;
+    output: typeof SpinRespSchema;
   },
   /**
    * @generated from rpc slotpb.v1.SlotService.BuyFg

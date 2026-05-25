@@ -2420,7 +2420,7 @@ pub const __COORDINATE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa:
 #[derive(Clone, PartialEq, Default)]
 #[derive(::serde::Serialize, ::serde::Deserialize)]
 #[serde(default)]
-pub struct PlayReq {
+pub struct SpinReq {
     /// Field 1: `bet_amount`
     #[serde(
         rename = "betAmount",
@@ -2433,31 +2433,31 @@ pub struct PlayReq {
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
-impl ::core::fmt::Debug for PlayReq {
+impl ::core::fmt::Debug for SpinReq {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PlayReq").field("bet_amount", &self.bet_amount).finish()
+        f.debug_struct("SpinReq").field("bet_amount", &self.bet_amount).finish()
     }
 }
-impl PlayReq {
+impl SpinReq {
     /// Protobuf type URL for this message, for use with `Any::pack` and
     /// `Any::unpack_if`.
     ///
     /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
-    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayReq";
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinReq";
 }
-impl ::buffa::DefaultInstance for PlayReq {
+impl ::buffa::DefaultInstance for SpinReq {
     fn default_instance() -> &'static Self {
-        static VALUE: ::buffa::__private::OnceBox<PlayReq> = ::buffa::__private::OnceBox::new();
+        static VALUE: ::buffa::__private::OnceBox<SpinReq> = ::buffa::__private::OnceBox::new();
         VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
     }
 }
-impl ::buffa::MessageName for PlayReq {
+impl ::buffa::MessageName for SpinReq {
     const PACKAGE: &'static str = "slotpb.v1";
-    const NAME: &'static str = "PlayReq";
-    const FULL_NAME: &'static str = "slotpb.v1.PlayReq";
-    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayReq";
+    const NAME: &'static str = "SpinReq";
+    const FULL_NAME: &'static str = "slotpb.v1.SpinReq";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinReq";
 }
-impl ::buffa::Message for PlayReq {
+impl ::buffa::Message for SpinReq {
     /// Returns the total encoded size in bytes.
     ///
     /// The result is a `u32`; the protobuf specification requires all
@@ -2521,8 +2521,8 @@ impl ::buffa::Message for PlayReq {
         self.__buffa_unknown_fields.clear();
     }
 }
-impl ::buffa::ExtensionSet for PlayReq {
-    const PROTO_FQN: &'static str = "slotpb.v1.PlayReq";
+impl ::buffa::ExtensionSet for SpinReq {
+    const PROTO_FQN: &'static str = "slotpb.v1.SpinReq";
     fn unknown_fields(&self) -> &::buffa::UnknownFields {
         &self.__buffa_unknown_fields
     }
@@ -2530,7 +2530,7 @@ impl ::buffa::ExtensionSet for PlayReq {
         &mut self.__buffa_unknown_fields
     }
 }
-impl ::buffa::json_helpers::ProtoElemJson for PlayReq {
+impl ::buffa::json_helpers::ProtoElemJson for SpinReq {
     fn serialize_proto_json<S: ::serde::Serializer>(
         v: &Self,
         s: S,
@@ -2544,16 +2544,16 @@ impl ::buffa::json_helpers::ProtoElemJson for PlayReq {
     }
 }
 #[doc(hidden)]
-pub const __PLAY_REQ_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
-    type_url: "type.googleapis.com/slotpb.v1.PlayReq",
-    to_json: ::buffa::type_registry::any_to_json::<PlayReq>,
-    from_json: ::buffa::type_registry::any_from_json::<PlayReq>,
+pub const __SPIN_REQ_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.SpinReq",
+    to_json: ::buffa::type_registry::any_to_json::<SpinReq>,
+    from_json: ::buffa::type_registry::any_from_json::<SpinReq>,
     is_wkt: false,
 };
 #[derive(Clone, PartialEq, Default)]
 #[derive(::serde::Serialize, ::serde::Deserialize)]
 #[serde(default)]
-pub struct PlayResp {
+pub struct SpinResp {
     /// Field 1: `events`
     #[serde(
         rename = "events",
@@ -2572,34 +2572,34 @@ pub struct PlayResp {
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
-impl ::core::fmt::Debug for PlayResp {
+impl ::core::fmt::Debug for SpinResp {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("PlayResp")
+        f.debug_struct("SpinResp")
             .field("events", &self.events)
             .field("balance", &self.balance)
             .finish()
     }
 }
-impl PlayResp {
+impl SpinResp {
     /// Protobuf type URL for this message, for use with `Any::pack` and
     /// `Any::unpack_if`.
     ///
     /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
-    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayResp";
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinResp";
 }
-impl ::buffa::DefaultInstance for PlayResp {
+impl ::buffa::DefaultInstance for SpinResp {
     fn default_instance() -> &'static Self {
-        static VALUE: ::buffa::__private::OnceBox<PlayResp> = ::buffa::__private::OnceBox::new();
+        static VALUE: ::buffa::__private::OnceBox<SpinResp> = ::buffa::__private::OnceBox::new();
         VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
     }
 }
-impl ::buffa::MessageName for PlayResp {
+impl ::buffa::MessageName for SpinResp {
     const PACKAGE: &'static str = "slotpb.v1";
-    const NAME: &'static str = "PlayResp";
-    const FULL_NAME: &'static str = "slotpb.v1.PlayResp";
-    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayResp";
+    const NAME: &'static str = "SpinResp";
+    const FULL_NAME: &'static str = "slotpb.v1.SpinResp";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinResp";
 }
-impl ::buffa::Message for PlayResp {
+impl ::buffa::Message for SpinResp {
     /// Returns the total encoded size in bytes.
     ///
     /// The result is a `u32`; the protobuf specification requires all
@@ -2693,8 +2693,8 @@ impl ::buffa::Message for PlayResp {
         self.__buffa_unknown_fields.clear();
     }
 }
-impl ::buffa::ExtensionSet for PlayResp {
-    const PROTO_FQN: &'static str = "slotpb.v1.PlayResp";
+impl ::buffa::ExtensionSet for SpinResp {
+    const PROTO_FQN: &'static str = "slotpb.v1.SpinResp";
     fn unknown_fields(&self) -> &::buffa::UnknownFields {
         &self.__buffa_unknown_fields
     }
@@ -2702,7 +2702,7 @@ impl ::buffa::ExtensionSet for PlayResp {
         &mut self.__buffa_unknown_fields
     }
 }
-impl ::buffa::json_helpers::ProtoElemJson for PlayResp {
+impl ::buffa::json_helpers::ProtoElemJson for SpinResp {
     fn serialize_proto_json<S: ::serde::Serializer>(
         v: &Self,
         s: S,
@@ -2716,10 +2716,10 @@ impl ::buffa::json_helpers::ProtoElemJson for PlayResp {
     }
 }
 #[doc(hidden)]
-pub const __PLAY_RESP_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
-    type_url: "type.googleapis.com/slotpb.v1.PlayResp",
-    to_json: ::buffa::type_registry::any_to_json::<PlayResp>,
-    from_json: ::buffa::type_registry::any_from_json::<PlayResp>,
+pub const __SPIN_RESP_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.SpinResp",
+    to_json: ::buffa::type_registry::any_to_json::<SpinResp>,
+    from_json: ::buffa::type_registry::any_from_json::<SpinResp>,
     is_wkt: false,
 };
 #[derive(Clone, PartialEq, Default)]

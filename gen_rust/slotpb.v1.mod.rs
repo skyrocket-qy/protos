@@ -34,8 +34,8 @@ pub mod __buffa {
         reg.register_json_any(super::__TABLE_JSON_ANY);
         reg.register_json_any(super::__REEL_JSON_ANY);
         reg.register_json_any(super::__COORDINATE_JSON_ANY);
-        reg.register_json_any(super::__PLAY_REQ_JSON_ANY);
-        reg.register_json_any(super::__PLAY_RESP_JSON_ANY);
+        reg.register_json_any(super::__SPIN_REQ_JSON_ANY);
+        reg.register_json_any(super::__SPIN_RESP_JSON_ANY);
         reg.register_json_any(super::__JP_OUT_JSON_ANY);
     }
 }
@@ -64,9 +64,9 @@ pub use self::__buffa::view::ReelView;
 #[doc(inline)]
 pub use self::__buffa::view::CoordinateView;
 #[doc(inline)]
-pub use self::__buffa::view::PlayReqView;
+pub use self::__buffa::view::SpinReqView;
 #[doc(inline)]
-pub use self::__buffa::view::PlayRespView;
+pub use self::__buffa::view::SpinRespView;
 #[doc(inline)]
 pub use self::__buffa::view::JpOutView;
 #[doc(inline)]

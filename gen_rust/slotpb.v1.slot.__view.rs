@@ -2664,12 +2664,12 @@ impl ::buffa::ViewReborrow for CoordinateView<'static> {
     }
 }
 #[derive(Clone, Debug, Default)]
-pub struct PlayReqView<'a> {
+pub struct SpinReqView<'a> {
     /// Field 1: `bet_amount`
     pub bet_amount: u32,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
-impl<'a> PlayReqView<'a> {
+impl<'a> SpinReqView<'a> {
     /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
     ///
     /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
@@ -2727,8 +2727,8 @@ impl<'a> PlayReqView<'a> {
         ::core::result::Result::Ok(())
     }
 }
-impl<'a> ::buffa::MessageView<'a> for PlayReqView<'a> {
-    type Owned = super::super::PlayReq;
+impl<'a> ::buffa::MessageView<'a> for SpinReqView<'a> {
+    type Owned = super::super::SpinReq;
     fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
         Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
     }
@@ -2738,18 +2738,18 @@ impl<'a> ::buffa::MessageView<'a> for PlayReqView<'a> {
     ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
         Self::_decode_depth(buf, depth)
     }
-    fn to_owned_message(&self) -> super::super::PlayReq {
+    fn to_owned_message(&self) -> super::super::SpinReq {
         self.to_owned_from_source(None)
     }
     #[allow(clippy::useless_conversion, clippy::needless_update)]
     fn to_owned_from_source(
         &self,
         __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
-    ) -> super::super::PlayReq {
+    ) -> super::super::SpinReq {
         #[allow(unused_imports)]
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
-        super::super::PlayReq {
+        super::super::SpinReq {
             bet_amount: self.bet_amount,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
@@ -2760,7 +2760,7 @@ impl<'a> ::buffa::MessageView<'a> for PlayReqView<'a> {
         }
     }
 }
-impl<'a> ::buffa::ViewEncode<'a> for PlayReqView<'a> {
+impl<'a> ::buffa::ViewEncode<'a> for SpinReqView<'a> {
     #[allow(clippy::needless_borrow, clippy::let_and_return)]
     fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
         #[allow(unused_imports)]
@@ -2799,7 +2799,7 @@ impl<'a> ::buffa::ViewEncode<'a> for PlayReqView<'a> {
 /// fields depends on default-omission rules; serializers that require
 /// known map lengths (e.g. `bincode`) will return a runtime error.
 /// Use the owned message type for those formats.
-impl<'__a> ::serde::Serialize for PlayReqView<'__a> {
+impl<'__a> ::serde::Serialize for SpinReqView<'__a> {
     fn serialize<__S: ::serde::Serializer>(
         &self,
         __s: __S,
@@ -2821,39 +2821,39 @@ impl<'__a> ::serde::Serialize for PlayReqView<'__a> {
         __map.end()
     }
 }
-impl<'a> ::buffa::MessageName for PlayReqView<'a> {
+impl<'a> ::buffa::MessageName for SpinReqView<'a> {
     const PACKAGE: &'static str = "slotpb.v1";
-    const NAME: &'static str = "PlayReq";
-    const FULL_NAME: &'static str = "slotpb.v1.PlayReq";
-    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayReq";
+    const NAME: &'static str = "SpinReq";
+    const FULL_NAME: &'static str = "slotpb.v1.SpinReq";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinReq";
 }
-impl<'v> ::buffa::DefaultViewInstance for PlayReqView<'v> {
+impl<'v> ::buffa::DefaultViewInstance for SpinReqView<'v> {
     fn default_view_instance<'a>() -> &'a Self
     where
         Self: 'a,
     {
-        static VALUE: ::buffa::__private::OnceBox<PlayReqView<'static>> = ::buffa::__private::OnceBox::new();
+        static VALUE: ::buffa::__private::OnceBox<SpinReqView<'static>> = ::buffa::__private::OnceBox::new();
         VALUE
             .get_or_init(|| ::buffa::alloc::boxed::Box::new(
-                <PlayReqView<'static>>::default(),
+                <SpinReqView<'static>>::default(),
             ))
     }
 }
-impl ::buffa::ViewReborrow for PlayReqView<'static> {
-    type Reborrowed<'b> = PlayReqView<'b>;
+impl ::buffa::ViewReborrow for SpinReqView<'static> {
+    type Reborrowed<'b> = SpinReqView<'b>;
     fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
         this
     }
 }
 #[derive(Clone, Debug, Default)]
-pub struct PlayRespView<'a> {
+pub struct SpinRespView<'a> {
     /// Field 1: `events`
     pub events: ::buffa::RepeatedView<'a, super::super::__buffa::view::EventView<'a>>,
     /// Field 2: `balance`
     pub balance: u64,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
-impl<'a> PlayRespView<'a> {
+impl<'a> SpinRespView<'a> {
     /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
     ///
     /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
@@ -2931,8 +2931,8 @@ impl<'a> PlayRespView<'a> {
         ::core::result::Result::Ok(())
     }
 }
-impl<'a> ::buffa::MessageView<'a> for PlayRespView<'a> {
-    type Owned = super::super::PlayResp;
+impl<'a> ::buffa::MessageView<'a> for SpinRespView<'a> {
+    type Owned = super::super::SpinResp;
     fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
         Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
     }
@@ -2942,18 +2942,18 @@ impl<'a> ::buffa::MessageView<'a> for PlayRespView<'a> {
     ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
         Self::_decode_depth(buf, depth)
     }
-    fn to_owned_message(&self) -> super::super::PlayResp {
+    fn to_owned_message(&self) -> super::super::SpinResp {
         self.to_owned_from_source(None)
     }
     #[allow(clippy::useless_conversion, clippy::needless_update)]
     fn to_owned_from_source(
         &self,
         __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
-    ) -> super::super::PlayResp {
+    ) -> super::super::SpinResp {
         #[allow(unused_imports)]
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
-        super::super::PlayResp {
+        super::super::SpinResp {
             events: self
                 .events
                 .iter()
@@ -2969,7 +2969,7 @@ impl<'a> ::buffa::MessageView<'a> for PlayRespView<'a> {
         }
     }
 }
-impl<'a> ::buffa::ViewEncode<'a> for PlayRespView<'a> {
+impl<'a> ::buffa::ViewEncode<'a> for SpinRespView<'a> {
     #[allow(clippy::needless_borrow, clippy::let_and_return)]
     fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
         #[allow(unused_imports)]
@@ -3025,7 +3025,7 @@ impl<'a> ::buffa::ViewEncode<'a> for PlayRespView<'a> {
 /// fields depends on default-omission rules; serializers that require
 /// known map lengths (e.g. `bincode`) will return a runtime error.
 /// Use the owned message type for those formats.
-impl<'__a> ::serde::Serialize for PlayRespView<'__a> {
+impl<'__a> ::serde::Serialize for SpinRespView<'__a> {
     fn serialize<__S: ::serde::Serializer>(
         &self,
         __s: __S,
@@ -3050,26 +3050,26 @@ impl<'__a> ::serde::Serialize for PlayRespView<'__a> {
         __map.end()
     }
 }
-impl<'a> ::buffa::MessageName for PlayRespView<'a> {
+impl<'a> ::buffa::MessageName for SpinRespView<'a> {
     const PACKAGE: &'static str = "slotpb.v1";
-    const NAME: &'static str = "PlayResp";
-    const FULL_NAME: &'static str = "slotpb.v1.PlayResp";
-    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.PlayResp";
+    const NAME: &'static str = "SpinResp";
+    const FULL_NAME: &'static str = "slotpb.v1.SpinResp";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.SpinResp";
 }
-impl<'v> ::buffa::DefaultViewInstance for PlayRespView<'v> {
+impl<'v> ::buffa::DefaultViewInstance for SpinRespView<'v> {
     fn default_view_instance<'a>() -> &'a Self
     where
         Self: 'a,
     {
-        static VALUE: ::buffa::__private::OnceBox<PlayRespView<'static>> = ::buffa::__private::OnceBox::new();
+        static VALUE: ::buffa::__private::OnceBox<SpinRespView<'static>> = ::buffa::__private::OnceBox::new();
         VALUE
             .get_or_init(|| ::buffa::alloc::boxed::Box::new(
-                <PlayRespView<'static>>::default(),
+                <SpinRespView<'static>>::default(),
             ))
     }
 }
-impl ::buffa::ViewReborrow for PlayRespView<'static> {
-    type Reborrowed<'b> = PlayRespView<'b>;
+impl ::buffa::ViewReborrow for SpinRespView<'static> {
+    type Reborrowed<'b> = SpinRespView<'b>;
     fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
         this
     }

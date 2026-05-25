@@ -1,10 +1,10 @@
-///Shorthand for `OwnedView<PlayReqView<'static>>`.
-pub type OwnedPlayReqView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::PlayReqView<'static>,
+///Shorthand for `OwnedView<SpinReqView<'static>>`.
+pub type OwnedSpinReqView = ::buffa::view::OwnedView<
+    crate::gen_rust::slotpb::v1::__buffa::view::SpinReqView<'static>,
 >;
-///Shorthand for `OwnedView<PlayRespView<'static>>`.
-pub type OwnedPlayRespView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'static>,
+///Shorthand for `OwnedView<SpinRespView<'static>>`.
+pub type OwnedSpinRespView = ::buffa::view::OwnedView<
+    crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'static>,
 >;
 ///Shorthand for `OwnedView<BuyFgReqView<'static>>`.
 pub type OwnedBuyFgReqView = ::buffa::view::OwnedView<
@@ -22,8 +22,8 @@ pub type OwnedGetRoomInfoReqView = ::buffa::view::OwnedView<
 pub type OwnedGetRoomInfoRespView = ::buffa::view::OwnedView<
     crate::gen_rust::slotpb::v1::__buffa::view::GetRoomInfoRespView<'static>,
 >;
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::PlayResp>
-for crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'_> {
+impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::SpinResp>
+for crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'_> {
     fn encode(
         &self,
         codec: ::connectrpc::CodecFormat,
@@ -31,9 +31,9 @@ for crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'_> {
         ::connectrpc::__codegen::encode_view_body(self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::PlayResp>
+impl ::connectrpc::Encodable<crate::gen_rust::slotpb::v1::SpinResp>
 for ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'static>,
+    crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'static>,
 > {
     fn encode(
         &self,
@@ -84,12 +84,12 @@ for ::buffa::view::OwnedView<
 }
 /// Full service name for this service.
 pub const SLOT_SERVICE_SERVICE_NAME: &str = "slotpb.v1.SlotService";
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `Play` RPC.
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `Spin` RPC.
 ///
 /// The dispatcher surfaces this on
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const SLOT_SERVICE_PLAY_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/slotpb.v1.SlotService/Play",
+pub const SLOT_SERVICE_SPIN_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/slotpb.v1.SlotService/Spin",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
@@ -148,17 +148,17 @@ pub const SLOT_SERVICE_GET_ROOM_INFO_SPEC: ::connectrpc::Spec = ::connectrpc::Sp
 /// example` doc.
 #[allow(clippy::type_complexity)]
 pub trait SlotService: Send + Sync + 'static {
-    /// Handle the Play RPC.
+    /// Handle the Spin RPC.
     ///
     /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn play<'a>(
+    fn spin<'a>(
         &'a self,
         ctx: ::connectrpc::RequestContext,
-        request: OwnedPlayReqView,
+        request: OwnedSpinReqView,
     ) -> impl ::std::future::Future<
         Output = ::connectrpc::ServiceResult<
             impl ::connectrpc::Encodable<
-                crate::gen_rust::slotpb::v1::PlayResp,
+                crate::gen_rust::slotpb::v1::SpinResp,
             > + Send + use<'a, Self>,
         >,
     > + Send;
@@ -221,20 +221,20 @@ impl<S: SlotService> SlotServiceExt for S {
         router
             .route_view(
                 SLOT_SERVICE_SERVICE_NAME,
-                "Play",
+                "Spin",
                 {
                     let svc = ::std::sync::Arc::clone(&self);
                     ::connectrpc::view_handler_fn(move |ctx, req, format| {
                         let svc = ::std::sync::Arc::clone(&svc);
                         async move {
-                            svc.play(ctx, req)
+                            svc.spin(ctx, req)
                                 .await?
-                                .encode::<crate::gen_rust::slotpb::v1::PlayResp>(format)
+                                .encode::<crate::gen_rust::slotpb::v1::SpinResp>(format)
                         }
                     })
                 },
             )
-            .with_spec(SLOT_SERVICE_PLAY_SPEC)
+            .with_spec(SLOT_SERVICE_SPIN_SPEC)
             .route_view(
                 SLOT_SERVICE_SERVICE_NAME,
                 "BuyFg",
@@ -314,10 +314,10 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
     ) -> Option<::connectrpc::dispatcher::codegen::MethodDescriptor> {
         let method = path.strip_prefix("slotpb.v1.SlotService/")?;
         match method {
-            "Play" => {
+            "Spin" => {
                 Some(
                     ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(SLOT_SERVICE_PLAY_SPEC),
+                        .with_spec(SLOT_SERVICE_SPIN_SPEC),
                 )
             }
             "BuyFg" => {
@@ -347,15 +347,15 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
         };
         let _ = (&ctx, &request, &format);
         match method {
-            "Play" => {
+            "Spin" => {
                 let svc = ::std::sync::Arc::clone(&self.inner);
                 Box::pin(async move {
                     let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::slotpb::v1::__buffa::view::PlayReqView,
+                        crate::gen_rust::slotpb::v1::__buffa::view::SpinReqView,
                     >(request.encoded()?, format)?;
-                    svc.play(ctx, req)
+                    svc.spin(ctx, req)
                         .await?
-                        .encode::<crate::gen_rust::slotpb::v1::PlayResp>(format)
+                        .encode::<crate::gen_rust::slotpb::v1::SpinResp>(format)
                 })
             }
             "BuyFg" => {
@@ -447,7 +447,7 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
 /// let config = ClientConfig::new(uri).with_protocol(Protocol::Grpc);
 ///
 /// let client = SlotServiceClient::new(conn, config);
-/// let response = client.play(request).await?;
+/// let response = client.spin(request).await?;
 /// ```
 ///
 /// # Example (Connect / HTTP/1.1 or ALPN)
@@ -459,7 +459,7 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
 /// let config = ClientConfig::new("http://localhost:8080".parse()?);
 ///
 /// let client = SlotServiceClient::new(http, config);
-/// let response = client.play(request).await?;
+/// let response = client.spin(request).await?;
 /// ```
 ///
 /// # Working with the response
@@ -468,7 +468,7 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
 /// The `OwnedView` derefs to the view, so field access is zero-copy:
 ///
 /// ```rust,ignore
-/// let resp = client.play(request).await?.into_view();
+/// let resp = client.spin(request).await?.into_view();
 /// let name: &str = resp.name;  // borrow into the response buffer
 /// ```
 ///
@@ -476,7 +476,7 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
 /// [`into_owned()`](::connectrpc::client::UnaryResponse::into_owned):
 ///
 /// ```rust,ignore
-/// let owned = client.play(request).await?.into_owned();
+/// let owned = client.spin(request).await?.into_owned();
 /// ```
 #[derive(Clone)]
 pub struct SlotServiceClient<T> {
@@ -500,30 +500,30 @@ where
     pub fn config_mut(&mut self) -> &mut ::connectrpc::client::ClientConfig {
         &mut self.config
     }
-    /// Call the Play RPC. Sends a request to /slotpb.v1.SlotService/Play.
-    pub async fn play(
+    /// Call the Spin RPC. Sends a request to /slotpb.v1.SlotService/Spin.
+    pub async fn spin(
         &self,
-        request: crate::gen_rust::slotpb::v1::PlayReq,
+        request: crate::gen_rust::slotpb::v1::SpinReq,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'static>,
+                crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'static>,
             >,
         >,
         ::connectrpc::ConnectError,
     > {
-        self.play_with_options(request, ::connectrpc::client::CallOptions::default())
+        self.spin_with_options(request, ::connectrpc::client::CallOptions::default())
             .await
     }
-    /// Call the Play RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn play_with_options(
+    /// Call the Spin RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn spin_with_options(
         &self,
-        request: crate::gen_rust::slotpb::v1::PlayReq,
+        request: crate::gen_rust::slotpb::v1::SpinReq,
         options: ::connectrpc::client::CallOptions,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::v1::__buffa::view::PlayRespView<'static>,
+                crate::gen_rust::slotpb::v1::__buffa::view::SpinRespView<'static>,
             >,
         >,
         ::connectrpc::ConnectError,
@@ -532,7 +532,7 @@ where
                 &self.transport,
                 &self.config,
                 SLOT_SERVICE_SERVICE_NAME,
-                "Play",
+                "Spin",
                 request,
                 options,
             )

@@ -798,27 +798,27 @@ func (x *Coordinate) GetY() int32 {
 	return 0
 }
 
-type PlayReq struct {
+type SpinReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	BetAmount     uint32                 `protobuf:"varint,1,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *PlayReq) Reset() {
-	*x = PlayReq{}
+func (x *SpinReq) Reset() {
+	*x = SpinReq{}
 	mi := &file_slotpb_v1_slot_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *PlayReq) String() string {
+func (x *SpinReq) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PlayReq) ProtoMessage() {}
+func (*SpinReq) ProtoMessage() {}
 
-func (x *PlayReq) ProtoReflect() protoreflect.Message {
+func (x *SpinReq) ProtoReflect() protoreflect.Message {
 	mi := &file_slotpb_v1_slot_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -830,19 +830,19 @@ func (x *PlayReq) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PlayReq.ProtoReflect.Descriptor instead.
-func (*PlayReq) Descriptor() ([]byte, []int) {
+// Deprecated: Use SpinReq.ProtoReflect.Descriptor instead.
+func (*SpinReq) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{12}
 }
 
-func (x *PlayReq) GetBetAmount() uint32 {
+func (x *SpinReq) GetBetAmount() uint32 {
 	if x != nil {
 		return x.BetAmount
 	}
 	return 0
 }
 
-type PlayResp struct {
+type SpinResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
 	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
@@ -850,20 +850,20 @@ type PlayResp struct {
 	sizeCache     protoimpl.SizeCache
 }
 
-func (x *PlayResp) Reset() {
-	*x = PlayResp{}
+func (x *SpinResp) Reset() {
+	*x = SpinResp{}
 	mi := &file_slotpb_v1_slot_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
 
-func (x *PlayResp) String() string {
+func (x *SpinResp) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*PlayResp) ProtoMessage() {}
+func (*SpinResp) ProtoMessage() {}
 
-func (x *PlayResp) ProtoReflect() protoreflect.Message {
+func (x *SpinResp) ProtoReflect() protoreflect.Message {
 	mi := &file_slotpb_v1_slot_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -875,19 +875,19 @@ func (x *PlayResp) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use PlayResp.ProtoReflect.Descriptor instead.
-func (*PlayResp) Descriptor() ([]byte, []int) {
+// Deprecated: Use SpinResp.ProtoReflect.Descriptor instead.
+func (*SpinResp) Descriptor() ([]byte, []int) {
 	return file_slotpb_v1_slot_proto_rawDescGZIP(), []int{13}
 }
 
-func (x *PlayResp) GetEvents() []*Event {
+func (x *SpinResp) GetEvents() []*Event {
 	if x != nil {
 		return x.Events
 	}
 	return nil
 }
 
-func (x *PlayResp) GetBalance() uint64 {
+func (x *SpinResp) GetBalance() uint64 {
 	if x != nil {
 		return x.Balance
 	}
@@ -997,10 +997,10 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"Coordinate\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
 	"\x01y\x18\x02 \x01(\x05R\x01y\"(\n" +
-	"\aPlayReq\x12\x1d\n" +
+	"\aSpinReq\x12\x1d\n" +
 	"\n" +
 	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"N\n" +
-	"\bPlayResp\x12(\n" +
+	"\bSpinResp\x12(\n" +
 	"\x06events\x18\x01 \x03(\v2\x10.slotpb.v1.EventR\x06events\x12\x18\n" +
 	"\abalance\x18\x02 \x01(\x04R\abalance\"l\n" +
 	"\x05JpOut\x12&\n" +
@@ -1027,7 +1027,7 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x05MAJOR\x10\x02\x12\t\n" +
 	"\x05GRAND\x10\x032\xb8\x01\n" +
 	"\vSlotService\x12/\n" +
-	"\x04Play\x12\x12.slotpb.v1.PlayReq\x1a\x13.slotpb.v1.PlayResp\x122\n" +
+	"\x04Spin\x12\x12.slotpb.v1.SpinReq\x1a\x13.slotpb.v1.SpinResp\x122\n" +
 	"\x05BuyFg\x12\x13.slotpb.v1.BuyFgReq\x1a\x14.slotpb.v1.BuyFgResp\x12D\n" +
 	"\vGetRoomInfo\x12\x19.slotpb.v1.GetRoomInfoReq\x1a\x1a.slotpb.v1.GetRoomInfoRespB\x96\x01\n" +
 	"\rcom.slotpb.v1B\tSlotProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +
@@ -1063,8 +1063,8 @@ var file_slotpb_v1_slot_proto_goTypes = []any{
 	(*Table)(nil),             // 12: slotpb.v1.Table
 	(*Reel)(nil),              // 13: slotpb.v1.Reel
 	(*Coordinate)(nil),        // 14: slotpb.v1.Coordinate
-	(*PlayReq)(nil),           // 15: slotpb.v1.PlayReq
-	(*PlayResp)(nil),          // 16: slotpb.v1.PlayResp
+	(*SpinReq)(nil),           // 15: slotpb.v1.SpinReq
+	(*SpinResp)(nil),          // 16: slotpb.v1.SpinResp
 	(*JpOut)(nil),             // 17: slotpb.v1.JpOut
 }
 var file_slotpb_v1_slot_proto_depIdxs = []int32{
@@ -1076,13 +1076,13 @@ var file_slotpb_v1_slot_proto_depIdxs = []int32{
 	9,  // 5: slotpb.v1.GetRoomInfoResp.week:type_name -> slotpb.v1.RoomStatisticInfo
 	9,  // 6: slotpb.v1.GetRoomInfoResp.month:type_name -> slotpb.v1.RoomStatisticInfo
 	13, // 7: slotpb.v1.Table.reels:type_name -> slotpb.v1.Reel
-	6,  // 8: slotpb.v1.PlayResp.events:type_name -> slotpb.v1.Event
+	6,  // 8: slotpb.v1.SpinResp.events:type_name -> slotpb.v1.Event
 	12, // 9: slotpb.v1.JpOut.table:type_name -> slotpb.v1.Table
 	2,  // 10: slotpb.v1.JpOut.type:type_name -> slotpb.v1.JPType
-	15, // 11: slotpb.v1.SlotService.Play:input_type -> slotpb.v1.PlayReq
+	15, // 11: slotpb.v1.SlotService.Spin:input_type -> slotpb.v1.SpinReq
 	7,  // 12: slotpb.v1.SlotService.BuyFg:input_type -> slotpb.v1.BuyFgReq
 	10, // 13: slotpb.v1.SlotService.GetRoomInfo:input_type -> slotpb.v1.GetRoomInfoReq
-	16, // 14: slotpb.v1.SlotService.Play:output_type -> slotpb.v1.PlayResp
+	16, // 14: slotpb.v1.SlotService.Spin:output_type -> slotpb.v1.SpinResp
 	8,  // 15: slotpb.v1.SlotService.BuyFg:output_type -> slotpb.v1.BuyFgResp
 	11, // 16: slotpb.v1.SlotService.GetRoomInfo:output_type -> slotpb.v1.GetRoomInfoResp
 	14, // [14:17] is the sub-list for method output_type

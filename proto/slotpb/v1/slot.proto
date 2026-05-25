@@ -6,7 +6,7 @@ package slotpb.v1;
 option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
 
 service SlotService {
-  rpc Play(PlayReq) returns (PlayResp);
+  rpc Spin(SpinReq) returns (SpinResp);
   rpc BuyFg(BuyFgReq) returns (BuyFgResp);
   rpc GetRoomInfo(GetRoomInfoReq) returns (GetRoomInfoResp);
 }
@@ -84,11 +84,11 @@ message Coordinate{
   int32 y = 2;
 }
 
-message PlayReq {
+message SpinReq {
   uint32 bet_amount = 1;
 }
 
-message PlayResp {
+message SpinResp {
   repeated Event events = 1;
   uint64 balance = 2;
 }

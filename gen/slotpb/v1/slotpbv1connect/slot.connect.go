@@ -35,8 +35,8 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
-	// SlotServicePlayProcedure is the fully-qualified name of the SlotService's Play RPC.
-	SlotServicePlayProcedure = "/slotpb.v1.SlotService/Play"
+	// SlotServiceSpinProcedure is the fully-qualified name of the SlotService's Spin RPC.
+	SlotServiceSpinProcedure = "/slotpb.v1.SlotService/Spin"
 	// SlotServiceBuyFgProcedure is the fully-qualified name of the SlotService's BuyFg RPC.
 	SlotServiceBuyFgProcedure = "/slotpb.v1.SlotService/BuyFg"
 	// SlotServiceGetRoomInfoProcedure is the fully-qualified name of the SlotService's GetRoomInfo RPC.
@@ -45,7 +45,7 @@ const (
 
 // SlotServiceClient is a client for the slotpb.v1.SlotService service.
 type SlotServiceClient interface {
-	Play(context.Context, *connect.Request[v1.PlayReq]) (*connect.Response[v1.PlayResp], error)
+	Spin(context.Context, *connect.Request[v1.SpinReq]) (*connect.Response[v1.SpinResp], error)
 	BuyFg(context.Context, *connect.Request[v1.BuyFgReq]) (*connect.Response[v1.BuyFgResp], error)
 	GetRoomInfo(context.Context, *connect.Request[v1.GetRoomInfoReq]) (*connect.Response[v1.GetRoomInfoResp], error)
 }
@@ -61,10 +61,10 @@ func NewSlotServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 	baseURL = strings.TrimRight(baseURL, "/")
 	slotServiceMethods := v1.File_slotpb_v1_slot_proto.Services().ByName("SlotService").Methods()
 	return &slotServiceClient{
-		play: connect.NewClient[v1.PlayReq, v1.PlayResp](
+		spin: connect.NewClient[v1.SpinReq, v1.SpinResp](
 			httpClient,
-			baseURL+SlotServicePlayProcedure,
-			connect.WithSchema(slotServiceMethods.ByName("Play")),
+			baseURL+SlotServiceSpinProcedure,
+			connect.WithSchema(slotServiceMethods.ByName("Spin")),
 			connect.WithClientOptions(opts...),
 		),
 		buyFg: connect.NewClient[v1.BuyFgReq, v1.BuyFgResp](
@@ -84,14 +84,14 @@ func NewSlotServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 
 // slotServiceClient implements SlotServiceClient.
 type slotServiceClient struct {
-	play        *connect.Client[v1.PlayReq, v1.PlayResp]
+	spin        *connect.Client[v1.SpinReq, v1.SpinResp]
 	buyFg       *connect.Client[v1.BuyFgReq, v1.BuyFgResp]
 	getRoomInfo *connect.Client[v1.GetRoomInfoReq, v1.GetRoomInfoResp]
 }
 
-// Play calls slotpb.v1.SlotService.Play.
-func (c *slotServiceClient) Play(ctx context.Context, req *connect.Request[v1.PlayReq]) (*connect.Response[v1.PlayResp], error) {
-	return c.play.CallUnary(ctx, req)
+// Spin calls slotpb.v1.SlotService.Spin.
+func (c *slotServiceClient) Spin(ctx context.Context, req *connect.Request[v1.SpinReq]) (*connect.Response[v1.SpinResp], error) {
+	return c.spin.CallUnary(ctx, req)
 }
 
 // BuyFg calls slotpb.v1.SlotService.BuyFg.
@@ -106,7 +106,7 @@ func (c *slotServiceClient) GetRoomInfo(ctx context.Context, req *connect.Reques
 
 // SlotServiceHandler is an implementation of the slotpb.v1.SlotService service.
 type SlotServiceHandler interface {
-	Play(context.Context, *connect.Request[v1.PlayReq]) (*connect.Response[v1.PlayResp], error)
+	Spin(context.Context, *connect.Request[v1.SpinReq]) (*connect.Response[v1.SpinResp], error)
 	BuyFg(context.Context, *connect.Request[v1.BuyFgReq]) (*connect.Response[v1.BuyFgResp], error)
 	GetRoomInfo(context.Context, *connect.Request[v1.GetRoomInfoReq]) (*connect.Response[v1.GetRoomInfoResp], error)
 }
@@ -118,10 +118,10 @@ type SlotServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	slotServiceMethods := v1.File_slotpb_v1_slot_proto.Services().ByName("SlotService").Methods()
-	slotServicePlayHandler := connect.NewUnaryHandler(
-		SlotServicePlayProcedure,
-		svc.Play,
-		connect.WithSchema(slotServiceMethods.ByName("Play")),
+	slotServiceSpinHandler := connect.NewUnaryHandler(
+		SlotServiceSpinProcedure,
+		svc.Spin,
+		connect.WithSchema(slotServiceMethods.ByName("Spin")),
 		connect.WithHandlerOptions(opts...),
 	)
 	slotServiceBuyFgHandler := connect.NewUnaryHandler(
@@ -138,8 +138,8 @@ func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption
 	)
 	return "/slotpb.v1.SlotService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
-		case SlotServicePlayProcedure:
-			slotServicePlayHandler.ServeHTTP(w, r)
+		case SlotServiceSpinProcedure:
+			slotServiceSpinHandler.ServeHTTP(w, r)
 		case SlotServiceBuyFgProcedure:
 			slotServiceBuyFgHandler.ServeHTTP(w, r)
 		case SlotServiceGetRoomInfoProcedure:
@@ -153,8 +153,8 @@ func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption
 // UnimplementedSlotServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedSlotServiceHandler struct{}
 
-func (UnimplementedSlotServiceHandler) Play(context.Context, *connect.Request[v1.PlayReq]) (*connect.Response[v1.PlayResp], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.v1.SlotService.Play is not implemented"))
+func (UnimplementedSlotServiceHandler) Spin(context.Context, *connect.Request[v1.SpinReq]) (*connect.Response[v1.SpinResp], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.v1.SlotService.Spin is not implemented"))
 }
 
 func (UnimplementedSlotServiceHandler) BuyFg(context.Context, *connect.Request[v1.BuyFgReq]) (*connect.Response[v1.BuyFgResp], error) {
