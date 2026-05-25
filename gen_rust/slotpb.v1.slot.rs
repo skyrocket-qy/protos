@@ -21,6 +21,92 @@ impl ::core::default::Default for RoomType {
         Self::ROOM_TYPE_UNSPECIFIED
     }
 }
+impl ::serde::Serialize for RoomType {
+    fn serialize<S: ::serde::Serializer>(
+        &self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        s.serialize_str(::buffa::Enumeration::proto_name(self))
+    }
+}
+impl<'de> ::serde::Deserialize<'de> for RoomType {
+    fn deserialize<D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl ::serde::de::Visitor<'_> for _V {
+            type Value = RoomType;
+            fn expecting(
+                &self,
+                f: &mut ::core::fmt::Formatter<'_>,
+            ) -> ::core::fmt::Result {
+                f.write_str(
+                    concat!("a string, integer, or null for ", stringify!(RoomType)),
+                )
+            }
+            fn visit_str<E: ::serde::de::Error>(
+                self,
+                v: &str,
+            ) -> ::core::result::Result<RoomType, E> {
+                <RoomType as ::buffa::Enumeration>::from_proto_name(v)
+                    .ok_or_else(|| { ::serde::de::Error::unknown_variant(v, &[]) })
+            }
+            fn visit_i64<E: ::serde::de::Error>(
+                self,
+                v: i64,
+            ) -> ::core::result::Result<RoomType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <RoomType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_u64<E: ::serde::de::Error>(
+                self,
+                v: u64,
+            ) -> ::core::result::Result<RoomType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <RoomType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_unit<E: ::serde::de::Error>(
+                self,
+            ) -> ::core::result::Result<RoomType, E> {
+                ::core::result::Result::Ok(::core::default::Default::default())
+            }
+        }
+        d.deserialize_any(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for RoomType {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
 impl ::buffa::Enumeration for RoomType {
     fn from_i32(value: i32) -> ::core::option::Option<Self> {
         match value {
@@ -82,6 +168,92 @@ impl ::core::default::Default for CoinType {
         Self::COIN_TYPE_UNSPECIFIED
     }
 }
+impl ::serde::Serialize for CoinType {
+    fn serialize<S: ::serde::Serializer>(
+        &self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        s.serialize_str(::buffa::Enumeration::proto_name(self))
+    }
+}
+impl<'de> ::serde::Deserialize<'de> for CoinType {
+    fn deserialize<D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl ::serde::de::Visitor<'_> for _V {
+            type Value = CoinType;
+            fn expecting(
+                &self,
+                f: &mut ::core::fmt::Formatter<'_>,
+            ) -> ::core::fmt::Result {
+                f.write_str(
+                    concat!("a string, integer, or null for ", stringify!(CoinType)),
+                )
+            }
+            fn visit_str<E: ::serde::de::Error>(
+                self,
+                v: &str,
+            ) -> ::core::result::Result<CoinType, E> {
+                <CoinType as ::buffa::Enumeration>::from_proto_name(v)
+                    .ok_or_else(|| { ::serde::de::Error::unknown_variant(v, &[]) })
+            }
+            fn visit_i64<E: ::serde::de::Error>(
+                self,
+                v: i64,
+            ) -> ::core::result::Result<CoinType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <CoinType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_u64<E: ::serde::de::Error>(
+                self,
+                v: u64,
+            ) -> ::core::result::Result<CoinType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <CoinType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_unit<E: ::serde::de::Error>(
+                self,
+            ) -> ::core::result::Result<CoinType, E> {
+                ::core::result::Result::Ok(::core::default::Default::default())
+            }
+        }
+        d.deserialize_any(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for CoinType {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
 impl ::buffa::Enumeration for CoinType {
     fn from_i32(value: i32) -> ::core::option::Option<Self> {
         match value {
@@ -128,6 +300,92 @@ impl ::core::default::Default for JPType {
         Self::JP_TYPE_UNSPECIFIED
     }
 }
+impl ::serde::Serialize for JPType {
+    fn serialize<S: ::serde::Serializer>(
+        &self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        s.serialize_str(::buffa::Enumeration::proto_name(self))
+    }
+}
+impl<'de> ::serde::Deserialize<'de> for JPType {
+    fn deserialize<D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl ::serde::de::Visitor<'_> for _V {
+            type Value = JPType;
+            fn expecting(
+                &self,
+                f: &mut ::core::fmt::Formatter<'_>,
+            ) -> ::core::fmt::Result {
+                f.write_str(
+                    concat!("a string, integer, or null for ", stringify!(JPType)),
+                )
+            }
+            fn visit_str<E: ::serde::de::Error>(
+                self,
+                v: &str,
+            ) -> ::core::result::Result<JPType, E> {
+                <JPType as ::buffa::Enumeration>::from_proto_name(v)
+                    .ok_or_else(|| { ::serde::de::Error::unknown_variant(v, &[]) })
+            }
+            fn visit_i64<E: ::serde::de::Error>(
+                self,
+                v: i64,
+            ) -> ::core::result::Result<JPType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <JPType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_u64<E: ::serde::de::Error>(
+                self,
+                v: u64,
+            ) -> ::core::result::Result<JPType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <JPType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_unit<E: ::serde::de::Error>(
+                self,
+            ) -> ::core::result::Result<JPType, E> {
+                ::core::result::Result::Ok(::core::default::Default::default())
+            }
+        }
+        d.deserialize_any(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for JPType {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
 impl ::buffa::Enumeration for JPType {
     fn from_i32(value: i32) -> ::core::option::Option<Self> {
         match value {
@@ -165,13 +423,34 @@ impl ::buffa::Enumeration for JPType {
     }
 }
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct RoomInfo {
     /// Field 1: `room_id`
+    #[serde(
+        rename = "roomId",
+        alias = "room_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub room_id: u64,
     /// Field 2: `room_type`
+    #[serde(
+        rename = "roomType",
+        alias = "room_type",
+        with = "::buffa::json_helpers::proto_enum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_default_enum_value"
+    )]
     pub room_type: ::buffa::EnumValue<RoomType>,
     /// Field 3: `user_id`
+    #[serde(
+        rename = "userId",
+        alias = "user_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub user_id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -322,10 +601,38 @@ impl ::buffa::ExtensionSet for RoomInfo {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for RoomInfo {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ROOM_INFO_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.RoomInfo",
+    to_json: ::buffa::type_registry::any_to_json::<RoomInfo>,
+    from_json: ::buffa::type_registry::any_from_json::<RoomInfo>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Wallet {
     /// Field 1: `coins`
+    #[serde(
+        rename = "coins",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub coins: ::buffa::alloc::vec::Vec<Coin>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -437,12 +744,45 @@ impl ::buffa::ExtensionSet for Wallet {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Wallet {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __WALLET_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Wallet",
+    to_json: ::buffa::type_registry::any_to_json::<Wallet>,
+    from_json: ::buffa::type_registry::any_from_json::<Wallet>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Coin {
     /// Field 1: `amount`
+    #[serde(
+        rename = "amount",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub amount: u64,
     /// Field 2: `type`
+    #[serde(
+        rename = "type",
+        with = "::buffa::json_helpers::proto_enum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_default_enum_value"
+    )]
     pub r#type: ::buffa::EnumValue<CoinType>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -573,12 +913,45 @@ impl ::buffa::ExtensionSet for Coin {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Coin {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __COIN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Coin",
+    to_json: ::buffa::type_registry::any_to_json::<Coin>,
+    from_json: ::buffa::type_registry::any_from_json::<Coin>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Event {
     /// Field 1: `code`
+    #[serde(
+        rename = "code",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub code: u32,
     /// Field 2: `data`
+    #[serde(
+        rename = "data",
+        with = "::buffa::json_helpers::bytes",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
+    )]
     pub data: ::buffa::alloc::vec::Vec<u8>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -704,10 +1077,39 @@ impl ::buffa::ExtensionSet for Event {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Event {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __EVENT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Event",
+    to_json: ::buffa::type_registry::any_to_json::<Event>,
+    from_json: ::buffa::type_registry::any_from_json::<Event>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct BuyFgReq {
     /// Field 1: `bet_amount`
+    #[serde(
+        rename = "betAmount",
+        alias = "bet_amount",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub bet_amount: u32,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -808,12 +1210,45 @@ impl ::buffa::ExtensionSet for BuyFgReq {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for BuyFgReq {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __BUY_FG_REQ_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.BuyFgReq",
+    to_json: ::buffa::type_registry::any_to_json::<BuyFgReq>,
+    from_json: ::buffa::type_registry::any_from_json::<BuyFgReq>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct BuyFgResp {
     /// Field 1: `events`
+    #[serde(
+        rename = "events",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub events: ::buffa::alloc::vec::Vec<Event>,
     /// Field 2: `balance`
+    #[serde(
+        rename = "balance",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub balance: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -947,12 +1382,46 @@ impl ::buffa::ExtensionSet for BuyFgResp {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for BuyFgResp {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __BUY_FG_RESP_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.BuyFgResp",
+    to_json: ::buffa::type_registry::any_to_json::<BuyFgResp>,
+    from_json: ::buffa::type_registry::any_from_json::<BuyFgResp>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct RoomStatisticInfo {
     /// Field 1: `rtp`
+    #[serde(
+        rename = "rtp",
+        with = "::buffa::json_helpers::float",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_f32"
+    )]
     pub rtp: f32,
     /// Field 2: `fg_cnt`
+    #[serde(
+        rename = "fgCnt",
+        alias = "fg_cnt",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub fg_cnt: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1075,12 +1544,47 @@ impl ::buffa::ExtensionSet for RoomStatisticInfo {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for RoomStatisticInfo {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ROOM_STATISTIC_INFO_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.RoomStatisticInfo",
+    to_json: ::buffa::type_registry::any_to_json::<RoomStatisticInfo>,
+    from_json: ::buffa::type_registry::any_from_json::<RoomStatisticInfo>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GetRoomInfoReq {
     /// Field 1: `bet_amount`
+    #[serde(
+        rename = "betAmount",
+        alias = "bet_amount",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub bet_amount: u32,
     /// Field 2: `room_id`
+    #[serde(
+        rename = "roomId",
+        alias = "room_id",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub room_id: u32,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1203,16 +1707,56 @@ impl ::buffa::ExtensionSet for GetRoomInfoReq {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GetRoomInfoReq {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GET_ROOM_INFO_REQ_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.GetRoomInfoReq",
+    to_json: ::buffa::type_registry::any_to_json::<GetRoomInfoReq>,
+    from_json: ::buffa::type_registry::any_from_json::<GetRoomInfoReq>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GetRoomInfoResp {
     /// Field 1: `data`
+    #[serde(
+        rename = "data",
+        with = "::buffa::json_helpers::bytes",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
+    )]
     pub data: ::buffa::alloc::vec::Vec<u8>,
     /// Field 2: `today`
+    #[serde(
+        rename = "today",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub today: ::buffa::MessageField<RoomStatisticInfo>,
     /// Field 3: `week`
+    #[serde(
+        rename = "week",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub week: ::buffa::MessageField<RoomStatisticInfo>,
     /// Field 4: `month`
+    #[serde(
+        rename = "month",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub month: ::buffa::MessageField<RoomStatisticInfo>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1417,10 +1961,38 @@ impl ::buffa::ExtensionSet for GetRoomInfoResp {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GetRoomInfoResp {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GET_ROOM_INFO_RESP_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.GetRoomInfoResp",
+    to_json: ::buffa::type_registry::any_to_json::<GetRoomInfoResp>,
+    from_json: ::buffa::type_registry::any_from_json::<GetRoomInfoResp>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Table {
     /// Field 1: `reels`
+    #[serde(
+        rename = "reels",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub reels: ::buffa::alloc::vec::Vec<Reel>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1532,10 +2104,38 @@ impl ::buffa::ExtensionSet for Table {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Table {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __TABLE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Table",
+    to_json: ::buffa::type_registry::any_to_json::<Table>,
+    from_json: ::buffa::type_registry::any_from_json::<Table>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Reel {
     /// Field 1: `symbols`
+    #[serde(
+        rename = "symbols",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub symbols: ::buffa::alloc::vec::Vec<::buffa::alloc::string::String>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1639,12 +2239,45 @@ impl ::buffa::ExtensionSet for Reel {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Reel {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __REEL_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Reel",
+    to_json: ::buffa::type_registry::any_to_json::<Reel>,
+    from_json: ::buffa::type_registry::any_from_json::<Reel>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Coordinate {
     /// Field 1: `x`
+    #[serde(
+        rename = "x",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
     pub x: i32,
     /// Field 2: `y`
+    #[serde(
+        rename = "y",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
     pub y: i32,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1764,10 +2397,39 @@ impl ::buffa::ExtensionSet for Coordinate {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Coordinate {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __COORDINATE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.Coordinate",
+    to_json: ::buffa::type_registry::any_to_json::<Coordinate>,
+    from_json: ::buffa::type_registry::any_from_json::<Coordinate>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct PlayReq {
     /// Field 1: `bet_amount`
+    #[serde(
+        rename = "betAmount",
+        alias = "bet_amount",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub bet_amount: u32,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1868,12 +2530,45 @@ impl ::buffa::ExtensionSet for PlayReq {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for PlayReq {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __PLAY_REQ_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.PlayReq",
+    to_json: ::buffa::type_registry::any_to_json::<PlayReq>,
+    from_json: ::buffa::type_registry::any_from_json::<PlayReq>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct PlayResp {
     /// Field 1: `events`
+    #[serde(
+        rename = "events",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub events: ::buffa::alloc::vec::Vec<Event>,
     /// Field 2: `balance`
+    #[serde(
+        rename = "balance",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub balance: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2007,14 +2702,51 @@ impl ::buffa::ExtensionSet for PlayResp {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for PlayResp {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __PLAY_RESP_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.PlayResp",
+    to_json: ::buffa::type_registry::any_to_json::<PlayResp>,
+    from_json: ::buffa::type_registry::any_from_json::<PlayResp>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct JpOut {
     /// Field 1: `table`
+    #[serde(
+        rename = "table",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub table: ::buffa::MessageField<Table>,
     /// Field 2: `score`
+    #[serde(
+        rename = "score",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub score: u64,
     /// Field 3: `type`
+    #[serde(
+        rename = "type",
+        with = "::buffa::json_helpers::proto_enum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_default_enum_value"
+    )]
     pub r#type: ::buffa::EnumValue<JPType>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2178,3 +2910,23 @@ impl ::buffa::ExtensionSet for JpOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for JpOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __JP_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.JpOut",
+    to_json: ::buffa::type_registry::any_to_json::<JpOut>,
+    from_json: ::buffa::type_registry::any_from_json::<JpOut>,
+    is_wkt: false,
+};

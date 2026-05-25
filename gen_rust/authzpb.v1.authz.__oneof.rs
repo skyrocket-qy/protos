@@ -41,4 +41,25 @@ pub mod delete_tuples_in {
             Self::Some(Mode::from(v))
         }
     }
+    impl serde::Serialize for Mode {
+        fn serialize<S: serde::Serializer>(
+            &self,
+            s: S,
+        ) -> ::core::result::Result<S::Ok, S::Error> {
+            use serde::ser::SerializeMap;
+            let mut map = s.serialize_map(Some(1))?;
+            match self {
+                Self::DeleteTuples(v) => {
+                    map.serialize_entry("deleteTuples", v)?;
+                }
+                Self::Filter(v) => {
+                    map.serialize_entry("filter", v)?;
+                }
+                Self::DeleteTupleIds(v) => {
+                    map.serialize_entry("deleteTupleIds", v)?;
+                }
+            }
+            map.end()
+        }
+    }
 }

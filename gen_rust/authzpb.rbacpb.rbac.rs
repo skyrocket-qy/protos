@@ -13,6 +13,94 @@ impl ::core::default::Default for PermissionType {
         Self::PERMISSION_TYPE_UNSPECIFIED
     }
 }
+impl ::serde::Serialize for PermissionType {
+    fn serialize<S: ::serde::Serializer>(
+        &self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        s.serialize_str(::buffa::Enumeration::proto_name(self))
+    }
+}
+impl<'de> ::serde::Deserialize<'de> for PermissionType {
+    fn deserialize<D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl ::serde::de::Visitor<'_> for _V {
+            type Value = PermissionType;
+            fn expecting(
+                &self,
+                f: &mut ::core::fmt::Formatter<'_>,
+            ) -> ::core::fmt::Result {
+                f.write_str(
+                    concat!(
+                        "a string, integer, or null for ", stringify!(PermissionType)
+                    ),
+                )
+            }
+            fn visit_str<E: ::serde::de::Error>(
+                self,
+                v: &str,
+            ) -> ::core::result::Result<PermissionType, E> {
+                <PermissionType as ::buffa::Enumeration>::from_proto_name(v)
+                    .ok_or_else(|| { ::serde::de::Error::unknown_variant(v, &[]) })
+            }
+            fn visit_i64<E: ::serde::de::Error>(
+                self,
+                v: i64,
+            ) -> ::core::result::Result<PermissionType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <PermissionType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_u64<E: ::serde::de::Error>(
+                self,
+                v: u64,
+            ) -> ::core::result::Result<PermissionType, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <PermissionType as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_unit<E: ::serde::de::Error>(
+                self,
+            ) -> ::core::result::Result<PermissionType, E> {
+                ::core::result::Result::Ok(::core::default::Default::default())
+            }
+        }
+        d.deserialize_any(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for PermissionType {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
 impl ::buffa::Enumeration for PermissionType {
     fn from_i32(value: i32) -> ::core::option::Option<Self> {
         match value {
@@ -47,9 +135,17 @@ impl ::buffa::Enumeration for PermissionType {
     }
 }
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GetRoleIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -150,14 +246,52 @@ impl ::buffa::ExtensionSet for GetRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GetRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GET_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.GetRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<GetRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<GetRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GetRoleOut {
     /// Field 1: `ns`
+    #[serde(
+        rename = "ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub ns: ::buffa::alloc::string::String,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
     /// Field 3: `permissions`
+    #[serde(
+        rename = "permissions",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub permissions: ::buffa::alloc::vec::Vec<Permission>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -317,16 +451,61 @@ impl ::buffa::ExtensionSet for GetRoleOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GetRoleOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GET_ROLE_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.GetRoleOut",
+    to_json: ::buffa::type_registry::any_to_json::<GetRoleOut>,
+    from_json: ::buffa::type_registry::any_from_json::<GetRoleOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Permission {
     /// Field 1: `resource_ns`
+    #[serde(
+        rename = "resourceNs",
+        alias = "resource_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub resource_ns: ::buffa::alloc::string::String,
     /// Field 2: `resource_id`
+    #[serde(
+        rename = "resourceId",
+        alias = "resource_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub resource_id: ::buffa::alloc::string::String,
     /// Field 3: `permission`
+    #[serde(
+        rename = "permission",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub permission: ::buffa::alloc::string::String,
     /// Field 4: `type`
+    #[serde(
+        rename = "type",
+        with = "::buffa::json_helpers::proto_enum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_default_enum_value"
+    )]
     pub r#type: ::buffa::EnumValue<PermissionType>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -506,10 +685,38 @@ impl ::buffa::ExtensionSet for Permission {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Permission {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __PERMISSION_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.Permission",
+    to_json: ::buffa::type_registry::any_to_json::<Permission>,
+    from_json: ::buffa::type_registry::any_from_json::<Permission>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourceTypeOut {
     /// Field 1: `types`
+    #[serde(
+        rename = "types",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub types: ::buffa::alloc::vec::Vec<::buffa::alloc::string::String>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -613,10 +820,38 @@ impl ::buffa::ExtensionSet for ListResourceTypeOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourceTypeOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCE_TYPE_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourceTypeOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourceTypeOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourceTypeOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourcesByTypeIn {
     /// Field 1: `type`
+    #[serde(
+        rename = "type",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub r#type: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -720,10 +955,38 @@ impl ::buffa::ExtensionSet for ListResourcesByTypeIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourcesByTypeIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCES_BY_TYPE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourcesByTypeIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourcesByTypeIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourcesByTypeIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourcesByTypeOut {
     /// Field 1: `resources`
+    #[serde(
+        rename = "resources",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub resources: ::buffa::alloc::vec::Vec<ListResourcesByTypeData>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -837,12 +1100,45 @@ impl ::buffa::ExtensionSet for ListResourcesByTypeOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourcesByTypeOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCES_BY_TYPE_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourcesByTypeOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourcesByTypeOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourcesByTypeOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourcesByTypeData {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -968,14 +1264,55 @@ impl ::buffa::ExtensionSet for ListResourcesByTypeData {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourcesByTypeData {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCES_BY_TYPE_DATA_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourcesByTypeData",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourcesByTypeData>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourcesByTypeData>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListPermissionByResourceIn {
     /// Field 1: `resource_ns`
+    #[serde(
+        rename = "resourceNs",
+        alias = "resource_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub resource_ns: ::buffa::alloc::string::String,
     /// Field 2: `resource_id`
+    #[serde(
+        rename = "resourceId",
+        alias = "resource_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub resource_id: ::buffa::alloc::string::String,
     /// Field 3: `role_id`
+    #[serde(
+        rename = "roleId",
+        alias = "role_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub role_id: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1127,10 +1464,38 @@ impl ::buffa::ExtensionSet for ListPermissionByResourceIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListPermissionByResourceIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_PERMISSION_BY_RESOURCE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListPermissionByResourceIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListPermissionByResourceIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListPermissionByResourceIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListPermissionByResourceOut {
     /// Field 1: `permissions`
+    #[serde(
+        rename = "permissions",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub permissions: ::buffa::alloc::vec::Vec<::buffa::alloc::string::String>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1236,24 +1601,90 @@ impl ::buffa::ExtensionSet for ListPermissionByResourceOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListPermissionByResourceOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_PERMISSION_BY_RESOURCE_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListPermissionByResourceOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListPermissionByResourceOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListPermissionByResourceOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct User {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
     /// Field 3: `email`
+    #[serde(
+        rename = "email",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub email: ::buffa::alloc::string::String,
     /// Field 4: `is_active`
+    #[serde(
+        rename = "isActive",
+        alias = "is_active",
+        with = "::buffa::json_helpers::proto_bool",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_false"
+    )]
     pub is_active: bool,
     /// Field 5: `is_email_confirmed`
+    #[serde(
+        rename = "isEmailConfirmed",
+        alias = "is_email_confirmed",
+        with = "::buffa::json_helpers::proto_bool",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_false"
+    )]
     pub is_email_confirmed: bool,
     /// Field 6: `auth_types`
+    #[serde(
+        rename = "authTypes",
+        alias = "auth_types",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub auth_types: ::buffa::alloc::vec::Vec<::buffa::alloc::string::String>,
     /// Field 7: `orgs`
+    #[serde(
+        rename = "orgs",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub orgs: ::buffa::alloc::vec::Vec<::buffa::alloc::string::String>,
     /// Field 8: `created_at`
+    #[serde(
+        rename = "createdAt",
+        alias = "created_at",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub created_at: ::buffa::MessageField<::buffa_types::google::protobuf::Timestamp>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1521,14 +1952,48 @@ impl ::buffa::ExtensionSet for User {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for User {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __USER_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.User",
+    to_json: ::buffa::type_registry::any_to_json::<User>,
+    from_json: ::buffa::type_registry::any_from_json::<User>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct UpdateUserIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `name`
+    #[serde(rename = "name", skip_serializing_if = "::core::option::Option::is_none")]
     pub name: ::core::option::Option<::buffa::alloc::string::String>,
     /// Field 3: `is_active`
+    #[serde(
+        rename = "isActive",
+        alias = "is_active",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
     pub is_active: ::core::option::Option<bool>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1698,12 +2163,45 @@ impl ::buffa::ExtensionSet for UpdateUserIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for UpdateUserIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __UPDATE_USER_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.UpdateUserIn",
+    to_json: ::buffa::type_registry::any_to_json::<UpdateUserIn>,
+    from_json: ::buffa::type_registry::any_from_json::<UpdateUserIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Role {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1826,14 +2324,52 @@ impl ::buffa::ExtensionSet for Role {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Role {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ROLE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.Role",
+    to_json: ::buffa::type_registry::any_to_json::<Role>,
+    from_json: ::buffa::type_registry::any_from_json::<Role>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Resource {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `ns`
+    #[serde(
+        rename = "ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub ns: ::buffa::alloc::string::String,
     /// Field 3: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1982,18 +2518,55 @@ impl ::buffa::ExtensionSet for Resource {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Resource {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __RESOURCE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.Resource",
+    to_json: ::buffa::type_registry::any_to_json::<Resource>,
+    from_json: ::buffa::type_registry::any_from_json::<Resource>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListUsersIn {
     /// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
     ///
     /// Field 1: `filters`
+    #[serde(
+        rename = "filters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
+    #[serde(
+        rename = "sorters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
     /// Field 3: `pager`
+    #[serde(
+        rename = "pager",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2171,12 +2744,45 @@ impl ::buffa::ExtensionSet for ListUsersIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListUsersIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_USERS_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListUsersIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListUsersIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListUsersIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListUsersOut {
     /// Field 1: `users`
+    #[serde(
+        rename = "users",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub users: ::buffa::alloc::vec::Vec<User>,
     /// Field 2: `count`
+    #[serde(
+        rename = "count",
+        with = "::buffa::json_helpers::int64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i64"
+    )]
     pub count: i64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2310,10 +2916,38 @@ impl ::buffa::ExtensionSet for ListUsersOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListUsersOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_USERS_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListUsersOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListUsersOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListUsersOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct DeleteUserIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2414,10 +3048,38 @@ impl ::buffa::ExtensionSet for DeleteUserIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for DeleteUserIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_USER_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.DeleteUserIn",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteUserIn>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteUserIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct CreateRoleIn {
     /// Field 1: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2521,18 +3183,55 @@ impl ::buffa::ExtensionSet for CreateRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for CreateRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __CREATE_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.CreateRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<CreateRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<CreateRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListRolesIn {
     /// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
     ///
     /// Field 1: `filters`
+    #[serde(
+        rename = "filters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
+    #[serde(
+        rename = "sorters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
     /// Field 3: `pager`
+    #[serde(
+        rename = "pager",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2710,12 +3409,45 @@ impl ::buffa::ExtensionSet for ListRolesIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListRolesIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_ROLES_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListRolesIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListRolesIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListRolesIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListRolesOut {
     /// Field 1: `roles`
+    #[serde(
+        rename = "roles",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub roles: ::buffa::alloc::vec::Vec<Role>,
     /// Field 2: `total`
+    #[serde(
+        rename = "total",
+        with = "::buffa::json_helpers::int64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i64"
+    )]
     pub total: i64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2849,12 +3581,45 @@ impl ::buffa::ExtensionSet for ListRolesOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListRolesOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_ROLES_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListRolesOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListRolesOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListRolesOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct UpdateRoleIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2980,10 +3745,38 @@ impl ::buffa::ExtensionSet for UpdateRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for UpdateRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __UPDATE_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.UpdateRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<UpdateRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<UpdateRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct DeleteRoleIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3084,18 +3877,55 @@ impl ::buffa::ExtensionSet for DeleteRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for DeleteRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.DeleteRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourcesIn {
     /// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
     ///
     /// Field 1: `filters`
+    #[serde(
+        rename = "filters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
+    #[serde(
+        rename = "sorters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
     /// Field 3: `pager`
+    #[serde(
+        rename = "pager",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3273,12 +4103,45 @@ impl ::buffa::ExtensionSet for ListResourcesIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourcesIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCES_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourcesIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourcesIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourcesIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListResourcesOut {
     /// Field 1: `resources`
+    #[serde(
+        rename = "resources",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub resources: ::buffa::alloc::vec::Vec<Resource>,
     /// Field 2: `total`
+    #[serde(
+        rename = "total",
+        with = "::buffa::json_helpers::int64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i64"
+    )]
     pub total: i64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3412,12 +4275,45 @@ impl ::buffa::ExtensionSet for ListResourcesOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListResourcesOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_RESOURCES_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.ListResourcesOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListResourcesOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListResourcesOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct CreateResourceIn {
     /// Field 1: `ns`
+    #[serde(
+        rename = "ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub ns: ::buffa::alloc::string::String,
     /// Field 2: `name`
+    #[serde(
+        rename = "name",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub name: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3546,10 +4442,38 @@ impl ::buffa::ExtensionSet for CreateResourceIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for CreateResourceIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __CREATE_RESOURCE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.CreateResourceIn",
+    to_json: ::buffa::type_registry::any_to_json::<CreateResourceIn>,
+    from_json: ::buffa::type_registry::any_from_json::<CreateResourceIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct DeleteResourceIn {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3650,12 +4574,47 @@ impl ::buffa::ExtensionSet for DeleteResourceIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for DeleteResourceIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_RESOURCE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.DeleteResourceIn",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteResourceIn>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteResourceIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct AssignRoleIn {
     /// Field 1: `role_id`
+    #[serde(
+        rename = "roleId",
+        alias = "role_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub role_id: u64,
     /// Field 2: `user_id`
+    #[serde(
+        rename = "userId",
+        alias = "user_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub user_id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3778,12 +4737,47 @@ impl ::buffa::ExtensionSet for AssignRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for AssignRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ASSIGN_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.AssignRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<AssignRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<AssignRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct RevokeRoleIn {
     /// Field 1: `role_id`
+    #[serde(
+        rename = "roleId",
+        alias = "role_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub role_id: u64,
     /// Field 2: `user_id`
+    #[serde(
+        rename = "userId",
+        alias = "user_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub user_id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -3906,14 +4900,54 @@ impl ::buffa::ExtensionSet for RevokeRoleIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for RevokeRoleIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __REVOKE_ROLE_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.RevokeRoleIn",
+    to_json: ::buffa::type_registry::any_to_json::<RevokeRoleIn>,
+    from_json: ::buffa::type_registry::any_from_json::<RevokeRoleIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GrantPermIn {
     /// Field 1: `role_id`
+    #[serde(
+        rename = "roleId",
+        alias = "role_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub role_id: u64,
     /// Field 2: `perm`
+    #[serde(
+        rename = "perm",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub perm: ::buffa::alloc::string::String,
     /// Field 3: `resource_id`
+    #[serde(
+        rename = "resourceId",
+        alias = "resource_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub resource_id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -4059,14 +5093,54 @@ impl ::buffa::ExtensionSet for GrantPermIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GrantPermIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GRANT_PERM_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.GrantPermIn",
+    to_json: ::buffa::type_registry::any_to_json::<GrantPermIn>,
+    from_json: ::buffa::type_registry::any_from_json::<GrantPermIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct RevokePermIn {
     /// Field 1: `role_id`
+    #[serde(
+        rename = "roleId",
+        alias = "role_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub role_id: u64,
     /// Field 2: `perm`
+    #[serde(
+        rename = "perm",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub perm: ::buffa::alloc::string::String,
     /// Field 3: `resource_id`
+    #[serde(
+        rename = "resourceId",
+        alias = "resource_id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub resource_id: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -4212,3 +5286,23 @@ impl ::buffa::ExtensionSet for RevokePermIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for RevokePermIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __REVOKE_PERM_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.rbacpb.RevokePermIn",
+    to_json: ::buffa::type_registry::any_to_json::<RevokePermIn>,
+    from_json: ::buffa::type_registry::any_from_json::<RevokePermIn>,
+    is_wkt: false,
+};

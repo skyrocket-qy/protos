@@ -174,6 +174,54 @@ impl<'a> ::buffa::ViewEncode<'a> for GateWayRequestView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for GateWayRequestView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.request_id) {
+            __map.serialize_entry("requestId", self.request_id)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u32(&self.ope_code) {
+            struct _W(u32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("opeCode", &_W(self.ope_code))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_bytes(self.msg) {
+            struct _W<'__x>(&'__x [u8]);
+            impl ::serde::Serialize for _W<'_> {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::bytes::serialize(self.0, __s)
+                }
+            }
+            __map.serialize_entry("msg", &_W(self.msg))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for GateWayRequestView<'a> {
     const PACKAGE: &'static str = "gatewaypb.v1";
     const NAME: &'static str = "GateWayRequest";
@@ -348,6 +396,42 @@ impl<'a> ::buffa::ViewEncode<'a> for GateWayResponseView<'a> {
             ::buffa::types::encode_bytes(&self.msg, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for GateWayResponseView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.request_id) {
+            __map.serialize_entry("requestId", self.request_id)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_bytes(self.msg) {
+            struct _W<'__x>(&'__x [u8]);
+            impl ::serde::Serialize for _W<'_> {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::bytes::serialize(self.0, __s)
+                }
+            }
+            __map.serialize_entry("msg", &_W(self.msg))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for GateWayResponseView<'a> {

@@ -30,6 +30,18 @@ pub mod __buffa {
         use super::*;
         include!("pkgpb.v1.pkg.__oneof.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__FILTER_JSON_ANY);
+        reg.register_json_any(super::__SORTER_JSON_ANY);
+        reg.register_json_any(super::__PAGER_JSON_ANY);
+        reg.register_json_any(super::__CURSOR_JSON_ANY);
+        reg.register_json_any(super::__CURSOR_DATA_JSON_ANY);
+        reg.register_json_any(super::__FIELD_JSON_ANY);
+        reg.register_json_any(super::__FILTER_NODE_JSON_ANY);
+        reg.register_json_any(super::__LOGICAL_JSON_ANY);
+        reg.register_json_any(super::__CTX_ERR_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::FilterView;
@@ -49,3 +61,5 @@ pub use self::__buffa::view::FilterNodeView;
 pub use self::__buffa::view::LogicalView;
 #[doc(inline)]
 pub use self::__buffa::view::CtxErrView;
+#[doc(inline)]
+pub use self::__buffa::register_types;

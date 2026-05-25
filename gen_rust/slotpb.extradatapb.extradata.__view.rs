@@ -310,6 +310,52 @@ impl<'a> ::buffa::ViewEncode<'a> for ArthurView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ArthurView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_i32(&self.left_game_cnt) {
+            struct _W(i32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::int32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("leftGameCnt", &_W(self.left_game_cnt))?;
+        }
+        if let ::core::option::Option::Some(ref __ov) = self.data {
+            match __ov {
+                super::super::__buffa::view::oneof::arthur::Data::Fg(v) => {
+                    __map.serialize_entry("fg", v)?;
+                }
+                super::super::__buffa::view::oneof::arthur::Data::Bg(v) => {
+                    __map.serialize_entry("bg", v)?;
+                }
+                super::super::__buffa::view::oneof::arthur::Data::Sbg(v) => {
+                    __map.serialize_entry("sbg", v)?;
+                }
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ArthurView<'a> {
     const PACKAGE: &'static str = "slotpb.extradatapb";
     const NAME: &'static str = "Arthur";
@@ -548,6 +594,37 @@ impl<'a> ::buffa::ViewEncode<'a> for ArthurFgView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ArthurFgView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        {
+            if let ::core::option::Option::Some(__v) = self.table1.as_option() {
+                __map.serialize_entry("table1", __v)?;
+            }
+        }
+        {
+            if let ::core::option::Option::Some(__v) = self.table2.as_option() {
+                __map.serialize_entry("table2", __v)?;
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ArthurFgView<'a> {
     const PACKAGE: &'static str = "slotpb.extradatapb";
     const NAME: &'static str = "ArthurFg";
@@ -748,6 +825,44 @@ impl<'a> ::buffa::ViewEncode<'a> for ArthurBgView<'a> {
             ::buffa::types::encode_int32(self.left_spin_cnt, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ArthurBgView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        {
+            if let ::core::option::Option::Some(__v) = self.table.as_option() {
+                __map.serialize_entry("table", __v)?;
+            }
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_i32(&self.left_spin_cnt) {
+            struct _W(i32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::int32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("leftSpinCnt", &_W(self.left_spin_cnt))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for ArthurBgView<'a> {

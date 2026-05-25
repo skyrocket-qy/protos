@@ -2,13 +2,33 @@
 // source: gatewaypb/v1/gateway.proto
 
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GateWayRequest {
     /// Field 1: `request_id`
+    #[serde(
+        rename = "requestId",
+        alias = "request_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub request_id: ::buffa::alloc::string::String,
     /// Field 2: `ope_code`
+    #[serde(
+        rename = "opeCode",
+        alias = "ope_code",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
     pub ope_code: u32,
     /// Field 3: `msg`
+    #[serde(
+        rename = "msg",
+        with = "::buffa::json_helpers::bytes",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
+    )]
     pub msg: ::buffa::alloc::vec::Vec<u8>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -157,12 +177,46 @@ impl ::buffa::ExtensionSet for GateWayRequest {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GateWayRequest {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GATE_WAY_REQUEST_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/gatewaypb.v1.GateWayRequest",
+    to_json: ::buffa::type_registry::any_to_json::<GateWayRequest>,
+    from_json: ::buffa::type_registry::any_from_json::<GateWayRequest>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GateWayResponse {
     /// Field 1: `request_id`
+    #[serde(
+        rename = "requestId",
+        alias = "request_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub request_id: ::buffa::alloc::string::String,
     /// Field 2: `msg`
+    #[serde(
+        rename = "msg",
+        with = "::buffa::json_helpers::bytes",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
+    )]
     pub msg: ::buffa::alloc::vec::Vec<u8>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -291,3 +345,23 @@ impl ::buffa::ExtensionSet for GateWayResponse {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GateWayResponse {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GATE_WAY_RESPONSE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/gatewaypb.v1.GateWayResponse",
+    to_json: ::buffa::type_registry::any_to_json::<GateWayResponse>,
+    from_json: ::buffa::type_registry::any_from_json::<GateWayResponse>,
+    is_wkt: false,
+};

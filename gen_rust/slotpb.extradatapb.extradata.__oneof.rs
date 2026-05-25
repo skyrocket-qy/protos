@@ -21,4 +21,25 @@ pub mod arthur {
             Self::Some(Data::from(v))
         }
     }
+    impl serde::Serialize for Data {
+        fn serialize<S: serde::Serializer>(
+            &self,
+            s: S,
+        ) -> ::core::result::Result<S::Ok, S::Error> {
+            use serde::ser::SerializeMap;
+            let mut map = s.serialize_map(Some(1))?;
+            match self {
+                Self::Fg(v) => {
+                    map.serialize_entry("fg", v)?;
+                }
+                Self::Bg(v) => {
+                    map.serialize_entry("bg", v)?;
+                }
+                Self::Sbg(v) => {
+                    map.serialize_entry("sbg", v)?;
+                }
+            }
+            map.end()
+        }
+    }
 }

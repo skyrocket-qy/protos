@@ -126,6 +126,39 @@ impl<'a> ::buffa::ViewEncode<'a> for GetRoleInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for GetRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for GetRoleInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "GetRoleIn";
@@ -347,6 +380,36 @@ impl<'a> ::buffa::ViewEncode<'a> for GetRoleOutView<'a> {
             v.write_to(__cache, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for GetRoleOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.ns) {
+            __map.serialize_entry("ns", self.ns)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        if !self.permissions.is_empty() {
+            __map.serialize_entry("permissions", &*self.permissions)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for GetRoleOutView<'a> {
@@ -578,6 +641,39 @@ impl<'a> ::buffa::ViewEncode<'a> for PermissionView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for PermissionView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.resource_ns) {
+            __map.serialize_entry("resourceNs", self.resource_ns)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.resource_id) {
+            __map.serialize_entry("resourceId", self.resource_id)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.permission) {
+            __map.serialize_entry("permission", self.permission)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_default_enum_value(&self.r#type) {
+            __map.serialize_entry("type", &self.r#type)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for PermissionView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "Permission";
@@ -730,6 +826,30 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourceTypeOutView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourceTypeOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.types.is_empty() {
+            __map.serialize_entry("types", &*self.types)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListResourceTypeOutView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListResourceTypeOut";
@@ -880,6 +1000,30 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourcesByTypeInView<'a> {
             ::buffa::types::encode_string(&self.r#type, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourcesByTypeInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.r#type) {
+            __map.serialize_entry("type", self.r#type)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for ListResourcesByTypeInView<'a> {
@@ -1057,6 +1201,30 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourcesByTypeOutView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourcesByTypeOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.resources.is_empty() {
+            __map.serialize_entry("resources", &*self.resources)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListResourcesByTypeOutView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListResourcesByTypeOut";
@@ -1228,6 +1396,42 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourcesByTypeDataView<'a> {
             ::buffa::types::encode_string(&self.name, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourcesByTypeDataView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for ListResourcesByTypeDataView<'a> {
@@ -1432,6 +1636,36 @@ impl<'a> ::buffa::ViewEncode<'a> for ListPermissionByResourceInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListPermissionByResourceInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.resource_ns) {
+            __map.serialize_entry("resourceNs", self.resource_ns)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.resource_id) {
+            __map.serialize_entry("resourceId", self.resource_id)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.role_id) {
+            __map.serialize_entry("roleId", self.role_id)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListPermissionByResourceInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListPermissionByResourceIn";
@@ -1584,6 +1818,30 @@ impl<'a> ::buffa::ViewEncode<'a> for ListPermissionByResourceOutView<'a> {
             ::buffa::types::encode_string(v, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListPermissionByResourceOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.permissions.is_empty() {
+            __map.serialize_entry("permissions", &*self.permissions)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for ListPermissionByResourceOutView<'a> {
@@ -1928,6 +2186,62 @@ impl<'a> ::buffa::ViewEncode<'a> for UserView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for UserView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.email) {
+            __map.serialize_entry("email", self.email)?;
+        }
+        if self.is_active {
+            __map.serialize_entry("isActive", &self.is_active)?;
+        }
+        if self.is_email_confirmed {
+            __map.serialize_entry("isEmailConfirmed", &self.is_email_confirmed)?;
+        }
+        if !self.auth_types.is_empty() {
+            __map.serialize_entry("authTypes", &*self.auth_types)?;
+        }
+        if !self.orgs.is_empty() {
+            __map.serialize_entry("orgs", &*self.orgs)?;
+        }
+        {
+            if let ::core::option::Option::Some(__v) = self.created_at.as_option() {
+                __map.serialize_entry("createdAt", __v)?;
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for UserView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "User";
@@ -2122,6 +2436,45 @@ impl<'a> ::buffa::ViewEncode<'a> for UpdateUserInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for UpdateUserInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if let ::core::option::Option::Some(__v) = self.name {
+            __map.serialize_entry("name", __v)?;
+        }
+        if let ::core::option::Option::Some(__v) = self.is_active {
+            __map.serialize_entry("isActive", &__v)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for UpdateUserInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "UpdateUserIn";
@@ -2293,6 +2646,42 @@ impl<'a> ::buffa::ViewEncode<'a> for RoleView<'a> {
             ::buffa::types::encode_string(&self.name, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for RoleView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for RoleView<'a> {
@@ -2490,6 +2879,45 @@ impl<'a> ::buffa::ViewEncode<'a> for ResourceView<'a> {
             ::buffa::types::encode_string(&self.name, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ResourceView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.ns) {
+            __map.serialize_entry("ns", self.ns)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for ResourceView<'a> {
@@ -2771,6 +3199,38 @@ impl<'a> ::buffa::ViewEncode<'a> for ListUsersInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListUsersInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.filters.is_empty() {
+            __map.serialize_entry("filters", &*self.filters)?;
+        }
+        if !self.sorters.is_empty() {
+            __map.serialize_entry("sorters", &*self.sorters)?;
+        }
+        {
+            if let ::core::option::Option::Some(__v) = self.pager.as_option() {
+                __map.serialize_entry("pager", __v)?;
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListUsersInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListUsersIn";
@@ -2964,6 +3424,42 @@ impl<'a> ::buffa::ViewEncode<'a> for ListUsersOutView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListUsersOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.users.is_empty() {
+            __map.serialize_entry("users", &*self.users)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_i64(&self.count) {
+            struct _W(i64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::int64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("count", &_W(self.count))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListUsersOutView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListUsersOut";
@@ -3111,6 +3607,39 @@ impl<'a> ::buffa::ViewEncode<'a> for DeleteUserInView<'a> {
             ::buffa::types::encode_uint64(self.id, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for DeleteUserInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for DeleteUserInView<'a> {
@@ -3263,6 +3792,30 @@ impl<'a> ::buffa::ViewEncode<'a> for CreateRoleInView<'a> {
             ::buffa::types::encode_string(&self.name, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for CreateRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for CreateRoleInView<'a> {
@@ -3544,6 +4097,38 @@ impl<'a> ::buffa::ViewEncode<'a> for ListRolesInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListRolesInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.filters.is_empty() {
+            __map.serialize_entry("filters", &*self.filters)?;
+        }
+        if !self.sorters.is_empty() {
+            __map.serialize_entry("sorters", &*self.sorters)?;
+        }
+        {
+            if let ::core::option::Option::Some(__v) = self.pager.as_option() {
+                __map.serialize_entry("pager", __v)?;
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListRolesInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListRolesIn";
@@ -3737,6 +4322,42 @@ impl<'a> ::buffa::ViewEncode<'a> for ListRolesOutView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListRolesOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.roles.is_empty() {
+            __map.serialize_entry("roles", &*self.roles)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_i64(&self.total) {
+            struct _W(i64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::int64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("total", &_W(self.total))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListRolesOutView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListRolesOut";
@@ -3910,6 +4531,42 @@ impl<'a> ::buffa::ViewEncode<'a> for UpdateRoleInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for UpdateRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for UpdateRoleInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "UpdateRoleIn";
@@ -4057,6 +4714,39 @@ impl<'a> ::buffa::ViewEncode<'a> for DeleteRoleInView<'a> {
             ::buffa::types::encode_uint64(self.id, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for DeleteRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for DeleteRoleInView<'a> {
@@ -4338,6 +5028,38 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourcesInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourcesInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.filters.is_empty() {
+            __map.serialize_entry("filters", &*self.filters)?;
+        }
+        if !self.sorters.is_empty() {
+            __map.serialize_entry("sorters", &*self.sorters)?;
+        }
+        {
+            if let ::core::option::Option::Some(__v) = self.pager.as_option() {
+                __map.serialize_entry("pager", __v)?;
+            }
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListResourcesInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListResourcesIn";
@@ -4534,6 +5256,42 @@ impl<'a> ::buffa::ViewEncode<'a> for ListResourcesOutView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ListResourcesOutView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !self.resources.is_empty() {
+            __map.serialize_entry("resources", &*self.resources)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_i64(&self.total) {
+            struct _W(i64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::int64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("total", &_W(self.total))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for ListResourcesOutView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "ListResourcesOut";
@@ -4710,6 +5468,33 @@ impl<'a> ::buffa::ViewEncode<'a> for CreateResourceInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for CreateResourceInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.ns) {
+            __map.serialize_entry("ns", self.ns)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.name) {
+            __map.serialize_entry("name", self.name)?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for CreateResourceInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "CreateResourceIn";
@@ -4857,6 +5642,39 @@ impl<'a> ::buffa::ViewEncode<'a> for DeleteResourceInView<'a> {
             ::buffa::types::encode_uint64(self.id, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for DeleteResourceInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("id", &_W(self.id))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for DeleteResourceInView<'a> {
@@ -5029,6 +5847,51 @@ impl<'a> ::buffa::ViewEncode<'a> for AssignRoleInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for AssignRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.role_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("roleId", &_W(self.role_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.user_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("userId", &_W(self.user_id))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for AssignRoleInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "AssignRoleIn";
@@ -5197,6 +6060,51 @@ impl<'a> ::buffa::ViewEncode<'a> for RevokeRoleInView<'a> {
             ::buffa::types::encode_uint64(self.user_id, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for RevokeRoleInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.role_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("roleId", &_W(self.role_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.user_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("userId", &_W(self.user_id))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for RevokeRoleInView<'a> {
@@ -5393,6 +6301,54 @@ impl<'a> ::buffa::ViewEncode<'a> for GrantPermInView<'a> {
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for GrantPermInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.role_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("roleId", &_W(self.role_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.perm) {
+            __map.serialize_entry("perm", self.perm)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.resource_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("resourceId", &_W(self.resource_id))?;
+        }
+        __map.end()
+    }
+}
 impl<'a> ::buffa::MessageName for GrantPermInView<'a> {
     const PACKAGE: &'static str = "authzpb.rbacpb";
     const NAME: &'static str = "GrantPermIn";
@@ -5585,6 +6541,54 @@ impl<'a> ::buffa::ViewEncode<'a> for RevokePermInView<'a> {
             ::buffa::types::encode_uint64(self.resource_id, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for RevokePermInView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.role_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("roleId", &_W(self.role_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.perm) {
+            __map.serialize_entry("perm", self.perm)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.resource_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("resourceId", &_W(self.resource_id))?;
+        }
+        __map.end()
     }
 }
 impl<'a> ::buffa::MessageName for RevokePermInView<'a> {

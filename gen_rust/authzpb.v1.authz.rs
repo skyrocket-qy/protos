@@ -13,6 +13,92 @@ impl ::core::default::Default for Operation {
         Self::OPERATION_UNSPECIFIED
     }
 }
+impl ::serde::Serialize for Operation {
+    fn serialize<S: ::serde::Serializer>(
+        &self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        s.serialize_str(::buffa::Enumeration::proto_name(self))
+    }
+}
+impl<'de> ::serde::Deserialize<'de> for Operation {
+    fn deserialize<D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl ::serde::de::Visitor<'_> for _V {
+            type Value = Operation;
+            fn expecting(
+                &self,
+                f: &mut ::core::fmt::Formatter<'_>,
+            ) -> ::core::fmt::Result {
+                f.write_str(
+                    concat!("a string, integer, or null for ", stringify!(Operation)),
+                )
+            }
+            fn visit_str<E: ::serde::de::Error>(
+                self,
+                v: &str,
+            ) -> ::core::result::Result<Operation, E> {
+                <Operation as ::buffa::Enumeration>::from_proto_name(v)
+                    .ok_or_else(|| { ::serde::de::Error::unknown_variant(v, &[]) })
+            }
+            fn visit_i64<E: ::serde::de::Error>(
+                self,
+                v: i64,
+            ) -> ::core::result::Result<Operation, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <Operation as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_u64<E: ::serde::de::Error>(
+                self,
+                v: u64,
+            ) -> ::core::result::Result<Operation, E> {
+                let v32 = i32::try_from(v)
+                    .map_err(|_| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("enum value {v} out of i32 range"),
+                        )
+                    })?;
+                <Operation as ::buffa::Enumeration>::from_i32(v32)
+                    .ok_or_else(|| {
+                        ::serde::de::Error::custom(
+                            ::buffa::alloc::format!("unknown enum value {v32}"),
+                        )
+                    })
+            }
+            fn visit_unit<E: ::serde::de::Error>(
+                self,
+            ) -> ::core::result::Result<Operation, E> {
+                ::core::result::Result::Ok(::core::default::Default::default())
+            }
+        }
+        d.deserialize_any(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for Operation {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
 impl ::buffa::Enumeration for Operation {
     fn from_i32(value: i32) -> ::core::option::Option<Self> {
         match value {
@@ -47,17 +133,49 @@ impl ::buffa::Enumeration for Operation {
     }
 }
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct CheckIn {
     /// Field 1: `sbj_ns`
+    #[serde(
+        rename = "sbjNs",
+        alias = "sbj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_ns: ::buffa::alloc::string::String,
     /// Field 2: `sbj_id`
+    #[serde(
+        rename = "sbjId",
+        alias = "sbj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_id: ::buffa::alloc::string::String,
     /// Field 3: `rel`
+    #[serde(
+        rename = "rel",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub rel: ::buffa::alloc::string::String,
     /// Field 4: `obj_ns`
+    #[serde(
+        rename = "objNs",
+        alias = "obj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_ns: ::buffa::alloc::string::String,
     /// Field 5: `obj_id`
+    #[serde(
+        rename = "objId",
+        alias = "obj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_id: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -255,10 +373,39 @@ impl ::buffa::ExtensionSet for CheckIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for CheckIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __CHECK_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.CheckIn",
+    to_json: ::buffa::type_registry::any_to_json::<CheckIn>,
+    from_json: ::buffa::type_registry::any_from_json::<CheckIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct CheckOut {
     /// Field 1: `is_allowed`
+    #[serde(
+        rename = "isAllowed",
+        alias = "is_allowed",
+        with = "::buffa::json_helpers::proto_bool",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_false"
+    )]
     pub is_allowed: bool,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -359,20 +506,77 @@ impl ::buffa::ExtensionSet for CheckOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for CheckOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __CHECK_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.CheckOut",
+    to_json: ::buffa::type_registry::any_to_json::<CheckOut>,
+    from_json: ::buffa::type_registry::any_from_json::<CheckOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Tuple {
     /// Field 1: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub id: u64,
     /// Field 2: `sbj_ns`
+    #[serde(
+        rename = "sbjNs",
+        alias = "sbj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_ns: ::buffa::alloc::string::String,
     /// Field 3: `sbj_id`
+    #[serde(
+        rename = "sbjId",
+        alias = "sbj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_id: ::buffa::alloc::string::String,
     /// Field 4: `rel`
+    #[serde(
+        rename = "rel",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub rel: ::buffa::alloc::string::String,
     /// Field 5: `obj_ns`
+    #[serde(
+        rename = "objNs",
+        alias = "obj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_ns: ::buffa::alloc::string::String,
     /// Field 6: `obj_id`
+    #[serde(
+        rename = "objId",
+        alias = "obj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_id: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -590,18 +794,62 @@ impl ::buffa::ExtensionSet for Tuple {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Tuple {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __TUPLE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.Tuple",
+    to_json: ::buffa::type_registry::any_to_json::<Tuple>,
+    from_json: ::buffa::type_registry::any_from_json::<Tuple>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct TupleFilter {
     /// Field 1: `sbj_ns`
+    #[serde(
+        rename = "sbjNs",
+        alias = "sbj_ns",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
     pub sbj_ns: ::core::option::Option<::buffa::alloc::string::String>,
     /// Field 2: `sbj_id`
+    #[serde(
+        rename = "sbjId",
+        alias = "sbj_id",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
     pub sbj_id: ::core::option::Option<::buffa::alloc::string::String>,
     /// Field 3: `rel`
+    #[serde(rename = "rel", skip_serializing_if = "::core::option::Option::is_none")]
     pub rel: ::core::option::Option<::buffa::alloc::string::String>,
     /// Field 4: `obj_ns`
+    #[serde(
+        rename = "objNs",
+        alias = "obj_ns",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
     pub obj_ns: ::core::option::Option<::buffa::alloc::string::String>,
     /// Field 5: `obj_id`
+    #[serde(
+        rename = "objId",
+        alias = "obj_id",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
     pub obj_id: ::core::option::Option<::buffa::alloc::string::String>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -863,18 +1111,55 @@ impl ::buffa::ExtensionSet for TupleFilter {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for TupleFilter {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __TUPLE_FILTER_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.TupleFilter",
+    to_json: ::buffa::type_registry::any_to_json::<TupleFilter>,
+    from_json: ::buffa::type_registry::any_from_json::<TupleFilter>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListTuplesIn {
     /// created_at, email, name, is_email_confirmed, is_active, auth_type, org_name
     ///
     /// Field 1: `filters`
+    #[serde(
+        rename = "filters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
+    #[serde(
+        rename = "sorters",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
     /// Field 3: `cursor`
+    #[serde(
+        rename = "cursor",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub cursor: ::buffa::MessageField<super::super::pkgpb::v1::Cursor>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1052,12 +1337,46 @@ impl ::buffa::ExtensionSet for ListTuplesIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListTuplesIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_TUPLES_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.ListTuplesIn",
+    to_json: ::buffa::type_registry::any_to_json::<ListTuplesIn>,
+    from_json: ::buffa::type_registry::any_from_json::<ListTuplesIn>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ListTuplesOut {
     /// Field 1: `tuples`
+    #[serde(
+        rename = "tuples",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub tuples: ::buffa::alloc::vec::Vec<Tuple>,
     /// Field 2: `next_cursor`
+    #[serde(
+        rename = "nextCursor",
+        alias = "next_cursor",
+        with = "::buffa::json_helpers::bytes",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
+    )]
     pub next_cursor: ::buffa::alloc::vec::Vec<u8>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1194,12 +1513,45 @@ impl ::buffa::ExtensionSet for ListTuplesOut {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ListTuplesOut {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __LIST_TUPLES_OUT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.ListTuplesOut",
+    to_json: ::buffa::type_registry::any_to_json::<ListTuplesOut>,
+    from_json: ::buffa::type_registry::any_from_json::<ListTuplesOut>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct Instance {
     /// Field 1: `ns`
+    #[serde(
+        rename = "ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub ns: ::buffa::alloc::string::String,
     /// Field 2: `id`
+    #[serde(
+        rename = "id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub id: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1325,12 +1677,44 @@ impl ::buffa::ExtensionSet for Instance {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for Instance {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __INSTANCE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.Instance",
+    to_json: ::buffa::type_registry::any_to_json::<Instance>,
+    from_json: ::buffa::type_registry::any_from_json::<Instance>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct TreeNode {
     /// Field 1: `root`
+    #[serde(
+        rename = "root",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub root: ::buffa::MessageField<Instance>,
     /// Field 2: `children`
+    #[serde(
+        rename = "children",
+        skip_serializing_if = "::buffa::__private::HashMap::is_empty",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub children: ::buffa::__private::HashMap<::buffa::alloc::string::String, TreeNode>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1554,9 +1938,33 @@ impl ::buffa::ExtensionSet for TreeNode {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for TreeNode {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __TREE_NODE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.TreeNode",
+    to_json: ::buffa::type_registry::any_to_json::<TreeNode>,
+    from_json: ::buffa::type_registry::any_from_json::<TreeNode>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize)]
+#[serde(default)]
 pub struct DeleteTuplesIn {
+    #[serde(flatten)]
     pub mode: ::core::option::Option<__buffa::oneof::delete_tuples_in::Mode>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1783,6 +2191,131 @@ impl ::buffa::ExtensionSet for DeleteTuplesIn {
         &mut self.__buffa_unknown_fields
     }
 }
+impl<'de> serde::Deserialize<'de> for DeleteTuplesIn {
+    fn deserialize<D: serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl<'de> serde::de::Visitor<'de> for _V {
+            type Value = DeleteTuplesIn;
+            fn expecting(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                f.write_str("struct DeleteTuplesIn")
+            }
+            #[allow(clippy::field_reassign_with_default)]
+            fn visit_map<A: serde::de::MapAccess<'de>>(
+                self,
+                mut map: A,
+            ) -> ::core::result::Result<DeleteTuplesIn, A::Error> {
+                let mut __oneof_mode: ::core::option::Option<
+                    __buffa::oneof::delete_tuples_in::Mode,
+                > = None;
+                while let Some(key) = map.next_key::<::buffa::alloc::string::String>()? {
+                    match key.as_str() {
+                        "deleteTuples" | "delete_tuples" => {
+                            let v: ::core::option::Option<DeleteTuples> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            DeleteTuples,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_mode.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'mode'",
+                                        ),
+                                    );
+                                }
+                                __oneof_mode = Some(
+                                    __buffa::oneof::delete_tuples_in::Mode::DeleteTuples(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        "filter" => {
+                            let v: ::core::option::Option<TupleFilter> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            TupleFilter,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_mode.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'mode'",
+                                        ),
+                                    );
+                                }
+                                __oneof_mode = Some(
+                                    __buffa::oneof::delete_tuples_in::Mode::Filter(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        "deleteTupleIds" | "delete_tuple_ids" => {
+                            let v: ::core::option::Option<DeleteTupleIds> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            DeleteTupleIds,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_mode.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'mode'",
+                                        ),
+                                    );
+                                }
+                                __oneof_mode = Some(
+                                    __buffa::oneof::delete_tuples_in::Mode::DeleteTupleIds(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        _ => {
+                            map.next_value::<serde::de::IgnoredAny>()?;
+                        }
+                    }
+                }
+                let mut __r = <DeleteTuplesIn as ::core::default::Default>::default();
+                __r.mode = __oneof_mode;
+                Ok(__r)
+            }
+        }
+        d.deserialize_map(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for DeleteTuplesIn {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_TUPLES_IN_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.DeleteTuplesIn",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteTuplesIn>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteTuplesIn>,
+    is_wkt: false,
+};
 pub mod delete_tuples_in {
     #[allow(unused_imports)]
     use super::*;
@@ -1792,9 +2325,17 @@ pub mod delete_tuples_in {
     pub use super::__buffa::view::oneof::delete_tuples_in::Mode as ModeView;
 }
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct DeleteTuples {
     /// Field 1: `tuples`
+    #[serde(
+        rename = "tuples",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub tuples: ::buffa::alloc::vec::Vec<Tuple>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -1906,10 +2447,38 @@ impl ::buffa::ExtensionSet for DeleteTuples {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for DeleteTuples {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_TUPLES_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.DeleteTuples",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteTuples>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteTuples>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct DeleteTupleIds {
     /// Field 1: `ids`
+    #[serde(
+        rename = "ids",
+        with = "::buffa::json_helpers::proto_seq",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec"
+    )]
     pub ids: ::buffa::alloc::vec::Vec<u64>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2046,14 +2615,52 @@ impl ::buffa::ExtensionSet for DeleteTupleIds {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for DeleteTupleIds {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __DELETE_TUPLE_IDS_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.DeleteTupleIds",
+    to_json: ::buffa::type_registry::any_to_json::<DeleteTupleIds>,
+    from_json: ::buffa::type_registry::any_from_json::<DeleteTupleIds>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GraphUpdate {
     /// Field 1: `operation`
+    #[serde(
+        rename = "operation",
+        with = "::buffa::json_helpers::proto_enum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_default_enum_value"
+    )]
     pub operation: ::buffa::EnumValue<Operation>,
     /// Field 2: `tuples`
+    #[serde(
+        rename = "tuples",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
     pub tuples: ::buffa::alloc::vec::Vec<GraphUpdateTuple>,
     /// Field 3: `version`
+    #[serde(
+        rename = "version",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
     pub version: u64,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2215,18 +2822,70 @@ impl ::buffa::ExtensionSet for GraphUpdate {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GraphUpdate {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GRAPH_UPDATE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.GraphUpdate",
+    to_json: ::buffa::type_registry::any_to_json::<GraphUpdate>,
+    from_json: ::buffa::type_registry::any_from_json::<GraphUpdate>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct GraphUpdateTuple {
     /// Field 1: `sbj_ns`
+    #[serde(
+        rename = "sbjNs",
+        alias = "sbj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_ns: ::buffa::alloc::string::String,
     /// Field 2: `sbj_id`
+    #[serde(
+        rename = "sbjId",
+        alias = "sbj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub sbj_id: ::buffa::alloc::string::String,
     /// Field 3: `rel`
+    #[serde(
+        rename = "rel",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub rel: ::buffa::alloc::string::String,
     /// Field 4: `obj_ns`
+    #[serde(
+        rename = "objNs",
+        alias = "obj_ns",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_ns: ::buffa::alloc::string::String,
     /// Field 5: `obj_id`
+    #[serde(
+        rename = "objId",
+        alias = "obj_id",
+        with = "::buffa::json_helpers::proto_string",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_str"
+    )]
     pub obj_id: ::buffa::alloc::string::String,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -2424,3 +3083,23 @@ impl ::buffa::ExtensionSet for GraphUpdateTuple {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for GraphUpdateTuple {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __GRAPH_UPDATE_TUPLE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/authzpb.v1.GraphUpdateTuple",
+    to_json: ::buffa::type_registry::any_to_json::<GraphUpdateTuple>,
+    from_json: ::buffa::type_registry::any_from_json::<GraphUpdateTuple>,
+    is_wkt: false,
+};

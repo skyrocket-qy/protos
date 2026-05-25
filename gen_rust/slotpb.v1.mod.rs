@@ -20,6 +20,24 @@ pub mod __buffa {
         use super::*;
         include!("slotpb.v1.slot.__view.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__ROOM_INFO_JSON_ANY);
+        reg.register_json_any(super::__WALLET_JSON_ANY);
+        reg.register_json_any(super::__COIN_JSON_ANY);
+        reg.register_json_any(super::__EVENT_JSON_ANY);
+        reg.register_json_any(super::__BUY_FG_REQ_JSON_ANY);
+        reg.register_json_any(super::__BUY_FG_RESP_JSON_ANY);
+        reg.register_json_any(super::__ROOM_STATISTIC_INFO_JSON_ANY);
+        reg.register_json_any(super::__GET_ROOM_INFO_REQ_JSON_ANY);
+        reg.register_json_any(super::__GET_ROOM_INFO_RESP_JSON_ANY);
+        reg.register_json_any(super::__TABLE_JSON_ANY);
+        reg.register_json_any(super::__REEL_JSON_ANY);
+        reg.register_json_any(super::__COORDINATE_JSON_ANY);
+        reg.register_json_any(super::__PLAY_REQ_JSON_ANY);
+        reg.register_json_any(super::__PLAY_RESP_JSON_ANY);
+        reg.register_json_any(super::__JP_OUT_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::RoomInfoView;
@@ -51,3 +69,5 @@ pub use self::__buffa::view::PlayReqView;
 pub use self::__buffa::view::PlayRespView;
 #[doc(inline)]
 pub use self::__buffa::view::JpOutView;
+#[doc(inline)]
+pub use self::__buffa::register_types;

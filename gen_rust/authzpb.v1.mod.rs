@@ -30,6 +30,22 @@ pub mod __buffa {
         use super::*;
         include!("authzpb.v1.authz.__oneof.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__CHECK_IN_JSON_ANY);
+        reg.register_json_any(super::__CHECK_OUT_JSON_ANY);
+        reg.register_json_any(super::__TUPLE_JSON_ANY);
+        reg.register_json_any(super::__TUPLE_FILTER_JSON_ANY);
+        reg.register_json_any(super::__LIST_TUPLES_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_TUPLES_OUT_JSON_ANY);
+        reg.register_json_any(super::__INSTANCE_JSON_ANY);
+        reg.register_json_any(super::__TREE_NODE_JSON_ANY);
+        reg.register_json_any(super::__DELETE_TUPLES_IN_JSON_ANY);
+        reg.register_json_any(super::__DELETE_TUPLES_JSON_ANY);
+        reg.register_json_any(super::__DELETE_TUPLE_IDS_JSON_ANY);
+        reg.register_json_any(super::__GRAPH_UPDATE_JSON_ANY);
+        reg.register_json_any(super::__GRAPH_UPDATE_TUPLE_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::CheckInView;
@@ -57,3 +73,5 @@ pub use self::__buffa::view::DeleteTupleIdsView;
 pub use self::__buffa::view::GraphUpdateView;
 #[doc(inline)]
 pub use self::__buffa::view::GraphUpdateTupleView;
+#[doc(inline)]
+pub use self::__buffa::register_types;

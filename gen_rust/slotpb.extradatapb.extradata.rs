@@ -2,10 +2,20 @@
 // source: slotpb/extradatapb/extradata.proto
 
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize)]
+#[serde(default)]
 pub struct Arthur {
     /// Field 1: `left_game_cnt`
+    #[serde(
+        rename = "leftGameCnt",
+        alias = "left_game_cnt",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
     pub left_game_cnt: i32,
+    #[serde(flatten)]
     pub data: ::core::option::Option<__buffa::oneof::arthur::Data>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -250,6 +260,150 @@ impl ::buffa::ExtensionSet for Arthur {
         &mut self.__buffa_unknown_fields
     }
 }
+impl<'de> serde::Deserialize<'de> for Arthur {
+    fn deserialize<D: serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        struct _V;
+        impl<'de> serde::de::Visitor<'de> for _V {
+            type Value = Arthur;
+            fn expecting(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+                f.write_str("struct Arthur")
+            }
+            #[allow(clippy::field_reassign_with_default)]
+            fn visit_map<A: serde::de::MapAccess<'de>>(
+                self,
+                mut map: A,
+            ) -> ::core::result::Result<Arthur, A::Error> {
+                let mut __f_left_game_cnt: ::core::option::Option<i32> = None;
+                let mut __oneof_data: ::core::option::Option<
+                    __buffa::oneof::arthur::Data,
+                > = None;
+                while let Some(key) = map.next_key::<::buffa::alloc::string::String>()? {
+                    match key.as_str() {
+                        "leftGameCnt" | "left_game_cnt" => {
+                            __f_left_game_cnt = Some({
+                                struct _S;
+                                impl<'de> serde::de::DeserializeSeed<'de> for _S {
+                                    type Value = i32;
+                                    fn deserialize<D: serde::Deserializer<'de>>(
+                                        self,
+                                        d: D,
+                                    ) -> ::core::result::Result<i32, D::Error> {
+                                        ::buffa::json_helpers::int32::deserialize(d)
+                                    }
+                                }
+                                map.next_value_seed(_S)?
+                            });
+                        }
+                        "fg" => {
+                            let v: ::core::option::Option<ArthurFg> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            ArthurFg,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_data.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'data'",
+                                        ),
+                                    );
+                                }
+                                __oneof_data = Some(
+                                    __buffa::oneof::arthur::Data::Fg(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        "bg" => {
+                            let v: ::core::option::Option<ArthurBg> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            ArthurBg,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_data.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'data'",
+                                        ),
+                                    );
+                                }
+                                __oneof_data = Some(
+                                    __buffa::oneof::arthur::Data::Bg(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        "sbg" => {
+                            let v: ::core::option::Option<ArthurBg> = map
+                                .next_value_seed(
+                                    ::buffa::json_helpers::NullableDeserializeSeed(
+                                        ::buffa::json_helpers::DefaultDeserializeSeed::<
+                                            ArthurBg,
+                                        >::new(),
+                                    ),
+                                )?;
+                            if let Some(v) = v {
+                                if __oneof_data.is_some() {
+                                    return Err(
+                                        serde::de::Error::custom(
+                                            "multiple oneof fields set for 'data'",
+                                        ),
+                                    );
+                                }
+                                __oneof_data = Some(
+                                    __buffa::oneof::arthur::Data::Sbg(
+                                        ::buffa::alloc::boxed::Box::new(v),
+                                    ),
+                                );
+                            }
+                        }
+                        _ => {
+                            map.next_value::<serde::de::IgnoredAny>()?;
+                        }
+                    }
+                }
+                let mut __r = <Arthur as ::core::default::Default>::default();
+                if let ::core::option::Option::Some(v) = __f_left_game_cnt {
+                    __r.left_game_cnt = v;
+                }
+                __r.data = __oneof_data;
+                Ok(__r)
+            }
+        }
+        d.deserialize_map(_V)
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for Arthur {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ARTHUR_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.extradatapb.Arthur",
+    to_json: ::buffa::type_registry::any_to_json::<Arthur>,
+    from_json: ::buffa::type_registry::any_from_json::<Arthur>,
+    is_wkt: false,
+};
 pub mod arthur {
     #[allow(unused_imports)]
     use super::*;
@@ -259,15 +413,26 @@ pub mod arthur {
     pub use super::__buffa::view::oneof::arthur::Data as DataView;
 }
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ArthurFg {
     /// before EC
     ///
     /// Field 1: `table1`
+    #[serde(
+        rename = "table1",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub table1: ::buffa::MessageField<super::v1::Table>,
     /// after EC
     ///
     /// Field 2: `table2`
+    #[serde(
+        rename = "table2",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub table2: ::buffa::MessageField<super::v1::Table>,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -416,12 +581,45 @@ impl ::buffa::ExtensionSet for ArthurFg {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ArthurFg {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ARTHUR_FG_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.extradatapb.ArthurFg",
+    to_json: ::buffa::type_registry::any_to_json::<ArthurFg>,
+    from_json: ::buffa::type_registry::any_from_json::<ArthurFg>,
+    is_wkt: false,
+};
 #[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
 pub struct ArthurBg {
     /// Field 1: `table`
+    #[serde(
+        rename = "table",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
     pub table: ::buffa::MessageField<super::v1::Table>,
     /// Field 2: `left_spin_cnt`
+    #[serde(
+        rename = "leftSpinCnt",
+        alias = "left_spin_cnt",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
     pub left_spin_cnt: i32,
+    #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
@@ -557,3 +755,23 @@ impl ::buffa::ExtensionSet for ArthurBg {
         &mut self.__buffa_unknown_fields
     }
 }
+impl ::buffa::json_helpers::ProtoElemJson for ArthurBg {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ARTHUR_BG_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.extradatapb.ArthurBg",
+    to_json: ::buffa::type_registry::any_to_json::<ArthurBg>,
+    from_json: ::buffa::type_registry::any_from_json::<ArthurBg>,
+    is_wkt: false,
+};

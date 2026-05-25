@@ -20,6 +20,38 @@ pub mod __buffa {
         use super::*;
         include!("authzpb.rbacpb.rbac.__view.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__GET_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__GET_ROLE_OUT_JSON_ANY);
+        reg.register_json_any(super::__PERMISSION_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCE_TYPE_OUT_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCES_BY_TYPE_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCES_BY_TYPE_OUT_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCES_BY_TYPE_DATA_JSON_ANY);
+        reg.register_json_any(super::__LIST_PERMISSION_BY_RESOURCE_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_PERMISSION_BY_RESOURCE_OUT_JSON_ANY);
+        reg.register_json_any(super::__USER_JSON_ANY);
+        reg.register_json_any(super::__UPDATE_USER_IN_JSON_ANY);
+        reg.register_json_any(super::__ROLE_JSON_ANY);
+        reg.register_json_any(super::__RESOURCE_JSON_ANY);
+        reg.register_json_any(super::__LIST_USERS_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_USERS_OUT_JSON_ANY);
+        reg.register_json_any(super::__DELETE_USER_IN_JSON_ANY);
+        reg.register_json_any(super::__CREATE_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_ROLES_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_ROLES_OUT_JSON_ANY);
+        reg.register_json_any(super::__UPDATE_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__DELETE_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCES_IN_JSON_ANY);
+        reg.register_json_any(super::__LIST_RESOURCES_OUT_JSON_ANY);
+        reg.register_json_any(super::__CREATE_RESOURCE_IN_JSON_ANY);
+        reg.register_json_any(super::__DELETE_RESOURCE_IN_JSON_ANY);
+        reg.register_json_any(super::__ASSIGN_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__REVOKE_ROLE_IN_JSON_ANY);
+        reg.register_json_any(super::__GRANT_PERM_IN_JSON_ANY);
+        reg.register_json_any(super::__REVOKE_PERM_IN_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::GetRoleInView;
@@ -79,3 +111,5 @@ pub use self::__buffa::view::RevokeRoleInView;
 pub use self::__buffa::view::GrantPermInView;
 #[doc(inline)]
 pub use self::__buffa::view::RevokePermInView;
+#[doc(inline)]
+pub use self::__buffa::register_types;

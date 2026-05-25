@@ -30,4 +30,22 @@ pub mod filter_node {
             Self::Some(Node::from(v))
         }
     }
+    impl serde::Serialize for Node {
+        fn serialize<S: serde::Serializer>(
+            &self,
+            s: S,
+        ) -> ::core::result::Result<S::Ok, S::Error> {
+            use serde::ser::SerializeMap;
+            let mut map = s.serialize_map(Some(1))?;
+            match self {
+                Self::Filter(v) => {
+                    map.serialize_entry("filter", v)?;
+                }
+                Self::Logical(v) => {
+                    map.serialize_entry("logical", v)?;
+                }
+            }
+            map.end()
+        }
+    }
 }

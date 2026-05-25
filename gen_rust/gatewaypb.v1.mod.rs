@@ -20,8 +20,15 @@ pub mod __buffa {
         use super::*;
         include!("gatewaypb.v1.gateway.__view.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__GATE_WAY_REQUEST_JSON_ANY);
+        reg.register_json_any(super::__GATE_WAY_RESPONSE_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::GateWayRequestView;
 #[doc(inline)]
 pub use self::__buffa::view::GateWayResponseView;
+#[doc(inline)]
+pub use self::__buffa::register_types;

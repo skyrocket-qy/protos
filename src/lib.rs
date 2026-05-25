@@ -31,7 +31,7 @@ pub mod gen_rust {
     }
 }
 
-#[path = "../gen"]
+#[path = "../gen_rust_connect"]
 pub mod r#gen {
     #[path = "."]
     pub mod authzpb {

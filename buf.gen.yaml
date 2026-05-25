@@ -29,8 +29,8 @@ plugins:
   # anthropics/connect-rust depends on anthropics/buffa
   - remote: buf.build/anthropics/buffa:v0.6.0
     out: gen_rust
-    # opt:
-    #   - json=true
+    opt:
+      - json=true
 
 
 inputs:

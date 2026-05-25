@@ -30,6 +30,12 @@ pub mod __buffa {
         use super::*;
         include!("slotpb.extradatapb.extradata.__oneof.rs");
     }
+    /// Register this package's `Any` type entries and extension entries.
+    pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
+        reg.register_json_any(super::__ARTHUR_JSON_ANY);
+        reg.register_json_any(super::__ARTHUR_FG_JSON_ANY);
+        reg.register_json_any(super::__ARTHUR_BG_JSON_ANY);
+    }
 }
 #[doc(inline)]
 pub use self::__buffa::view::ArthurView;
@@ -37,3 +43,5 @@ pub use self::__buffa::view::ArthurView;
 pub use self::__buffa::view::ArthurFgView;
 #[doc(inline)]
 pub use self::__buffa::view::ArthurBgView;
+#[doc(inline)]
+pub use self::__buffa::register_types;
