@@ -50,6 +50,11 @@ pub mod __buffa {
         reg.register_json_any(super::__MAMMO_EMIT_F_IREBALL_JSON_ANY);
         reg.register_json_any(super::__PRINCESS_SUN_JSON_ANY);
         reg.register_json_any(super::__PRINCESS_SUN_LIGHT_JSON_ANY);
+        reg.register_json_any(super::__WEST_CHILI_JSON_ANY);
+        reg.register_json_any(super::__WEST_CHILI_CUM_JSON_ANY);
+        reg.register_json_any(super::__ELEMENTAL_MASK_JSON_ANY);
+        reg.register_json_any(super::__ELEMENTAL_MASK_MOVE_JSON_ANY);
+        reg.register_json_any(super::__ELEMENTAL_MASK_MERGE_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -102,5 +107,15 @@ pub use self::__buffa::view::MammoEmitFIreballView;
 pub use self::__buffa::view::PrincessSunView;
 #[doc(inline)]
 pub use self::__buffa::view::PrincessSunLightView;
+#[doc(inline)]
+pub use self::__buffa::view::WestChiliView;
+#[doc(inline)]
+pub use self::__buffa::view::WestChiliCumView;
+#[doc(inline)]
+pub use self::__buffa::view::ElementalMaskView;
+#[doc(inline)]
+pub use self::__buffa::view::ElementalMaskMoveView;
+#[doc(inline)]
+pub use self::__buffa::view::ElementalMaskMergeView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

@@ -2378,3 +2378,1269 @@ pub const __PRINCESS_SUN_LIGHT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = 
     from_json: ::buffa::type_registry::any_from_json::<PrincessSunLight>,
     is_wkt: false,
 };
+#[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
+pub struct WestChili {
+    /// Field 1: `left_game_cnt`
+    #[serde(
+        rename = "leftGameCnt",
+        alias = "left_game_cnt",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub left_game_cnt: i32,
+    /// Field 2: `table`
+    #[serde(
+        rename = "table",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub table: ::buffa::MessageField<Table>,
+    /// Field 3: `cum`
+    #[serde(
+        rename = "cum",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub cum: ::buffa::MessageField<WestChiliCum>,
+    /// if trigger falling tree
+    ///
+    /// Field 4: `table2`
+    #[serde(
+        rename = "table2",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub table2: ::buffa::MessageField<Table>,
+    /// Field 5: `which_ea_to_sfg`
+    #[serde(
+        rename = "whichEaToSfg",
+        alias = "which_ea_to_sfg",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub which_ea_to_sfg: ::buffa::MessageField<Pos>,
+    /// Field 6: `falling_tree_event_score`
+    #[serde(
+        rename = "fallingTreeEventScore",
+        alias = "falling_tree_event_score",
+        with = "::buffa::json_helpers::opt_int64",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
+    pub falling_tree_event_score: ::core::option::Option<i64>,
+    /// Field 7: `now_scatter_count`
+    #[serde(
+        rename = "nowScatterCount",
+        alias = "now_scatter_count",
+        with = "::buffa::json_helpers::opt_int64",
+        skip_serializing_if = "::core::option::Option::is_none"
+    )]
+    pub now_scatter_count: ::core::option::Option<i64>,
+    #[serde(skip)]
+    #[doc(hidden)]
+    pub __buffa_unknown_fields: ::buffa::UnknownFields,
+}
+impl ::core::fmt::Debug for WestChili {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WestChili")
+            .field("left_game_cnt", &self.left_game_cnt)
+            .field("table", &self.table)
+            .field("cum", &self.cum)
+            .field("table2", &self.table2)
+            .field("which_ea_to_sfg", &self.which_ea_to_sfg)
+            .field("falling_tree_event_score", &self.falling_tree_event_score)
+            .field("now_scatter_count", &self.now_scatter_count)
+            .finish()
+    }
+}
+impl WestChili {
+    /// Protobuf type URL for this message, for use with `Any::pack` and
+    /// `Any::unpack_if`.
+    ///
+    /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.WestChili";
+}
+impl WestChili {
+    #[must_use = "with_* setters return `self` by value; assign or chain the result"]
+    #[inline]
+    ///Sets [`Self::falling_tree_event_score`] to `Some(value)`, consuming and returning `self`.
+    pub fn with_falling_tree_event_score(mut self, value: i64) -> Self {
+        self.falling_tree_event_score = Some(value);
+        self
+    }
+    #[must_use = "with_* setters return `self` by value; assign or chain the result"]
+    #[inline]
+    ///Sets [`Self::now_scatter_count`] to `Some(value)`, consuming and returning `self`.
+    pub fn with_now_scatter_count(mut self, value: i64) -> Self {
+        self.now_scatter_count = Some(value);
+        self
+    }
+}
+impl ::buffa::DefaultInstance for WestChili {
+    fn default_instance() -> &'static Self {
+        static VALUE: ::buffa::__private::OnceBox<WestChili> = ::buffa::__private::OnceBox::new();
+        VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
+    }
+}
+impl ::buffa::MessageName for WestChili {
+    const PACKAGE: &'static str = "slotpb.v1";
+    const NAME: &'static str = "WestChili";
+    const FULL_NAME: &'static str = "slotpb.v1.WestChili";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.WestChili";
+}
+impl ::buffa::Message for WestChili {
+    /// Returns the total encoded size in bytes.
+    ///
+    /// The result is a `u32`; the protobuf specification requires all
+    /// messages to fit within 2 GiB (2,147,483,647 bytes), so a
+    /// compliant message will never overflow this type.
+    #[allow(clippy::let_and_return)]
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if self.left_game_cnt != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.left_game_cnt) as u32;
+        }
+        if self.table.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.table.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if self.cum.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.cum.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if self.table2.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.table2.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if self.which_ea_to_sfg.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.which_ea_to_sfg.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if let Some(v) = self.falling_tree_event_score {
+            size += 1u32 + ::buffa::types::int64_encoded_len(v) as u32;
+        }
+        if let Some(v) = self.now_scatter_count {
+            size += 1u32 + ::buffa::types::int64_encoded_len(v) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    fn write_to(
+        &self,
+        __cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if self.left_game_cnt != 0i32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.left_game_cnt, buf);
+        }
+        if self.table.is_set() {
+            ::buffa::encoding::Tag::new(
+                    2u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.table.write_to(__cache, buf);
+        }
+        if self.cum.is_set() {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.cum.write_to(__cache, buf);
+        }
+        if self.table2.is_set() {
+            ::buffa::encoding::Tag::new(
+                    4u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.table2.write_to(__cache, buf);
+        }
+        if self.which_ea_to_sfg.is_set() {
+            ::buffa::encoding::Tag::new(
+                    5u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.which_ea_to_sfg.write_to(__cache, buf);
+        }
+        if let Some(v) = self.falling_tree_event_score {
+            ::buffa::encoding::Tag::new(6u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int64(v, buf);
+        }
+        if let Some(v) = self.now_scatter_count {
+            ::buffa::encoding::Tag::new(7u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int64(v, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+    fn merge_field(
+        &mut self,
+        tag: ::buffa::encoding::Tag,
+        buf: &mut impl ::buffa::bytes::Buf,
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        #[allow(unused_imports)]
+        use ::buffa::bytes::Buf as _;
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.left_game_cnt = ::buffa::types::decode_int32(buf)?;
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.table.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.cum.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            4u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 4u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.table2.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            5u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 5u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.which_ea_to_sfg.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            6u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 6u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.falling_tree_event_score = ::core::option::Option::Some(
+                    ::buffa::types::decode_int64(buf)?,
+                );
+            }
+            7u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 7u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.now_scatter_count = ::core::option::Option::Some(
+                    ::buffa::types::decode_int64(buf)?,
+                );
+            }
+            _ => {
+                self.__buffa_unknown_fields
+                    .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+    fn clear(&mut self) {
+        self.left_game_cnt = 0i32;
+        self.table = ::buffa::MessageField::none();
+        self.cum = ::buffa::MessageField::none();
+        self.table2 = ::buffa::MessageField::none();
+        self.which_ea_to_sfg = ::buffa::MessageField::none();
+        self.falling_tree_event_score = ::core::option::Option::None;
+        self.now_scatter_count = ::core::option::Option::None;
+        self.__buffa_unknown_fields.clear();
+    }
+}
+impl ::buffa::ExtensionSet for WestChili {
+    const PROTO_FQN: &'static str = "slotpb.v1.WestChili";
+    fn unknown_fields(&self) -> &::buffa::UnknownFields {
+        &self.__buffa_unknown_fields
+    }
+    fn unknown_fields_mut(&mut self) -> &mut ::buffa::UnknownFields {
+        &mut self.__buffa_unknown_fields
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for WestChili {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __WEST_CHILI_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.WestChili",
+    to_json: ::buffa::type_registry::any_to_json::<WestChili>,
+    from_json: ::buffa::type_registry::any_from_json::<WestChili>,
+    is_wkt: false,
+};
+#[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
+pub struct WestChiliCum {
+    /// Field 1: `sa`
+    #[serde(
+        rename = "sa",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub sa: i32,
+    /// Field 2: `sb`
+    #[serde(
+        rename = "sb",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub sb: i32,
+    /// Field 3: `sc`
+    #[serde(
+        rename = "sc",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub sc: i32,
+    /// Field 4: `sd`
+    #[serde(
+        rename = "sd",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub sd: i32,
+    #[serde(skip)]
+    #[doc(hidden)]
+    pub __buffa_unknown_fields: ::buffa::UnknownFields,
+}
+impl ::core::fmt::Debug for WestChiliCum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("WestChiliCum")
+            .field("sa", &self.sa)
+            .field("sb", &self.sb)
+            .field("sc", &self.sc)
+            .field("sd", &self.sd)
+            .finish()
+    }
+}
+impl WestChiliCum {
+    /// Protobuf type URL for this message, for use with `Any::pack` and
+    /// `Any::unpack_if`.
+    ///
+    /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.WestChiliCum";
+}
+impl ::buffa::DefaultInstance for WestChiliCum {
+    fn default_instance() -> &'static Self {
+        static VALUE: ::buffa::__private::OnceBox<WestChiliCum> = ::buffa::__private::OnceBox::new();
+        VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
+    }
+}
+impl ::buffa::MessageName for WestChiliCum {
+    const PACKAGE: &'static str = "slotpb.v1";
+    const NAME: &'static str = "WestChiliCum";
+    const FULL_NAME: &'static str = "slotpb.v1.WestChiliCum";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.WestChiliCum";
+}
+impl ::buffa::Message for WestChiliCum {
+    /// Returns the total encoded size in bytes.
+    ///
+    /// The result is a `u32`; the protobuf specification requires all
+    /// messages to fit within 2 GiB (2,147,483,647 bytes), so a
+    /// compliant message will never overflow this type.
+    #[allow(clippy::let_and_return)]
+    fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if self.sa != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.sa) as u32;
+        }
+        if self.sb != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.sb) as u32;
+        }
+        if self.sc != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.sc) as u32;
+        }
+        if self.sd != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.sd) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    fn write_to(
+        &self,
+        _cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if self.sa != 0i32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.sa, buf);
+        }
+        if self.sb != 0i32 {
+            ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.sb, buf);
+        }
+        if self.sc != 0i32 {
+            ::buffa::encoding::Tag::new(3u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.sc, buf);
+        }
+        if self.sd != 0i32 {
+            ::buffa::encoding::Tag::new(4u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.sd, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+    fn merge_field(
+        &mut self,
+        tag: ::buffa::encoding::Tag,
+        buf: &mut impl ::buffa::bytes::Buf,
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        #[allow(unused_imports)]
+        use ::buffa::bytes::Buf as _;
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.sa = ::buffa::types::decode_int32(buf)?;
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.sb = ::buffa::types::decode_int32(buf)?;
+            }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.sc = ::buffa::types::decode_int32(buf)?;
+            }
+            4u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 4u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.sd = ::buffa::types::decode_int32(buf)?;
+            }
+            _ => {
+                self.__buffa_unknown_fields
+                    .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+    fn clear(&mut self) {
+        self.sa = 0i32;
+        self.sb = 0i32;
+        self.sc = 0i32;
+        self.sd = 0i32;
+        self.__buffa_unknown_fields.clear();
+    }
+}
+impl ::buffa::ExtensionSet for WestChiliCum {
+    const PROTO_FQN: &'static str = "slotpb.v1.WestChiliCum";
+    fn unknown_fields(&self) -> &::buffa::UnknownFields {
+        &self.__buffa_unknown_fields
+    }
+    fn unknown_fields_mut(&mut self) -> &mut ::buffa::UnknownFields {
+        &mut self.__buffa_unknown_fields
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for WestChiliCum {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __WEST_CHILI_CUM_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.WestChiliCum",
+    to_json: ::buffa::type_registry::any_to_json::<WestChiliCum>,
+    from_json: ::buffa::type_registry::any_from_json::<WestChiliCum>,
+    is_wkt: false,
+};
+#[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
+pub struct ElementalMask {
+    /// Field 1: `left_game_cnt`
+    #[serde(
+        rename = "leftGameCnt",
+        alias = "left_game_cnt",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub left_game_cnt: i32,
+    /// Field 2: `table`
+    #[serde(
+        rename = "table",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub table: ::buffa::MessageField<Table>,
+    /// Field 3: `moves`
+    #[serde(
+        rename = "moves",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
+    pub moves: ::buffa::alloc::vec::Vec<ElementalMaskMove>,
+    /// Field 4: `merges`
+    #[serde(
+        rename = "merges",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
+    pub merges: ::buffa::alloc::vec::Vec<ElementalMaskMerge>,
+    #[serde(skip)]
+    #[doc(hidden)]
+    pub __buffa_unknown_fields: ::buffa::UnknownFields,
+}
+impl ::core::fmt::Debug for ElementalMask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ElementalMask")
+            .field("left_game_cnt", &self.left_game_cnt)
+            .field("table", &self.table)
+            .field("moves", &self.moves)
+            .field("merges", &self.merges)
+            .finish()
+    }
+}
+impl ElementalMask {
+    /// Protobuf type URL for this message, for use with `Any::pack` and
+    /// `Any::unpack_if`.
+    ///
+    /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMask";
+}
+impl ::buffa::DefaultInstance for ElementalMask {
+    fn default_instance() -> &'static Self {
+        static VALUE: ::buffa::__private::OnceBox<ElementalMask> = ::buffa::__private::OnceBox::new();
+        VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
+    }
+}
+impl ::buffa::MessageName for ElementalMask {
+    const PACKAGE: &'static str = "slotpb.v1";
+    const NAME: &'static str = "ElementalMask";
+    const FULL_NAME: &'static str = "slotpb.v1.ElementalMask";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMask";
+}
+impl ::buffa::Message for ElementalMask {
+    /// Returns the total encoded size in bytes.
+    ///
+    /// The result is a `u32`; the protobuf specification requires all
+    /// messages to fit within 2 GiB (2,147,483,647 bytes), so a
+    /// compliant message will never overflow this type.
+    #[allow(clippy::let_and_return)]
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if self.left_game_cnt != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.left_game_cnt) as u32;
+        }
+        if self.table.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.table.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        for v in &self.moves {
+            let __slot = __cache.reserve();
+            let inner_size = v.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        for v in &self.merges {
+            let __slot = __cache.reserve();
+            let inner_size = v.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    fn write_to(
+        &self,
+        __cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if self.left_game_cnt != 0i32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.left_game_cnt, buf);
+        }
+        if self.table.is_set() {
+            ::buffa::encoding::Tag::new(
+                    2u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.table.write_to(__cache, buf);
+        }
+        for v in &self.moves {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            v.write_to(__cache, buf);
+        }
+        for v in &self.merges {
+            ::buffa::encoding::Tag::new(
+                    4u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            v.write_to(__cache, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+    fn merge_field(
+        &mut self,
+        tag: ::buffa::encoding::Tag,
+        buf: &mut impl ::buffa::bytes::Buf,
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        #[allow(unused_imports)]
+        use ::buffa::bytes::Buf as _;
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.left_game_cnt = ::buffa::types::decode_int32(buf)?;
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.table.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                let mut elem = ::core::default::Default::default();
+                ::buffa::Message::merge_length_delimited(&mut elem, buf, depth)?;
+                self.moves.push(elem);
+            }
+            4u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 4u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                let mut elem = ::core::default::Default::default();
+                ::buffa::Message::merge_length_delimited(&mut elem, buf, depth)?;
+                self.merges.push(elem);
+            }
+            _ => {
+                self.__buffa_unknown_fields
+                    .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+    fn clear(&mut self) {
+        self.left_game_cnt = 0i32;
+        self.table = ::buffa::MessageField::none();
+        self.moves.clear();
+        self.merges.clear();
+        self.__buffa_unknown_fields.clear();
+    }
+}
+impl ::buffa::ExtensionSet for ElementalMask {
+    const PROTO_FQN: &'static str = "slotpb.v1.ElementalMask";
+    fn unknown_fields(&self) -> &::buffa::UnknownFields {
+        &self.__buffa_unknown_fields
+    }
+    fn unknown_fields_mut(&mut self) -> &mut ::buffa::UnknownFields {
+        &mut self.__buffa_unknown_fields
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for ElementalMask {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ELEMENTAL_MASK_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.ElementalMask",
+    to_json: ::buffa::type_registry::any_to_json::<ElementalMask>,
+    from_json: ::buffa::type_registry::any_from_json::<ElementalMask>,
+    is_wkt: false,
+};
+#[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
+pub struct ElementalMaskMove {
+    /// Field 1: `from_x`
+    #[serde(
+        rename = "fromX",
+        alias = "from_x",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub from_x: i32,
+    /// Field 2: `from_y`
+    #[serde(
+        rename = "fromY",
+        alias = "from_y",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub from_y: i32,
+    /// Field 3: `to_x`
+    #[serde(
+        rename = "toX",
+        alias = "to_x",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub to_x: i32,
+    /// Field 4: `to_y`
+    #[serde(
+        rename = "toY",
+        alias = "to_y",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub to_y: i32,
+    #[serde(skip)]
+    #[doc(hidden)]
+    pub __buffa_unknown_fields: ::buffa::UnknownFields,
+}
+impl ::core::fmt::Debug for ElementalMaskMove {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ElementalMaskMove")
+            .field("from_x", &self.from_x)
+            .field("from_y", &self.from_y)
+            .field("to_x", &self.to_x)
+            .field("to_y", &self.to_y)
+            .finish()
+    }
+}
+impl ElementalMaskMove {
+    /// Protobuf type URL for this message, for use with `Any::pack` and
+    /// `Any::unpack_if`.
+    ///
+    /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMaskMove";
+}
+impl ::buffa::DefaultInstance for ElementalMaskMove {
+    fn default_instance() -> &'static Self {
+        static VALUE: ::buffa::__private::OnceBox<ElementalMaskMove> = ::buffa::__private::OnceBox::new();
+        VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
+    }
+}
+impl ::buffa::MessageName for ElementalMaskMove {
+    const PACKAGE: &'static str = "slotpb.v1";
+    const NAME: &'static str = "ElementalMaskMove";
+    const FULL_NAME: &'static str = "slotpb.v1.ElementalMaskMove";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMaskMove";
+}
+impl ::buffa::Message for ElementalMaskMove {
+    /// Returns the total encoded size in bytes.
+    ///
+    /// The result is a `u32`; the protobuf specification requires all
+    /// messages to fit within 2 GiB (2,147,483,647 bytes), so a
+    /// compliant message will never overflow this type.
+    #[allow(clippy::let_and_return)]
+    fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if self.from_x != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.from_x) as u32;
+        }
+        if self.from_y != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.from_y) as u32;
+        }
+        if self.to_x != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.to_x) as u32;
+        }
+        if self.to_y != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.to_y) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    fn write_to(
+        &self,
+        _cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if self.from_x != 0i32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.from_x, buf);
+        }
+        if self.from_y != 0i32 {
+            ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.from_y, buf);
+        }
+        if self.to_x != 0i32 {
+            ::buffa::encoding::Tag::new(3u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.to_x, buf);
+        }
+        if self.to_y != 0i32 {
+            ::buffa::encoding::Tag::new(4u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.to_y, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+    fn merge_field(
+        &mut self,
+        tag: ::buffa::encoding::Tag,
+        buf: &mut impl ::buffa::bytes::Buf,
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        #[allow(unused_imports)]
+        use ::buffa::bytes::Buf as _;
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.from_x = ::buffa::types::decode_int32(buf)?;
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.from_y = ::buffa::types::decode_int32(buf)?;
+            }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.to_x = ::buffa::types::decode_int32(buf)?;
+            }
+            4u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 4u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.to_y = ::buffa::types::decode_int32(buf)?;
+            }
+            _ => {
+                self.__buffa_unknown_fields
+                    .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+    fn clear(&mut self) {
+        self.from_x = 0i32;
+        self.from_y = 0i32;
+        self.to_x = 0i32;
+        self.to_y = 0i32;
+        self.__buffa_unknown_fields.clear();
+    }
+}
+impl ::buffa::ExtensionSet for ElementalMaskMove {
+    const PROTO_FQN: &'static str = "slotpb.v1.ElementalMaskMove";
+    fn unknown_fields(&self) -> &::buffa::UnknownFields {
+        &self.__buffa_unknown_fields
+    }
+    fn unknown_fields_mut(&mut self) -> &mut ::buffa::UnknownFields {
+        &mut self.__buffa_unknown_fields
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for ElementalMaskMove {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ELEMENTAL_MASK_MOVE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.ElementalMaskMove",
+    to_json: ::buffa::type_registry::any_to_json::<ElementalMaskMove>,
+    from_json: ::buffa::type_registry::any_from_json::<ElementalMaskMove>,
+    is_wkt: false,
+};
+#[derive(Clone, PartialEq, Default)]
+#[derive(::serde::Serialize, ::serde::Deserialize)]
+#[serde(default)]
+pub struct ElementalMaskMerge {
+    /// Field 1: `froms`
+    #[serde(
+        rename = "froms",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
+        deserialize_with = "::buffa::json_helpers::null_as_default"
+    )]
+    pub froms: ::buffa::alloc::vec::Vec<Pos>,
+    /// Field 2: `to`
+    #[serde(
+        rename = "to",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
+    )]
+    pub to: ::buffa::MessageField<Pos>,
+    /// Field 3: `final_rate`
+    #[serde(
+        rename = "finalRate",
+        alias = "final_rate",
+        with = "::buffa::json_helpers::int32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_i32"
+    )]
+    pub final_rate: i32,
+    #[serde(skip)]
+    #[doc(hidden)]
+    pub __buffa_unknown_fields: ::buffa::UnknownFields,
+}
+impl ::core::fmt::Debug for ElementalMaskMerge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("ElementalMaskMerge")
+            .field("froms", &self.froms)
+            .field("to", &self.to)
+            .field("final_rate", &self.final_rate)
+            .finish()
+    }
+}
+impl ElementalMaskMerge {
+    /// Protobuf type URL for this message, for use with `Any::pack` and
+    /// `Any::unpack_if`.
+    ///
+    /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
+    pub const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMaskMerge";
+}
+impl ::buffa::DefaultInstance for ElementalMaskMerge {
+    fn default_instance() -> &'static Self {
+        static VALUE: ::buffa::__private::OnceBox<ElementalMaskMerge> = ::buffa::__private::OnceBox::new();
+        VALUE.get_or_init(|| ::buffa::alloc::boxed::Box::new(Self::default()))
+    }
+}
+impl ::buffa::MessageName for ElementalMaskMerge {
+    const PACKAGE: &'static str = "slotpb.v1";
+    const NAME: &'static str = "ElementalMaskMerge";
+    const FULL_NAME: &'static str = "slotpb.v1.ElementalMaskMerge";
+    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.v1.ElementalMaskMerge";
+}
+impl ::buffa::Message for ElementalMaskMerge {
+    /// Returns the total encoded size in bytes.
+    ///
+    /// The result is a `u32`; the protobuf specification requires all
+    /// messages to fit within 2 GiB (2,147,483,647 bytes), so a
+    /// compliant message will never overflow this type.
+    #[allow(clippy::let_and_return)]
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        for v in &self.froms {
+            let __slot = __cache.reserve();
+            let inner_size = v.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if self.to.is_set() {
+            let __slot = __cache.reserve();
+            let inner_size = self.to.compute_size(__cache);
+            __cache.set(__slot, inner_size);
+            size
+                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
+                    + inner_size;
+        }
+        if self.final_rate != 0i32 {
+            size += 1u32 + ::buffa::types::int32_encoded_len(self.final_rate) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    fn write_to(
+        &self,
+        __cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        for v in &self.froms {
+            ::buffa::encoding::Tag::new(
+                    1u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            v.write_to(__cache, buf);
+        }
+        if self.to.is_set() {
+            ::buffa::encoding::Tag::new(
+                    2u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+            self.to.write_to(__cache, buf);
+        }
+        if self.final_rate != 0i32 {
+            ::buffa::encoding::Tag::new(3u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_int32(self.final_rate, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+    fn merge_field(
+        &mut self,
+        tag: ::buffa::encoding::Tag,
+        buf: &mut impl ::buffa::bytes::Buf,
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        #[allow(unused_imports)]
+        use ::buffa::bytes::Buf as _;
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                let mut elem = ::core::default::Default::default();
+                ::buffa::Message::merge_length_delimited(&mut elem, buf, depth)?;
+                self.froms.push(elem);
+            }
+            2u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 2u32,
+                        expected: 2u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                ::buffa::Message::merge_length_delimited(
+                    self.to.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
+            }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.final_rate = ::buffa::types::decode_int32(buf)?;
+            }
+            _ => {
+                self.__buffa_unknown_fields
+                    .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+    fn clear(&mut self) {
+        self.froms.clear();
+        self.to = ::buffa::MessageField::none();
+        self.final_rate = 0i32;
+        self.__buffa_unknown_fields.clear();
+    }
+}
+impl ::buffa::ExtensionSet for ElementalMaskMerge {
+    const PROTO_FQN: &'static str = "slotpb.v1.ElementalMaskMerge";
+    fn unknown_fields(&self) -> &::buffa::UnknownFields {
+        &self.__buffa_unknown_fields
+    }
+    fn unknown_fields_mut(&mut self) -> &mut ::buffa::UnknownFields {
+        &mut self.__buffa_unknown_fields
+    }
+}
+impl ::buffa::json_helpers::ProtoElemJson for ElementalMaskMerge {
+    fn serialize_proto_json<S: ::serde::Serializer>(
+        v: &Self,
+        s: S,
+    ) -> ::core::result::Result<S::Ok, S::Error> {
+        ::serde::Serialize::serialize(v, s)
+    }
+    fn deserialize_proto_json<'de, D: ::serde::Deserializer<'de>>(
+        d: D,
+    ) -> ::core::result::Result<Self, D::Error> {
+        <Self as ::serde::Deserialize>::deserialize(d)
+    }
+}
+#[doc(hidden)]
+pub const __ELEMENTAL_MASK_MERGE_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type_registry::JsonAnyEntry {
+    type_url: "type.googleapis.com/slotpb.v1.ElementalMaskMerge",
+    to_json: ::buffa::type_registry::any_to_json::<ElementalMaskMerge>,
+    from_json: ::buffa::type_registry::any_from_json::<ElementalMaskMerge>,
+    is_wkt: false,
+};

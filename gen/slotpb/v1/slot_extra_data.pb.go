@@ -654,6 +654,362 @@ func (x *PrincessSunLight) GetTable() *Table {
 	return nil
 }
 
+type WestChili struct {
+	state                 protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt           int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Table                 *Table                 `protobuf:"bytes,2,opt,name=table,proto3" json:"table,omitempty"`
+	Cum                   *WestChiliCum          `protobuf:"bytes,3,opt,name=cum,proto3,oneof" json:"cum,omitempty"`
+	Table2                *Table                 `protobuf:"bytes,4,opt,name=table2,proto3,oneof" json:"table2,omitempty"` // if trigger falling tree
+	WhichEaToSfg          *Pos                   `protobuf:"bytes,5,opt,name=which_ea_to_sfg,json=whichEaToSfg,proto3,oneof" json:"which_ea_to_sfg,omitempty"`
+	FallingTreeEventScore *int64                 `protobuf:"varint,6,opt,name=falling_tree_event_score,json=fallingTreeEventScore,proto3,oneof" json:"falling_tree_event_score,omitempty"`
+	NowScatterCount       *int64                 `protobuf:"varint,7,opt,name=now_scatter_count,json=nowScatterCount,proto3,oneof" json:"now_scatter_count,omitempty"`
+	unknownFields         protoimpl.UnknownFields
+	sizeCache             protoimpl.SizeCache
+}
+
+func (x *WestChili) Reset() {
+	*x = WestChili{}
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WestChili) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WestChili) ProtoMessage() {}
+
+func (x *WestChili) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WestChili.ProtoReflect.Descriptor instead.
+func (*WestChili) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_extra_data_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *WestChili) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *WestChili) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *WestChili) GetCum() *WestChiliCum {
+	if x != nil {
+		return x.Cum
+	}
+	return nil
+}
+
+func (x *WestChili) GetTable2() *Table {
+	if x != nil {
+		return x.Table2
+	}
+	return nil
+}
+
+func (x *WestChili) GetWhichEaToSfg() *Pos {
+	if x != nil {
+		return x.WhichEaToSfg
+	}
+	return nil
+}
+
+func (x *WestChili) GetFallingTreeEventScore() int64 {
+	if x != nil && x.FallingTreeEventScore != nil {
+		return *x.FallingTreeEventScore
+	}
+	return 0
+}
+
+func (x *WestChili) GetNowScatterCount() int64 {
+	if x != nil && x.NowScatterCount != nil {
+		return *x.NowScatterCount
+	}
+	return 0
+}
+
+type WestChiliCum struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Sa            int32                  `protobuf:"varint,1,opt,name=sa,proto3" json:"sa,omitempty"`
+	Sb            int32                  `protobuf:"varint,2,opt,name=sb,proto3" json:"sb,omitempty"`
+	Sc            int32                  `protobuf:"varint,3,opt,name=sc,proto3" json:"sc,omitempty"`
+	Sd            int32                  `protobuf:"varint,4,opt,name=sd,proto3" json:"sd,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *WestChiliCum) Reset() {
+	*x = WestChiliCum{}
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *WestChiliCum) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*WestChiliCum) ProtoMessage() {}
+
+func (x *WestChiliCum) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use WestChiliCum.ProtoReflect.Descriptor instead.
+func (*WestChiliCum) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_extra_data_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *WestChiliCum) GetSa() int32 {
+	if x != nil {
+		return x.Sa
+	}
+	return 0
+}
+
+func (x *WestChiliCum) GetSb() int32 {
+	if x != nil {
+		return x.Sb
+	}
+	return 0
+}
+
+func (x *WestChiliCum) GetSc() int32 {
+	if x != nil {
+		return x.Sc
+	}
+	return 0
+}
+
+func (x *WestChiliCum) GetSd() int32 {
+	if x != nil {
+		return x.Sd
+	}
+	return 0
+}
+
+type ElementalMask struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt   int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Table         *Table                 `protobuf:"bytes,2,opt,name=table,proto3" json:"table,omitempty"`
+	Moves         []*ElementalMaskMove   `protobuf:"bytes,3,rep,name=moves,proto3" json:"moves,omitempty"`
+	Merges        []*ElementalMaskMerge  `protobuf:"bytes,4,rep,name=merges,proto3" json:"merges,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ElementalMask) Reset() {
+	*x = ElementalMask{}
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ElementalMask) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ElementalMask) ProtoMessage() {}
+
+func (x *ElementalMask) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ElementalMask.ProtoReflect.Descriptor instead.
+func (*ElementalMask) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_extra_data_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *ElementalMask) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *ElementalMask) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *ElementalMask) GetMoves() []*ElementalMaskMove {
+	if x != nil {
+		return x.Moves
+	}
+	return nil
+}
+
+func (x *ElementalMask) GetMerges() []*ElementalMaskMerge {
+	if x != nil {
+		return x.Merges
+	}
+	return nil
+}
+
+type ElementalMaskMove struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	FromX         int32                  `protobuf:"varint,1,opt,name=from_x,json=fromX,proto3" json:"from_x,omitempty"`
+	FromY         int32                  `protobuf:"varint,2,opt,name=from_y,json=fromY,proto3" json:"from_y,omitempty"`
+	ToX           int32                  `protobuf:"varint,3,opt,name=to_x,json=toX,proto3" json:"to_x,omitempty"`
+	ToY           int32                  `protobuf:"varint,4,opt,name=to_y,json=toY,proto3" json:"to_y,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ElementalMaskMove) Reset() {
+	*x = ElementalMaskMove{}
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ElementalMaskMove) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ElementalMaskMove) ProtoMessage() {}
+
+func (x *ElementalMaskMove) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ElementalMaskMove.ProtoReflect.Descriptor instead.
+func (*ElementalMaskMove) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_extra_data_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ElementalMaskMove) GetFromX() int32 {
+	if x != nil {
+		return x.FromX
+	}
+	return 0
+}
+
+func (x *ElementalMaskMove) GetFromY() int32 {
+	if x != nil {
+		return x.FromY
+	}
+	return 0
+}
+
+func (x *ElementalMaskMove) GetToX() int32 {
+	if x != nil {
+		return x.ToX
+	}
+	return 0
+}
+
+func (x *ElementalMaskMove) GetToY() int32 {
+	if x != nil {
+		return x.ToY
+	}
+	return 0
+}
+
+type ElementalMaskMerge struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Froms         []*Pos                 `protobuf:"bytes,1,rep,name=froms,proto3" json:"froms,omitempty"`
+	To            *Pos                   `protobuf:"bytes,2,opt,name=to,proto3" json:"to,omitempty"`
+	FinalRate     int32                  `protobuf:"varint,3,opt,name=final_rate,json=finalRate,proto3" json:"final_rate,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ElementalMaskMerge) Reset() {
+	*x = ElementalMaskMerge{}
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[14]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ElementalMaskMerge) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ElementalMaskMerge) ProtoMessage() {}
+
+func (x *ElementalMaskMerge) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[14]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ElementalMaskMerge.ProtoReflect.Descriptor instead.
+func (*ElementalMaskMerge) Descriptor() ([]byte, []int) {
+	return file_slotpb_v1_slot_extra_data_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *ElementalMaskMerge) GetFroms() []*Pos {
+	if x != nil {
+		return x.Froms
+	}
+	return nil
+}
+
+func (x *ElementalMaskMerge) GetTo() *Pos {
+	if x != nil {
+		return x.To
+	}
+	return nil
+}
+
+func (x *ElementalMaskMerge) GetFinalRate() int32 {
+	if x != nil {
+		return x.FinalRate
+	}
+	return 0
+}
+
 type FrozenQueen_EventEa struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PosVal        []*PosVal              `protobuf:"bytes,1,rep,name=pos_val,json=posVal,proto3" json:"pos_val,omitempty"`
@@ -663,7 +1019,7 @@ type FrozenQueen_EventEa struct {
 
 func (x *FrozenQueen_EventEa) Reset() {
 	*x = FrozenQueen_EventEa{}
-	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[10]
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -675,7 +1031,7 @@ func (x *FrozenQueen_EventEa) String() string {
 func (*FrozenQueen_EventEa) ProtoMessage() {}
 
 func (x *FrozenQueen_EventEa) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[10]
+	mi := &file_slotpb_v1_slot_extra_data_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -762,7 +1118,40 @@ const file_slotpb_v1_slot_extra_data_proto_rawDesc = "" +
 	"\x01y\x18\x02 \x01(\x05R\x01y\x12\x10\n" +
 	"\x03dir\x18\x03 \x01(\x05R\x03dir\x12\x14\n" +
 	"\x05score\x18\x04 \x01(\x03R\x05score\x12&\n" +
-	"\x05table\x18\x05 \x01(\v2\x10.slotpb.v1.TableR\x05tableB\x9f\x01\n" +
+	"\x05table\x18\x05 \x01(\v2\x10.slotpb.v1.TableR\x05table\"\xbb\x03\n" +
+	"\tWestChili\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12&\n" +
+	"\x05table\x18\x02 \x01(\v2\x10.slotpb.v1.TableR\x05table\x12.\n" +
+	"\x03cum\x18\x03 \x01(\v2\x17.slotpb.v1.WestChiliCumH\x00R\x03cum\x88\x01\x01\x12-\n" +
+	"\x06table2\x18\x04 \x01(\v2\x10.slotpb.v1.TableH\x01R\x06table2\x88\x01\x01\x12:\n" +
+	"\x0fwhich_ea_to_sfg\x18\x05 \x01(\v2\x0e.slotpb.v1.PosH\x02R\fwhichEaToSfg\x88\x01\x01\x12<\n" +
+	"\x18falling_tree_event_score\x18\x06 \x01(\x03H\x03R\x15fallingTreeEventScore\x88\x01\x01\x12/\n" +
+	"\x11now_scatter_count\x18\a \x01(\x03H\x04R\x0fnowScatterCount\x88\x01\x01B\x06\n" +
+	"\x04_cumB\t\n" +
+	"\a_table2B\x12\n" +
+	"\x10_which_ea_to_sfgB\x1b\n" +
+	"\x19_falling_tree_event_scoreB\x14\n" +
+	"\x12_now_scatter_count\"N\n" +
+	"\fWestChiliCum\x12\x0e\n" +
+	"\x02sa\x18\x01 \x01(\x05R\x02sa\x12\x0e\n" +
+	"\x02sb\x18\x02 \x01(\x05R\x02sb\x12\x0e\n" +
+	"\x02sc\x18\x03 \x01(\x05R\x02sc\x12\x0e\n" +
+	"\x02sd\x18\x04 \x01(\x05R\x02sd\"\xc6\x01\n" +
+	"\rElementalMask\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12&\n" +
+	"\x05table\x18\x02 \x01(\v2\x10.slotpb.v1.TableR\x05table\x122\n" +
+	"\x05moves\x18\x03 \x03(\v2\x1c.slotpb.v1.ElementalMaskMoveR\x05moves\x125\n" +
+	"\x06merges\x18\x04 \x03(\v2\x1d.slotpb.v1.ElementalMaskMergeR\x06merges\"g\n" +
+	"\x11ElementalMaskMove\x12\x15\n" +
+	"\x06from_x\x18\x01 \x01(\x05R\x05fromX\x12\x15\n" +
+	"\x06from_y\x18\x02 \x01(\x05R\x05fromY\x12\x11\n" +
+	"\x04to_x\x18\x03 \x01(\x05R\x03toX\x12\x11\n" +
+	"\x04to_y\x18\x04 \x01(\x05R\x03toY\"y\n" +
+	"\x12ElementalMaskMerge\x12$\n" +
+	"\x05froms\x18\x01 \x03(\v2\x0e.slotpb.v1.PosR\x05froms\x12\x1e\n" +
+	"\x02to\x18\x02 \x01(\v2\x0e.slotpb.v1.PosR\x02to\x12\x1d\n" +
+	"\n" +
+	"final_rate\x18\x03 \x01(\x05R\tfinalRateB\x9f\x01\n" +
 	"\rcom.slotpb.v1B\x12SlotExtraDataProtoP\x01Z5github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1\xa2\x02\x03SXX\xaa\x02\tSlotpb.V1\xca\x02\tSlotpb\\V1\xe2\x02\x15Slotpb\\V1\\GPBMetadata\xea\x02\n" +
 	"Slotpb::V1b\x06proto3"
 
@@ -778,7 +1167,7 @@ func file_slotpb_v1_slot_extra_data_proto_rawDescGZIP() []byte {
 	return file_slotpb_v1_slot_extra_data_proto_rawDescData
 }
 
-var file_slotpb_v1_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
+var file_slotpb_v1_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_slotpb_v1_slot_extra_data_proto_goTypes = []any{
 	(*FrozenQueen)(nil),         // 0: slotpb.v1.FrozenQueen
 	(*PosVal)(nil),              // 1: slotpb.v1.PosVal
@@ -790,31 +1179,45 @@ var file_slotpb_v1_slot_extra_data_proto_goTypes = []any{
 	(*MammoEmitFIreball)(nil),   // 7: slotpb.v1.MammoEmitFIreball
 	(*PrincessSun)(nil),         // 8: slotpb.v1.PrincessSun
 	(*PrincessSunLight)(nil),    // 9: slotpb.v1.PrincessSunLight
-	(*FrozenQueen_EventEa)(nil), // 10: slotpb.v1.FrozenQueen.EventEa
-	(*Table)(nil),               // 11: slotpb.v1.Table
+	(*WestChili)(nil),           // 10: slotpb.v1.WestChili
+	(*WestChiliCum)(nil),        // 11: slotpb.v1.WestChiliCum
+	(*ElementalMask)(nil),       // 12: slotpb.v1.ElementalMask
+	(*ElementalMaskMove)(nil),   // 13: slotpb.v1.ElementalMaskMove
+	(*ElementalMaskMerge)(nil),  // 14: slotpb.v1.ElementalMaskMerge
+	(*FrozenQueen_EventEa)(nil), // 15: slotpb.v1.FrozenQueen.EventEa
+	(*Table)(nil),               // 16: slotpb.v1.Table
 }
 var file_slotpb_v1_slot_extra_data_proto_depIdxs = []int32{
-	11, // 0: slotpb.v1.FrozenQueen.table:type_name -> slotpb.v1.Table
-	10, // 1: slotpb.v1.FrozenQueen.event_ea:type_name -> slotpb.v1.FrozenQueen.EventEa
+	16, // 0: slotpb.v1.FrozenQueen.table:type_name -> slotpb.v1.Table
+	15, // 1: slotpb.v1.FrozenQueen.event_ea:type_name -> slotpb.v1.FrozenQueen.EventEa
 	2,  // 2: slotpb.v1.PosVal.pos:type_name -> slotpb.v1.Pos
-	11, // 3: slotpb.v1.Mammoth.table:type_name -> slotpb.v1.Table
+	16, // 3: slotpb.v1.Mammoth.table:type_name -> slotpb.v1.Table
 	4,  // 4: slotpb.v1.Mammoth.event1:type_name -> slotpb.v1.RollBonus
 	6,  // 5: slotpb.v1.Mammoth.event2:type_name -> slotpb.v1.MammonEvent2
 	4,  // 6: slotpb.v1.Mammoth.event3:type_name -> slotpb.v1.RollBonus
 	4,  // 7: slotpb.v1.Mammoth.event4:type_name -> slotpb.v1.RollBonus
 	7,  // 8: slotpb.v1.Mammoth.emit_fireball:type_name -> slotpb.v1.MammoEmitFIreball
 	5,  // 9: slotpb.v1.RollBonus.changed_bonuses:type_name -> slotpb.v1.BonusEntry
-	11, // 10: slotpb.v1.RollBonus.table:type_name -> slotpb.v1.Table
+	16, // 10: slotpb.v1.RollBonus.table:type_name -> slotpb.v1.Table
 	2,  // 11: slotpb.v1.BonusEntry.pos:type_name -> slotpb.v1.Pos
-	11, // 12: slotpb.v1.PrincessSun.table:type_name -> slotpb.v1.Table
+	16, // 12: slotpb.v1.PrincessSun.table:type_name -> slotpb.v1.Table
 	9,  // 13: slotpb.v1.PrincessSun.sun_light:type_name -> slotpb.v1.PrincessSunLight
-	11, // 14: slotpb.v1.PrincessSunLight.table:type_name -> slotpb.v1.Table
-	1,  // 15: slotpb.v1.FrozenQueen.EventEa.pos_val:type_name -> slotpb.v1.PosVal
-	16, // [16:16] is the sub-list for method output_type
-	16, // [16:16] is the sub-list for method input_type
-	16, // [16:16] is the sub-list for extension type_name
-	16, // [16:16] is the sub-list for extension extendee
-	0,  // [0:16] is the sub-list for field type_name
+	16, // 14: slotpb.v1.PrincessSunLight.table:type_name -> slotpb.v1.Table
+	16, // 15: slotpb.v1.WestChili.table:type_name -> slotpb.v1.Table
+	11, // 16: slotpb.v1.WestChili.cum:type_name -> slotpb.v1.WestChiliCum
+	16, // 17: slotpb.v1.WestChili.table2:type_name -> slotpb.v1.Table
+	2,  // 18: slotpb.v1.WestChili.which_ea_to_sfg:type_name -> slotpb.v1.Pos
+	16, // 19: slotpb.v1.ElementalMask.table:type_name -> slotpb.v1.Table
+	13, // 20: slotpb.v1.ElementalMask.moves:type_name -> slotpb.v1.ElementalMaskMove
+	14, // 21: slotpb.v1.ElementalMask.merges:type_name -> slotpb.v1.ElementalMaskMerge
+	2,  // 22: slotpb.v1.ElementalMaskMerge.froms:type_name -> slotpb.v1.Pos
+	2,  // 23: slotpb.v1.ElementalMaskMerge.to:type_name -> slotpb.v1.Pos
+	1,  // 24: slotpb.v1.FrozenQueen.EventEa.pos_val:type_name -> slotpb.v1.PosVal
+	25, // [25:25] is the sub-list for method output_type
+	25, // [25:25] is the sub-list for method input_type
+	25, // [25:25] is the sub-list for extension type_name
+	25, // [25:25] is the sub-list for extension extendee
+	0,  // [0:25] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_v1_slot_extra_data_proto_init() }
@@ -827,13 +1230,14 @@ func file_slotpb_v1_slot_extra_data_proto_init() {
 	file_slotpb_v1_slot_extra_data_proto_msgTypes[3].OneofWrappers = []any{}
 	file_slotpb_v1_slot_extra_data_proto_msgTypes[4].OneofWrappers = []any{}
 	file_slotpb_v1_slot_extra_data_proto_msgTypes[8].OneofWrappers = []any{}
+	file_slotpb_v1_slot_extra_data_proto_msgTypes[10].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_v1_slot_extra_data_proto_rawDesc), len(file_slotpb_v1_slot_extra_data_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   11,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

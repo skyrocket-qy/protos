@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot_extra_data.proto.
  */
 export const file_slotpb_v1_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAUi6AIKB01hbW1vdGgSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIfCgV0YWJsZRgCIAEoCzIQLnNsb3RwYi52MS5UYWJsZRIpCgZldmVudDEYAyABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSACIAQESLAoGZXZlbnQyGAQgASgLMhcuc2xvdHBiLnYxLk1hbW1vbkV2ZW50MkgBiAEBEikKBmV2ZW50MxgFIAEoCzIULnNsb3RwYi52MS5Sb2xsQm9udXNIAogBARIpCgZldmVudDQYBiABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSAOIAQESOAoNZW1pdF9maXJlYmFsbBgHIAEoCzIcLnNsb3RwYi52MS5NYW1tb0VtaXRGSXJlYmFsbEgEiAEBQgkKB19ldmVudDFCCQoHX2V2ZW50MkIJCgdfZXZlbnQzQgkKB19ldmVudDRCEAoOX2VtaXRfZmlyZWJhbGwiawoJUm9sbEJvbnVzEi4KD2NoYW5nZWRfYm9udXNlcxgBIAMoCzIVLnNsb3RwYi52MS5Cb251c0VudHJ5EiQKBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlSACIAQFCCAoGX3RhYmxlIjkKCkJvbnVzRW50cnkSGwoDcG9zGAEgASgLMg4uc2xvdHBiLnYxLlBvcxIOCgZzeW1ib2wYAiABKAkiLwoMTWFtbW9uRXZlbnQyEg8KB2lzX3dpbGQYASABKAgSDgoGc3ltYm9sGAIgASgJImMKEU1hbW1vRW1pdEZJcmViYWxsEhAKCGxlZnRfY250GAEgASgFEhMKC2xlZnRfYWN0aW9uGAIgASgFEhEKCXJpZ2h0X2NudBgDIAEoBRIUCgxyaWdodF9hY3Rpb24YBCABKAUiiAEKC1ByaW5jZXNzU3VuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSMwoJc3VuX2xpZ2h0GAMgASgLMhsuc2xvdHBiLnYxLlByaW5jZXNzU3VuTGlnaHRIAIgBAUIMCgpfc3VuX2xpZ2h0ImUKEFByaW5jZXNzU3VuTGlnaHQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA2RpchgDIAEoBRINCgVzY29yZRgEIAEoAxIfCgV0YWJsZRgFIAEoCzIQLnNsb3RwYi52MS5UYWJsZUKfAQoNY29tLnNsb3RwYi52MUISU2xvdEV4dHJhRGF0YVByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z", [file_slotpb_v1_slot]);
+  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAUi6AIKB01hbW1vdGgSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIfCgV0YWJsZRgCIAEoCzIQLnNsb3RwYi52MS5UYWJsZRIpCgZldmVudDEYAyABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSACIAQESLAoGZXZlbnQyGAQgASgLMhcuc2xvdHBiLnYxLk1hbW1vbkV2ZW50MkgBiAEBEikKBmV2ZW50MxgFIAEoCzIULnNsb3RwYi52MS5Sb2xsQm9udXNIAogBARIpCgZldmVudDQYBiABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSAOIAQESOAoNZW1pdF9maXJlYmFsbBgHIAEoCzIcLnNsb3RwYi52MS5NYW1tb0VtaXRGSXJlYmFsbEgEiAEBQgkKB19ldmVudDFCCQoHX2V2ZW50MkIJCgdfZXZlbnQzQgkKB19ldmVudDRCEAoOX2VtaXRfZmlyZWJhbGwiawoJUm9sbEJvbnVzEi4KD2NoYW5nZWRfYm9udXNlcxgBIAMoCzIVLnNsb3RwYi52MS5Cb251c0VudHJ5EiQKBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlSACIAQFCCAoGX3RhYmxlIjkKCkJvbnVzRW50cnkSGwoDcG9zGAEgASgLMg4uc2xvdHBiLnYxLlBvcxIOCgZzeW1ib2wYAiABKAkiLwoMTWFtbW9uRXZlbnQyEg8KB2lzX3dpbGQYASABKAgSDgoGc3ltYm9sGAIgASgJImMKEU1hbW1vRW1pdEZJcmViYWxsEhAKCGxlZnRfY250GAEgASgFEhMKC2xlZnRfYWN0aW9uGAIgASgFEhEKCXJpZ2h0X2NudBgDIAEoBRIUCgxyaWdodF9hY3Rpb24YBCABKAUiiAEKC1ByaW5jZXNzU3VuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSMwoJc3VuX2xpZ2h0GAMgASgLMhsuc2xvdHBiLnYxLlByaW5jZXNzU3VuTGlnaHRIAIgBAUIMCgpfc3VuX2xpZ2h0ImUKEFByaW5jZXNzU3VuTGlnaHQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA2RpchgDIAEoBRINCgVzY29yZRgEIAEoAxIfCgV0YWJsZRgFIAEoCzIQLnNsb3RwYi52MS5UYWJsZSLkAgoJV2VzdENoaWxpEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSKQoDY3VtGAMgASgLMhcuc2xvdHBiLnYxLldlc3RDaGlsaUN1bUgAiAEBEiUKBnRhYmxlMhgEIAEoCzIQLnNsb3RwYi52MS5UYWJsZUgBiAEBEiwKD3doaWNoX2VhX3RvX3NmZxgFIAEoCzIOLnNsb3RwYi52MS5Qb3NIAogBARIlChhmYWxsaW5nX3RyZWVfZXZlbnRfc2NvcmUYBiABKANIA4gBARIeChFub3dfc2NhdHRlcl9jb3VudBgHIAEoA0gEiAEBQgYKBF9jdW1CCQoHX3RhYmxlMkISChBfd2hpY2hfZWFfdG9fc2ZnQhsKGV9mYWxsaW5nX3RyZWVfZXZlbnRfc2NvcmVCFAoSX25vd19zY2F0dGVyX2NvdW50Ij4KDFdlc3RDaGlsaUN1bRIKCgJzYRgBIAEoBRIKCgJzYhgCIAEoBRIKCgJzYxgDIAEoBRIKCgJzZBgEIAEoBSKjAQoNRWxlbWVudGFsTWFzaxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEh8KBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlEisKBW1vdmVzGAMgAygLMhwuc2xvdHBiLnYxLkVsZW1lbnRhbE1hc2tNb3ZlEi0KBm1lcmdlcxgEIAMoCzIdLnNsb3RwYi52MS5FbGVtZW50YWxNYXNrTWVyZ2UiTwoRRWxlbWVudGFsTWFza01vdmUSDgoGZnJvbV94GAEgASgFEg4KBmZyb21feRgCIAEoBRIMCgR0b194GAMgASgFEgwKBHRvX3kYBCABKAUiYwoSRWxlbWVudGFsTWFza01lcmdlEh0KBWZyb21zGAEgAygLMg4uc2xvdHBiLnYxLlBvcxIaCgJ0bxgCIAEoCzIOLnNsb3RwYi52MS5Qb3MSEgoKZmluYWxfcmF0ZRgDIAEoBUKfAQoNY29tLnNsb3RwYi52MUISU2xvdEV4dHJhRGF0YVByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z", [file_slotpb_v1_slot]);
 
 /**
  * @generated from message slotpb.v1.FrozenQueen
@@ -342,4 +342,176 @@ export type PrincessSunLight = Message<"slotpb.v1.PrincessSunLight"> & {
  */
 export const PrincessSunLightSchema: GenMessage<PrincessSunLight> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot_extra_data, 9);
+
+/**
+ * @generated from message slotpb.v1.WestChili
+ */
+export type WestChili = Message<"slotpb.v1.WestChili"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.v1.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: optional slotpb.v1.WestChiliCum cum = 3;
+   */
+  cum?: WestChiliCum;
+
+  /**
+   * if trigger falling tree
+   *
+   * @generated from field: optional slotpb.v1.Table table2 = 4;
+   */
+  table2?: Table;
+
+  /**
+   * @generated from field: optional slotpb.v1.Pos which_ea_to_sfg = 5;
+   */
+  whichEaToSfg?: Pos;
+
+  /**
+   * @generated from field: optional int64 falling_tree_event_score = 6;
+   */
+  fallingTreeEventScore?: bigint;
+
+  /**
+   * @generated from field: optional int64 now_scatter_count = 7;
+   */
+  nowScatterCount?: bigint;
+};
+
+/**
+ * Describes the message slotpb.v1.WestChili.
+ * Use `create(WestChiliSchema)` to create a new message.
+ */
+export const WestChiliSchema: GenMessage<WestChili> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 10);
+
+/**
+ * @generated from message slotpb.v1.WestChiliCum
+ */
+export type WestChiliCum = Message<"slotpb.v1.WestChiliCum"> & {
+  /**
+   * @generated from field: int32 sa = 1;
+   */
+  sa: number;
+
+  /**
+   * @generated from field: int32 sb = 2;
+   */
+  sb: number;
+
+  /**
+   * @generated from field: int32 sc = 3;
+   */
+  sc: number;
+
+  /**
+   * @generated from field: int32 sd = 4;
+   */
+  sd: number;
+};
+
+/**
+ * Describes the message slotpb.v1.WestChiliCum.
+ * Use `create(WestChiliCumSchema)` to create a new message.
+ */
+export const WestChiliCumSchema: GenMessage<WestChiliCum> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 11);
+
+/**
+ * @generated from message slotpb.v1.ElementalMask
+ */
+export type ElementalMask = Message<"slotpb.v1.ElementalMask"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.v1.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: repeated slotpb.v1.ElementalMaskMove moves = 3;
+   */
+  moves: ElementalMaskMove[];
+
+  /**
+   * @generated from field: repeated slotpb.v1.ElementalMaskMerge merges = 4;
+   */
+  merges: ElementalMaskMerge[];
+};
+
+/**
+ * Describes the message slotpb.v1.ElementalMask.
+ * Use `create(ElementalMaskSchema)` to create a new message.
+ */
+export const ElementalMaskSchema: GenMessage<ElementalMask> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 12);
+
+/**
+ * @generated from message slotpb.v1.ElementalMaskMove
+ */
+export type ElementalMaskMove = Message<"slotpb.v1.ElementalMaskMove"> & {
+  /**
+   * @generated from field: int32 from_x = 1;
+   */
+  fromX: number;
+
+  /**
+   * @generated from field: int32 from_y = 2;
+   */
+  fromY: number;
+
+  /**
+   * @generated from field: int32 to_x = 3;
+   */
+  toX: number;
+
+  /**
+   * @generated from field: int32 to_y = 4;
+   */
+  toY: number;
+};
+
+/**
+ * Describes the message slotpb.v1.ElementalMaskMove.
+ * Use `create(ElementalMaskMoveSchema)` to create a new message.
+ */
+export const ElementalMaskMoveSchema: GenMessage<ElementalMaskMove> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 13);
+
+/**
+ * @generated from message slotpb.v1.ElementalMaskMerge
+ */
+export type ElementalMaskMerge = Message<"slotpb.v1.ElementalMaskMerge"> & {
+  /**
+   * @generated from field: repeated slotpb.v1.Pos froms = 1;
+   */
+  froms: Pos[];
+
+  /**
+   * @generated from field: slotpb.v1.Pos to = 2;
+   */
+  to?: Pos;
+
+  /**
+   * @generated from field: int32 final_rate = 3;
+   */
+  finalRate: number;
+};
+
+/**
+ * Describes the message slotpb.v1.ElementalMaskMerge.
+ * Use `create(ElementalMaskMergeSchema)` to create a new message.
+ */
+export const ElementalMaskMergeSchema: GenMessage<ElementalMaskMerge> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 14);
 
