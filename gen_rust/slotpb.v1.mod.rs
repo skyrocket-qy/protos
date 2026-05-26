@@ -43,6 +43,11 @@ pub mod __buffa {
         reg.register_json_any(super::frozen_queen::__EVENT_EA_JSON_ANY);
         reg.register_json_any(super::__POS_VAL_JSON_ANY);
         reg.register_json_any(super::__POS_JSON_ANY);
+        reg.register_json_any(super::__MAMMOTH_JSON_ANY);
+        reg.register_json_any(super::__ROLL_BONUS_JSON_ANY);
+        reg.register_json_any(super::__BONUS_ENTRY_JSON_ANY);
+        reg.register_json_any(super::__MAMMON_EVENT2_JSON_ANY);
+        reg.register_json_any(super::__MAMMO_EMIT_F_IREBALL_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -81,5 +86,15 @@ pub use self::__buffa::view::FrozenQueenView;
 pub use self::__buffa::view::PosValView;
 #[doc(inline)]
 pub use self::__buffa::view::PosView;
+#[doc(inline)]
+pub use self::__buffa::view::MammothView;
+#[doc(inline)]
+pub use self::__buffa::view::RollBonusView;
+#[doc(inline)]
+pub use self::__buffa::view::BonusEntryView;
+#[doc(inline)]
+pub use self::__buffa::view::MammonEvent2View;
+#[doc(inline)]
+pub use self::__buffa::view::MammoEmitFIreballView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

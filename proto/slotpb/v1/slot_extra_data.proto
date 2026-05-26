@@ -25,3 +25,38 @@ message Pos {
   int32 x = 1;
   int32 y = 2;
 }
+
+message Mammoth {
+  int32 left_game_cnt = 1;
+  Table table = 2;                  // spin + 隨機彩金事件
+  optional RollBonus event1 = 3;    // 隨機彩金事件
+  optional MammonEvent2 event2 = 4; // WILD重轉事件
+  optional RollBonus event3 = 5;    // 獎金重轉事件
+  optional RollBonus event4 = 6;    // 彩金重轉事件
+  optional MammoEmitFIreball emit_fireball = 7;
+}
+
+message RollBonus {
+  repeated BonusEntry changed_bonuses = 1;
+  optional Table table =
+      2; // table after apply current event, use for debugging
+}
+
+message BonusEntry {
+  Pos pos = 1;
+  string symbol = 2;
+}
+
+message MammonEvent2 {
+  bool is_wild =
+      1; // if is_wild = false, means trigger the event2 but not roll to wild
+  string symbol = 2;
+}
+
+// for x_action, if elephant stage is 3(cannot upgrade), do nothing
+message MammoEmitFIreball {
+  int32 left_cnt = 1;
+  int32 left_action = 2; // 1: upgrade, 2: fg+6
+  int32 right_cnt = 3;
+  int32 right_action = 4; // 1: upgrade, 2: fg+6
+}

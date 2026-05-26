@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot_extra_data.proto.
  */
 export const file_slotpb_v1_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAVCnwEKDWNvbS5zbG90cGIudjFCElNsb3RFeHRyYURhdGFQcm90b1ABWjVnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYi92MTtzbG90cGJ2MaICA1NYWKoCCVNsb3RwYi5WMcoCCVNsb3RwYlxWMeICFVNsb3RwYlxWMVxHUEJNZXRhZGF0YeoCClNsb3RwYjo6VjFiBnByb3RvMw", [file_slotpb_v1_slot]);
+  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAUi6AIKB01hbW1vdGgSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIfCgV0YWJsZRgCIAEoCzIQLnNsb3RwYi52MS5UYWJsZRIpCgZldmVudDEYAyABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSACIAQESLAoGZXZlbnQyGAQgASgLMhcuc2xvdHBiLnYxLk1hbW1vbkV2ZW50MkgBiAEBEikKBmV2ZW50MxgFIAEoCzIULnNsb3RwYi52MS5Sb2xsQm9udXNIAogBARIpCgZldmVudDQYBiABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSAOIAQESOAoNZW1pdF9maXJlYmFsbBgHIAEoCzIcLnNsb3RwYi52MS5NYW1tb0VtaXRGSXJlYmFsbEgEiAEBQgkKB19ldmVudDFCCQoHX2V2ZW50MkIJCgdfZXZlbnQzQgkKB19ldmVudDRCEAoOX2VtaXRfZmlyZWJhbGwiawoJUm9sbEJvbnVzEi4KD2NoYW5nZWRfYm9udXNlcxgBIAMoCzIVLnNsb3RwYi52MS5Cb251c0VudHJ5EiQKBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlSACIAQFCCAoGX3RhYmxlIjkKCkJvbnVzRW50cnkSGwoDcG9zGAEgASgLMg4uc2xvdHBiLnYxLlBvcxIOCgZzeW1ib2wYAiABKAkiLwoMTWFtbW9uRXZlbnQyEg8KB2lzX3dpbGQYASABKAgSDgoGc3ltYm9sGAIgASgJImMKEU1hbW1vRW1pdEZJcmViYWxsEhAKCGxlZnRfY250GAEgASgFEhMKC2xlZnRfYWN0aW9uGAIgASgFEhEKCXJpZ2h0X2NudBgDIAEoBRIUCgxyaWdodF9hY3Rpb24YBCABKAVCnwEKDWNvbS5zbG90cGIudjFCElNsb3RFeHRyYURhdGFQcm90b1ABWjVnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYi92MTtzbG90cGJ2MaICA1NYWKoCCVNsb3RwYi5WMcoCCVNsb3RwYlxWMeICFVNsb3RwYlxWMVxHUEJNZXRhZGF0YeoCClNsb3RwYjo6VjFiBnByb3RvMw", [file_slotpb_v1_slot]);
 
 /**
  * @generated from message slotpb.v1.FrozenQueen
@@ -111,4 +111,169 @@ export type Pos = Message<"slotpb.v1.Pos"> & {
  */
 export const PosSchema: GenMessage<Pos> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot_extra_data, 2);
+
+/**
+ * @generated from message slotpb.v1.Mammoth
+ */
+export type Mammoth = Message<"slotpb.v1.Mammoth"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * spin + 隨機彩金事件
+   *
+   * @generated from field: slotpb.v1.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * 隨機彩金事件
+   *
+   * @generated from field: optional slotpb.v1.RollBonus event1 = 3;
+   */
+  event1?: RollBonus;
+
+  /**
+   * WILD重轉事件
+   *
+   * @generated from field: optional slotpb.v1.MammonEvent2 event2 = 4;
+   */
+  event2?: MammonEvent2;
+
+  /**
+   * 獎金重轉事件
+   *
+   * @generated from field: optional slotpb.v1.RollBonus event3 = 5;
+   */
+  event3?: RollBonus;
+
+  /**
+   * 彩金重轉事件
+   *
+   * @generated from field: optional slotpb.v1.RollBonus event4 = 6;
+   */
+  event4?: RollBonus;
+
+  /**
+   * @generated from field: optional slotpb.v1.MammoEmitFIreball emit_fireball = 7;
+   */
+  emitFireball?: MammoEmitFIreball;
+};
+
+/**
+ * Describes the message slotpb.v1.Mammoth.
+ * Use `create(MammothSchema)` to create a new message.
+ */
+export const MammothSchema: GenMessage<Mammoth> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 3);
+
+/**
+ * @generated from message slotpb.v1.RollBonus
+ */
+export type RollBonus = Message<"slotpb.v1.RollBonus"> & {
+  /**
+   * @generated from field: repeated slotpb.v1.BonusEntry changed_bonuses = 1;
+   */
+  changedBonuses: BonusEntry[];
+
+  /**
+   * table after apply current event, use for debugging
+   *
+   * @generated from field: optional slotpb.v1.Table table = 2;
+   */
+  table?: Table;
+};
+
+/**
+ * Describes the message slotpb.v1.RollBonus.
+ * Use `create(RollBonusSchema)` to create a new message.
+ */
+export const RollBonusSchema: GenMessage<RollBonus> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 4);
+
+/**
+ * @generated from message slotpb.v1.BonusEntry
+ */
+export type BonusEntry = Message<"slotpb.v1.BonusEntry"> & {
+  /**
+   * @generated from field: slotpb.v1.Pos pos = 1;
+   */
+  pos?: Pos;
+
+  /**
+   * @generated from field: string symbol = 2;
+   */
+  symbol: string;
+};
+
+/**
+ * Describes the message slotpb.v1.BonusEntry.
+ * Use `create(BonusEntrySchema)` to create a new message.
+ */
+export const BonusEntrySchema: GenMessage<BonusEntry> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 5);
+
+/**
+ * @generated from message slotpb.v1.MammonEvent2
+ */
+export type MammonEvent2 = Message<"slotpb.v1.MammonEvent2"> & {
+  /**
+   * if is_wild = false, means trigger the event2 but not roll to wild
+   *
+   * @generated from field: bool is_wild = 1;
+   */
+  isWild: boolean;
+
+  /**
+   * @generated from field: string symbol = 2;
+   */
+  symbol: string;
+};
+
+/**
+ * Describes the message slotpb.v1.MammonEvent2.
+ * Use `create(MammonEvent2Schema)` to create a new message.
+ */
+export const MammonEvent2Schema: GenMessage<MammonEvent2> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 6);
+
+/**
+ * for x_action, if elephant stage is 3(cannot upgrade), do nothing
+ *
+ * @generated from message slotpb.v1.MammoEmitFIreball
+ */
+export type MammoEmitFIreball = Message<"slotpb.v1.MammoEmitFIreball"> & {
+  /**
+   * @generated from field: int32 left_cnt = 1;
+   */
+  leftCnt: number;
+
+  /**
+   * 1: upgrade, 2: fg+6
+   *
+   * @generated from field: int32 left_action = 2;
+   */
+  leftAction: number;
+
+  /**
+   * @generated from field: int32 right_cnt = 3;
+   */
+  rightCnt: number;
+
+  /**
+   * 1: upgrade, 2: fg+6
+   *
+   * @generated from field: int32 right_action = 4;
+   */
+  rightAction: number;
+};
+
+/**
+ * Describes the message slotpb.v1.MammoEmitFIreball.
+ * Use `create(MammoEmitFIreballSchema)` to create a new message.
+ */
+export const MammoEmitFIreballSchema: GenMessage<MammoEmitFIreball> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 7);
 
