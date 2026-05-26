@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package slotpb.v1;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/slotpb/v1;slotpbv1";
+
+import "slotpb/v1/slot.proto";
+
+message FrozenQueen {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  optional EventEa event_ea = 3;
+  optional int32 left_hold_and_spin_cnt = 4;
+  optional bool is_big_win = 5;
+
+  message EventEa { repeated PosVal pos_val = 1; }
+}
+
+message PosVal {
+  Pos pos = 1;
+  string symbol = 2;
+}
+
+message Pos {
+  int32 x = 1;
+  int32 y = 2;
+}
