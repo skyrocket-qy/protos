@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/v1/slot_extra_data.proto.
  */
 export const file_slotpb_v1_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAUi6AIKB01hbW1vdGgSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIfCgV0YWJsZRgCIAEoCzIQLnNsb3RwYi52MS5UYWJsZRIpCgZldmVudDEYAyABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSACIAQESLAoGZXZlbnQyGAQgASgLMhcuc2xvdHBiLnYxLk1hbW1vbkV2ZW50MkgBiAEBEikKBmV2ZW50MxgFIAEoCzIULnNsb3RwYi52MS5Sb2xsQm9udXNIAogBARIpCgZldmVudDQYBiABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSAOIAQESOAoNZW1pdF9maXJlYmFsbBgHIAEoCzIcLnNsb3RwYi52MS5NYW1tb0VtaXRGSXJlYmFsbEgEiAEBQgkKB19ldmVudDFCCQoHX2V2ZW50MkIJCgdfZXZlbnQzQgkKB19ldmVudDRCEAoOX2VtaXRfZmlyZWJhbGwiawoJUm9sbEJvbnVzEi4KD2NoYW5nZWRfYm9udXNlcxgBIAMoCzIVLnNsb3RwYi52MS5Cb251c0VudHJ5EiQKBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlSACIAQFCCAoGX3RhYmxlIjkKCkJvbnVzRW50cnkSGwoDcG9zGAEgASgLMg4uc2xvdHBiLnYxLlBvcxIOCgZzeW1ib2wYAiABKAkiLwoMTWFtbW9uRXZlbnQyEg8KB2lzX3dpbGQYASABKAgSDgoGc3ltYm9sGAIgASgJImMKEU1hbW1vRW1pdEZJcmViYWxsEhAKCGxlZnRfY250GAEgASgFEhMKC2xlZnRfYWN0aW9uGAIgASgFEhEKCXJpZ2h0X2NudBgDIAEoBRIUCgxyaWdodF9hY3Rpb24YBCABKAVCnwEKDWNvbS5zbG90cGIudjFCElNsb3RFeHRyYURhdGFQcm90b1ABWjVnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYi92MTtzbG90cGJ2MaICA1NYWKoCCVNsb3RwYi5WMcoCCVNsb3RwYlxWMeICFVNsb3RwYlxWMVxHUEJNZXRhZGF0YeoCClNsb3RwYjo6VjFiBnByb3RvMw", [file_slotpb_v1_slot]);
+  fileDesc("Ch9zbG90cGIvdjEvc2xvdF9leHRyYV9kYXRhLnByb3RvEglzbG90cGIudjEioAIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSNQoIZXZlbnRfZWEYAyABKAsyHi5zbG90cGIudjEuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaLQoHRXZlbnRFYRIiCgdwb3NfdmFsGAEgAygLMhEuc2xvdHBiLnYxLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iNQoGUG9zVmFsEhsKA3BvcxgBIAEoCzIOLnNsb3RwYi52MS5Qb3MSDgoGc3ltYm9sGAIgASgJIhsKA1BvcxIJCgF4GAEgASgFEgkKAXkYAiABKAUi6AIKB01hbW1vdGgSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIfCgV0YWJsZRgCIAEoCzIQLnNsb3RwYi52MS5UYWJsZRIpCgZldmVudDEYAyABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSACIAQESLAoGZXZlbnQyGAQgASgLMhcuc2xvdHBiLnYxLk1hbW1vbkV2ZW50MkgBiAEBEikKBmV2ZW50MxgFIAEoCzIULnNsb3RwYi52MS5Sb2xsQm9udXNIAogBARIpCgZldmVudDQYBiABKAsyFC5zbG90cGIudjEuUm9sbEJvbnVzSAOIAQESOAoNZW1pdF9maXJlYmFsbBgHIAEoCzIcLnNsb3RwYi52MS5NYW1tb0VtaXRGSXJlYmFsbEgEiAEBQgkKB19ldmVudDFCCQoHX2V2ZW50MkIJCgdfZXZlbnQzQgkKB19ldmVudDRCEAoOX2VtaXRfZmlyZWJhbGwiawoJUm9sbEJvbnVzEi4KD2NoYW5nZWRfYm9udXNlcxgBIAMoCzIVLnNsb3RwYi52MS5Cb251c0VudHJ5EiQKBXRhYmxlGAIgASgLMhAuc2xvdHBiLnYxLlRhYmxlSACIAQFCCAoGX3RhYmxlIjkKCkJvbnVzRW50cnkSGwoDcG9zGAEgASgLMg4uc2xvdHBiLnYxLlBvcxIOCgZzeW1ib2wYAiABKAkiLwoMTWFtbW9uRXZlbnQyEg8KB2lzX3dpbGQYASABKAgSDgoGc3ltYm9sGAIgASgJImMKEU1hbW1vRW1pdEZJcmViYWxsEhAKCGxlZnRfY250GAEgASgFEhMKC2xlZnRfYWN0aW9uGAIgASgFEhEKCXJpZ2h0X2NudBgDIAEoBRIUCgxyaWdodF9hY3Rpb24YBCABKAUiiAEKC1ByaW5jZXNzU3VuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHwoFdGFibGUYAiABKAsyEC5zbG90cGIudjEuVGFibGUSMwoJc3VuX2xpZ2h0GAMgASgLMhsuc2xvdHBiLnYxLlByaW5jZXNzU3VuTGlnaHRIAIgBAUIMCgpfc3VuX2xpZ2h0ImUKEFByaW5jZXNzU3VuTGlnaHQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA2RpchgDIAEoBRINCgVzY29yZRgEIAEoAxIfCgV0YWJsZRgFIAEoCzIQLnNsb3RwYi52MS5UYWJsZUKfAQoNY29tLnNsb3RwYi52MUISU2xvdEV4dHJhRGF0YVByb3RvUAFaNWdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiL3YxO3Nsb3RwYnYxogIDU1hYqgIJU2xvdHBiLlYxygIJU2xvdHBiXFYx4gIVU2xvdHBiXFYxXEdQQk1ldGFkYXRh6gIKU2xvdHBiOjpWMWIGcHJvdG8z", [file_slotpb_v1_slot]);
 
 /**
  * @generated from message slotpb.v1.FrozenQueen
@@ -276,4 +276,70 @@ export type MammoEmitFIreball = Message<"slotpb.v1.MammoEmitFIreball"> & {
  */
 export const MammoEmitFIreballSchema: GenMessage<MammoEmitFIreball> = /*@__PURE__*/
   messageDesc(file_slotpb_v1_slot_extra_data, 7);
+
+/**
+ * @generated from message slotpb.v1.PrincessSun
+ */
+export type PrincessSun = Message<"slotpb.v1.PrincessSun"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.v1.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: optional slotpb.v1.PrincessSunLight sun_light = 3;
+   */
+  sunLight?: PrincessSunLight;
+};
+
+/**
+ * Describes the message slotpb.v1.PrincessSun.
+ * Use `create(PrincessSunSchema)` to create a new message.
+ */
+export const PrincessSunSchema: GenMessage<PrincessSun> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 8);
+
+/**
+ * @generated from message slotpb.v1.PrincessSunLight
+ */
+export type PrincessSunLight = Message<"slotpb.v1.PrincessSunLight"> & {
+  /**
+   * @generated from field: int32 x = 1;
+   */
+  x: number;
+
+  /**
+   * @generated from field: int32 y = 2;
+   */
+  y: number;
+
+  /**
+   * 1: top-down, 2: left-right, 3: all
+   *
+   * @generated from field: int32 dir = 3;
+   */
+  dir: number;
+
+  /**
+   * @generated from field: int64 score = 4;
+   */
+  score: bigint;
+
+  /**
+   * @generated from field: slotpb.v1.Table table = 5;
+   */
+  table?: Table;
+};
+
+/**
+ * Describes the message slotpb.v1.PrincessSunLight.
+ * Use `create(PrincessSunLightSchema)` to create a new message.
+ */
+export const PrincessSunLightSchema: GenMessage<PrincessSunLight> = /*@__PURE__*/
+  messageDesc(file_slotpb_v1_slot_extra_data, 9);
 

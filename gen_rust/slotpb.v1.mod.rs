@@ -48,6 +48,8 @@ pub mod __buffa {
         reg.register_json_any(super::__BONUS_ENTRY_JSON_ANY);
         reg.register_json_any(super::__MAMMON_EVENT2_JSON_ANY);
         reg.register_json_any(super::__MAMMO_EMIT_F_IREBALL_JSON_ANY);
+        reg.register_json_any(super::__PRINCESS_SUN_JSON_ANY);
+        reg.register_json_any(super::__PRINCESS_SUN_LIGHT_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -96,5 +98,9 @@ pub use self::__buffa::view::BonusEntryView;
 pub use self::__buffa::view::MammonEvent2View;
 #[doc(inline)]
 pub use self::__buffa::view::MammoEmitFIreballView;
+#[doc(inline)]
+pub use self::__buffa::view::PrincessSunView;
+#[doc(inline)]
+pub use self::__buffa::view::PrincessSunLightView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

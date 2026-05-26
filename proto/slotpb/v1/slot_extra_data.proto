@@ -60,3 +60,16 @@ message MammoEmitFIreball {
   int32 right_cnt = 3;
   int32 right_action = 4; // 1: upgrade, 2: fg+6
 }
+
+message PrincessSun {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  optional PrincessSunLight sun_light = 3;
+}
+message PrincessSunLight {
+  int32 x = 1;
+  int32 y = 2;
+  int32 dir = 3; // 1: top-down, 2: left-right, 3: all
+  int64 score = 4;
+  Table table = 5;
+}
