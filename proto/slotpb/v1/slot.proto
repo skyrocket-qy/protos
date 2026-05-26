@@ -78,11 +78,13 @@ message Coordinate {
 message SpinReq {
   uint32 game_id = 1;
   uint32 bet_amount = 2;
+  optional bytes omen = 3;
 }
 
 message SpinResp {
   repeated Event events = 1;
   uint64 balance = 2;
+  optional bytes omen = 3;
 }
 
 message JpOut {

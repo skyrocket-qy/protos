@@ -802,6 +802,7 @@ type SpinReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	GameId        uint32                 `protobuf:"varint,1,opt,name=game_id,json=gameId,proto3" json:"game_id,omitempty"`
 	BetAmount     uint32                 `protobuf:"varint,2,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
+	Omen          []byte                 `protobuf:"bytes,3,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -850,10 +851,18 @@ func (x *SpinReq) GetBetAmount() uint32 {
 	return 0
 }
 
+func (x *SpinReq) GetOmen() []byte {
+	if x != nil {
+		return x.Omen
+	}
+	return nil
+}
+
 type SpinResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
 	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
+	Omen          []byte                 `protobuf:"bytes,3,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -900,6 +909,13 @@ func (x *SpinResp) GetBalance() uint64 {
 		return x.Balance
 	}
 	return 0
+}
+
+func (x *SpinResp) GetOmen() []byte {
+	if x != nil {
+		return x.Omen
+	}
+	return nil
 }
 
 type JpOut struct {
@@ -1004,14 +1020,18 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\n" +
 	"Coordinate\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
-	"\x01y\x18\x02 \x01(\x05R\x01y\"A\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\"c\n" +
 	"\aSpinReq\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\rR\x06gameId\x12\x1d\n" +
 	"\n" +
-	"bet_amount\x18\x02 \x01(\rR\tbetAmount\"N\n" +
+	"bet_amount\x18\x02 \x01(\rR\tbetAmount\x12\x17\n" +
+	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
+	"\x05_omen\"p\n" +
 	"\bSpinResp\x12(\n" +
 	"\x06events\x18\x01 \x03(\v2\x10.slotpb.v1.EventR\x06events\x12\x18\n" +
-	"\abalance\x18\x02 \x01(\x04R\abalance\"l\n" +
+	"\abalance\x18\x02 \x01(\x04R\abalance\x12\x17\n" +
+	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
+	"\x05_omen\"l\n" +
 	"\x05JpOut\x12&\n" +
 	"\x05table\x18\x01 \x01(\v2\x10.slotpb.v1.TableR\x05table\x12\x14\n" +
 	"\x05score\x18\x02 \x01(\x04R\x05score\x12%\n" +
@@ -1103,6 +1123,8 @@ func file_slotpb_v1_slot_proto_init() {
 	if File_slotpb_v1_slot_proto != nil {
 		return
 	}
+	file_slotpb_v1_slot_proto_msgTypes[12].OneofWrappers = []any{}
+	file_slotpb_v1_slot_proto_msgTypes[13].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
