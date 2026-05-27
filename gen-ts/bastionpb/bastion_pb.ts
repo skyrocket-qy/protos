@@ -2,8 +2,8 @@
 // @generated from file bastionpb/bastion.proto (package bastionpb, syntax proto3)
 /* eslint-disable */
 
-import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
-import { fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
+import { enumDesc, fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
 import type { Event } from "../slotpb/slot_pb";
 import { file_slotpb_slot } from "../slotpb/slot_pb";
 import type { Message } from "@bufbuild/protobuf";
@@ -12,16 +12,16 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bastionpb/bastion.proto.
  */
 export const file_bastionpb_bastion: GenFile = /*@__PURE__*/
-  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIkAKCVdTUmVxdWVzdBIOCgZhY3Rpb24YASABKAkSDwoHcGF5bG9hZBgCIAEoDBISCgpyZXF1ZXN0X2lkGAMgASgJInMKCldTUmVzcG9uc2USDgoGYWN0aW9uGAEgASgJEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIk4KC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDRIRCgRvbWVuGAMgASgMSACIAQFCBwoFX29tZW4iKQoIU3BpblJlc3ASHQoGZXZlbnRzGAEgAygLMg0uc2xvdHBiLkV2ZW50IiIKDEJ1eUZnUmVxdWVzdBISCgpiZXRfYW1vdW50GAEgASgNIioKCUJ1eUZnUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiKAoHV1NFcnJvchIMCgRjb2RlGAEgASgJEg8KB21lc3NhZ2UYAiABKAlCmQEKDWNvbS5iYXN0aW9ucGJCDEJhc3Rpb25Qcm90b1ABWjZnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL2Jhc3Rpb25wYjtiYXN0aW9ucGKiAgNCWFiqAglCYXN0aW9ucGLKAglCYXN0aW9ucGLiAhVCYXN0aW9ucGJcR1BCTWV0YWRhdGHqAglCYXN0aW9ucGJiBnByb3RvMw", [file_slotpb_slot]);
+  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIlMKCVdTUmVxdWVzdBIhCgZhY3Rpb24YASABKA4yES5iYXN0aW9ucGIuQWN0aW9uEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCSJjCgpXU1Jlc3BvbnNlEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIk4KC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDRIRCgRvbWVuGAMgASgMSACIAQFCBwoFX29tZW4iKQoIU3BpblJlc3ASHQoGZXZlbnRzGAEgAygLMg0uc2xvdHBiLkV2ZW50IiIKDEJ1eUZnUmVxdWVzdBISCgpiZXRfYW1vdW50GAEgASgNIioKCUJ1eUZnUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiKAoHV1NFcnJvchIMCgRjb2RlGAEgASgJEg8KB21lc3NhZ2UYAiABKAkqQAoGQWN0aW9uEhYKEkFDVElPTl9VTlNQRUNJRklFRBAAEggKBFBJTkcQARIICgRTUElOEAISCgoGQlVZX0ZHEANCmQEKDWNvbS5iYXN0aW9ucGJCDEJhc3Rpb25Qcm90b1ABWjZnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL2Jhc3Rpb25wYjtiYXN0aW9ucGKiAgNCWFiqAglCYXN0aW9ucGLKAglCYXN0aW9ucGLiAhVCYXN0aW9ucGJcR1BCTWV0YWRhdGHqAglCYXN0aW9ucGJiBnByb3RvMw", [file_slotpb_slot]);
 
 /**
  * @generated from message bastionpb.WSRequest
  */
 export type WSRequest = Message<"bastionpb.WSRequest"> & {
   /**
-   * @generated from field: string action = 1;
+   * @generated from field: bastionpb.Action action = 1;
    */
-  action: string;
+  action: Action;
 
   /**
    * @generated from field: bytes payload = 2;
@@ -45,11 +45,6 @@ export const WSRequestSchema: GenMessage<WSRequest> = /*@__PURE__*/
  * @generated from message bastionpb.WSResponse
  */
 export type WSResponse = Message<"bastionpb.WSResponse"> & {
-  /**
-   * @generated from field: string action = 1;
-   */
-  action: string;
-
   /**
    * @generated from field: bytes payload = 2;
    */
@@ -172,4 +167,35 @@ export type WSError = Message<"bastionpb.WSError"> & {
  */
 export const WSErrorSchema: GenMessage<WSError> = /*@__PURE__*/
   messageDesc(file_bastionpb_bastion, 6);
+
+/**
+ * @generated from enum bastionpb.Action
+ */
+export enum Action {
+  /**
+   * @generated from enum value: ACTION_UNSPECIFIED = 0;
+   */
+  ACTION_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: PING = 1;
+   */
+  PING = 1,
+
+  /**
+   * @generated from enum value: SPIN = 2;
+   */
+  SPIN = 2,
+
+  /**
+   * @generated from enum value: BUY_FG = 3;
+   */
+  BUY_FG = 3,
+}
+
+/**
+ * Describes the enum bastionpb.Action.
+ */
+export const ActionSchema: GenEnum<Action> = /*@__PURE__*/
+  enumDesc(file_bastionpb_bastion, 0);
 

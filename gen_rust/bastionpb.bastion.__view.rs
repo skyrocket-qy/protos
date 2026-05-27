@@ -4,7 +4,7 @@
 #[derive(Clone, Debug, Default)]
 pub struct WSRequestView<'a> {
     /// Field 1: `action`
-    pub action: &'a str,
+    pub action: ::buffa::EnumValue<super::super::Action>,
     /// Field 2: `payload`
     pub payload: &'a [u8],
     /// Field 3: `request_id`
@@ -50,14 +50,16 @@ impl<'a> WSRequestView<'a> {
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
                 1u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
                         return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
                             field_number: 1u32,
-                            expected: 2u8,
+                            expected: 0u8,
                             actual: tag.wire_type() as u8,
                         });
                     }
-                    view.action = ::buffa::types::borrow_str(&mut cur)?;
+                    view.action = ::buffa::EnumValue::from(
+                        ::buffa::types::decode_int32(&mut cur)?,
+                    );
                 }
                 2u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
@@ -112,7 +114,7 @@ impl<'a> ::buffa::MessageView<'a> for WSRequestView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::WSRequest {
-            action: self.action.to_string(),
+            action: self.action,
             payload: (self.payload).to_vec(),
             request_id: self.request_id.to_string(),
             __buffa_unknown_fields: self
@@ -130,8 +132,11 @@ impl<'a> ::buffa::ViewEncode<'a> for WSRequestView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        if !self.action.is_empty() {
-            size += 1u32 + ::buffa::types::string_encoded_len(&self.action) as u32;
+        {
+            let val = self.action.to_i32();
+            if val != 0 {
+                size += 1u32 + ::buffa::types::int32_encoded_len(val) as u32;
+            }
         }
         if !self.payload.is_empty() {
             size += 1u32 + ::buffa::types::bytes_encoded_len(&self.payload) as u32;
@@ -150,13 +155,13 @@ impl<'a> ::buffa::ViewEncode<'a> for WSRequestView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if !self.action.is_empty() {
-            ::buffa::encoding::Tag::new(
-                    1u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_string(&self.action, buf);
+        {
+            let val = self.action.to_i32();
+            if val != 0 {
+                ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                    .encode(buf);
+                ::buffa::types::encode_int32(val, buf);
+            }
         }
         if !self.payload.is_empty() {
             ::buffa::encoding::Tag::new(
@@ -195,8 +200,8 @@ impl<'__a> ::serde::Serialize for WSRequestView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !::buffa::json_helpers::skip_if::is_empty_str(self.action) {
-            __map.serialize_entry("action", self.action)?;
+        if !::buffa::json_helpers::skip_if::is_default_enum_value(&self.action) {
+            __map.serialize_entry("action", &self.action)?;
         }
         if !::buffa::json_helpers::skip_if::is_empty_bytes(self.payload) {
             struct _W<'__x>(&'__x [u8]);
@@ -242,8 +247,6 @@ impl ::buffa::ViewReborrow for WSRequestView<'static> {
 }
 #[derive(Clone, Debug, Default)]
 pub struct WSResponseView<'a> {
-    /// Field 1: `action`
-    pub action: &'a str,
     /// Field 2: `payload`
     pub payload: &'a [u8],
     /// Field 3: `request_id`
@@ -290,16 +293,6 @@ impl<'a> WSResponseView<'a> {
             let before_tag = cur;
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
-                1u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
-                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                            field_number: 1u32,
-                            expected: 2u8,
-                            actual: tag.wire_type() as u8,
-                        });
-                    }
-                    view.action = ::buffa::types::borrow_str(&mut cur)?;
-                }
                 2u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
                         return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
@@ -377,7 +370,6 @@ impl<'a> ::buffa::MessageView<'a> for WSResponseView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::WSResponse {
-            action: self.action.to_string(),
             payload: (self.payload).to_vec(),
             request_id: self.request_id.to_string(),
             error: match self.error.as_option() {
@@ -403,9 +395,6 @@ impl<'a> ::buffa::ViewEncode<'a> for WSResponseView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        if !self.action.is_empty() {
-            size += 1u32 + ::buffa::types::string_encoded_len(&self.action) as u32;
-        }
         if !self.payload.is_empty() {
             size += 1u32 + ::buffa::types::bytes_encoded_len(&self.payload) as u32;
         }
@@ -431,14 +420,6 @@ impl<'a> ::buffa::ViewEncode<'a> for WSResponseView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if !self.action.is_empty() {
-            ::buffa::encoding::Tag::new(
-                    1u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_string(&self.action, buf);
-        }
         if !self.payload.is_empty() {
             ::buffa::encoding::Tag::new(
                     2u32,
@@ -485,9 +466,6 @@ impl<'__a> ::serde::Serialize for WSResponseView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !::buffa::json_helpers::skip_if::is_empty_str(self.action) {
-            __map.serialize_entry("action", self.action)?;
-        }
         if !::buffa::json_helpers::skip_if::is_empty_bytes(self.payload) {
             struct _W<'__x>(&'__x [u8]);
             impl ::serde::Serialize for _W<'_> {

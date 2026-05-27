@@ -6,14 +6,20 @@ option go_package = "github.com/skyrocket-qy/protos/gen/bastionpb;bastionpb";
 
 import "slotpb/slot.proto";
 
+enum Action {
+  ACTION_UNSPECIFIED = 0;
+  PING = 1;
+  SPIN = 2;
+  BUY_FG = 3;
+}
+
 message WSRequest {
-  string action = 1;
+  Action action = 1;
   bytes payload = 2;
   string request_id = 3;
 }
 
 message WSResponse {
-  string action = 1;
   bytes payload = 2;
   string request_id = 3;
   optional WSError error = 4;

@@ -22,9 +22,61 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+type Action int32
+
+const (
+	Action_ACTION_UNSPECIFIED Action = 0
+	Action_PING               Action = 1
+	Action_SPIN               Action = 2
+	Action_BUY_FG             Action = 3
+)
+
+// Enum value maps for Action.
+var (
+	Action_name = map[int32]string{
+		0: "ACTION_UNSPECIFIED",
+		1: "PING",
+		2: "SPIN",
+		3: "BUY_FG",
+	}
+	Action_value = map[string]int32{
+		"ACTION_UNSPECIFIED": 0,
+		"PING":               1,
+		"SPIN":               2,
+		"BUY_FG":             3,
+	}
+)
+
+func (x Action) Enum() *Action {
+	p := new(Action)
+	*p = x
+	return p
+}
+
+func (x Action) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Action) Descriptor() protoreflect.EnumDescriptor {
+	return file_bastionpb_bastion_proto_enumTypes[0].Descriptor()
+}
+
+func (Action) Type() protoreflect.EnumType {
+	return &file_bastionpb_bastion_proto_enumTypes[0]
+}
+
+func (x Action) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Action.Descriptor instead.
+func (Action) EnumDescriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{0}
+}
+
 type WSRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Action        string                 `protobuf:"bytes,1,opt,name=action,proto3" json:"action,omitempty"`
+	Action        Action                 `protobuf:"varint,1,opt,name=action,proto3,enum=bastionpb.Action" json:"action,omitempty"`
 	Payload       []byte                 `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
 	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -61,11 +113,11 @@ func (*WSRequest) Descriptor() ([]byte, []int) {
 	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *WSRequest) GetAction() string {
+func (x *WSRequest) GetAction() Action {
 	if x != nil {
 		return x.Action
 	}
-	return ""
+	return Action_ACTION_UNSPECIFIED
 }
 
 func (x *WSRequest) GetPayload() []byte {
@@ -84,7 +136,6 @@ func (x *WSRequest) GetRequestId() string {
 
 type WSResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Action        string                 `protobuf:"bytes,1,opt,name=action,proto3" json:"action,omitempty"`
 	Payload       []byte                 `protobuf:"bytes,2,opt,name=payload,proto3" json:"payload,omitempty"`
 	RequestId     string                 `protobuf:"bytes,3,opt,name=request_id,json=requestId,proto3" json:"request_id,omitempty"`
 	Error         *WSError               `protobuf:"bytes,4,opt,name=error,proto3,oneof" json:"error,omitempty"`
@@ -120,13 +171,6 @@ func (x *WSResponse) ProtoReflect() protoreflect.Message {
 // Deprecated: Use WSResponse.ProtoReflect.Descriptor instead.
 func (*WSResponse) Descriptor() ([]byte, []int) {
 	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{1}
-}
-
-func (x *WSResponse) GetAction() string {
-	if x != nil {
-		return x.Action
-	}
-	return ""
 }
 
 func (x *WSResponse) GetPayload() []byte {
@@ -398,15 +442,14 @@ var File_bastionpb_bastion_proto protoreflect.FileDescriptor
 
 const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\n" +
-	"\x17bastionpb/bastion.proto\x12\tbastionpb\x1a\x11slotpb/slot.proto\"\\\n" +
-	"\tWSRequest\x12\x16\n" +
-	"\x06action\x18\x01 \x01(\tR\x06action\x12\x18\n" +
+	"\x17bastionpb/bastion.proto\x12\tbastionpb\x1a\x11slotpb/slot.proto\"o\n" +
+	"\tWSRequest\x12)\n" +
+	"\x06action\x18\x01 \x01(\x0e2\x11.bastionpb.ActionR\x06action\x12\x18\n" +
 	"\apayload\x18\x02 \x01(\fR\apayload\x12\x1d\n" +
 	"\n" +
-	"request_id\x18\x03 \x01(\tR\trequestId\"\x96\x01\n" +
+	"request_id\x18\x03 \x01(\tR\trequestId\"~\n" +
 	"\n" +
-	"WSResponse\x12\x16\n" +
-	"\x06action\x18\x01 \x01(\tR\x06action\x12\x18\n" +
+	"WSResponse\x12\x18\n" +
 	"\apayload\x18\x02 \x01(\fR\apayload\x12\x1d\n" +
 	"\n" +
 	"request_id\x18\x03 \x01(\tR\trequestId\x12-\n" +
@@ -427,7 +470,13 @@ const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\"7\n" +
 	"\aWSError\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessageB\x99\x01\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage*@\n" +
+	"\x06Action\x12\x16\n" +
+	"\x12ACTION_UNSPECIFIED\x10\x00\x12\b\n" +
+	"\x04PING\x10\x01\x12\b\n" +
+	"\x04SPIN\x10\x02\x12\n" +
+	"\n" +
+	"\x06BUY_FG\x10\x03B\x99\x01\n" +
 	"\rcom.bastionpbB\fBastionProtoP\x01Z6github.com/skyrocket-qy/protos/gen/bastionpb;bastionpb\xa2\x02\x03BXX\xaa\x02\tBastionpb\xca\x02\tBastionpb\xe2\x02\x15Bastionpb\\GPBMetadata\xea\x02\tBastionpbb\x06proto3"
 
 var (
@@ -442,26 +491,29 @@ func file_bastionpb_bastion_proto_rawDescGZIP() []byte {
 	return file_bastionpb_bastion_proto_rawDescData
 }
 
+var file_bastionpb_bastion_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
 var file_bastionpb_bastion_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_bastionpb_bastion_proto_goTypes = []any{
-	(*WSRequest)(nil),    // 0: bastionpb.WSRequest
-	(*WSResponse)(nil),   // 1: bastionpb.WSResponse
-	(*SpinRequest)(nil),  // 2: bastionpb.SpinRequest
-	(*SpinResp)(nil),     // 3: bastionpb.SpinResp
-	(*BuyFgRequest)(nil), // 4: bastionpb.BuyFgRequest
-	(*BuyFgResp)(nil),    // 5: bastionpb.BuyFgResp
-	(*WSError)(nil),      // 6: bastionpb.WSError
-	(*slotpb.Event)(nil), // 7: slotpb.Event
+	(Action)(0),          // 0: bastionpb.Action
+	(*WSRequest)(nil),    // 1: bastionpb.WSRequest
+	(*WSResponse)(nil),   // 2: bastionpb.WSResponse
+	(*SpinRequest)(nil),  // 3: bastionpb.SpinRequest
+	(*SpinResp)(nil),     // 4: bastionpb.SpinResp
+	(*BuyFgRequest)(nil), // 5: bastionpb.BuyFgRequest
+	(*BuyFgResp)(nil),    // 6: bastionpb.BuyFgResp
+	(*WSError)(nil),      // 7: bastionpb.WSError
+	(*slotpb.Event)(nil), // 8: slotpb.Event
 }
 var file_bastionpb_bastion_proto_depIdxs = []int32{
-	6, // 0: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
-	7, // 1: bastionpb.SpinResp.events:type_name -> slotpb.Event
-	7, // 2: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	0, // 0: bastionpb.WSRequest.action:type_name -> bastionpb.Action
+	7, // 1: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
+	8, // 2: bastionpb.SpinResp.events:type_name -> slotpb.Event
+	8, // 3: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
+	4, // [4:4] is the sub-list for method output_type
+	4, // [4:4] is the sub-list for method input_type
+	4, // [4:4] is the sub-list for extension type_name
+	4, // [4:4] is the sub-list for extension extendee
+	0, // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_bastionpb_bastion_proto_init() }
@@ -476,13 +528,14 @@ func file_bastionpb_bastion_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bastionpb_bastion_proto_rawDesc), len(file_bastionpb_bastion_proto_rawDesc)),
-			NumEnums:      0,
+			NumEnums:      1,
 			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
 		GoTypes:           file_bastionpb_bastion_proto_goTypes,
 		DependencyIndexes: file_bastionpb_bastion_proto_depIdxs,
+		EnumInfos:         file_bastionpb_bastion_proto_enumTypes,
 		MessageInfos:      file_bastionpb_bastion_proto_msgTypes,
 	}.Build()
 	File_bastionpb_bastion_proto = out.File
