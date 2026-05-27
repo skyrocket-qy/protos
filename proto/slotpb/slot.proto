@@ -38,6 +38,10 @@ enum CoinType {
   TOKEN = 2;
 }
 
+message Events {
+  repeated Event events = 1;
+}
+
 message Event {
   uint32 code = 1;
   bytes data = 2;

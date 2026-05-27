@@ -27,6 +27,7 @@ pub mod __buffa {
         reg.register_json_any(super::__ROOM_INFO_JSON_ANY);
         reg.register_json_any(super::__WALLET_JSON_ANY);
         reg.register_json_any(super::__COIN_JSON_ANY);
+        reg.register_json_any(super::__EVENTS_JSON_ANY);
         reg.register_json_any(super::__EVENT_JSON_ANY);
         reg.register_json_any(super::__BUY_FG_REQ_JSON_ANY);
         reg.register_json_any(super::__BUY_FG_RESP_JSON_ANY);
@@ -63,6 +64,8 @@ pub use self::__buffa::view::RoomInfoView;
 pub use self::__buffa::view::WalletView;
 #[doc(inline)]
 pub use self::__buffa::view::CoinView;
+#[doc(inline)]
+pub use self::__buffa::view::EventsView;
 #[doc(inline)]
 pub use self::__buffa::view::EventView;
 #[doc(inline)]
