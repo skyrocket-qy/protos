@@ -2951,18 +2951,18 @@ pub struct ListUsersInView<'a> {
     /// Field 1: `filters`
     pub filters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::FilterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::FilterView<'a>,
     >,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
     pub sorters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::SorterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::SorterView<'a>,
     >,
     /// Field 3: `pager`
     pub pager: ::buffa::MessageFieldView<
-        super::super::super::super::pkgpb::v1::__buffa::view::PagerView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::PagerView<'a>,
     >,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
@@ -3020,7 +3020,7 @@ impl<'a> ListUsersInView<'a> {
                         Some(existing) => existing._merge_into_view(sub, depth - 1)?,
                         None => {
                             view.pager = ::buffa::MessageFieldView::set(
-                                super::super::super::super::pkgpb::v1::__buffa::view::PagerView::_decode_depth(
+                                super::super::super::super::pkgpb::__buffa::view::PagerView::_decode_depth(
                                     sub,
                                     depth - 1,
                                 )?,
@@ -3042,7 +3042,7 @@ impl<'a> ListUsersInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.filters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::FilterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::FilterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -3062,7 +3062,7 @@ impl<'a> ListUsersInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.sorters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::SorterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::SorterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -3114,7 +3114,7 @@ impl<'a> ::buffa::MessageView<'a> for ListUsersInView<'a> {
             pager: match self.pager.as_option() {
                 Some(v) => {
                     ::buffa::MessageField::<
-                        super::super::super::super::pkgpb::v1::Pager,
+                        super::super::super::super::pkgpb::Pager,
                     >::some(v.to_owned_from_source(__buffa_src))
                 }
                 None => ::buffa::MessageField::none(),
@@ -3849,18 +3849,18 @@ pub struct ListRolesInView<'a> {
     /// Field 1: `filters`
     pub filters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::FilterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::FilterView<'a>,
     >,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
     pub sorters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::SorterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::SorterView<'a>,
     >,
     /// Field 3: `pager`
     pub pager: ::buffa::MessageFieldView<
-        super::super::super::super::pkgpb::v1::__buffa::view::PagerView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::PagerView<'a>,
     >,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
@@ -3918,7 +3918,7 @@ impl<'a> ListRolesInView<'a> {
                         Some(existing) => existing._merge_into_view(sub, depth - 1)?,
                         None => {
                             view.pager = ::buffa::MessageFieldView::set(
-                                super::super::super::super::pkgpb::v1::__buffa::view::PagerView::_decode_depth(
+                                super::super::super::super::pkgpb::__buffa::view::PagerView::_decode_depth(
                                     sub,
                                     depth - 1,
                                 )?,
@@ -3940,7 +3940,7 @@ impl<'a> ListRolesInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.filters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::FilterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::FilterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -3960,7 +3960,7 @@ impl<'a> ListRolesInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.sorters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::SorterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::SorterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -4012,7 +4012,7 @@ impl<'a> ::buffa::MessageView<'a> for ListRolesInView<'a> {
             pager: match self.pager.as_option() {
                 Some(v) => {
                     ::buffa::MessageField::<
-                        super::super::super::super::pkgpb::v1::Pager,
+                        super::super::super::super::pkgpb::Pager,
                     >::some(v.to_owned_from_source(__buffa_src))
                 }
                 None => ::buffa::MessageField::none(),
@@ -4780,18 +4780,18 @@ pub struct ListResourcesInView<'a> {
     /// Field 1: `filters`
     pub filters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::FilterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::FilterView<'a>,
     >,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
     pub sorters: ::buffa::RepeatedView<
         'a,
-        super::super::super::super::pkgpb::v1::__buffa::view::SorterView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::SorterView<'a>,
     >,
     /// Field 3: `pager`
     pub pager: ::buffa::MessageFieldView<
-        super::super::super::super::pkgpb::v1::__buffa::view::PagerView<'a>,
+        super::super::super::super::pkgpb::__buffa::view::PagerView<'a>,
     >,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
@@ -4849,7 +4849,7 @@ impl<'a> ListResourcesInView<'a> {
                         Some(existing) => existing._merge_into_view(sub, depth - 1)?,
                         None => {
                             view.pager = ::buffa::MessageFieldView::set(
-                                super::super::super::super::pkgpb::v1::__buffa::view::PagerView::_decode_depth(
+                                super::super::super::super::pkgpb::__buffa::view::PagerView::_decode_depth(
                                     sub,
                                     depth - 1,
                                 )?,
@@ -4871,7 +4871,7 @@ impl<'a> ListResourcesInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.filters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::FilterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::FilterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -4891,7 +4891,7 @@ impl<'a> ListResourcesInView<'a> {
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
                     view.sorters
                         .push(
-                            super::super::super::super::pkgpb::v1::__buffa::view::SorterView::_decode_depth(
+                            super::super::super::super::pkgpb::__buffa::view::SorterView::_decode_depth(
                                 sub,
                                 depth - 1,
                             )?,
@@ -4943,7 +4943,7 @@ impl<'a> ::buffa::MessageView<'a> for ListResourcesInView<'a> {
             pager: match self.pager.as_option() {
                 Some(v) => {
                     ::buffa::MessageField::<
-                        super::super::super::super::pkgpb::v1::Pager,
+                        super::super::super::super::pkgpb::Pager,
                     >::some(v.to_owned_from_source(__buffa_src))
                 }
                 None => ::buffa::MessageField::none(),

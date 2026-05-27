@@ -2550,7 +2550,7 @@ pub struct ListUsersIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
+    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
@@ -2559,13 +2559,13 @@ pub struct ListUsersIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
+    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Sorter>,
     /// Field 3: `pager`
     #[serde(
         rename = "pager",
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
     )]
-    pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    pub pager: ::buffa::MessageField<super::super::pkgpb::Pager>,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
@@ -3215,7 +3215,7 @@ pub struct ListRolesIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
+    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
@@ -3224,13 +3224,13 @@ pub struct ListRolesIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
+    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Sorter>,
     /// Field 3: `pager`
     #[serde(
         rename = "pager",
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
     )]
-    pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    pub pager: ::buffa::MessageField<super::super::pkgpb::Pager>,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
@@ -3909,7 +3909,7 @@ pub struct ListResourcesIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Filter>,
+    pub filters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Filter>,
     /// created_at, auth_type, org_name
     ///
     /// Field 2: `sorters`
@@ -3918,13 +3918,13 @@ pub struct ListResourcesIn {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
         deserialize_with = "::buffa::json_helpers::null_as_default"
     )]
-    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::v1::Sorter>,
+    pub sorters: ::buffa::alloc::vec::Vec<super::super::pkgpb::Sorter>,
     /// Field 3: `pager`
     #[serde(
         rename = "pager",
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
     )]
-    pub pager: ::buffa::MessageField<super::super::pkgpb::v1::Pager>,
+    pub pager: ::buffa::MessageField<super::super::pkgpb::Pager>,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,

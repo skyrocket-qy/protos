@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package bastionpb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/bastionpb;bastionpb";
+
+import "slotpb/slot.proto";
+
+message WSRequest {
+  string action = 1;
+  bytes payload = 2;
+  string request_id = 3;
+}
+
+message WSResponse {
+  string action = 1;
+  bytes payload = 2;
+  string request_id = 3;
+  optional WSError error = 4;
+}
+
+message SpinRequest {
+  uint32 game_id = 1;
+  uint32 bet_amount = 2;
+  optional bytes omen = 3;
+}
+
+message SpinResp { repeated slotpb.Event events = 1; }
+
+message BuyFgRequest { uint32 bet_amount = 1; }
+
+message BuyFgResp { repeated slotpb.Event events = 1; }
+
+message WSError {
+  string code = 1;
+  string message = 2;
+}
