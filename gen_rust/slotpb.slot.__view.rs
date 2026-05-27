@@ -1290,7 +1290,7 @@ impl ::buffa::ViewReborrow for BuyFgReqView<'static> {
 #[derive(Clone, Debug, Default)]
 pub struct BuyFgRespView<'a> {
     /// Field 1: `events`
-    pub events: ::buffa::RepeatedView<'a, super::super::__buffa::view::EventView<'a>>,
+    pub events: ::buffa::MessageFieldView<super::super::__buffa::view::EventsView<'a>>,
     /// Field 2: `balance`
     pub balance: u64,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
@@ -1333,16 +1333,6 @@ impl<'a> BuyFgRespView<'a> {
             let before_tag = cur;
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
-                2u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
-                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                            field_number: 2u32,
-                            expected: 0u8,
-                            actual: tag.wire_type() as u8,
-                        });
-                    }
-                    view.balance = ::buffa::types::decode_uint64(&mut cur)?;
-                }
                 1u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
                         return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
@@ -1355,13 +1345,27 @@ impl<'a> BuyFgRespView<'a> {
                         return Err(::buffa::DecodeError::RecursionLimitExceeded);
                     }
                     let sub = ::buffa::types::borrow_bytes(&mut cur)?;
-                    view.events
-                        .push(
-                            super::super::__buffa::view::EventView::_decode_depth(
-                                sub,
-                                depth - 1,
-                            )?,
-                        );
+                    match view.events.as_mut() {
+                        Some(existing) => existing._merge_into_view(sub, depth - 1)?,
+                        None => {
+                            view.events = ::buffa::MessageFieldView::set(
+                                super::super::__buffa::view::EventsView::_decode_depth(
+                                    sub,
+                                    depth - 1,
+                                )?,
+                            );
+                        }
+                    }
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.balance = ::buffa::types::decode_uint64(&mut cur)?;
                 }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
@@ -1396,11 +1400,14 @@ impl<'a> ::buffa::MessageView<'a> for BuyFgRespView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::BuyFgResp {
-            events: self
-                .events
-                .iter()
-                .map(|v| v.to_owned_from_source(__buffa_src))
-                .collect(),
+            events: match self.events.as_option() {
+                Some(v) => {
+                    ::buffa::MessageField::<
+                        super::super::Events,
+                    >::some(v.to_owned_from_source(__buffa_src))
+                }
+                None => ::buffa::MessageField::none(),
+            },
             balance: self.balance,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
@@ -1417,9 +1424,9 @@ impl<'a> ::buffa::ViewEncode<'a> for BuyFgRespView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        for v in &self.events {
+        if self.events.is_set() {
             let __slot = __cache.reserve();
-            let inner_size = v.compute_size(__cache);
+            let inner_size = self.events.compute_size(__cache);
             __cache.set(__slot, inner_size);
             size
                 += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
@@ -1439,14 +1446,14 @@ impl<'a> ::buffa::ViewEncode<'a> for BuyFgRespView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        for v in &self.events {
+        if self.events.is_set() {
             ::buffa::encoding::Tag::new(
                     1u32,
                     ::buffa::encoding::WireType::LengthDelimited,
                 )
                 .encode(buf);
             ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
-            v.write_to(__cache, buf);
+            self.events.write_to(__cache, buf);
         }
         if self.balance != 0u64 {
             ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
@@ -1474,8 +1481,10 @@ impl<'__a> ::serde::Serialize for BuyFgRespView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !self.events.is_empty() {
-            __map.serialize_entry("events", &*self.events)?;
+        {
+            if let ::core::option::Option::Some(__v) = self.events.as_option() {
+                __map.serialize_entry("events", __v)?;
+            }
         }
         if !::buffa::json_helpers::skip_if::is_zero_u64(&self.balance) {
             struct _W(u64);

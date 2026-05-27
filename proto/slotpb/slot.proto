@@ -51,7 +51,7 @@ message Event {
 message BuyFgReq { uint32 bet_amount = 1; }
 
 message BuyFgResp {
-  repeated Event events = 1;
+  Events events = 1;
   uint64 balance = 2;
 }
 

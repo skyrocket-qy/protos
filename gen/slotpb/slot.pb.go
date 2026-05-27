@@ -488,7 +488,7 @@ func (x *BuyFgReq) GetBetAmount() uint32 {
 
 type BuyFgResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
+	Events        *Events                `protobuf:"bytes,1,opt,name=events,proto3" json:"events,omitempty"`
 	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -524,7 +524,7 @@ func (*BuyFgResp) Descriptor() ([]byte, []int) {
 	return file_slotpb_slot_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *BuyFgResp) GetEvents() []*Event {
+func (x *BuyFgResp) GetEvents() *Events {
 	if x != nil {
 		return x.Events
 	}
@@ -1044,9 +1044,9 @@ const file_slotpb_slot_proto_rawDesc = "" +
 	"\bwin_coin\x18\x03 \x01(\x04R\awinCoin\")\n" +
 	"\bBuyFgReq\x12\x1d\n" +
 	"\n" +
-	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"L\n" +
-	"\tBuyFgResp\x12%\n" +
-	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\x12\x18\n" +
+	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"M\n" +
+	"\tBuyFgResp\x12&\n" +
+	"\x06events\x18\x01 \x01(\v2\x0e.slotpb.EventsR\x06events\x12\x18\n" +
 	"\abalance\x18\x02 \x01(\x04R\abalance\"<\n" +
 	"\x11RoomStatisticInfo\x12\x10\n" +
 	"\x03rtp\x18\x01 \x01(\x02R\x03rtp\x12\x15\n" +
@@ -1146,7 +1146,7 @@ var file_slotpb_slot_proto_depIdxs = []int32{
 	5,  // 1: slotpb.Wallet.coins:type_name -> slotpb.Coin
 	1,  // 2: slotpb.Coin.type:type_name -> slotpb.CoinType
 	7,  // 3: slotpb.Events.events:type_name -> slotpb.Event
-	7,  // 4: slotpb.BuyFgResp.events:type_name -> slotpb.Event
+	6,  // 4: slotpb.BuyFgResp.events:type_name -> slotpb.Events
 	10, // 5: slotpb.GetRoomInfoResp.today:type_name -> slotpb.RoomStatisticInfo
 	10, // 6: slotpb.GetRoomInfoResp.week:type_name -> slotpb.RoomStatisticInfo
 	10, // 7: slotpb.GetRoomInfoResp.month:type_name -> slotpb.RoomStatisticInfo
