@@ -36,7 +36,9 @@ message SpinRequest {
   uint32 bet_amount = 2;
 }
 
-message SpinResp { repeated slotpb.Event events = 1; }
+message SpinResp { 
+  repeated slotpb.Event events = 1;
+}
 
 message BuyFgRequest { uint32 bet_amount = 1; }
 
