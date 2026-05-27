@@ -13,6 +13,12 @@ enum Action {
   BUY_FG = 3;
 }
 
+enum GameType {
+  GAME_TYPE_UNSPECIFIED = 0;
+  SLOT = 1;
+  FISH = 2;
+}
+
 message WSRequest {
   Action action = 1;
   bytes payload = 2;

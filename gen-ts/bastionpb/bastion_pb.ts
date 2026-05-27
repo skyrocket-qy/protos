@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bastionpb/bastion.proto.
  */
 export const file_bastionpb_bastion: GenFile = /*@__PURE__*/
-  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIlMKCVdTUmVxdWVzdBIhCgZhY3Rpb24YASABKA4yES5iYXN0aW9ucGIuQWN0aW9uEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCSJjCgpXU1Jlc3BvbnNlEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIjIKC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDSIpCghTcGluUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiIgoMQnV5RmdSZXF1ZXN0EhIKCmJldF9hbW91bnQYASABKA0iKgoJQnV5RmdSZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudCIoCgdXU0Vycm9yEgwKBGNvZGUYASABKAkSDwoHbWVzc2FnZRgCIAEoCSpACgZBY3Rpb24SFgoSQUNUSU9OX1VOU1BFQ0lGSUVEEAASCAoEUElORxABEggKBFNQSU4QAhIKCgZCVVlfRkcQA0KZAQoNY29tLmJhc3Rpb25wYkIMQmFzdGlvblByb3RvUAFaNmdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYmFzdGlvbnBiO2Jhc3Rpb25wYqICA0JYWKoCCUJhc3Rpb25wYsoCCUJhc3Rpb25wYuICFUJhc3Rpb25wYlxHUEJNZXRhZGF0YeoCCUJhc3Rpb25wYmIGcHJvdG8z", [file_slotpb_slot]);
+  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIlMKCVdTUmVxdWVzdBIhCgZhY3Rpb24YASABKA4yES5iYXN0aW9ucGIuQWN0aW9uEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCSJjCgpXU1Jlc3BvbnNlEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIjIKC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDSIpCghTcGluUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiIgoMQnV5RmdSZXF1ZXN0EhIKCmJldF9hbW91bnQYASABKA0iKgoJQnV5RmdSZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudCIoCgdXU0Vycm9yEgwKBGNvZGUYASABKAkSDwoHbWVzc2FnZRgCIAEoCSpACgZBY3Rpb24SFgoSQUNUSU9OX1VOU1BFQ0lGSUVEEAASCAoEUElORxABEggKBFNQSU4QAhIKCgZCVVlfRkcQAyo5CghHYW1lVHlwZRIZChVHQU1FX1RZUEVfVU5TUEVDSUZJRUQQABIICgRTTE9UEAESCAoERklTSBACQpkBCg1jb20uYmFzdGlvbnBiQgxCYXN0aW9uUHJvdG9QAVo2Z2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9iYXN0aW9ucGI7YmFzdGlvbnBiogIDQlhYqgIJQmFzdGlvbnBiygIJQmFzdGlvbnBi4gIVQmFzdGlvbnBiXEdQQk1ldGFkYXRh6gIJQmFzdGlvbnBiYgZwcm90bzM", [file_slotpb_slot]);
 
 /**
  * @generated from message bastionpb.WSRequest
@@ -193,4 +193,30 @@ export enum Action {
  */
 export const ActionSchema: GenEnum<Action> = /*@__PURE__*/
   enumDesc(file_bastionpb_bastion, 0);
+
+/**
+ * @generated from enum bastionpb.GameType
+ */
+export enum GameType {
+  /**
+   * @generated from enum value: GAME_TYPE_UNSPECIFIED = 0;
+   */
+  GAME_TYPE_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: SLOT = 1;
+   */
+  SLOT = 1,
+
+  /**
+   * @generated from enum value: FISH = 2;
+   */
+  FISH = 2,
+}
+
+/**
+ * Describes the enum bastionpb.GameType.
+ */
+export const GameTypeSchema: GenEnum<GameType> = /*@__PURE__*/
+  enumDesc(file_bastionpb_bastion, 1);
 

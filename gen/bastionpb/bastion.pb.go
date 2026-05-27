@@ -74,6 +74,55 @@ func (Action) EnumDescriptor() ([]byte, []int) {
 	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{0}
 }
 
+type GameType int32
+
+const (
+	GameType_GAME_TYPE_UNSPECIFIED GameType = 0
+	GameType_SLOT                  GameType = 1
+	GameType_FISH                  GameType = 2
+)
+
+// Enum value maps for GameType.
+var (
+	GameType_name = map[int32]string{
+		0: "GAME_TYPE_UNSPECIFIED",
+		1: "SLOT",
+		2: "FISH",
+	}
+	GameType_value = map[string]int32{
+		"GAME_TYPE_UNSPECIFIED": 0,
+		"SLOT":                  1,
+		"FISH":                  2,
+	}
+)
+
+func (x GameType) Enum() *GameType {
+	p := new(GameType)
+	*p = x
+	return p
+}
+
+func (x GameType) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (GameType) Descriptor() protoreflect.EnumDescriptor {
+	return file_bastionpb_bastion_proto_enumTypes[1].Descriptor()
+}
+
+func (GameType) Type() protoreflect.EnumType {
+	return &file_bastionpb_bastion_proto_enumTypes[1]
+}
+
+func (x GameType) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use GameType.Descriptor instead.
+func (GameType) EnumDescriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{1}
+}
+
 type WSRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Action        Action                 `protobuf:"varint,1,opt,name=action,proto3,enum=bastionpb.Action" json:"action,omitempty"`
@@ -466,7 +515,11 @@ const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\x04PING\x10\x01\x12\b\n" +
 	"\x04SPIN\x10\x02\x12\n" +
 	"\n" +
-	"\x06BUY_FG\x10\x03B\x99\x01\n" +
+	"\x06BUY_FG\x10\x03*9\n" +
+	"\bGameType\x12\x19\n" +
+	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\b\n" +
+	"\x04SLOT\x10\x01\x12\b\n" +
+	"\x04FISH\x10\x02B\x99\x01\n" +
 	"\rcom.bastionpbB\fBastionProtoP\x01Z6github.com/skyrocket-qy/protos/gen/bastionpb;bastionpb\xa2\x02\x03BXX\xaa\x02\tBastionpb\xca\x02\tBastionpb\xe2\x02\x15Bastionpb\\GPBMetadata\xea\x02\tBastionpbb\x06proto3"
 
 var (
@@ -481,24 +534,25 @@ func file_bastionpb_bastion_proto_rawDescGZIP() []byte {
 	return file_bastionpb_bastion_proto_rawDescData
 }
 
-var file_bastionpb_bastion_proto_enumTypes = make([]protoimpl.EnumInfo, 1)
+var file_bastionpb_bastion_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
 var file_bastionpb_bastion_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_bastionpb_bastion_proto_goTypes = []any{
 	(Action)(0),          // 0: bastionpb.Action
-	(*WSRequest)(nil),    // 1: bastionpb.WSRequest
-	(*WSResponse)(nil),   // 2: bastionpb.WSResponse
-	(*SpinRequest)(nil),  // 3: bastionpb.SpinRequest
-	(*SpinResp)(nil),     // 4: bastionpb.SpinResp
-	(*BuyFgRequest)(nil), // 5: bastionpb.BuyFgRequest
-	(*BuyFgResp)(nil),    // 6: bastionpb.BuyFgResp
-	(*WSError)(nil),      // 7: bastionpb.WSError
-	(*slotpb.Event)(nil), // 8: slotpb.Event
+	(GameType)(0),        // 1: bastionpb.GameType
+	(*WSRequest)(nil),    // 2: bastionpb.WSRequest
+	(*WSResponse)(nil),   // 3: bastionpb.WSResponse
+	(*SpinRequest)(nil),  // 4: bastionpb.SpinRequest
+	(*SpinResp)(nil),     // 5: bastionpb.SpinResp
+	(*BuyFgRequest)(nil), // 6: bastionpb.BuyFgRequest
+	(*BuyFgResp)(nil),    // 7: bastionpb.BuyFgResp
+	(*WSError)(nil),      // 8: bastionpb.WSError
+	(*slotpb.Event)(nil), // 9: slotpb.Event
 }
 var file_bastionpb_bastion_proto_depIdxs = []int32{
 	0, // 0: bastionpb.WSRequest.action:type_name -> bastionpb.Action
-	7, // 1: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
-	8, // 2: bastionpb.SpinResp.events:type_name -> slotpb.Event
-	8, // 3: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
+	8, // 1: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
+	9, // 2: bastionpb.SpinResp.events:type_name -> slotpb.Event
+	9, // 3: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
 	4, // [4:4] is the sub-list for method output_type
 	4, // [4:4] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -517,7 +571,7 @@ func file_bastionpb_bastion_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bastionpb_bastion_proto_rawDesc), len(file_bastionpb_bastion_proto_rawDesc)),
-			NumEnums:      1,
+			NumEnums:      2,
 			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
