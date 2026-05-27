@@ -41,6 +41,7 @@ enum CoinType {
 message Event {
   uint32 code = 1;
   bytes data = 2;
+  uint64 win_coin = 3;
 }
 
 message BuyFgReq { uint32 bet_amount = 1; }
