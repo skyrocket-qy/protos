@@ -198,7 +198,6 @@ type SpinRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	GameId        uint32                 `protobuf:"varint,1,opt,name=game_id,json=gameId,proto3" json:"game_id,omitempty"`
 	BetAmount     uint32                 `protobuf:"varint,2,opt,name=bet_amount,json=betAmount,proto3" json:"bet_amount,omitempty"`
-	Omen          []byte                 `protobuf:"bytes,3,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -245,13 +244,6 @@ func (x *SpinRequest) GetBetAmount() uint32 {
 		return x.BetAmount
 	}
 	return 0
-}
-
-func (x *SpinRequest) GetOmen() []byte {
-	if x != nil {
-		return x.Omen
-	}
-	return nil
 }
 
 type SpinResp struct {
@@ -454,13 +446,11 @@ const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\n" +
 	"request_id\x18\x03 \x01(\tR\trequestId\x12-\n" +
 	"\x05error\x18\x04 \x01(\v2\x12.bastionpb.WSErrorH\x00R\x05error\x88\x01\x01B\b\n" +
-	"\x06_error\"g\n" +
+	"\x06_error\"E\n" +
 	"\vSpinRequest\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\rR\x06gameId\x12\x1d\n" +
 	"\n" +
-	"bet_amount\x18\x02 \x01(\rR\tbetAmount\x12\x17\n" +
-	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
-	"\x05_omen\"1\n" +
+	"bet_amount\x18\x02 \x01(\rR\tbetAmount\"1\n" +
 	"\bSpinResp\x12%\n" +
 	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\"-\n" +
 	"\fBuyFgRequest\x12\x1d\n" +
@@ -522,7 +512,6 @@ func file_bastionpb_bastion_proto_init() {
 		return
 	}
 	file_bastionpb_bastion_proto_msgTypes[1].OneofWrappers = []any{}
-	file_bastionpb_bastion_proto_msgTypes[2].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{

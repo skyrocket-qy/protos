@@ -566,13 +566,6 @@ pub struct SpinRequest {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
     )]
     pub bet_amount: u32,
-    /// Field 3: `omen`
-    #[serde(
-        rename = "omen",
-        with = "::buffa::json_helpers::opt_bytes",
-        skip_serializing_if = "::core::option::Option::is_none"
-    )]
-    pub omen: ::core::option::Option<::buffa::alloc::vec::Vec<u8>>,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
@@ -582,7 +575,6 @@ impl ::core::fmt::Debug for SpinRequest {
         f.debug_struct("SpinRequest")
             .field("game_id", &self.game_id)
             .field("bet_amount", &self.bet_amount)
-            .field("omen", &self.omen)
             .finish()
     }
 }
@@ -592,15 +584,6 @@ impl SpinRequest {
     ///
     /// Format: `type.googleapis.com/<fully.qualified.TypeName>`
     pub const TYPE_URL: &'static str = "type.googleapis.com/bastionpb.SpinRequest";
-}
-impl SpinRequest {
-    #[must_use = "with_* setters return `self` by value; assign or chain the result"]
-    #[inline]
-    ///Sets [`Self::omen`] to `Some(value)`, consuming and returning `self`.
-    pub fn with_omen(mut self, value: impl Into<::buffa::alloc::vec::Vec<u8>>) -> Self {
-        self.omen = Some(value.into());
-        self
-    }
 }
 impl ::buffa::DefaultInstance for SpinRequest {
     fn default_instance() -> &'static Self {
@@ -631,9 +614,6 @@ impl ::buffa::Message for SpinRequest {
         if self.bet_amount != 0u32 {
             size += 1u32 + ::buffa::types::uint32_encoded_len(self.bet_amount) as u32;
         }
-        if let Some(ref v) = self.omen {
-            size += 1u32 + ::buffa::types::bytes_encoded_len(v) as u32;
-        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -653,14 +633,6 @@ impl ::buffa::Message for SpinRequest {
             ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
                 .encode(buf);
             ::buffa::types::encode_uint32(self.bet_amount, buf);
-        }
-        if let Some(ref v) = self.omen {
-            ::buffa::encoding::Tag::new(
-                    3u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_bytes(v, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -695,19 +667,6 @@ impl ::buffa::Message for SpinRequest {
                 }
                 self.bet_amount = ::buffa::types::decode_uint32(buf)?;
             }
-            3u32 => {
-                if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
-                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                        field_number: 3u32,
-                        expected: 2u8,
-                        actual: tag.wire_type() as u8,
-                    });
-                }
-                ::buffa::types::merge_bytes(
-                    self.omen.get_or_insert_with(::buffa::alloc::vec::Vec::new),
-                    buf,
-                )?;
-            }
             _ => {
                 self.__buffa_unknown_fields
                     .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
@@ -718,7 +677,6 @@ impl ::buffa::Message for SpinRequest {
     fn clear(&mut self) {
         self.game_id = 0u32;
         self.bet_amount = 0u32;
-        self.omen = ::core::option::Option::None;
         self.__buffa_unknown_fields.clear();
     }
 }

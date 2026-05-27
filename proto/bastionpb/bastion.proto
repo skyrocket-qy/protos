@@ -28,7 +28,6 @@ message WSResponse {
 message SpinRequest {
   uint32 game_id = 1;
   uint32 bet_amount = 2;
-  optional bytes omen = 3;
 }
 
 message SpinResp { repeated slotpb.Event events = 1; }

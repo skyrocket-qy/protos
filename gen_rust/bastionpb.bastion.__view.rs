@@ -519,8 +519,6 @@ pub struct SpinRequestView<'a> {
     pub game_id: u32,
     /// Field 2: `bet_amount`
     pub bet_amount: u32,
-    /// Field 3: `omen`
-    pub omen: ::core::option::Option<&'a [u8]>,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
 impl<'a> SpinRequestView<'a> {
@@ -581,16 +579,6 @@ impl<'a> SpinRequestView<'a> {
                     }
                     view.bet_amount = ::buffa::types::decode_uint32(&mut cur)?;
                 }
-                3u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
-                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                            field_number: 3u32,
-                            expected: 2u8,
-                            actual: tag.wire_type() as u8,
-                        });
-                    }
-                    view.omen = Some(::buffa::types::borrow_bytes(&mut cur)?);
-                }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
                     let span_len = before_tag.len() - cur.len();
@@ -626,7 +614,6 @@ impl<'a> ::buffa::MessageView<'a> for SpinRequestView<'a> {
         super::super::SpinRequest {
             game_id: self.game_id,
             bet_amount: self.bet_amount,
-            omen: self.omen.map(|b| (b).to_vec()),
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -648,9 +635,6 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinRequestView<'a> {
         if self.bet_amount != 0u32 {
             size += 1u32 + ::buffa::types::uint32_encoded_len(self.bet_amount) as u32;
         }
-        if let Some(ref v) = self.omen {
-            size += 1u32 + ::buffa::types::bytes_encoded_len(v) as u32;
-        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -671,14 +655,6 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinRequestView<'a> {
             ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
                 .encode(buf);
             ::buffa::types::encode_uint32(self.bet_amount, buf);
-        }
-        if let Some(ref v) = self.omen {
-            ::buffa::encoding::Tag::new(
-                    3u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_bytes(v, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -724,18 +700,6 @@ impl<'__a> ::serde::Serialize for SpinRequestView<'__a> {
                 }
             }
             __map.serialize_entry("betAmount", &_W(self.bet_amount))?;
-        }
-        if let ::core::option::Option::Some(__v) = self.omen {
-            struct _W<'__x>(&'__x [u8]);
-            impl ::serde::Serialize for _W<'_> {
-                fn serialize<__S: ::serde::Serializer>(
-                    &self,
-                    __s: __S,
-                ) -> ::core::result::Result<__S::Ok, __S::Error> {
-                    ::buffa::json_helpers::bytes::serialize(self.0, __s)
-                }
-            }
-            __map.serialize_entry("omen", &_W(__v))?;
         }
         __map.end()
     }
