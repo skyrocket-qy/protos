@@ -951,6 +951,14 @@ pub struct Event {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_bytes"
     )]
     pub data: ::buffa::alloc::vec::Vec<u8>,
+    /// Field 3: `win_coin`
+    #[serde(
+        rename = "winCoin",
+        alias = "win_coin",
+        with = "::buffa::json_helpers::uint64",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
+    )]
+    pub win_coin: u64,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
@@ -960,6 +968,7 @@ impl ::core::fmt::Debug for Event {
         f.debug_struct("Event")
             .field("code", &self.code)
             .field("data", &self.data)
+            .field("win_coin", &self.win_coin)
             .finish()
     }
 }
@@ -999,6 +1008,9 @@ impl ::buffa::Message for Event {
         if !self.data.is_empty() {
             size += 1u32 + ::buffa::types::bytes_encoded_len(&self.data) as u32;
         }
+        if self.win_coin != 0u64 {
+            size += 1u32 + ::buffa::types::uint64_encoded_len(self.win_coin) as u32;
+        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -1021,6 +1033,11 @@ impl ::buffa::Message for Event {
                 )
                 .encode(buf);
             ::buffa::types::encode_bytes(&self.data, buf);
+        }
+        if self.win_coin != 0u64 {
+            ::buffa::encoding::Tag::new(3u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint64(self.win_coin, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -1055,6 +1072,16 @@ impl ::buffa::Message for Event {
                 }
                 ::buffa::types::merge_bytes(&mut self.data, buf)?;
             }
+            3u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 3u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.win_coin = ::buffa::types::decode_uint64(buf)?;
+            }
             _ => {
                 self.__buffa_unknown_fields
                     .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
@@ -1065,6 +1092,7 @@ impl ::buffa::Message for Event {
     fn clear(&mut self) {
         self.code = 0u32;
         self.data.clear();
+        self.win_coin = 0u64;
         self.__buffa_unknown_fields.clear();
     }
 }

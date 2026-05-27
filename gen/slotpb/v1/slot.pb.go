@@ -342,6 +342,7 @@ type Event struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          uint32                 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
 	Data          []byte                 `protobuf:"bytes,2,opt,name=data,proto3" json:"data,omitempty"`
+	WinCoin       uint64                 `protobuf:"varint,3,opt,name=win_coin,json=winCoin,proto3" json:"win_coin,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -388,6 +389,13 @@ func (x *Event) GetData() []byte {
 		return x.Data
 	}
 	return nil
+}
+
+func (x *Event) GetWinCoin() uint64 {
+	if x != nil {
+		return x.WinCoin
+	}
+	return 0
 }
 
 type BuyFgReq struct {
@@ -991,10 +999,11 @@ const file_slotpb_v1_slot_proto_rawDesc = "" +
 	"\x05coins\x18\x01 \x03(\v2\x0f.slotpb.v1.CoinR\x05coins\"G\n" +
 	"\x04Coin\x12\x16\n" +
 	"\x06amount\x18\x01 \x01(\x04R\x06amount\x12'\n" +
-	"\x04type\x18\x02 \x01(\x0e2\x13.slotpb.v1.CoinTypeR\x04type\"/\n" +
+	"\x04type\x18\x02 \x01(\x0e2\x13.slotpb.v1.CoinTypeR\x04type\"J\n" +
 	"\x05Event\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\rR\x04code\x12\x12\n" +
-	"\x04data\x18\x02 \x01(\fR\x04data\")\n" +
+	"\x04data\x18\x02 \x01(\fR\x04data\x12\x19\n" +
+	"\bwin_coin\x18\x03 \x01(\x04R\awinCoin\")\n" +
 	"\bBuyFgReq\x12\x1d\n" +
 	"\n" +
 	"bet_amount\x18\x01 \x01(\rR\tbetAmount\"O\n" +

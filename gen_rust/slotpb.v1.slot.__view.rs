@@ -664,6 +664,8 @@ pub struct EventView<'a> {
     pub code: u32,
     /// Field 2: `data`
     pub data: &'a [u8],
+    /// Field 3: `win_coin`
+    pub win_coin: u64,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
 impl<'a> EventView<'a> {
@@ -724,6 +726,16 @@ impl<'a> EventView<'a> {
                     }
                     view.data = ::buffa::types::borrow_bytes(&mut cur)?;
                 }
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.win_coin = ::buffa::types::decode_uint64(&mut cur)?;
+                }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
                     let span_len = before_tag.len() - cur.len();
@@ -759,6 +771,7 @@ impl<'a> ::buffa::MessageView<'a> for EventView<'a> {
         super::super::Event {
             code: self.code,
             data: (self.data).to_vec(),
+            win_coin: self.win_coin,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -779,6 +792,9 @@ impl<'a> ::buffa::ViewEncode<'a> for EventView<'a> {
         }
         if !self.data.is_empty() {
             size += 1u32 + ::buffa::types::bytes_encoded_len(&self.data) as u32;
+        }
+        if self.win_coin != 0u64 {
+            size += 1u32 + ::buffa::types::uint64_encoded_len(self.win_coin) as u32;
         }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
@@ -803,6 +819,11 @@ impl<'a> ::buffa::ViewEncode<'a> for EventView<'a> {
                 )
                 .encode(buf);
             ::buffa::types::encode_bytes(&self.data, buf);
+        }
+        if self.win_coin != 0u64 {
+            ::buffa::encoding::Tag::new(3u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint64(self.win_coin, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -848,6 +869,18 @@ impl<'__a> ::serde::Serialize for EventView<'__a> {
                 }
             }
             __map.serialize_entry("data", &_W(self.data))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.win_coin) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("winCoin", &_W(self.win_coin))?;
         }
         __map.end()
     }
