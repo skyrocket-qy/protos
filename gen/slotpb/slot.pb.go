@@ -904,7 +904,7 @@ func (x *SpinReq) GetOmen() []byte {
 
 type SpinResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
+	Events        *Events                `protobuf:"bytes,1,opt,name=events,proto3" json:"events,omitempty"`
 	Balance       uint64                 `protobuf:"varint,2,opt,name=balance,proto3" json:"balance,omitempty"`
 	Omen          []byte                 `protobuf:"bytes,3,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -941,7 +941,7 @@ func (*SpinResp) Descriptor() ([]byte, []int) {
 	return file_slotpb_slot_proto_rawDescGZIP(), []int{14}
 }
 
-func (x *SpinResp) GetEvents() []*Event {
+func (x *SpinResp) GetEvents() *Events {
 	if x != nil {
 		return x.Events
 	}
@@ -1071,9 +1071,9 @@ const file_slotpb_slot_proto_rawDesc = "" +
 	"\aSpinReq\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\rR\x06gameId\x12\x17\n" +
 	"\x04omen\x18\x02 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
-	"\x05_omen\"m\n" +
-	"\bSpinResp\x12%\n" +
-	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\x12\x18\n" +
+	"\x05_omen\"n\n" +
+	"\bSpinResp\x12&\n" +
+	"\x06events\x18\x01 \x01(\v2\x0e.slotpb.EventsR\x06events\x12\x18\n" +
 	"\abalance\x18\x02 \x01(\x04R\abalance\x12\x17\n" +
 	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
 	"\x05_omen\"f\n" +
@@ -1151,7 +1151,7 @@ var file_slotpb_slot_proto_depIdxs = []int32{
 	10, // 6: slotpb.GetRoomInfoResp.week:type_name -> slotpb.RoomStatisticInfo
 	10, // 7: slotpb.GetRoomInfoResp.month:type_name -> slotpb.RoomStatisticInfo
 	14, // 8: slotpb.Table.reels:type_name -> slotpb.Reel
-	7,  // 9: slotpb.SpinResp.events:type_name -> slotpb.Event
+	6,  // 9: slotpb.SpinResp.events:type_name -> slotpb.Events
 	13, // 10: slotpb.JpOut.table:type_name -> slotpb.Table
 	2,  // 11: slotpb.JpOut.type:type_name -> slotpb.JPType
 	16, // 12: slotpb.SlotService.Spin:input_type -> slotpb.SpinReq

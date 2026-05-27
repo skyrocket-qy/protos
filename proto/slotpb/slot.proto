@@ -86,7 +86,7 @@ message SpinReq {
 }
 
 message SpinResp {
-  repeated Event events = 1;
+  Events events = 1;
   uint64 balance = 2;
   optional bytes omen = 3;
 }

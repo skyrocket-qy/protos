@@ -2772,10 +2772,9 @@ pub struct SpinResp {
     /// Field 1: `events`
     #[serde(
         rename = "events",
-        skip_serializing_if = "::buffa::json_helpers::skip_if::is_empty_vec",
-        deserialize_with = "::buffa::json_helpers::null_as_default"
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_unset_message_field"
     )]
-    pub events: ::buffa::alloc::vec::Vec<Event>,
+    pub events: ::buffa::MessageField<Events>,
     /// Field 2: `balance`
     #[serde(
         rename = "balance",
@@ -2842,9 +2841,9 @@ impl ::buffa::Message for SpinResp {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        for v in &self.events {
+        if self.events.is_set() {
             let __slot = __cache.reserve();
-            let inner_size = v.compute_size(__cache);
+            let inner_size = self.events.compute_size(__cache);
             __cache.set(__slot, inner_size);
             size
                 += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
@@ -2866,14 +2865,14 @@ impl ::buffa::Message for SpinResp {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        for v in &self.events {
+        if self.events.is_set() {
             ::buffa::encoding::Tag::new(
                     1u32,
                     ::buffa::encoding::WireType::LengthDelimited,
                 )
                 .encode(buf);
             ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
-            v.write_to(__cache, buf);
+            self.events.write_to(__cache, buf);
         }
         if self.balance != 0u64 {
             ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
@@ -2909,9 +2908,11 @@ impl ::buffa::Message for SpinResp {
                         actual: tag.wire_type() as u8,
                     });
                 }
-                let mut elem = ::core::default::Default::default();
-                ::buffa::Message::merge_length_delimited(&mut elem, buf, depth)?;
-                self.events.push(elem);
+                ::buffa::Message::merge_length_delimited(
+                    self.events.get_or_insert_default(),
+                    buf,
+                    depth,
+                )?;
             }
             2u32 => {
                 if tag.wire_type() != ::buffa::encoding::WireType::Varint {
@@ -2944,7 +2945,7 @@ impl ::buffa::Message for SpinResp {
         ::core::result::Result::Ok(())
     }
     fn clear(&mut self) {
-        self.events.clear();
+        self.events = ::buffa::MessageField::none();
         self.balance = 0u64;
         self.omen = ::core::option::Option::None;
         self.__buffa_unknown_fields.clear();
