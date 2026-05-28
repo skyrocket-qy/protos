@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package walletpb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/walletpb;walletpb";
+
+enum WalletType {
+  WALLET_TYPE_UNSPECIFIED = 0;
+  LOCKED = 1;
+  UNLOCKED = 2;
+}
+
+enum TxType {
+  TX_TYPE_UNSPECIFIED = 0;
+  BET = 1;
+  WIN = 2;
+  AUCTION_BUY = 3;
+  AUCTION_SELL = 4;
+  AUCTION_TAX = 5;
+}

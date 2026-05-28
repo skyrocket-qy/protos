@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.11
 // 	protoc        (unknown)
-// source: wallet/wallet.proto
+// source: walletpb/wallet.proto
 
 package walletpb
 
@@ -54,11 +54,11 @@ func (x WalletType) String() string {
 }
 
 func (WalletType) Descriptor() protoreflect.EnumDescriptor {
-	return file_wallet_wallet_proto_enumTypes[0].Descriptor()
+	return file_walletpb_wallet_proto_enumTypes[0].Descriptor()
 }
 
 func (WalletType) Type() protoreflect.EnumType {
-	return &file_wallet_wallet_proto_enumTypes[0]
+	return &file_walletpb_wallet_proto_enumTypes[0]
 }
 
 func (x WalletType) Number() protoreflect.EnumNumber {
@@ -67,43 +67,37 @@ func (x WalletType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use WalletType.Descriptor instead.
 func (WalletType) EnumDescriptor() ([]byte, []int) {
-	return file_wallet_wallet_proto_rawDescGZIP(), []int{0}
+	return file_walletpb_wallet_proto_rawDescGZIP(), []int{0}
 }
 
 type TxType int32
 
 const (
 	TxType_TX_TYPE_UNSPECIFIED TxType = 0
-	TxType_DEPOSIT             TxType = 1
-	TxType_BET                 TxType = 2
-	TxType_WIN                 TxType = 3
-	TxType_AUCTION_BUY         TxType = 4
-	TxType_AUCTION_SELL        TxType = 5
-	TxType_TAX                 TxType = 6
-	TxType_ADMIN_ADJUST        TxType = 7
+	TxType_BET                 TxType = 1
+	TxType_WIN                 TxType = 2
+	TxType_AUCTION_BUY         TxType = 3
+	TxType_AUCTION_SELL        TxType = 4
+	TxType_AUCTION_TAX         TxType = 5
 )
 
 // Enum value maps for TxType.
 var (
 	TxType_name = map[int32]string{
 		0: "TX_TYPE_UNSPECIFIED",
-		1: "DEPOSIT",
-		2: "BET",
-		3: "WIN",
-		4: "AUCTION_BUY",
-		5: "AUCTION_SELL",
-		6: "TAX",
-		7: "ADMIN_ADJUST",
+		1: "BET",
+		2: "WIN",
+		3: "AUCTION_BUY",
+		4: "AUCTION_SELL",
+		5: "AUCTION_TAX",
 	}
 	TxType_value = map[string]int32{
 		"TX_TYPE_UNSPECIFIED": 0,
-		"DEPOSIT":             1,
-		"BET":                 2,
-		"WIN":                 3,
-		"AUCTION_BUY":         4,
-		"AUCTION_SELL":        5,
-		"TAX":                 6,
-		"ADMIN_ADJUST":        7,
+		"BET":                 1,
+		"WIN":                 2,
+		"AUCTION_BUY":         3,
+		"AUCTION_SELL":        4,
+		"AUCTION_TAX":         5,
 	}
 )
 
@@ -118,11 +112,11 @@ func (x TxType) String() string {
 }
 
 func (TxType) Descriptor() protoreflect.EnumDescriptor {
-	return file_wallet_wallet_proto_enumTypes[1].Descriptor()
+	return file_walletpb_wallet_proto_enumTypes[1].Descriptor()
 }
 
 func (TxType) Type() protoreflect.EnumType {
-	return &file_wallet_wallet_proto_enumTypes[1]
+	return &file_walletpb_wallet_proto_enumTypes[1]
 }
 
 func (x TxType) Number() protoreflect.EnumNumber {
@@ -131,50 +125,47 @@ func (x TxType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TxType.Descriptor instead.
 func (TxType) EnumDescriptor() ([]byte, []int) {
-	return file_wallet_wallet_proto_rawDescGZIP(), []int{1}
+	return file_walletpb_wallet_proto_rawDescGZIP(), []int{1}
 }
 
-var File_wallet_wallet_proto protoreflect.FileDescriptor
+var File_walletpb_wallet_proto protoreflect.FileDescriptor
 
-const file_wallet_wallet_proto_rawDesc = "" +
+const file_walletpb_wallet_proto_rawDesc = "" +
 	"\n" +
-	"\x13wallet/wallet.proto\x12\x06wallet*C\n" +
+	"\x15walletpb/wallet.proto\x12\bwalletpb*C\n" +
 	"\n" +
 	"WalletType\x12\x1b\n" +
 	"\x17WALLET_TYPE_UNSPECIFIED\x10\x00\x12\n" +
 	"\n" +
 	"\x06LOCKED\x10\x01\x12\f\n" +
-	"\bUNLOCKED\x10\x02*~\n" +
+	"\bUNLOCKED\x10\x02*g\n" +
 	"\x06TxType\x12\x17\n" +
-	"\x13TX_TYPE_UNSPECIFIED\x10\x00\x12\v\n" +
-	"\aDEPOSIT\x10\x01\x12\a\n" +
-	"\x03BET\x10\x02\x12\a\n" +
-	"\x03WIN\x10\x03\x12\x0f\n" +
-	"\vAUCTION_BUY\x10\x04\x12\x10\n" +
-	"\fAUCTION_SELL\x10\x05\x12\a\n" +
-	"\x03TAX\x10\x06\x12\x10\n" +
-	"\fADMIN_ADJUST\x10\aB\x85\x01\n" +
-	"\n" +
-	"com.walletB\vWalletProtoP\x01Z2github.com/skyrocket-qy/protos/gen/wallet;walletpb\xa2\x02\x03WXX\xaa\x02\x06Wallet\xca\x02\x06Wallet\xe2\x02\x12Wallet\\GPBMetadata\xea\x02\x06Walletb\x06proto3"
+	"\x13TX_TYPE_UNSPECIFIED\x10\x00\x12\a\n" +
+	"\x03BET\x10\x01\x12\a\n" +
+	"\x03WIN\x10\x02\x12\x0f\n" +
+	"\vAUCTION_BUY\x10\x03\x12\x10\n" +
+	"\fAUCTION_SELL\x10\x04\x12\x0f\n" +
+	"\vAUCTION_TAX\x10\x05B\x91\x01\n" +
+	"\fcom.walletpbB\vWalletProtoP\x01Z4github.com/skyrocket-qy/protos/gen/walletpb;walletpb\xa2\x02\x03WXX\xaa\x02\bWalletpb\xca\x02\bWalletpb\xe2\x02\x14Walletpb\\GPBMetadata\xea\x02\bWalletpbb\x06proto3"
 
 var (
-	file_wallet_wallet_proto_rawDescOnce sync.Once
-	file_wallet_wallet_proto_rawDescData []byte
+	file_walletpb_wallet_proto_rawDescOnce sync.Once
+	file_walletpb_wallet_proto_rawDescData []byte
 )
 
-func file_wallet_wallet_proto_rawDescGZIP() []byte {
-	file_wallet_wallet_proto_rawDescOnce.Do(func() {
-		file_wallet_wallet_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_wallet_wallet_proto_rawDesc), len(file_wallet_wallet_proto_rawDesc)))
+func file_walletpb_wallet_proto_rawDescGZIP() []byte {
+	file_walletpb_wallet_proto_rawDescOnce.Do(func() {
+		file_walletpb_wallet_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_walletpb_wallet_proto_rawDesc), len(file_walletpb_wallet_proto_rawDesc)))
 	})
-	return file_wallet_wallet_proto_rawDescData
+	return file_walletpb_wallet_proto_rawDescData
 }
 
-var file_wallet_wallet_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_wallet_wallet_proto_goTypes = []any{
-	(WalletType)(0), // 0: wallet.WalletType
-	(TxType)(0),     // 1: wallet.TxType
+var file_walletpb_wallet_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_walletpb_wallet_proto_goTypes = []any{
+	(WalletType)(0), // 0: walletpb.WalletType
+	(TxType)(0),     // 1: walletpb.TxType
 }
-var file_wallet_wallet_proto_depIdxs = []int32{
+var file_walletpb_wallet_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -182,26 +173,26 @@ var file_wallet_wallet_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_wallet_wallet_proto_init() }
-func file_wallet_wallet_proto_init() {
-	if File_wallet_wallet_proto != nil {
+func init() { file_walletpb_wallet_proto_init() }
+func file_walletpb_wallet_proto_init() {
+	if File_walletpb_wallet_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_wallet_wallet_proto_rawDesc), len(file_wallet_wallet_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_walletpb_wallet_proto_rawDesc), len(file_walletpb_wallet_proto_rawDesc)),
 			NumEnums:      2,
 			NumMessages:   0,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_wallet_wallet_proto_goTypes,
-		DependencyIndexes: file_wallet_wallet_proto_depIdxs,
-		EnumInfos:         file_wallet_wallet_proto_enumTypes,
+		GoTypes:           file_walletpb_wallet_proto_goTypes,
+		DependencyIndexes: file_walletpb_wallet_proto_depIdxs,
+		EnumInfos:         file_walletpb_wallet_proto_enumTypes,
 	}.Build()
-	File_wallet_wallet_proto = out.File
-	file_wallet_wallet_proto_goTypes = nil
-	file_wallet_wallet_proto_depIdxs = nil
+	File_walletpb_wallet_proto = out.File
+	file_walletpb_wallet_proto_goTypes = nil
+	file_walletpb_wallet_proto_depIdxs = nil
 }
