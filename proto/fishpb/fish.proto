@@ -1,0 +1,233 @@
+syntax = "proto3";
+
+package fishpb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/fishpb;fishpb";
+
+// Service running on the Rust compute pod, serving the Bastion Go gateway
+service FishService {
+  // Streams real-time room frames (ticks) to Bastion
+  rpc SubscribeFrames(SubscribeRequest) returns (stream FrameMessage) {}
+
+  // Player Actions (Unary gRPC calls)
+  rpc JoinRoom(JoinRequest) returns (JoinResponse) {}
+  rpc Shoot(ShootRequest) returns (ShootResponse) {}
+  rpc Hit(HitRequest) returns (HitResponse) {}
+  rpc LeaveRoom(LeaveRequest) returns (LeaveResponse) {}
+}
+
+// Subscription requests
+message SubscribeRequest { string room_id = 1; }
+
+// Player actions
+message JoinRequest {
+  string room_id = 1;
+  int64 player_id = 2;
+  string nickname = 3;
+}
+
+message JoinResponse {
+  bool success = 1;
+  string err_message = 2;
+}
+
+message ShootRequest {
+  string room_id = 1;
+  int64 player_id = 2;
+  Bullet bullet = 3;
+}
+
+message ShootResponse {
+  bool success = 1;
+  string err_message = 2;
+}
+
+message HitRequest {
+  string room_id = 1;
+  int64 player_id = 2;
+  string bullet_id = 3;
+  string target_id = 4;
+}
+
+message HitResult {
+  bool is_dead = 1;
+  int64 payout = 2;
+}
+
+message HitResponse {
+  bool success = 1;
+  string err_message = 2;
+  HitResult result = 3;
+}
+
+message LeaveRequest {
+  string room_id = 1;
+  int64 player_id = 2;
+}
+
+message LeaveResponse {
+  bool success = 1;
+  string err_message = 2;
+}
+
+// ----------------------------------------------------
+// Core Game Frame & Timeline Event Models
+// ----------------------------------------------------
+
+message FrameMessage {
+  string machine_id = 1;
+  repeated FrameEvent frame_events = 2;
+  int64 timestamp_millisecond = 3;
+}
+
+message FrameEvent {
+  string id = 1;
+
+  // Clean Protobuf equivalent to Rust's Enum-with-Data
+  oneof event_data {
+    MachinePlayerEntered machine_player_entered = 2;
+    MachinePlayerExited machine_player_exited = 3;
+    MachinePlayerFired machine_player_fired = 4;
+    MachinePlayerCatched machine_player_catched = 5;
+    MachinePlayerUpdated machine_player_updated = 6;
+    SceneUpdated scene_updated = 7;
+    TargetCreated target_created = 8;
+  }
+}
+
+message MachinePlayerEntered {
+  int64 seat_id = 1;
+  int64 machine_player_user_id = 2;
+  string machine_player_nickname = 3;
+  int64 machine_player_balance = 4;
+  string machine_player_avatar_url = 5;
+  int64 machine_player_vip_level = 6;
+}
+
+message MachinePlayerExited {
+  int64 seat_id = 1;
+  int64 machine_player_user_id = 2;
+  string machine_player_nickname = 3;
+  bool is_kicked = 4;
+}
+
+message MachinePlayerFired {
+  int64 seat_id = 1;
+  int64 machine_player_user_id = 2;
+  Bullet bullet = 3;
+}
+
+message MachinePlayerCatched {
+  int64 seat_id = 1;
+  int64 machine_player_user_id = 2;
+  Bullet bullet = 3;
+  Target target = 4;
+  string special_bullet_id = 5;
+}
+
+message MachinePlayerUpdated {
+  int64 seat_id = 1;
+  int64 machine_player_user_id = 2;
+  string machine_player_nickname = 3;
+  int64 machine_player_balance = 4;
+  int64 machine_player_bet_amount = 5;
+  string machine_player_avatar_url = 6;
+  int64 machine_player_vip_level = 7;
+}
+
+message SceneUpdated { string scene_id = 1; }
+
+message TargetCreated {
+  string target_id = 1;
+  string target_kind = 2;
+  TargetLevel target_level = 3;
+  string path_id = 4;
+  int64 entered_at_timestamp_millisecond = 5;
+  int64 exited_at_timestamp_millisecond = 6;
+  int64 display_odds = 7;
+}
+
+// ----------------------------------------------------
+// Core Entities
+// ----------------------------------------------------
+
+enum TargetLevel {
+  TARGET_LEVEL_UNSPECIFIED = 0;
+  TARGET_LEVEL_S = 1;
+  TARGET_LEVEL_M = 2;
+  TARGET_LEVEL_L = 3;
+  TARGET_LEVEL_SPECIAL = 4;
+  TARGET_LEVEL_BOSS = 5;
+}
+
+enum BulletKind {
+  BULLET_KIND_UNSPECIFIED = 0;
+  BULLET_KIND_NORMAL = 1;
+  BULLET_KIND_BLASTER_CANNON = 2;
+  BULLET_KIND_SPREAD_CANNON = 3;
+  BULLET_KIND_MISSILE = 4;
+  BULLET_KIND_LASER_CANNON = 5;
+  BULLET_KIND_SMASH_HAMMER = 6;
+  BULLET_KIND_DRILL_CRAB = 7;
+  BULLET_KIND_BOMB_CRAB = 8;
+  BULLET_KIND_LASER_CRAB = 9;
+  BULLET_KIND_SMASH_HAMMER_CRAB = 10;
+  BULLET_KIND_BLACK_HOLE = 11;
+  BULLET_KIND_LIGHTNING_CHAIN = 12;
+  BULLET_KIND_THUNDER_TYRANNOSAUR = 13;
+  BULLET_KIND_FLAMING_PHENIX = 14;
+  BULLET_KIND_KING_CRAB = 15;
+  BULLET_KIND_KING_OCTOPUS = 16;
+  BULLET_KIND_BLACK_BEHEMOTH = 17;
+  BULLET_KIND_PREHISTORIC_CROCODILE = 18;
+  BULLET_KIND_MERMAID = 19;
+  BULLET_KIND_BULL_DEMON_KING = 20;
+  BULLET_KIND_RED_BOY = 21;
+  BULLET_KIND_ICE_PHOENIX = 22;
+}
+
+message TargetSettingOdds {
+  int64 min_odds = 1;
+  int64 max_odds = 2;
+  int64 weight = 3;
+}
+
+message Target {
+  string target_id = 1;
+  string target_name = 2;
+  string target_kind = 3;
+  TargetLevel target_level = 4;
+  string path_id = 5;
+  int64 entered_at_timestamp_millisecond = 6;
+  int64 exited_at_timestamp_millisecond = 7;
+  int64 odds = 8;
+  repeated TargetSettingOdds weak_odds_list = 9;
+  int64 hits = 10;
+  bool is_dead = 11;
+  int64 died_at_timestamp_millisecond = 12;
+  int64 next_catch_times = 13;
+  int64 display_odds = 14;
+  int64 dead_display_odds = 15;
+  map<int64, int64> special_odds_times_map = 16;
+}
+
+message Bullet {
+  string bullet_id = 1;
+  BulletKind bullet_kind = 2;
+  double angle = 3;
+  string target_id = 4;
+  string target_name = 5;
+  string target_kind = 6;
+  TargetLevel target_level = 7;
+  bool target_is_dead = 8;
+  int64 bet_amount = 9;
+  int64 cost_amount = 10;
+  int64 gain_amount = 11;
+  int64 odds = 12;
+  int64 guaranteed_odds_percent = 13;
+  int64 fired_at_timestamp_millisecond = 14;
+  int64 next_catch_times = 15;
+  int64 got_odds = 16;
+  int64 machine_seat_id = 17;
+  int64 used_times = 18;
+}
