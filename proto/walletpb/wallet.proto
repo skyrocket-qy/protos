@@ -18,3 +18,28 @@ enum TxType {
   AUCTION_SELL = 4;
   AUCTION_TAX = 5;
 }
+
+message GetBalanceRequest {
+  string user_id = 1;
+}
+
+message GetBalanceResponse {
+  uint64 balance = 1;
+}
+
+message UpdateBalanceRequest {
+  string user_id = 1;
+  int64 amount = 2;
+  WalletType wallet_type = 3;
+  TxType tx_type = 4;
+  uint64 ref_id = 5;
+}
+
+message UpdateBalanceResponse {
+  uint64 balance = 1;
+}
+
+service WalletService {
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
+  rpc UpdateBalance(UpdateBalanceRequest) returns (UpdateBalanceResponse);
+}

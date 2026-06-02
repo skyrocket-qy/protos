@@ -2,14 +2,103 @@
 // @generated from file walletpb/wallet.proto (package walletpb, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file walletpb/wallet.proto.
  */
 export const file_walletpb_wallet: GenFile = /*@__PURE__*/
-  fileDesc("ChV3YWxsZXRwYi93YWxsZXQucHJvdG8SCHdhbGxldHBiKkMKCldhbGxldFR5cGUSGwoXV0FMTEVUX1RZUEVfVU5TUEVDSUZJRUQQABIKCgZMT0NLRUQQARIMCghVTkxPQ0tFRBACKmcKBlR4VHlwZRIXChNUWF9UWVBFX1VOU1BFQ0lGSUVEEAASBwoDQkVUEAESBwoDV0lOEAISDwoLQVVDVElPTl9CVVkQAxIQCgxBVUNUSU9OX1NFTEwQBBIPCgtBVUNUSU9OX1RBWBAFQpEBCgxjb20ud2FsbGV0cGJCC1dhbGxldFByb3RvUAFaNGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vd2FsbGV0cGI7d2FsbGV0cGKiAgNXWFiqAghXYWxsZXRwYsoCCFdhbGxldHBi4gIUV2FsbGV0cGJcR1BCTWV0YWRhdGHqAghXYWxsZXRwYmIGcHJvdG8z");
+  fileDesc("ChV3YWxsZXRwYi93YWxsZXQucHJvdG8SCHdhbGxldHBiIiQKEUdldEJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkiJQoSR2V0QmFsYW5jZVJlc3BvbnNlEg8KB2JhbGFuY2UYASABKAQilQEKFFVwZGF0ZUJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSDgoGYW1vdW50GAIgASgDEikKC3dhbGxldF90eXBlGAMgASgOMhQud2FsbGV0cGIuV2FsbGV0VHlwZRIhCgd0eF90eXBlGAQgASgOMhAud2FsbGV0cGIuVHhUeXBlEg4KBnJlZl9pZBgFIAEoBCIoChVVcGRhdGVCYWxhbmNlUmVzcG9uc2USDwoHYmFsYW5jZRgBIAEoBCpDCgpXYWxsZXRUeXBlEhsKF1dBTExFVF9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGTE9DS0VEEAESDAoIVU5MT0NLRUQQAipnCgZUeFR5cGUSFwoTVFhfVFlQRV9VTlNQRUNJRklFRBAAEgcKA0JFVBABEgcKA1dJThACEg8KC0FVQ1RJT05fQlVZEAMSEAoMQVVDVElPTl9TRUxMEAQSDwoLQVVDVElPTl9UQVgQBTKqAQoNV2FsbGV0U2VydmljZRJHCgpHZXRCYWxhbmNlEhsud2FsbGV0cGIuR2V0QmFsYW5jZVJlcXVlc3QaHC53YWxsZXRwYi5HZXRCYWxhbmNlUmVzcG9uc2USUAoNVXBkYXRlQmFsYW5jZRIeLndhbGxldHBiLlVwZGF0ZUJhbGFuY2VSZXF1ZXN0Gh8ud2FsbGV0cGIuVXBkYXRlQmFsYW5jZVJlc3BvbnNlQpEBCgxjb20ud2FsbGV0cGJCC1dhbGxldFByb3RvUAFaNGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vd2FsbGV0cGI7d2FsbGV0cGKiAgNXWFiqAghXYWxsZXRwYsoCCFdhbGxldHBi4gIUV2FsbGV0cGJcR1BCTWV0YWRhdGHqAghXYWxsZXRwYmIGcHJvdG8z");
+
+/**
+ * @generated from message walletpb.GetBalanceRequest
+ */
+export type GetBalanceRequest = Message<"walletpb.GetBalanceRequest"> & {
+  /**
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+};
+
+/**
+ * Describes the message walletpb.GetBalanceRequest.
+ * Use `create(GetBalanceRequestSchema)` to create a new message.
+ */
+export const GetBalanceRequestSchema: GenMessage<GetBalanceRequest> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 0);
+
+/**
+ * @generated from message walletpb.GetBalanceResponse
+ */
+export type GetBalanceResponse = Message<"walletpb.GetBalanceResponse"> & {
+  /**
+   * @generated from field: uint64 balance = 1;
+   */
+  balance: bigint;
+};
+
+/**
+ * Describes the message walletpb.GetBalanceResponse.
+ * Use `create(GetBalanceResponseSchema)` to create a new message.
+ */
+export const GetBalanceResponseSchema: GenMessage<GetBalanceResponse> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 1);
+
+/**
+ * @generated from message walletpb.UpdateBalanceRequest
+ */
+export type UpdateBalanceRequest = Message<"walletpb.UpdateBalanceRequest"> & {
+  /**
+   * @generated from field: string user_id = 1;
+   */
+  userId: string;
+
+  /**
+   * @generated from field: int64 amount = 2;
+   */
+  amount: bigint;
+
+  /**
+   * @generated from field: walletpb.WalletType wallet_type = 3;
+   */
+  walletType: WalletType;
+
+  /**
+   * @generated from field: walletpb.TxType tx_type = 4;
+   */
+  txType: TxType;
+
+  /**
+   * @generated from field: uint64 ref_id = 5;
+   */
+  refId: bigint;
+};
+
+/**
+ * Describes the message walletpb.UpdateBalanceRequest.
+ * Use `create(UpdateBalanceRequestSchema)` to create a new message.
+ */
+export const UpdateBalanceRequestSchema: GenMessage<UpdateBalanceRequest> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 2);
+
+/**
+ * @generated from message walletpb.UpdateBalanceResponse
+ */
+export type UpdateBalanceResponse = Message<"walletpb.UpdateBalanceResponse"> & {
+  /**
+   * @generated from field: uint64 balance = 1;
+   */
+  balance: bigint;
+};
+
+/**
+ * Describes the message walletpb.UpdateBalanceResponse.
+ * Use `create(UpdateBalanceResponseSchema)` to create a new message.
+ */
+export const UpdateBalanceResponseSchema: GenMessage<UpdateBalanceResponse> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 3);
 
 /**
  * @generated from enum walletpb.WalletType
@@ -77,4 +166,27 @@ export enum TxType {
  */
 export const TxTypeSchema: GenEnum<TxType> = /*@__PURE__*/
   enumDesc(file_walletpb_wallet, 1);
+
+/**
+ * @generated from service walletpb.WalletService
+ */
+export const WalletService: GenService<{
+  /**
+   * @generated from rpc walletpb.WalletService.GetBalance
+   */
+  getBalance: {
+    methodKind: "unary";
+    input: typeof GetBalanceRequestSchema;
+    output: typeof GetBalanceResponseSchema;
+  },
+  /**
+   * @generated from rpc walletpb.WalletService.UpdateBalance
+   */
+  updateBalance: {
+    methodKind: "unary";
+    input: typeof UpdateBalanceRequestSchema;
+    output: typeof UpdateBalanceResponseSchema;
+  },
+}> = /*@__PURE__*/
+  serviceDesc(file_walletpb_wallet, 0);
 
