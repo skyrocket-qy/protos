@@ -2,8 +2,8 @@
 // @generated from file bastionpb/bastion.proto (package bastionpb, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc, messageDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import type { Event } from "../slotpb/slot_pb";
 import { file_slotpb_slot } from "../slotpb/slot_pb";
 import type { Message } from "@bufbuild/protobuf";
@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file bastionpb/bastion.proto.
  */
 export const file_bastionpb_bastion: GenFile = /*@__PURE__*/
-  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIlMKCVdTUmVxdWVzdBIhCgZhY3Rpb24YASABKA4yES5iYXN0aW9ucGIuQWN0aW9uEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCSJjCgpXU1Jlc3BvbnNlEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIjIKC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDSIpCghTcGluUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiIgoMQnV5RmdSZXF1ZXN0EhIKCmJldF9hbW91bnQYASABKA0iKgoJQnV5RmdSZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudCIoCgdXU0Vycm9yEgwKBGNvZGUYASABKAkSDwoHbWVzc2FnZRgCIAEoCSpACgZBY3Rpb24SFgoSQUNUSU9OX1VOU1BFQ0lGSUVEEAASCAoEUElORxABEggKBFNQSU4QAhIKCgZCVVlfRkcQAyo5CghHYW1lVHlwZRIZChVHQU1FX1RZUEVfVU5TUEVDSUZJRUQQABIICgRTTE9UEAESCAoERklTSBACQpkBCg1jb20uYmFzdGlvbnBiQgxCYXN0aW9uUHJvdG9QAVo2Z2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9iYXN0aW9ucGI7YmFzdGlvbnBiogIDQlhYqgIJQmFzdGlvbnBiygIJQmFzdGlvbnBi4gIVQmFzdGlvbnBiXEdQQk1ldGFkYXRh6gIJQmFzdGlvbnBiYgZwcm90bzM", [file_slotpb_slot]);
+  fileDesc("ChdiYXN0aW9ucGIvYmFzdGlvbi5wcm90bxIJYmFzdGlvbnBiIlMKCVdTUmVxdWVzdBIhCgZhY3Rpb24YASABKA4yES5iYXN0aW9ucGIuQWN0aW9uEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCSJjCgpXU1Jlc3BvbnNlEg8KB3BheWxvYWQYAiABKAwSEgoKcmVxdWVzdF9pZBgDIAEoCRImCgVlcnJvchgEIAEoCzISLmJhc3Rpb25wYi5XU0Vycm9ySACIAQFCCAoGX2Vycm9yIjIKC1NwaW5SZXF1ZXN0Eg8KB2dhbWVfaWQYASABKA0SEgoKYmV0X2Ftb3VudBgCIAEoDSIpCghTcGluUmVzcBIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiIgoMQnV5RmdSZXF1ZXN0EhIKCmJldF9hbW91bnQYASABKA0iKgoJQnV5RmdSZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudCIoCgdXU0Vycm9yEgwKBGNvZGUYASABKAkSDwoHbWVzc2FnZRgCIAEoCSI4ChRDcmVhdGVMaXN0aW5nUmVxdWVzdBIRCglpdGVtX25hbWUYASABKAkSDQoFcHJpY2UYAiABKAQiKwoVQ3JlYXRlTGlzdGluZ1Jlc3BvbnNlEhIKCmxpc3RpbmdfaWQYASABKAkiJAoOQnV5SXRlbVJlcXVlc3QSEgoKbGlzdGluZ19pZBgBIAEoCSI8Cg9CdXlJdGVtUmVzcG9uc2USEgoKbGlzdGluZ19pZBgBIAEoCRIVCg1idXllcl9iYWxhbmNlGAIgASgEImYKC0F1Y3Rpb25JdGVtEhIKCmxpc3RpbmdfaWQYASABKAkSEQoJc2VsbGVyX2lkGAIgASgJEhEKCWl0ZW1fbmFtZRgDIAEoCRINCgVwcmljZRgEIAEoBBIOCgZzdGF0dXMYBSABKAkiGAoWTGlzdEFjdGl2ZUl0ZW1zUmVxdWVzdCJAChdMaXN0QWN0aXZlSXRlbXNSZXNwb25zZRIlCgVpdGVtcxgBIAMoCzIWLmJhc3Rpb25wYi5BdWN0aW9uSXRlbSpACgZBY3Rpb24SFgoSQUNUSU9OX1VOU1BFQ0lGSUVEEAASCAoEUElORxABEggKBFNQSU4QAhIKCgZCVVlfRkcQAyo5CghHYW1lVHlwZRIZChVHQU1FX1RZUEVfVU5TUEVDSUZJRUQQABIICgRTTE9UEAESCAoERklTSBACMoACCg5BdWN0aW9uU2VydmljZRJSCg1DcmVhdGVMaXN0aW5nEh8uYmFzdGlvbnBiLkNyZWF0ZUxpc3RpbmdSZXF1ZXN0GiAuYmFzdGlvbnBiLkNyZWF0ZUxpc3RpbmdSZXNwb25zZRJACgdCdXlJdGVtEhkuYmFzdGlvbnBiLkJ1eUl0ZW1SZXF1ZXN0GhouYmFzdGlvbnBiLkJ1eUl0ZW1SZXNwb25zZRJYCg9MaXN0QWN0aXZlSXRlbXMSIS5iYXN0aW9ucGIuTGlzdEFjdGl2ZUl0ZW1zUmVxdWVzdBoiLmJhc3Rpb25wYi5MaXN0QWN0aXZlSXRlbXNSZXNwb25zZUKZAQoNY29tLmJhc3Rpb25wYkIMQmFzdGlvblByb3RvUAFaNmdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vYmFzdGlvbnBiO2Jhc3Rpb25wYqICA0JYWKoCCUJhc3Rpb25wYsoCCUJhc3Rpb25wYuICFUJhc3Rpb25wYlxHUEJNZXRhZGF0YeoCCUJhc3Rpb25wYmIGcHJvdG8z", [file_slotpb_slot]);
 
 /**
  * @generated from message bastionpb.WSRequest
@@ -164,6 +164,151 @@ export const WSErrorSchema: GenMessage<WSError> = /*@__PURE__*/
   messageDesc(file_bastionpb_bastion, 6);
 
 /**
+ * @generated from message bastionpb.CreateListingRequest
+ */
+export type CreateListingRequest = Message<"bastionpb.CreateListingRequest"> & {
+  /**
+   * @generated from field: string item_name = 1;
+   */
+  itemName: string;
+
+  /**
+   * @generated from field: uint64 price = 2;
+   */
+  price: bigint;
+};
+
+/**
+ * Describes the message bastionpb.CreateListingRequest.
+ * Use `create(CreateListingRequestSchema)` to create a new message.
+ */
+export const CreateListingRequestSchema: GenMessage<CreateListingRequest> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 7);
+
+/**
+ * @generated from message bastionpb.CreateListingResponse
+ */
+export type CreateListingResponse = Message<"bastionpb.CreateListingResponse"> & {
+  /**
+   * @generated from field: string listing_id = 1;
+   */
+  listingId: string;
+};
+
+/**
+ * Describes the message bastionpb.CreateListingResponse.
+ * Use `create(CreateListingResponseSchema)` to create a new message.
+ */
+export const CreateListingResponseSchema: GenMessage<CreateListingResponse> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 8);
+
+/**
+ * @generated from message bastionpb.BuyItemRequest
+ */
+export type BuyItemRequest = Message<"bastionpb.BuyItemRequest"> & {
+  /**
+   * @generated from field: string listing_id = 1;
+   */
+  listingId: string;
+};
+
+/**
+ * Describes the message bastionpb.BuyItemRequest.
+ * Use `create(BuyItemRequestSchema)` to create a new message.
+ */
+export const BuyItemRequestSchema: GenMessage<BuyItemRequest> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 9);
+
+/**
+ * @generated from message bastionpb.BuyItemResponse
+ */
+export type BuyItemResponse = Message<"bastionpb.BuyItemResponse"> & {
+  /**
+   * @generated from field: string listing_id = 1;
+   */
+  listingId: string;
+
+  /**
+   * @generated from field: uint64 buyer_balance = 2;
+   */
+  buyerBalance: bigint;
+};
+
+/**
+ * Describes the message bastionpb.BuyItemResponse.
+ * Use `create(BuyItemResponseSchema)` to create a new message.
+ */
+export const BuyItemResponseSchema: GenMessage<BuyItemResponse> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 10);
+
+/**
+ * @generated from message bastionpb.AuctionItem
+ */
+export type AuctionItem = Message<"bastionpb.AuctionItem"> & {
+  /**
+   * @generated from field: string listing_id = 1;
+   */
+  listingId: string;
+
+  /**
+   * @generated from field: string seller_id = 2;
+   */
+  sellerId: string;
+
+  /**
+   * @generated from field: string item_name = 3;
+   */
+  itemName: string;
+
+  /**
+   * @generated from field: uint64 price = 4;
+   */
+  price: bigint;
+
+  /**
+   * @generated from field: string status = 5;
+   */
+  status: string;
+};
+
+/**
+ * Describes the message bastionpb.AuctionItem.
+ * Use `create(AuctionItemSchema)` to create a new message.
+ */
+export const AuctionItemSchema: GenMessage<AuctionItem> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 11);
+
+/**
+ * @generated from message bastionpb.ListActiveItemsRequest
+ */
+export type ListActiveItemsRequest = Message<"bastionpb.ListActiveItemsRequest"> & {
+};
+
+/**
+ * Describes the message bastionpb.ListActiveItemsRequest.
+ * Use `create(ListActiveItemsRequestSchema)` to create a new message.
+ */
+export const ListActiveItemsRequestSchema: GenMessage<ListActiveItemsRequest> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 12);
+
+/**
+ * @generated from message bastionpb.ListActiveItemsResponse
+ */
+export type ListActiveItemsResponse = Message<"bastionpb.ListActiveItemsResponse"> & {
+  /**
+   * @generated from field: repeated bastionpb.AuctionItem items = 1;
+   */
+  items: AuctionItem[];
+};
+
+/**
+ * Describes the message bastionpb.ListActiveItemsResponse.
+ * Use `create(ListActiveItemsResponseSchema)` to create a new message.
+ */
+export const ListActiveItemsResponseSchema: GenMessage<ListActiveItemsResponse> = /*@__PURE__*/
+  messageDesc(file_bastionpb_bastion, 13);
+
+/**
  * @generated from enum bastionpb.Action
  */
 export enum Action {
@@ -219,4 +364,35 @@ export enum GameType {
  */
 export const GameTypeSchema: GenEnum<GameType> = /*@__PURE__*/
   enumDesc(file_bastionpb_bastion, 1);
+
+/**
+ * @generated from service bastionpb.AuctionService
+ */
+export const AuctionService: GenService<{
+  /**
+   * @generated from rpc bastionpb.AuctionService.CreateListing
+   */
+  createListing: {
+    methodKind: "unary";
+    input: typeof CreateListingRequestSchema;
+    output: typeof CreateListingResponseSchema;
+  },
+  /**
+   * @generated from rpc bastionpb.AuctionService.BuyItem
+   */
+  buyItem: {
+    methodKind: "unary";
+    input: typeof BuyItemRequestSchema;
+    output: typeof BuyItemResponseSchema;
+  },
+  /**
+   * @generated from rpc bastionpb.AuctionService.ListActiveItems
+   */
+  listActiveItems: {
+    methodKind: "unary";
+    input: typeof ListActiveItemsRequestSchema;
+    output: typeof ListActiveItemsResponseSchema;
+  },
+}> = /*@__PURE__*/
+  serviceDesc(file_bastionpb_bastion, 0);
 

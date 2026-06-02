@@ -26,6 +26,8 @@ pub mod __buffa {
         reg.register_json_any(super::__GET_BALANCE_RESPONSE_JSON_ANY);
         reg.register_json_any(super::__UPDATE_BALANCE_REQUEST_JSON_ANY);
         reg.register_json_any(super::__UPDATE_BALANCE_RESPONSE_JSON_ANY);
+        reg.register_json_any(super::__TRANSFER_REQUEST_JSON_ANY);
+        reg.register_json_any(super::__TRANSFER_RESPONSE_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -36,5 +38,9 @@ pub use self::__buffa::view::GetBalanceResponseView;
 pub use self::__buffa::view::UpdateBalanceRequestView;
 #[doc(inline)]
 pub use self::__buffa::view::UpdateBalanceResponseView;
+#[doc(inline)]
+pub use self::__buffa::view::TransferRequestView;
+#[doc(inline)]
+pub use self::__buffa::view::TransferResponseView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

@@ -479,6 +479,354 @@ func (x *WSError) GetMessage() string {
 	return ""
 }
 
+type CreateListingRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ItemName      string                 `protobuf:"bytes,1,opt,name=item_name,json=itemName,proto3" json:"item_name,omitempty"`
+	Price         uint64                 `protobuf:"varint,2,opt,name=price,proto3" json:"price,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateListingRequest) Reset() {
+	*x = CreateListingRequest{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[7]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateListingRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateListingRequest) ProtoMessage() {}
+
+func (x *CreateListingRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[7]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateListingRequest.ProtoReflect.Descriptor instead.
+func (*CreateListingRequest) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *CreateListingRequest) GetItemName() string {
+	if x != nil {
+		return x.ItemName
+	}
+	return ""
+}
+
+func (x *CreateListingRequest) GetPrice() uint64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+type CreateListingResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ListingId     string                 `protobuf:"bytes,1,opt,name=listing_id,json=listingId,proto3" json:"listing_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CreateListingResponse) Reset() {
+	*x = CreateListingResponse{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[8]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CreateListingResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreateListingResponse) ProtoMessage() {}
+
+func (x *CreateListingResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[8]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreateListingResponse.ProtoReflect.Descriptor instead.
+func (*CreateListingResponse) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *CreateListingResponse) GetListingId() string {
+	if x != nil {
+		return x.ListingId
+	}
+	return ""
+}
+
+type BuyItemRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ListingId     string                 `protobuf:"bytes,1,opt,name=listing_id,json=listingId,proto3" json:"listing_id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuyItemRequest) Reset() {
+	*x = BuyItemRequest{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuyItemRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuyItemRequest) ProtoMessage() {}
+
+func (x *BuyItemRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuyItemRequest.ProtoReflect.Descriptor instead.
+func (*BuyItemRequest) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *BuyItemRequest) GetListingId() string {
+	if x != nil {
+		return x.ListingId
+	}
+	return ""
+}
+
+type BuyItemResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ListingId     string                 `protobuf:"bytes,1,opt,name=listing_id,json=listingId,proto3" json:"listing_id,omitempty"`
+	BuyerBalance  uint64                 `protobuf:"varint,2,opt,name=buyer_balance,json=buyerBalance,proto3" json:"buyer_balance,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BuyItemResponse) Reset() {
+	*x = BuyItemResponse{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BuyItemResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BuyItemResponse) ProtoMessage() {}
+
+func (x *BuyItemResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BuyItemResponse.ProtoReflect.Descriptor instead.
+func (*BuyItemResponse) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *BuyItemResponse) GetListingId() string {
+	if x != nil {
+		return x.ListingId
+	}
+	return ""
+}
+
+func (x *BuyItemResponse) GetBuyerBalance() uint64 {
+	if x != nil {
+		return x.BuyerBalance
+	}
+	return 0
+}
+
+type AuctionItem struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ListingId     string                 `protobuf:"bytes,1,opt,name=listing_id,json=listingId,proto3" json:"listing_id,omitempty"`
+	SellerId      string                 `protobuf:"bytes,2,opt,name=seller_id,json=sellerId,proto3" json:"seller_id,omitempty"`
+	ItemName      string                 `protobuf:"bytes,3,opt,name=item_name,json=itemName,proto3" json:"item_name,omitempty"`
+	Price         uint64                 `protobuf:"varint,4,opt,name=price,proto3" json:"price,omitempty"`
+	Status        string                 `protobuf:"bytes,5,opt,name=status,proto3" json:"status,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *AuctionItem) Reset() {
+	*x = AuctionItem{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[11]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *AuctionItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AuctionItem) ProtoMessage() {}
+
+func (x *AuctionItem) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[11]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AuctionItem.ProtoReflect.Descriptor instead.
+func (*AuctionItem) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *AuctionItem) GetListingId() string {
+	if x != nil {
+		return x.ListingId
+	}
+	return ""
+}
+
+func (x *AuctionItem) GetSellerId() string {
+	if x != nil {
+		return x.SellerId
+	}
+	return ""
+}
+
+func (x *AuctionItem) GetItemName() string {
+	if x != nil {
+		return x.ItemName
+	}
+	return ""
+}
+
+func (x *AuctionItem) GetPrice() uint64 {
+	if x != nil {
+		return x.Price
+	}
+	return 0
+}
+
+func (x *AuctionItem) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+type ListActiveItemsRequest struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListActiveItemsRequest) Reset() {
+	*x = ListActiveItemsRequest{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListActiveItemsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListActiveItemsRequest) ProtoMessage() {}
+
+func (x *ListActiveItemsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListActiveItemsRequest.ProtoReflect.Descriptor instead.
+func (*ListActiveItemsRequest) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{12}
+}
+
+type ListActiveItemsResponse struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Items         []*AuctionItem         `protobuf:"bytes,1,rep,name=items,proto3" json:"items,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ListActiveItemsResponse) Reset() {
+	*x = ListActiveItemsResponse{}
+	mi := &file_bastionpb_bastion_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ListActiveItemsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListActiveItemsResponse) ProtoMessage() {}
+
+func (x *ListActiveItemsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_bastionpb_bastion_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListActiveItemsResponse.ProtoReflect.Descriptor instead.
+func (*ListActiveItemsResponse) Descriptor() ([]byte, []int) {
+	return file_bastionpb_bastion_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *ListActiveItemsResponse) GetItems() []*AuctionItem {
+	if x != nil {
+		return x.Items
+	}
+	return nil
+}
+
 var File_bastionpb_bastion_proto protoreflect.FileDescriptor
 
 const file_bastionpb_bastion_proto_rawDesc = "" +
@@ -509,7 +857,30 @@ const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\"7\n" +
 	"\aWSError\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\tR\x04code\x12\x18\n" +
-	"\amessage\x18\x02 \x01(\tR\amessage*@\n" +
+	"\amessage\x18\x02 \x01(\tR\amessage\"I\n" +
+	"\x14CreateListingRequest\x12\x1b\n" +
+	"\titem_name\x18\x01 \x01(\tR\bitemName\x12\x14\n" +
+	"\x05price\x18\x02 \x01(\x04R\x05price\"6\n" +
+	"\x15CreateListingResponse\x12\x1d\n" +
+	"\n" +
+	"listing_id\x18\x01 \x01(\tR\tlistingId\"/\n" +
+	"\x0eBuyItemRequest\x12\x1d\n" +
+	"\n" +
+	"listing_id\x18\x01 \x01(\tR\tlistingId\"U\n" +
+	"\x0fBuyItemResponse\x12\x1d\n" +
+	"\n" +
+	"listing_id\x18\x01 \x01(\tR\tlistingId\x12#\n" +
+	"\rbuyer_balance\x18\x02 \x01(\x04R\fbuyerBalance\"\x94\x01\n" +
+	"\vAuctionItem\x12\x1d\n" +
+	"\n" +
+	"listing_id\x18\x01 \x01(\tR\tlistingId\x12\x1b\n" +
+	"\tseller_id\x18\x02 \x01(\tR\bsellerId\x12\x1b\n" +
+	"\titem_name\x18\x03 \x01(\tR\bitemName\x12\x14\n" +
+	"\x05price\x18\x04 \x01(\x04R\x05price\x12\x16\n" +
+	"\x06status\x18\x05 \x01(\tR\x06status\"\x18\n" +
+	"\x16ListActiveItemsRequest\"G\n" +
+	"\x17ListActiveItemsResponse\x12,\n" +
+	"\x05items\x18\x01 \x03(\v2\x16.bastionpb.AuctionItemR\x05items*@\n" +
 	"\x06Action\x12\x16\n" +
 	"\x12ACTION_UNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04PING\x10\x01\x12\b\n" +
@@ -519,7 +890,11 @@ const file_bastionpb_bastion_proto_rawDesc = "" +
 	"\bGameType\x12\x19\n" +
 	"\x15GAME_TYPE_UNSPECIFIED\x10\x00\x12\b\n" +
 	"\x04SLOT\x10\x01\x12\b\n" +
-	"\x04FISH\x10\x02B\x99\x01\n" +
+	"\x04FISH\x10\x022\x80\x02\n" +
+	"\x0eAuctionService\x12R\n" +
+	"\rCreateListing\x12\x1f.bastionpb.CreateListingRequest\x1a .bastionpb.CreateListingResponse\x12@\n" +
+	"\aBuyItem\x12\x19.bastionpb.BuyItemRequest\x1a\x1a.bastionpb.BuyItemResponse\x12X\n" +
+	"\x0fListActiveItems\x12!.bastionpb.ListActiveItemsRequest\x1a\".bastionpb.ListActiveItemsResponseB\x99\x01\n" +
 	"\rcom.bastionpbB\fBastionProtoP\x01Z6github.com/skyrocket-qy/protos/gen/bastionpb;bastionpb\xa2\x02\x03BXX\xaa\x02\tBastionpb\xca\x02\tBastionpb\xe2\x02\x15Bastionpb\\GPBMetadata\xea\x02\tBastionpbb\x06proto3"
 
 var (
@@ -535,29 +910,43 @@ func file_bastionpb_bastion_proto_rawDescGZIP() []byte {
 }
 
 var file_bastionpb_bastion_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_bastionpb_bastion_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_bastionpb_bastion_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_bastionpb_bastion_proto_goTypes = []any{
-	(Action)(0),          // 0: bastionpb.Action
-	(GameType)(0),        // 1: bastionpb.GameType
-	(*WSRequest)(nil),    // 2: bastionpb.WSRequest
-	(*WSResponse)(nil),   // 3: bastionpb.WSResponse
-	(*SpinRequest)(nil),  // 4: bastionpb.SpinRequest
-	(*SpinResp)(nil),     // 5: bastionpb.SpinResp
-	(*BuyFgRequest)(nil), // 6: bastionpb.BuyFgRequest
-	(*BuyFgResp)(nil),    // 7: bastionpb.BuyFgResp
-	(*WSError)(nil),      // 8: bastionpb.WSError
-	(*slotpb.Event)(nil), // 9: slotpb.Event
+	(Action)(0),                     // 0: bastionpb.Action
+	(GameType)(0),                   // 1: bastionpb.GameType
+	(*WSRequest)(nil),               // 2: bastionpb.WSRequest
+	(*WSResponse)(nil),              // 3: bastionpb.WSResponse
+	(*SpinRequest)(nil),             // 4: bastionpb.SpinRequest
+	(*SpinResp)(nil),                // 5: bastionpb.SpinResp
+	(*BuyFgRequest)(nil),            // 6: bastionpb.BuyFgRequest
+	(*BuyFgResp)(nil),               // 7: bastionpb.BuyFgResp
+	(*WSError)(nil),                 // 8: bastionpb.WSError
+	(*CreateListingRequest)(nil),    // 9: bastionpb.CreateListingRequest
+	(*CreateListingResponse)(nil),   // 10: bastionpb.CreateListingResponse
+	(*BuyItemRequest)(nil),          // 11: bastionpb.BuyItemRequest
+	(*BuyItemResponse)(nil),         // 12: bastionpb.BuyItemResponse
+	(*AuctionItem)(nil),             // 13: bastionpb.AuctionItem
+	(*ListActiveItemsRequest)(nil),  // 14: bastionpb.ListActiveItemsRequest
+	(*ListActiveItemsResponse)(nil), // 15: bastionpb.ListActiveItemsResponse
+	(*slotpb.Event)(nil),            // 16: slotpb.Event
 }
 var file_bastionpb_bastion_proto_depIdxs = []int32{
-	0, // 0: bastionpb.WSRequest.action:type_name -> bastionpb.Action
-	8, // 1: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
-	9, // 2: bastionpb.SpinResp.events:type_name -> slotpb.Event
-	9, // 3: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
-	4, // [4:4] is the sub-list for method output_type
-	4, // [4:4] is the sub-list for method input_type
-	4, // [4:4] is the sub-list for extension type_name
-	4, // [4:4] is the sub-list for extension extendee
-	0, // [0:4] is the sub-list for field type_name
+	0,  // 0: bastionpb.WSRequest.action:type_name -> bastionpb.Action
+	8,  // 1: bastionpb.WSResponse.error:type_name -> bastionpb.WSError
+	16, // 2: bastionpb.SpinResp.events:type_name -> slotpb.Event
+	16, // 3: bastionpb.BuyFgResp.events:type_name -> slotpb.Event
+	13, // 4: bastionpb.ListActiveItemsResponse.items:type_name -> bastionpb.AuctionItem
+	9,  // 5: bastionpb.AuctionService.CreateListing:input_type -> bastionpb.CreateListingRequest
+	11, // 6: bastionpb.AuctionService.BuyItem:input_type -> bastionpb.BuyItemRequest
+	14, // 7: bastionpb.AuctionService.ListActiveItems:input_type -> bastionpb.ListActiveItemsRequest
+	10, // 8: bastionpb.AuctionService.CreateListing:output_type -> bastionpb.CreateListingResponse
+	12, // 9: bastionpb.AuctionService.BuyItem:output_type -> bastionpb.BuyItemResponse
+	15, // 10: bastionpb.AuctionService.ListActiveItems:output_type -> bastionpb.ListActiveItemsResponse
+	8,  // [8:11] is the sub-list for method output_type
+	5,  // [5:8] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_bastionpb_bastion_proto_init() }
@@ -572,9 +961,9 @@ func file_bastionpb_bastion_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_bastionpb_bastion_proto_rawDesc), len(file_bastionpb_bastion_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   7,
+			NumMessages:   14,
 			NumExtensions: 0,
-			NumServices:   0,
+			NumServices:   1,
 		},
 		GoTypes:           file_bastionpb_bastion_proto_goTypes,
 		DependencyIndexes: file_bastionpb_bastion_proto_depIdxs,

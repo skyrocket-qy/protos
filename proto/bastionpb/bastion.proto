@@ -48,3 +48,41 @@ message WSError {
   string code = 1;
   string message = 2;
 }
+
+message CreateListingRequest {
+  string item_name = 1;
+  uint64 price = 2;
+}
+
+message CreateListingResponse {
+  string listing_id = 1;
+}
+
+message BuyItemRequest {
+  string listing_id = 1;
+}
+
+message BuyItemResponse {
+  string listing_id = 1;
+  uint64 buyer_balance = 2;
+}
+
+message AuctionItem {
+  string listing_id = 1;
+  string seller_id = 2;
+  string item_name = 3;
+  uint64 price = 4;
+  string status = 5;
+}
+
+message ListActiveItemsRequest {}
+
+message ListActiveItemsResponse {
+  repeated AuctionItem items = 1;
+}
+
+service AuctionService {
+  rpc CreateListing(CreateListingRequest) returns (CreateListingResponse);
+  rpc BuyItem(BuyItemRequest) returns (BuyItemResponse);
+  rpc ListActiveItems(ListActiveItemsRequest) returns (ListActiveItemsResponse);
+}

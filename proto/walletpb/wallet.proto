@@ -39,7 +39,23 @@ message UpdateBalanceResponse {
   uint64 balance = 1;
 }
 
+message TransferRequest {
+  string from_user_id = 1;
+  string to_user_id = 2;
+  uint64 amount = 3;
+  WalletType from_wallet_type = 4;
+  WalletType to_wallet_type = 5;
+  TxType tx_type = 6;
+  uint64 ref_id = 7;
+}
+
+message TransferResponse {
+  uint64 from_balance_after = 1;
+  uint64 to_balance_after = 2;
+}
+
 service WalletService {
   rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse);
   rpc UpdateBalance(UpdateBalanceRequest) returns (UpdateBalanceResponse);
+  rpc Transfer(TransferRequest) returns (TransferResponse);
 }

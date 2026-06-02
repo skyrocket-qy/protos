@@ -29,6 +29,13 @@ pub mod __buffa {
         reg.register_json_any(super::__BUY_FG_REQUEST_JSON_ANY);
         reg.register_json_any(super::__BUY_FG_RESP_JSON_ANY);
         reg.register_json_any(super::__WS_ERROR_JSON_ANY);
+        reg.register_json_any(super::__CREATE_LISTING_REQUEST_JSON_ANY);
+        reg.register_json_any(super::__CREATE_LISTING_RESPONSE_JSON_ANY);
+        reg.register_json_any(super::__BUY_ITEM_REQUEST_JSON_ANY);
+        reg.register_json_any(super::__BUY_ITEM_RESPONSE_JSON_ANY);
+        reg.register_json_any(super::__AUCTION_ITEM_JSON_ANY);
+        reg.register_json_any(super::__LIST_ACTIVE_ITEMS_REQUEST_JSON_ANY);
+        reg.register_json_any(super::__LIST_ACTIVE_ITEMS_RESPONSE_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -45,5 +52,19 @@ pub use self::__buffa::view::BuyFgRequestView;
 pub use self::__buffa::view::BuyFgRespView;
 #[doc(inline)]
 pub use self::__buffa::view::WSErrorView;
+#[doc(inline)]
+pub use self::__buffa::view::CreateListingRequestView;
+#[doc(inline)]
+pub use self::__buffa::view::CreateListingResponseView;
+#[doc(inline)]
+pub use self::__buffa::view::BuyItemRequestView;
+#[doc(inline)]
+pub use self::__buffa::view::BuyItemResponseView;
+#[doc(inline)]
+pub use self::__buffa::view::AuctionItemView;
+#[doc(inline)]
+pub use self::__buffa::view::ListActiveItemsRequestView;
+#[doc(inline)]
+pub use self::__buffa::view::ListActiveItemsResponseView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

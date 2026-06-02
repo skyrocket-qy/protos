@@ -53,6 +53,10 @@ namespace Walletpb {
     static readonly grpc::Marshaller<global::Walletpb.UpdateBalanceRequest> __Marshaller_walletpb_UpdateBalanceRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Walletpb.UpdateBalanceRequest.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Walletpb.UpdateBalanceResponse> __Marshaller_walletpb_UpdateBalanceResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Walletpb.UpdateBalanceResponse.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Walletpb.TransferRequest> __Marshaller_walletpb_TransferRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Walletpb.TransferRequest.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Walletpb.TransferResponse> __Marshaller_walletpb_TransferResponse = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Walletpb.TransferResponse.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Walletpb.GetBalanceRequest, global::Walletpb.GetBalanceResponse> __Method_GetBalance = new grpc::Method<global::Walletpb.GetBalanceRequest, global::Walletpb.GetBalanceResponse>(
@@ -69,6 +73,14 @@ namespace Walletpb {
         "UpdateBalance",
         __Marshaller_walletpb_UpdateBalanceRequest,
         __Marshaller_walletpb_UpdateBalanceResponse);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Walletpb.TransferRequest, global::Walletpb.TransferResponse> __Method_Transfer = new grpc::Method<global::Walletpb.TransferRequest, global::Walletpb.TransferResponse>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Transfer",
+        __Marshaller_walletpb_TransferRequest,
+        __Marshaller_walletpb_TransferResponse);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -88,6 +100,12 @@ namespace Walletpb {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Walletpb.UpdateBalanceResponse> UpdateBalance(global::Walletpb.UpdateBalanceRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Walletpb.TransferResponse> Transfer(global::Walletpb.TransferRequest request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -161,6 +179,26 @@ namespace Walletpb {
       {
         return CallInvoker.AsyncUnaryCall(__Method_UpdateBalance, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Walletpb.TransferResponse Transfer(global::Walletpb.TransferRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Transfer(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Walletpb.TransferResponse Transfer(global::Walletpb.TransferRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Transfer, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Walletpb.TransferResponse> TransferAsync(global::Walletpb.TransferRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return TransferAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Walletpb.TransferResponse> TransferAsync(global::Walletpb.TransferRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Transfer, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override WalletServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -176,7 +214,8 @@ namespace Walletpb {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetBalance, serviceImpl.GetBalance)
-          .AddMethod(__Method_UpdateBalance, serviceImpl.UpdateBalance).Build();
+          .AddMethod(__Method_UpdateBalance, serviceImpl.UpdateBalance)
+          .AddMethod(__Method_Transfer, serviceImpl.Transfer).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -188,6 +227,7 @@ namespace Walletpb {
     {
       serviceBinder.AddMethod(__Method_GetBalance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Walletpb.GetBalanceRequest, global::Walletpb.GetBalanceResponse>(serviceImpl.GetBalance));
       serviceBinder.AddMethod(__Method_UpdateBalance, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Walletpb.UpdateBalanceRequest, global::Walletpb.UpdateBalanceResponse>(serviceImpl.UpdateBalance));
+      serviceBinder.AddMethod(__Method_Transfer, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Walletpb.TransferRequest, global::Walletpb.TransferResponse>(serviceImpl.Transfer));
     }
 
   }

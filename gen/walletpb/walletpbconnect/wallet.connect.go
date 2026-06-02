@@ -39,12 +39,15 @@ const (
 	// WalletServiceUpdateBalanceProcedure is the fully-qualified name of the WalletService's
 	// UpdateBalance RPC.
 	WalletServiceUpdateBalanceProcedure = "/walletpb.WalletService/UpdateBalance"
+	// WalletServiceTransferProcedure is the fully-qualified name of the WalletService's Transfer RPC.
+	WalletServiceTransferProcedure = "/walletpb.WalletService/Transfer"
 )
 
 // WalletServiceClient is a client for the walletpb.WalletService service.
 type WalletServiceClient interface {
 	GetBalance(context.Context, *connect.Request[walletpb.GetBalanceRequest]) (*connect.Response[walletpb.GetBalanceResponse], error)
 	UpdateBalance(context.Context, *connect.Request[walletpb.UpdateBalanceRequest]) (*connect.Response[walletpb.UpdateBalanceResponse], error)
+	Transfer(context.Context, *connect.Request[walletpb.TransferRequest]) (*connect.Response[walletpb.TransferResponse], error)
 }
 
 // NewWalletServiceClient constructs a client for the walletpb.WalletService service. By default, it
@@ -70,6 +73,12 @@ func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 			connect.WithSchema(walletServiceMethods.ByName("UpdateBalance")),
 			connect.WithClientOptions(opts...),
 		),
+		transfer: connect.NewClient[walletpb.TransferRequest, walletpb.TransferResponse](
+			httpClient,
+			baseURL+WalletServiceTransferProcedure,
+			connect.WithSchema(walletServiceMethods.ByName("Transfer")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
@@ -77,6 +86,7 @@ func NewWalletServiceClient(httpClient connect.HTTPClient, baseURL string, opts 
 type walletServiceClient struct {
 	getBalance    *connect.Client[walletpb.GetBalanceRequest, walletpb.GetBalanceResponse]
 	updateBalance *connect.Client[walletpb.UpdateBalanceRequest, walletpb.UpdateBalanceResponse]
+	transfer      *connect.Client[walletpb.TransferRequest, walletpb.TransferResponse]
 }
 
 // GetBalance calls walletpb.WalletService.GetBalance.
@@ -89,10 +99,16 @@ func (c *walletServiceClient) UpdateBalance(ctx context.Context, req *connect.Re
 	return c.updateBalance.CallUnary(ctx, req)
 }
 
+// Transfer calls walletpb.WalletService.Transfer.
+func (c *walletServiceClient) Transfer(ctx context.Context, req *connect.Request[walletpb.TransferRequest]) (*connect.Response[walletpb.TransferResponse], error) {
+	return c.transfer.CallUnary(ctx, req)
+}
+
 // WalletServiceHandler is an implementation of the walletpb.WalletService service.
 type WalletServiceHandler interface {
 	GetBalance(context.Context, *connect.Request[walletpb.GetBalanceRequest]) (*connect.Response[walletpb.GetBalanceResponse], error)
 	UpdateBalance(context.Context, *connect.Request[walletpb.UpdateBalanceRequest]) (*connect.Response[walletpb.UpdateBalanceResponse], error)
+	Transfer(context.Context, *connect.Request[walletpb.TransferRequest]) (*connect.Response[walletpb.TransferResponse], error)
 }
 
 // NewWalletServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -114,12 +130,20 @@ func NewWalletServiceHandler(svc WalletServiceHandler, opts ...connect.HandlerOp
 		connect.WithSchema(walletServiceMethods.ByName("UpdateBalance")),
 		connect.WithHandlerOptions(opts...),
 	)
+	walletServiceTransferHandler := connect.NewUnaryHandler(
+		WalletServiceTransferProcedure,
+		svc.Transfer,
+		connect.WithSchema(walletServiceMethods.ByName("Transfer")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/walletpb.WalletService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case WalletServiceGetBalanceProcedure:
 			walletServiceGetBalanceHandler.ServeHTTP(w, r)
 		case WalletServiceUpdateBalanceProcedure:
 			walletServiceUpdateBalanceHandler.ServeHTTP(w, r)
+		case WalletServiceTransferProcedure:
+			walletServiceTransferHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -135,4 +159,8 @@ func (UnimplementedWalletServiceHandler) GetBalance(context.Context, *connect.Re
 
 func (UnimplementedWalletServiceHandler) UpdateBalance(context.Context, *connect.Request[walletpb.UpdateBalanceRequest]) (*connect.Response[walletpb.UpdateBalanceResponse], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("walletpb.WalletService.UpdateBalance is not implemented"))
+}
+
+func (UnimplementedWalletServiceHandler) Transfer(context.Context, *connect.Request[walletpb.TransferRequest]) (*connect.Response[walletpb.TransferResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("walletpb.WalletService.Transfer is not implemented"))
 }

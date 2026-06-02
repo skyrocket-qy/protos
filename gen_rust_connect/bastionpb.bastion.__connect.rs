@@ -1,29 +1,29 @@
-///Shorthand for `OwnedView<GetBalanceRequestView<'static>>`.
-pub type OwnedGetBalanceRequestView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::GetBalanceRequestView<'static>,
+///Shorthand for `OwnedView<CreateListingRequestView<'static>>`.
+pub type OwnedCreateListingRequestView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::CreateListingRequestView<'static>,
 >;
-///Shorthand for `OwnedView<GetBalanceResponseView<'static>>`.
-pub type OwnedGetBalanceResponseView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'static>,
+///Shorthand for `OwnedView<CreateListingResponseView<'static>>`.
+pub type OwnedCreateListingResponseView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::CreateListingResponseView<'static>,
 >;
-///Shorthand for `OwnedView<UpdateBalanceRequestView<'static>>`.
-pub type OwnedUpdateBalanceRequestView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::UpdateBalanceRequestView<'static>,
+///Shorthand for `OwnedView<BuyItemRequestView<'static>>`.
+pub type OwnedBuyItemRequestView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::BuyItemRequestView<'static>,
 >;
-///Shorthand for `OwnedView<UpdateBalanceResponseView<'static>>`.
-pub type OwnedUpdateBalanceResponseView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<'static>,
+///Shorthand for `OwnedView<BuyItemResponseView<'static>>`.
+pub type OwnedBuyItemResponseView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::BuyItemResponseView<'static>,
 >;
-///Shorthand for `OwnedView<TransferRequestView<'static>>`.
-pub type OwnedTransferRequestView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::TransferRequestView<'static>,
+///Shorthand for `OwnedView<ListActiveItemsRequestView<'static>>`.
+pub type OwnedListActiveItemsRequestView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsRequestView<'static>,
 >;
-///Shorthand for `OwnedView<TransferResponseView<'static>>`.
-pub type OwnedTransferResponseView = ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'static>,
+///Shorthand for `OwnedView<ListActiveItemsResponseView<'static>>`.
+pub type OwnedListActiveItemsResponseView = ::buffa::view::OwnedView<
+    crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsResponseView<'static>,
 >;
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::GetBalanceResponse>
-for crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'_> {
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::CreateListingResponse>
+for crate::gen_rust::bastionpb::__buffa::view::CreateListingResponseView<'_> {
     fn encode(
         &self,
         codec: ::connectrpc::CodecFormat,
@@ -31,9 +31,9 @@ for crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'_> {
         ::connectrpc::__codegen::encode_view_body(self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::GetBalanceResponse>
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::CreateListingResponse>
 for ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'static>,
+    crate::gen_rust::bastionpb::__buffa::view::CreateListingResponseView<'static>,
 > {
     fn encode(
         &self,
@@ -42,8 +42,8 @@ for ::buffa::view::OwnedView<
         ::connectrpc::__codegen::encode_view_body(&**self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::UpdateBalanceResponse>
-for crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<'_> {
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::BuyItemResponse>
+for crate::gen_rust::bastionpb::__buffa::view::BuyItemResponseView<'_> {
     fn encode(
         &self,
         codec: ::connectrpc::CodecFormat,
@@ -51,9 +51,9 @@ for crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<'_> {
         ::connectrpc::__codegen::encode_view_body(self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::UpdateBalanceResponse>
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::BuyItemResponse>
 for ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<'static>,
+    crate::gen_rust::bastionpb::__buffa::view::BuyItemResponseView<'static>,
 > {
     fn encode(
         &self,
@@ -62,8 +62,8 @@ for ::buffa::view::OwnedView<
         ::connectrpc::__codegen::encode_view_body(&**self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::TransferResponse>
-for crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'_> {
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::ListActiveItemsResponse>
+for crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsResponseView<'_> {
     fn encode(
         &self,
         codec: ::connectrpc::CodecFormat,
@@ -71,9 +71,9 @@ for crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'_> {
         ::connectrpc::__codegen::encode_view_body(self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::walletpb::TransferResponse>
+impl ::connectrpc::Encodable<crate::gen_rust::bastionpb::ListActiveItemsResponse>
 for ::buffa::view::OwnedView<
-    crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'static>,
+    crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsResponseView<'static>,
 > {
     fn encode(
         &self,
@@ -83,35 +83,35 @@ for ::buffa::view::OwnedView<
     }
 }
 /// Full service name for this service.
-pub const WALLET_SERVICE_SERVICE_NAME: &str = "walletpb.WalletService";
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `GetBalance` RPC.
+pub const AUCTION_SERVICE_SERVICE_NAME: &str = "bastionpb.AuctionService";
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `CreateListing` RPC.
 ///
 /// The dispatcher surfaces this on
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const WALLET_SERVICE_GET_BALANCE_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/walletpb.WalletService/GetBalance",
+pub const AUCTION_SERVICE_CREATE_LISTING_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/bastionpb.AuctionService/CreateListing",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `UpdateBalance` RPC.
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `BuyItem` RPC.
 ///
 /// The dispatcher surfaces this on
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const WALLET_SERVICE_UPDATE_BALANCE_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/walletpb.WalletService/UpdateBalance",
+pub const AUCTION_SERVICE_BUY_ITEM_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/bastionpb.AuctionService/BuyItem",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `Transfer` RPC.
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `ListActiveItems` RPC.
 ///
 /// The dispatcher surfaces this on
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const WALLET_SERVICE_TRANSFER_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/walletpb.WalletService/Transfer",
+pub const AUCTION_SERVICE_LIST_ACTIVE_ITEMS_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/bastionpb.AuctionService/ListActiveItems",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
-/// Server trait for WalletService.
+/// Server trait for AuctionService.
 ///
 /// # Implementing handlers
 ///
@@ -147,46 +147,46 @@ pub const WALLET_SERVICE_TRANSFER_SPEC: ::connectrpc::Spec = ::connectrpc::Spec:
 /// [`PreEncoded`](::connectrpc::PreEncoded) — see its `# Streaming
 /// example` doc.
 #[allow(clippy::type_complexity)]
-pub trait WalletService: Send + Sync + 'static {
-    /// Handle the GetBalance RPC.
+pub trait AuctionService: Send + Sync + 'static {
+    /// Handle the CreateListing RPC.
     ///
     /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn get_balance<'a>(
+    fn create_listing<'a>(
         &'a self,
         ctx: ::connectrpc::RequestContext,
-        request: OwnedGetBalanceRequestView,
+        request: OwnedCreateListingRequestView,
     ) -> impl ::std::future::Future<
         Output = ::connectrpc::ServiceResult<
             impl ::connectrpc::Encodable<
-                crate::gen_rust::walletpb::GetBalanceResponse,
+                crate::gen_rust::bastionpb::CreateListingResponse,
             > + Send + use<'a, Self>,
         >,
     > + Send;
-    /// Handle the UpdateBalance RPC.
+    /// Handle the BuyItem RPC.
     ///
     /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn update_balance<'a>(
+    fn buy_item<'a>(
         &'a self,
         ctx: ::connectrpc::RequestContext,
-        request: OwnedUpdateBalanceRequestView,
+        request: OwnedBuyItemRequestView,
     ) -> impl ::std::future::Future<
         Output = ::connectrpc::ServiceResult<
             impl ::connectrpc::Encodable<
-                crate::gen_rust::walletpb::UpdateBalanceResponse,
+                crate::gen_rust::bastionpb::BuyItemResponse,
             > + Send + use<'a, Self>,
         >,
     > + Send;
-    /// Handle the Transfer RPC.
+    /// Handle the ListActiveItems RPC.
     ///
     /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn transfer<'a>(
+    fn list_active_items<'a>(
         &'a self,
         ctx: ::connectrpc::RequestContext,
-        request: OwnedTransferRequestView,
+        request: OwnedListActiveItemsRequestView,
     ) -> impl ::std::future::Future<
         Output = ::connectrpc::ServiceResult<
             impl ::connectrpc::Encodable<
-                crate::gen_rust::walletpb::TransferResponse,
+                crate::gen_rust::bastionpb::ListActiveItemsResponse,
             > + Send + use<'a, Self>,
         >,
     > + Send;
@@ -203,7 +203,7 @@ pub trait WalletService: Send + Sync + 'static {
 /// let service = Arc::new(MyServiceImpl);
 /// let router = service.register(Router::new());
 /// ```
-pub trait WalletServiceExt: WalletService {
+pub trait AuctionServiceExt: AuctionService {
     /// Register this service implementation with a Router.
     ///
     /// Takes ownership of the `Arc<Self>` and returns a new Router with
@@ -213,69 +213,69 @@ pub trait WalletServiceExt: WalletService {
         router: ::connectrpc::Router,
     ) -> ::connectrpc::Router;
 }
-impl<S: WalletService> WalletServiceExt for S {
+impl<S: AuctionService> AuctionServiceExt for S {
     fn register(
         self: ::std::sync::Arc<Self>,
         router: ::connectrpc::Router,
     ) -> ::connectrpc::Router {
         router
             .route_view(
-                WALLET_SERVICE_SERVICE_NAME,
-                "GetBalance",
+                AUCTION_SERVICE_SERVICE_NAME,
+                "CreateListing",
                 {
                     let svc = ::std::sync::Arc::clone(&self);
                     ::connectrpc::view_handler_fn(move |ctx, req, format| {
                         let svc = ::std::sync::Arc::clone(&svc);
                         async move {
-                            svc.get_balance(ctx, req)
+                            svc.create_listing(ctx, req)
                                 .await?
                                 .encode::<
-                                    crate::gen_rust::walletpb::GetBalanceResponse,
+                                    crate::gen_rust::bastionpb::CreateListingResponse,
                                 >(format)
                         }
                     })
                 },
             )
-            .with_spec(WALLET_SERVICE_GET_BALANCE_SPEC)
+            .with_spec(AUCTION_SERVICE_CREATE_LISTING_SPEC)
             .route_view(
-                WALLET_SERVICE_SERVICE_NAME,
-                "UpdateBalance",
+                AUCTION_SERVICE_SERVICE_NAME,
+                "BuyItem",
                 {
                     let svc = ::std::sync::Arc::clone(&self);
                     ::connectrpc::view_handler_fn(move |ctx, req, format| {
                         let svc = ::std::sync::Arc::clone(&svc);
                         async move {
-                            svc.update_balance(ctx, req)
+                            svc.buy_item(ctx, req)
                                 .await?
                                 .encode::<
-                                    crate::gen_rust::walletpb::UpdateBalanceResponse,
+                                    crate::gen_rust::bastionpb::BuyItemResponse,
                                 >(format)
                         }
                     })
                 },
             )
-            .with_spec(WALLET_SERVICE_UPDATE_BALANCE_SPEC)
+            .with_spec(AUCTION_SERVICE_BUY_ITEM_SPEC)
             .route_view(
-                WALLET_SERVICE_SERVICE_NAME,
-                "Transfer",
+                AUCTION_SERVICE_SERVICE_NAME,
+                "ListActiveItems",
                 {
                     let svc = ::std::sync::Arc::clone(&self);
                     ::connectrpc::view_handler_fn(move |ctx, req, format| {
                         let svc = ::std::sync::Arc::clone(&svc);
                         async move {
-                            svc.transfer(ctx, req)
+                            svc.list_active_items(ctx, req)
                                 .await?
                                 .encode::<
-                                    crate::gen_rust::walletpb::TransferResponse,
+                                    crate::gen_rust::bastionpb::ListActiveItemsResponse,
                                 >(format)
                         }
                     })
                 },
             )
-            .with_spec(WALLET_SERVICE_TRANSFER_SPEC)
+            .with_spec(AUCTION_SERVICE_LIST_ACTIVE_ITEMS_SPEC)
     }
 }
-/// Monomorphic dispatcher for `WalletService`.
+/// Monomorphic dispatcher for `AuctionService`.
 ///
 /// Unlike `.register(Router)` which type-erases each method into an `Arc<dyn ErasedHandler>` stored in a `HashMap`, this struct dispatches via a compile-time `match` on method name: no vtable, no hash lookup.
 ///
@@ -284,14 +284,14 @@ impl<S: WalletService> WalletServiceExt for S {
 /// ```rust,ignore
 /// use connectrpc::ConnectRpcService;
 ///
-/// let server = WalletServiceServer::new(MyImpl);
+/// let server = AuctionServiceServer::new(MyImpl);
 /// let service = ConnectRpcService::new(server);
 /// // hand `service` to axum/hyper as a fallback_service
 /// ```
-pub struct WalletServiceServer<T> {
+pub struct AuctionServiceServer<T> {
     inner: ::std::sync::Arc<T>,
 }
-impl<T: WalletService> WalletServiceServer<T> {
+impl<T: AuctionService> AuctionServiceServer<T> {
     /// Wrap a service implementation in a monomorphic dispatcher.
     pub fn new(service: T) -> Self {
         Self {
@@ -303,37 +303,37 @@ impl<T: WalletService> WalletServiceServer<T> {
         Self { inner }
     }
 }
-impl<T> Clone for WalletServiceServer<T> {
+impl<T> Clone for AuctionServiceServer<T> {
     fn clone(&self) -> Self {
         Self {
             inner: ::std::sync::Arc::clone(&self.inner),
         }
     }
 }
-impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
+impl<T: AuctionService> ::connectrpc::Dispatcher for AuctionServiceServer<T> {
     #[inline]
     fn lookup(
         &self,
         path: &str,
     ) -> Option<::connectrpc::dispatcher::codegen::MethodDescriptor> {
-        let method = path.strip_prefix("walletpb.WalletService/")?;
+        let method = path.strip_prefix("bastionpb.AuctionService/")?;
         match method {
-            "GetBalance" => {
+            "CreateListing" => {
                 Some(
                     ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(WALLET_SERVICE_GET_BALANCE_SPEC),
+                        .with_spec(AUCTION_SERVICE_CREATE_LISTING_SPEC),
                 )
             }
-            "UpdateBalance" => {
+            "BuyItem" => {
                 Some(
                     ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(WALLET_SERVICE_UPDATE_BALANCE_SPEC),
+                        .with_spec(AUCTION_SERVICE_BUY_ITEM_SPEC),
                 )
             }
-            "Transfer" => {
+            "ListActiveItems" => {
                 Some(
                     ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(WALLET_SERVICE_TRANSFER_SPEC),
+                        .with_spec(AUCTION_SERVICE_LIST_ACTIVE_ITEMS_SPEC),
                 )
             }
             _ => None,
@@ -346,44 +346,46 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
         request: ::connectrpc::Payload,
         format: ::connectrpc::CodecFormat,
     ) -> ::connectrpc::dispatcher::codegen::UnaryResult {
-        let Some(method) = path.strip_prefix("walletpb.WalletService/") else {
+        let Some(method) = path.strip_prefix("bastionpb.AuctionService/") else {
             return ::connectrpc::dispatcher::codegen::unimplemented_unary(path);
         };
         let _ = (&ctx, &request, &format);
         match method {
-            "GetBalance" => {
+            "CreateListing" => {
                 let svc = ::std::sync::Arc::clone(&self.inner);
                 Box::pin(async move {
                     let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::walletpb::__buffa::view::GetBalanceRequestView,
+                        crate::gen_rust::bastionpb::__buffa::view::CreateListingRequestView,
                     >(request.encoded()?, format)?;
-                    svc.get_balance(ctx, req)
-                        .await?
-                        .encode::<crate::gen_rust::walletpb::GetBalanceResponse>(format)
-                })
-            }
-            "UpdateBalance" => {
-                let svc = ::std::sync::Arc::clone(&self.inner);
-                Box::pin(async move {
-                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::walletpb::__buffa::view::UpdateBalanceRequestView,
-                    >(request.encoded()?, format)?;
-                    svc.update_balance(ctx, req)
+                    svc.create_listing(ctx, req)
                         .await?
                         .encode::<
-                            crate::gen_rust::walletpb::UpdateBalanceResponse,
+                            crate::gen_rust::bastionpb::CreateListingResponse,
                         >(format)
                 })
             }
-            "Transfer" => {
+            "BuyItem" => {
                 let svc = ::std::sync::Arc::clone(&self.inner);
                 Box::pin(async move {
                     let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::walletpb::__buffa::view::TransferRequestView,
+                        crate::gen_rust::bastionpb::__buffa::view::BuyItemRequestView,
                     >(request.encoded()?, format)?;
-                    svc.transfer(ctx, req)
+                    svc.buy_item(ctx, req)
                         .await?
-                        .encode::<crate::gen_rust::walletpb::TransferResponse>(format)
+                        .encode::<crate::gen_rust::bastionpb::BuyItemResponse>(format)
+                })
+            }
+            "ListActiveItems" => {
+                let svc = ::std::sync::Arc::clone(&self.inner);
+                Box::pin(async move {
+                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
+                        crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsRequestView,
+                    >(request.encoded()?, format)?;
+                    svc.list_active_items(ctx, req)
+                        .await?
+                        .encode::<
+                            crate::gen_rust::bastionpb::ListActiveItemsResponse,
+                        >(format)
                 })
             }
             _ => ::connectrpc::dispatcher::codegen::unimplemented_unary(path),
@@ -396,7 +398,7 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
         request: ::buffa::bytes::Bytes,
         format: ::connectrpc::CodecFormat,
     ) -> ::connectrpc::dispatcher::codegen::StreamingResult {
-        let Some(method) = path.strip_prefix("walletpb.WalletService/") else {
+        let Some(method) = path.strip_prefix("bastionpb.AuctionService/") else {
             return ::connectrpc::dispatcher::codegen::unimplemented_streaming(path);
         };
         let _ = (&ctx, &request, &format);
@@ -411,7 +413,7 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
         requests: ::connectrpc::dispatcher::codegen::RequestStream,
         format: ::connectrpc::CodecFormat,
     ) -> ::connectrpc::dispatcher::codegen::UnaryResult {
-        let Some(method) = path.strip_prefix("walletpb.WalletService/") else {
+        let Some(method) = path.strip_prefix("bastionpb.AuctionService/") else {
             return ::connectrpc::dispatcher::codegen::unimplemented_unary(path);
         };
         let _ = (&ctx, &requests, &format);
@@ -426,7 +428,7 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
         requests: ::connectrpc::dispatcher::codegen::RequestStream,
         format: ::connectrpc::CodecFormat,
     ) -> ::connectrpc::dispatcher::codegen::StreamingResult {
-        let Some(method) = path.strip_prefix("walletpb.WalletService/") else {
+        let Some(method) = path.strip_prefix("bastionpb.AuctionService/") else {
             return ::connectrpc::dispatcher::codegen::unimplemented_streaming(path);
         };
         let _ = (&ctx, &requests, &format);
@@ -452,8 +454,8 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
 /// let conn = Http2Connection::connect_plaintext(uri.clone()).await?.shared(1024);
 /// let config = ClientConfig::new(uri).with_protocol(Protocol::Grpc);
 ///
-/// let client = WalletServiceClient::new(conn, config);
-/// let response = client.get_balance(request).await?;
+/// let client = AuctionServiceClient::new(conn, config);
+/// let response = client.create_listing(request).await?;
 /// ```
 ///
 /// # Example (Connect / HTTP/1.1 or ALPN)
@@ -464,8 +466,8 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
 /// let http = HttpClient::plaintext();  // cleartext http:// only
 /// let config = ClientConfig::new("http://localhost:8080".parse()?);
 ///
-/// let client = WalletServiceClient::new(http, config);
-/// let response = client.get_balance(request).await?;
+/// let client = AuctionServiceClient::new(http, config);
+/// let response = client.create_listing(request).await?;
 /// ```
 ///
 /// # Working with the response
@@ -474,7 +476,7 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
 /// The `OwnedView` derefs to the view, so field access is zero-copy:
 ///
 /// ```rust,ignore
-/// let resp = client.get_balance(request).await?.into_view();
+/// let resp = client.create_listing(request).await?.into_view();
 /// let name: &str = resp.name;  // borrow into the response buffer
 /// ```
 ///
@@ -482,14 +484,14 @@ impl<T: WalletService> ::connectrpc::Dispatcher for WalletServiceServer<T> {
 /// [`into_owned()`](::connectrpc::client::UnaryResponse::into_owned):
 ///
 /// ```rust,ignore
-/// let owned = client.get_balance(request).await?.into_owned();
+/// let owned = client.create_listing(request).await?.into_owned();
 /// ```
 #[derive(Clone)]
-pub struct WalletServiceClient<T> {
+pub struct AuctionServiceClient<T> {
     transport: T,
     config: ::connectrpc::client::ClientConfig,
 }
-impl<T> WalletServiceClient<T>
+impl<T> AuctionServiceClient<T>
 where
     T: ::connectrpc::client::ClientTransport,
     <T::ResponseBody as ::http_body::Body>::Error: ::std::fmt::Display,
@@ -506,76 +508,35 @@ where
     pub fn config_mut(&mut self) -> &mut ::connectrpc::client::ClientConfig {
         &mut self.config
     }
-    /// Call the GetBalance RPC. Sends a request to /walletpb.WalletService/GetBalance.
-    pub async fn get_balance(
+    /// Call the CreateListing RPC. Sends a request to /bastionpb.AuctionService/CreateListing.
+    pub async fn create_listing(
         &self,
-        request: crate::gen_rust::walletpb::GetBalanceRequest,
+        request: crate::gen_rust::bastionpb::CreateListingRequest,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        self.get_balance_with_options(
-                request,
-                ::connectrpc::client::CallOptions::default(),
-            )
-            .await
-    }
-    /// Call the GetBalance RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn get_balance_with_options(
-        &self,
-        request: crate::gen_rust::walletpb::GetBalanceRequest,
-        options: ::connectrpc::client::CallOptions,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::GetBalanceResponseView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        ::connectrpc::client::call_unary(
-                &self.transport,
-                &self.config,
-                WALLET_SERVICE_SERVICE_NAME,
-                "GetBalance",
-                request,
-                options,
-            )
-            .await
-    }
-    /// Call the UpdateBalance RPC. Sends a request to /walletpb.WalletService/UpdateBalance.
-    pub async fn update_balance(
-        &self,
-        request: crate::gen_rust::walletpb::UpdateBalanceRequest,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<
+                crate::gen_rust::bastionpb::__buffa::view::CreateListingResponseView<
                     'static,
                 >,
             >,
         >,
         ::connectrpc::ConnectError,
     > {
-        self.update_balance_with_options(
+        self.create_listing_with_options(
                 request,
                 ::connectrpc::client::CallOptions::default(),
             )
             .await
     }
-    /// Call the UpdateBalance RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn update_balance_with_options(
+    /// Call the CreateListing RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn create_listing_with_options(
         &self,
-        request: crate::gen_rust::walletpb::UpdateBalanceRequest,
+        request: crate::gen_rust::bastionpb::CreateListingRequest,
         options: ::connectrpc::client::CallOptions,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::UpdateBalanceResponseView<
+                crate::gen_rust::bastionpb::__buffa::view::CreateListingResponseView<
                     'static,
                 >,
             >,
@@ -585,37 +546,37 @@ where
         ::connectrpc::client::call_unary(
                 &self.transport,
                 &self.config,
-                WALLET_SERVICE_SERVICE_NAME,
-                "UpdateBalance",
+                AUCTION_SERVICE_SERVICE_NAME,
+                "CreateListing",
                 request,
                 options,
             )
             .await
     }
-    /// Call the Transfer RPC. Sends a request to /walletpb.WalletService/Transfer.
-    pub async fn transfer(
+    /// Call the BuyItem RPC. Sends a request to /bastionpb.AuctionService/BuyItem.
+    pub async fn buy_item(
         &self,
-        request: crate::gen_rust::walletpb::TransferRequest,
+        request: crate::gen_rust::bastionpb::BuyItemRequest,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'static>,
+                crate::gen_rust::bastionpb::__buffa::view::BuyItemResponseView<'static>,
             >,
         >,
         ::connectrpc::ConnectError,
     > {
-        self.transfer_with_options(request, ::connectrpc::client::CallOptions::default())
+        self.buy_item_with_options(request, ::connectrpc::client::CallOptions::default())
             .await
     }
-    /// Call the Transfer RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn transfer_with_options(
+    /// Call the BuyItem RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn buy_item_with_options(
         &self,
-        request: crate::gen_rust::walletpb::TransferRequest,
+        request: crate::gen_rust::bastionpb::BuyItemRequest,
         options: ::connectrpc::client::CallOptions,
     ) -> Result<
         ::connectrpc::client::UnaryResponse<
             ::buffa::view::OwnedView<
-                crate::gen_rust::walletpb::__buffa::view::TransferResponseView<'static>,
+                crate::gen_rust::bastionpb::__buffa::view::BuyItemResponseView<'static>,
             >,
         >,
         ::connectrpc::ConnectError,
@@ -623,8 +584,53 @@ where
         ::connectrpc::client::call_unary(
                 &self.transport,
                 &self.config,
-                WALLET_SERVICE_SERVICE_NAME,
-                "Transfer",
+                AUCTION_SERVICE_SERVICE_NAME,
+                "BuyItem",
+                request,
+                options,
+            )
+            .await
+    }
+    /// Call the ListActiveItems RPC. Sends a request to /bastionpb.AuctionService/ListActiveItems.
+    pub async fn list_active_items(
+        &self,
+        request: crate::gen_rust::bastionpb::ListActiveItemsRequest,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsResponseView<
+                    'static,
+                >,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        self.list_active_items_with_options(
+                request,
+                ::connectrpc::client::CallOptions::default(),
+            )
+            .await
+    }
+    /// Call the ListActiveItems RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn list_active_items_with_options(
+        &self,
+        request: crate::gen_rust::bastionpb::ListActiveItemsRequest,
+        options: ::connectrpc::client::CallOptions,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                crate::gen_rust::bastionpb::__buffa::view::ListActiveItemsResponseView<
+                    'static,
+                >,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        ::connectrpc::client::call_unary(
+                &self.transport,
+                &self.config,
+                AUCTION_SERVICE_SERVICE_NAME,
+                "ListActiveItems",
                 request,
                 options,
             )

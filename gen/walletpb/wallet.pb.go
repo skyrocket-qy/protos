@@ -336,6 +336,150 @@ func (x *UpdateBalanceResponse) GetBalance() uint64 {
 	return 0
 }
 
+type TransferRequest struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	FromUserId     string                 `protobuf:"bytes,1,opt,name=from_user_id,json=fromUserId,proto3" json:"from_user_id,omitempty"`
+	ToUserId       string                 `protobuf:"bytes,2,opt,name=to_user_id,json=toUserId,proto3" json:"to_user_id,omitempty"`
+	Amount         uint64                 `protobuf:"varint,3,opt,name=amount,proto3" json:"amount,omitempty"`
+	FromWalletType WalletType             `protobuf:"varint,4,opt,name=from_wallet_type,json=fromWalletType,proto3,enum=walletpb.WalletType" json:"from_wallet_type,omitempty"`
+	ToWalletType   WalletType             `protobuf:"varint,5,opt,name=to_wallet_type,json=toWalletType,proto3,enum=walletpb.WalletType" json:"to_wallet_type,omitempty"`
+	TxType         TxType                 `protobuf:"varint,6,opt,name=tx_type,json=txType,proto3,enum=walletpb.TxType" json:"tx_type,omitempty"`
+	RefId          uint64                 `protobuf:"varint,7,opt,name=ref_id,json=refId,proto3" json:"ref_id,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *TransferRequest) Reset() {
+	*x = TransferRequest{}
+	mi := &file_walletpb_wallet_proto_msgTypes[4]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TransferRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransferRequest) ProtoMessage() {}
+
+func (x *TransferRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_walletpb_wallet_proto_msgTypes[4]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransferRequest.ProtoReflect.Descriptor instead.
+func (*TransferRequest) Descriptor() ([]byte, []int) {
+	return file_walletpb_wallet_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *TransferRequest) GetFromUserId() string {
+	if x != nil {
+		return x.FromUserId
+	}
+	return ""
+}
+
+func (x *TransferRequest) GetToUserId() string {
+	if x != nil {
+		return x.ToUserId
+	}
+	return ""
+}
+
+func (x *TransferRequest) GetAmount() uint64 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *TransferRequest) GetFromWalletType() WalletType {
+	if x != nil {
+		return x.FromWalletType
+	}
+	return WalletType_WALLET_TYPE_UNSPECIFIED
+}
+
+func (x *TransferRequest) GetToWalletType() WalletType {
+	if x != nil {
+		return x.ToWalletType
+	}
+	return WalletType_WALLET_TYPE_UNSPECIFIED
+}
+
+func (x *TransferRequest) GetTxType() TxType {
+	if x != nil {
+		return x.TxType
+	}
+	return TxType_TX_TYPE_UNSPECIFIED
+}
+
+func (x *TransferRequest) GetRefId() uint64 {
+	if x != nil {
+		return x.RefId
+	}
+	return 0
+}
+
+type TransferResponse struct {
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	FromBalanceAfter uint64                 `protobuf:"varint,1,opt,name=from_balance_after,json=fromBalanceAfter,proto3" json:"from_balance_after,omitempty"`
+	ToBalanceAfter   uint64                 `protobuf:"varint,2,opt,name=to_balance_after,json=toBalanceAfter,proto3" json:"to_balance_after,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
+}
+
+func (x *TransferResponse) Reset() {
+	*x = TransferResponse{}
+	mi := &file_walletpb_wallet_proto_msgTypes[5]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *TransferResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TransferResponse) ProtoMessage() {}
+
+func (x *TransferResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_walletpb_wallet_proto_msgTypes[5]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TransferResponse.ProtoReflect.Descriptor instead.
+func (*TransferResponse) Descriptor() ([]byte, []int) {
+	return file_walletpb_wallet_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *TransferResponse) GetFromBalanceAfter() uint64 {
+	if x != nil {
+		return x.FromBalanceAfter
+	}
+	return 0
+}
+
+func (x *TransferResponse) GetToBalanceAfter() uint64 {
+	if x != nil {
+		return x.ToBalanceAfter
+	}
+	return 0
+}
+
 var File_walletpb_wallet_proto protoreflect.FileDescriptor
 
 const file_walletpb_wallet_proto_rawDesc = "" +
@@ -353,7 +497,20 @@ const file_walletpb_wallet_proto_rawDesc = "" +
 	"\atx_type\x18\x04 \x01(\x0e2\x10.walletpb.TxTypeR\x06txType\x12\x15\n" +
 	"\x06ref_id\x18\x05 \x01(\x04R\x05refId\"1\n" +
 	"\x15UpdateBalanceResponse\x12\x18\n" +
-	"\abalance\x18\x01 \x01(\x04R\abalance*C\n" +
+	"\abalance\x18\x01 \x01(\x04R\abalance\"\xa7\x02\n" +
+	"\x0fTransferRequest\x12 \n" +
+	"\ffrom_user_id\x18\x01 \x01(\tR\n" +
+	"fromUserId\x12\x1c\n" +
+	"\n" +
+	"to_user_id\x18\x02 \x01(\tR\btoUserId\x12\x16\n" +
+	"\x06amount\x18\x03 \x01(\x04R\x06amount\x12>\n" +
+	"\x10from_wallet_type\x18\x04 \x01(\x0e2\x14.walletpb.WalletTypeR\x0efromWalletType\x12:\n" +
+	"\x0eto_wallet_type\x18\x05 \x01(\x0e2\x14.walletpb.WalletTypeR\ftoWalletType\x12)\n" +
+	"\atx_type\x18\x06 \x01(\x0e2\x10.walletpb.TxTypeR\x06txType\x12\x15\n" +
+	"\x06ref_id\x18\a \x01(\x04R\x05refId\"j\n" +
+	"\x10TransferResponse\x12,\n" +
+	"\x12from_balance_after\x18\x01 \x01(\x04R\x10fromBalanceAfter\x12(\n" +
+	"\x10to_balance_after\x18\x02 \x01(\x04R\x0etoBalanceAfter*C\n" +
 	"\n" +
 	"WalletType\x12\x1b\n" +
 	"\x17WALLET_TYPE_UNSPECIFIED\x10\x00\x12\n" +
@@ -366,11 +523,12 @@ const file_walletpb_wallet_proto_rawDesc = "" +
 	"\x03WIN\x10\x02\x12\x0f\n" +
 	"\vAUCTION_BUY\x10\x03\x12\x10\n" +
 	"\fAUCTION_SELL\x10\x04\x12\x0f\n" +
-	"\vAUCTION_TAX\x10\x052\xaa\x01\n" +
+	"\vAUCTION_TAX\x10\x052\xed\x01\n" +
 	"\rWalletService\x12G\n" +
 	"\n" +
 	"GetBalance\x12\x1b.walletpb.GetBalanceRequest\x1a\x1c.walletpb.GetBalanceResponse\x12P\n" +
-	"\rUpdateBalance\x12\x1e.walletpb.UpdateBalanceRequest\x1a\x1f.walletpb.UpdateBalanceResponseB\x91\x01\n" +
+	"\rUpdateBalance\x12\x1e.walletpb.UpdateBalanceRequest\x1a\x1f.walletpb.UpdateBalanceResponse\x12A\n" +
+	"\bTransfer\x12\x19.walletpb.TransferRequest\x1a\x1a.walletpb.TransferResponseB\x91\x01\n" +
 	"\fcom.walletpbB\vWalletProtoP\x01Z4github.com/skyrocket-qy/protos/gen/walletpb;walletpb\xa2\x02\x03WXX\xaa\x02\bWalletpb\xca\x02\bWalletpb\xe2\x02\x14Walletpb\\GPBMetadata\xea\x02\bWalletpbb\x06proto3"
 
 var (
@@ -386,7 +544,7 @@ func file_walletpb_wallet_proto_rawDescGZIP() []byte {
 }
 
 var file_walletpb_wallet_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
-var file_walletpb_wallet_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_walletpb_wallet_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_walletpb_wallet_proto_goTypes = []any{
 	(WalletType)(0),               // 0: walletpb.WalletType
 	(TxType)(0),                   // 1: walletpb.TxType
@@ -394,19 +552,26 @@ var file_walletpb_wallet_proto_goTypes = []any{
 	(*GetBalanceResponse)(nil),    // 3: walletpb.GetBalanceResponse
 	(*UpdateBalanceRequest)(nil),  // 4: walletpb.UpdateBalanceRequest
 	(*UpdateBalanceResponse)(nil), // 5: walletpb.UpdateBalanceResponse
+	(*TransferRequest)(nil),       // 6: walletpb.TransferRequest
+	(*TransferResponse)(nil),      // 7: walletpb.TransferResponse
 }
 var file_walletpb_wallet_proto_depIdxs = []int32{
 	0, // 0: walletpb.UpdateBalanceRequest.wallet_type:type_name -> walletpb.WalletType
 	1, // 1: walletpb.UpdateBalanceRequest.tx_type:type_name -> walletpb.TxType
-	2, // 2: walletpb.WalletService.GetBalance:input_type -> walletpb.GetBalanceRequest
-	4, // 3: walletpb.WalletService.UpdateBalance:input_type -> walletpb.UpdateBalanceRequest
-	3, // 4: walletpb.WalletService.GetBalance:output_type -> walletpb.GetBalanceResponse
-	5, // 5: walletpb.WalletService.UpdateBalance:output_type -> walletpb.UpdateBalanceResponse
-	4, // [4:6] is the sub-list for method output_type
-	2, // [2:4] is the sub-list for method input_type
-	2, // [2:2] is the sub-list for extension type_name
-	2, // [2:2] is the sub-list for extension extendee
-	0, // [0:2] is the sub-list for field type_name
+	0, // 2: walletpb.TransferRequest.from_wallet_type:type_name -> walletpb.WalletType
+	0, // 3: walletpb.TransferRequest.to_wallet_type:type_name -> walletpb.WalletType
+	1, // 4: walletpb.TransferRequest.tx_type:type_name -> walletpb.TxType
+	2, // 5: walletpb.WalletService.GetBalance:input_type -> walletpb.GetBalanceRequest
+	4, // 6: walletpb.WalletService.UpdateBalance:input_type -> walletpb.UpdateBalanceRequest
+	6, // 7: walletpb.WalletService.Transfer:input_type -> walletpb.TransferRequest
+	3, // 8: walletpb.WalletService.GetBalance:output_type -> walletpb.GetBalanceResponse
+	5, // 9: walletpb.WalletService.UpdateBalance:output_type -> walletpb.UpdateBalanceResponse
+	7, // 10: walletpb.WalletService.Transfer:output_type -> walletpb.TransferResponse
+	8, // [8:11] is the sub-list for method output_type
+	5, // [5:8] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_walletpb_wallet_proto_init() }
@@ -420,7 +585,7 @@ func file_walletpb_wallet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_walletpb_wallet_proto_rawDesc), len(file_walletpb_wallet_proto_rawDesc)),
 			NumEnums:      2,
-			NumMessages:   4,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

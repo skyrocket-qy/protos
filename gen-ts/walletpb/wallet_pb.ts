@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file walletpb/wallet.proto.
  */
 export const file_walletpb_wallet: GenFile = /*@__PURE__*/
-  fileDesc("ChV3YWxsZXRwYi93YWxsZXQucHJvdG8SCHdhbGxldHBiIiQKEUdldEJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkiJQoSR2V0QmFsYW5jZVJlc3BvbnNlEg8KB2JhbGFuY2UYASABKAQilQEKFFVwZGF0ZUJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSDgoGYW1vdW50GAIgASgDEikKC3dhbGxldF90eXBlGAMgASgOMhQud2FsbGV0cGIuV2FsbGV0VHlwZRIhCgd0eF90eXBlGAQgASgOMhAud2FsbGV0cGIuVHhUeXBlEg4KBnJlZl9pZBgFIAEoBCIoChVVcGRhdGVCYWxhbmNlUmVzcG9uc2USDwoHYmFsYW5jZRgBIAEoBCpDCgpXYWxsZXRUeXBlEhsKF1dBTExFVF9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGTE9DS0VEEAESDAoIVU5MT0NLRUQQAipnCgZUeFR5cGUSFwoTVFhfVFlQRV9VTlNQRUNJRklFRBAAEgcKA0JFVBABEgcKA1dJThACEg8KC0FVQ1RJT05fQlVZEAMSEAoMQVVDVElPTl9TRUxMEAQSDwoLQVVDVElPTl9UQVgQBTKqAQoNV2FsbGV0U2VydmljZRJHCgpHZXRCYWxhbmNlEhsud2FsbGV0cGIuR2V0QmFsYW5jZVJlcXVlc3QaHC53YWxsZXRwYi5HZXRCYWxhbmNlUmVzcG9uc2USUAoNVXBkYXRlQmFsYW5jZRIeLndhbGxldHBiLlVwZGF0ZUJhbGFuY2VSZXF1ZXN0Gh8ud2FsbGV0cGIuVXBkYXRlQmFsYW5jZVJlc3BvbnNlQpEBCgxjb20ud2FsbGV0cGJCC1dhbGxldFByb3RvUAFaNGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vd2FsbGV0cGI7d2FsbGV0cGKiAgNXWFiqAghXYWxsZXRwYsoCCFdhbGxldHBi4gIUV2FsbGV0cGJcR1BCTWV0YWRhdGHqAghXYWxsZXRwYmIGcHJvdG8z");
+  fileDesc("ChV3YWxsZXRwYi93YWxsZXQucHJvdG8SCHdhbGxldHBiIiQKEUdldEJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkiJQoSR2V0QmFsYW5jZVJlc3BvbnNlEg8KB2JhbGFuY2UYASABKAQilQEKFFVwZGF0ZUJhbGFuY2VSZXF1ZXN0Eg8KB3VzZXJfaWQYASABKAkSDgoGYW1vdW50GAIgASgDEikKC3dhbGxldF90eXBlGAMgASgOMhQud2FsbGV0cGIuV2FsbGV0VHlwZRIhCgd0eF90eXBlGAQgASgOMhAud2FsbGV0cGIuVHhUeXBlEg4KBnJlZl9pZBgFIAEoBCIoChVVcGRhdGVCYWxhbmNlUmVzcG9uc2USDwoHYmFsYW5jZRgBIAEoBCLcAQoPVHJhbnNmZXJSZXF1ZXN0EhQKDGZyb21fdXNlcl9pZBgBIAEoCRISCgp0b191c2VyX2lkGAIgASgJEg4KBmFtb3VudBgDIAEoBBIuChBmcm9tX3dhbGxldF90eXBlGAQgASgOMhQud2FsbGV0cGIuV2FsbGV0VHlwZRIsCg50b193YWxsZXRfdHlwZRgFIAEoDjIULndhbGxldHBiLldhbGxldFR5cGUSIQoHdHhfdHlwZRgGIAEoDjIQLndhbGxldHBiLlR4VHlwZRIOCgZyZWZfaWQYByABKAQiSAoQVHJhbnNmZXJSZXNwb25zZRIaChJmcm9tX2JhbGFuY2VfYWZ0ZXIYASABKAQSGAoQdG9fYmFsYW5jZV9hZnRlchgCIAEoBCpDCgpXYWxsZXRUeXBlEhsKF1dBTExFVF9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGTE9DS0VEEAESDAoIVU5MT0NLRUQQAipnCgZUeFR5cGUSFwoTVFhfVFlQRV9VTlNQRUNJRklFRBAAEgcKA0JFVBABEgcKA1dJThACEg8KC0FVQ1RJT05fQlVZEAMSEAoMQVVDVElPTl9TRUxMEAQSDwoLQVVDVElPTl9UQVgQBTLtAQoNV2FsbGV0U2VydmljZRJHCgpHZXRCYWxhbmNlEhsud2FsbGV0cGIuR2V0QmFsYW5jZVJlcXVlc3QaHC53YWxsZXRwYi5HZXRCYWxhbmNlUmVzcG9uc2USUAoNVXBkYXRlQmFsYW5jZRIeLndhbGxldHBiLlVwZGF0ZUJhbGFuY2VSZXF1ZXN0Gh8ud2FsbGV0cGIuVXBkYXRlQmFsYW5jZVJlc3BvbnNlEkEKCFRyYW5zZmVyEhkud2FsbGV0cGIuVHJhbnNmZXJSZXF1ZXN0Ghoud2FsbGV0cGIuVHJhbnNmZXJSZXNwb25zZUKRAQoMY29tLndhbGxldHBiQgtXYWxsZXRQcm90b1ABWjRnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3dhbGxldHBiO3dhbGxldHBiogIDV1hYqgIIV2FsbGV0cGLKAghXYWxsZXRwYuICFFdhbGxldHBiXEdQQk1ldGFkYXRh6gIIV2FsbGV0cGJiBnByb3RvMw");
 
 /**
  * @generated from message walletpb.GetBalanceRequest
@@ -101,6 +101,75 @@ export const UpdateBalanceResponseSchema: GenMessage<UpdateBalanceResponse> = /*
   messageDesc(file_walletpb_wallet, 3);
 
 /**
+ * @generated from message walletpb.TransferRequest
+ */
+export type TransferRequest = Message<"walletpb.TransferRequest"> & {
+  /**
+   * @generated from field: string from_user_id = 1;
+   */
+  fromUserId: string;
+
+  /**
+   * @generated from field: string to_user_id = 2;
+   */
+  toUserId: string;
+
+  /**
+   * @generated from field: uint64 amount = 3;
+   */
+  amount: bigint;
+
+  /**
+   * @generated from field: walletpb.WalletType from_wallet_type = 4;
+   */
+  fromWalletType: WalletType;
+
+  /**
+   * @generated from field: walletpb.WalletType to_wallet_type = 5;
+   */
+  toWalletType: WalletType;
+
+  /**
+   * @generated from field: walletpb.TxType tx_type = 6;
+   */
+  txType: TxType;
+
+  /**
+   * @generated from field: uint64 ref_id = 7;
+   */
+  refId: bigint;
+};
+
+/**
+ * Describes the message walletpb.TransferRequest.
+ * Use `create(TransferRequestSchema)` to create a new message.
+ */
+export const TransferRequestSchema: GenMessage<TransferRequest> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 4);
+
+/**
+ * @generated from message walletpb.TransferResponse
+ */
+export type TransferResponse = Message<"walletpb.TransferResponse"> & {
+  /**
+   * @generated from field: uint64 from_balance_after = 1;
+   */
+  fromBalanceAfter: bigint;
+
+  /**
+   * @generated from field: uint64 to_balance_after = 2;
+   */
+  toBalanceAfter: bigint;
+};
+
+/**
+ * Describes the message walletpb.TransferResponse.
+ * Use `create(TransferResponseSchema)` to create a new message.
+ */
+export const TransferResponseSchema: GenMessage<TransferResponse> = /*@__PURE__*/
+  messageDesc(file_walletpb_wallet, 5);
+
+/**
  * @generated from enum walletpb.WalletType
  */
 export enum WalletType {
@@ -186,6 +255,14 @@ export const WalletService: GenService<{
     methodKind: "unary";
     input: typeof UpdateBalanceRequestSchema;
     output: typeof UpdateBalanceResponseSchema;
+  },
+  /**
+   * @generated from rpc walletpb.WalletService.Transfer
+   */
+  transfer: {
+    methodKind: "unary";
+    input: typeof TransferRequestSchema;
+    output: typeof TransferResponseSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_walletpb_wallet, 0);
