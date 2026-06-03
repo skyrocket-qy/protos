@@ -863,6 +863,8 @@ pub struct TransferRequestView<'a> {
     pub tx_type: ::buffa::EnumValue<super::super::TxType>,
     /// Field 7: `ref_id`
     pub ref_id: u64,
+    /// Field 8: `receiver_vip_level`
+    pub receiver_vip_level: u32,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
 impl<'a> TransferRequestView<'a> {
@@ -979,6 +981,16 @@ impl<'a> TransferRequestView<'a> {
                     }
                     view.ref_id = ::buffa::types::decode_uint64(&mut cur)?;
                 }
+                8u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 8u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.receiver_vip_level = ::buffa::types::decode_uint32(&mut cur)?;
+                }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
                     let span_len = before_tag.len() - cur.len();
@@ -1019,6 +1031,7 @@ impl<'a> ::buffa::MessageView<'a> for TransferRequestView<'a> {
             to_wallet_type: self.to_wallet_type,
             tx_type: self.tx_type,
             ref_id: self.ref_id,
+            receiver_vip_level: self.receiver_vip_level,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -1063,6 +1076,11 @@ impl<'a> ::buffa::ViewEncode<'a> for TransferRequestView<'a> {
         }
         if self.ref_id != 0u64 {
             size += 1u32 + ::buffa::types::uint64_encoded_len(self.ref_id) as u32;
+        }
+        if self.receiver_vip_level != 0u32 {
+            size
+                += 1u32
+                    + ::buffa::types::uint32_encoded_len(self.receiver_vip_level) as u32;
         }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
@@ -1125,6 +1143,11 @@ impl<'a> ::buffa::ViewEncode<'a> for TransferRequestView<'a> {
                 .encode(buf);
             ::buffa::types::encode_uint64(self.ref_id, buf);
         }
+        if self.receiver_vip_level != 0u32 {
+            ::buffa::encoding::Tag::new(8u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.receiver_vip_level, buf);
+        }
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
@@ -1186,6 +1209,18 @@ impl<'__a> ::serde::Serialize for TransferRequestView<'__a> {
                 }
             }
             __map.serialize_entry("refId", &_W(self.ref_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_zero_u32(&self.receiver_vip_level) {
+            struct _W(u32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("receiverVipLevel", &_W(self.receiver_vip_level))?;
         }
         __map.end()
     }

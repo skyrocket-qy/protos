@@ -47,6 +47,7 @@ message TransferRequest {
   WalletType to_wallet_type = 5;
   TxType tx_type = 6;
   uint64 ref_id = 7;
+  uint32 receiver_vip_level = 8;
 }
 
 message TransferResponse {

@@ -1006,6 +1006,14 @@ pub struct TransferRequest {
         skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u64"
     )]
     pub ref_id: u64,
+    /// Field 8: `receiver_vip_level`
+    #[serde(
+        rename = "receiverVipLevel",
+        alias = "receiver_vip_level",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
+    pub receiver_vip_level: u32,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
@@ -1020,6 +1028,7 @@ impl ::core::fmt::Debug for TransferRequest {
             .field("to_wallet_type", &self.to_wallet_type)
             .field("tx_type", &self.tx_type)
             .field("ref_id", &self.ref_id)
+            .field("receiver_vip_level", &self.receiver_vip_level)
             .finish()
     }
 }
@@ -1083,6 +1092,11 @@ impl ::buffa::Message for TransferRequest {
         if self.ref_id != 0u64 {
             size += 1u32 + ::buffa::types::uint64_encoded_len(self.ref_id) as u32;
         }
+        if self.receiver_vip_level != 0u32 {
+            size
+                += 1u32
+                    + ::buffa::types::uint32_encoded_len(self.receiver_vip_level) as u32;
+        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -1142,6 +1156,11 @@ impl ::buffa::Message for TransferRequest {
             ::buffa::encoding::Tag::new(7u32, ::buffa::encoding::WireType::Varint)
                 .encode(buf);
             ::buffa::types::encode_uint64(self.ref_id, buf);
+        }
+        if self.receiver_vip_level != 0u32 {
+            ::buffa::encoding::Tag::new(8u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.receiver_vip_level, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -1232,6 +1251,16 @@ impl ::buffa::Message for TransferRequest {
                 }
                 self.ref_id = ::buffa::types::decode_uint64(buf)?;
             }
+            8u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 8u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.receiver_vip_level = ::buffa::types::decode_uint32(buf)?;
+            }
             _ => {
                 self.__buffa_unknown_fields
                     .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
@@ -1247,6 +1276,7 @@ impl ::buffa::Message for TransferRequest {
         self.to_wallet_type = ::buffa::EnumValue::from(0);
         self.tx_type = ::buffa::EnumValue::from(0);
         self.ref_id = 0u64;
+        self.receiver_vip_level = 0u32;
         self.__buffa_unknown_fields.clear();
     }
 }

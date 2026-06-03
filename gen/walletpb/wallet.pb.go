@@ -337,16 +337,17 @@ func (x *UpdateBalanceResponse) GetBalance() uint64 {
 }
 
 type TransferRequest struct {
-	state          protoimpl.MessageState `protogen:"open.v1"`
-	FromUserId     string                 `protobuf:"bytes,1,opt,name=from_user_id,json=fromUserId,proto3" json:"from_user_id,omitempty"`
-	ToUserId       string                 `protobuf:"bytes,2,opt,name=to_user_id,json=toUserId,proto3" json:"to_user_id,omitempty"`
-	Amount         uint64                 `protobuf:"varint,3,opt,name=amount,proto3" json:"amount,omitempty"`
-	FromWalletType WalletType             `protobuf:"varint,4,opt,name=from_wallet_type,json=fromWalletType,proto3,enum=walletpb.WalletType" json:"from_wallet_type,omitempty"`
-	ToWalletType   WalletType             `protobuf:"varint,5,opt,name=to_wallet_type,json=toWalletType,proto3,enum=walletpb.WalletType" json:"to_wallet_type,omitempty"`
-	TxType         TxType                 `protobuf:"varint,6,opt,name=tx_type,json=txType,proto3,enum=walletpb.TxType" json:"tx_type,omitempty"`
-	RefId          uint64                 `protobuf:"varint,7,opt,name=ref_id,json=refId,proto3" json:"ref_id,omitempty"`
-	unknownFields  protoimpl.UnknownFields
-	sizeCache      protoimpl.SizeCache
+	state            protoimpl.MessageState `protogen:"open.v1"`
+	FromUserId       string                 `protobuf:"bytes,1,opt,name=from_user_id,json=fromUserId,proto3" json:"from_user_id,omitempty"`
+	ToUserId         string                 `protobuf:"bytes,2,opt,name=to_user_id,json=toUserId,proto3" json:"to_user_id,omitempty"`
+	Amount           uint64                 `protobuf:"varint,3,opt,name=amount,proto3" json:"amount,omitempty"`
+	FromWalletType   WalletType             `protobuf:"varint,4,opt,name=from_wallet_type,json=fromWalletType,proto3,enum=walletpb.WalletType" json:"from_wallet_type,omitempty"`
+	ToWalletType     WalletType             `protobuf:"varint,5,opt,name=to_wallet_type,json=toWalletType,proto3,enum=walletpb.WalletType" json:"to_wallet_type,omitempty"`
+	TxType           TxType                 `protobuf:"varint,6,opt,name=tx_type,json=txType,proto3,enum=walletpb.TxType" json:"tx_type,omitempty"`
+	RefId            uint64                 `protobuf:"varint,7,opt,name=ref_id,json=refId,proto3" json:"ref_id,omitempty"`
+	ReceiverVipLevel uint32                 `protobuf:"varint,8,opt,name=receiver_vip_level,json=receiverVipLevel,proto3" json:"receiver_vip_level,omitempty"`
+	unknownFields    protoimpl.UnknownFields
+	sizeCache        protoimpl.SizeCache
 }
 
 func (x *TransferRequest) Reset() {
@@ -428,6 +429,13 @@ func (x *TransferRequest) GetRefId() uint64 {
 	return 0
 }
 
+func (x *TransferRequest) GetReceiverVipLevel() uint32 {
+	if x != nil {
+		return x.ReceiverVipLevel
+	}
+	return 0
+}
+
 type TransferResponse struct {
 	state            protoimpl.MessageState `protogen:"open.v1"`
 	FromBalanceAfter uint64                 `protobuf:"varint,1,opt,name=from_balance_after,json=fromBalanceAfter,proto3" json:"from_balance_after,omitempty"`
@@ -497,7 +505,7 @@ const file_walletpb_wallet_proto_rawDesc = "" +
 	"\atx_type\x18\x04 \x01(\x0e2\x10.walletpb.TxTypeR\x06txType\x12\x15\n" +
 	"\x06ref_id\x18\x05 \x01(\x04R\x05refId\"1\n" +
 	"\x15UpdateBalanceResponse\x12\x18\n" +
-	"\abalance\x18\x01 \x01(\x04R\abalance\"\xa7\x02\n" +
+	"\abalance\x18\x01 \x01(\x04R\abalance\"\xd5\x02\n" +
 	"\x0fTransferRequest\x12 \n" +
 	"\ffrom_user_id\x18\x01 \x01(\tR\n" +
 	"fromUserId\x12\x1c\n" +
@@ -507,7 +515,8 @@ const file_walletpb_wallet_proto_rawDesc = "" +
 	"\x10from_wallet_type\x18\x04 \x01(\x0e2\x14.walletpb.WalletTypeR\x0efromWalletType\x12:\n" +
 	"\x0eto_wallet_type\x18\x05 \x01(\x0e2\x14.walletpb.WalletTypeR\ftoWalletType\x12)\n" +
 	"\atx_type\x18\x06 \x01(\x0e2\x10.walletpb.TxTypeR\x06txType\x12\x15\n" +
-	"\x06ref_id\x18\a \x01(\x04R\x05refId\"j\n" +
+	"\x06ref_id\x18\a \x01(\x04R\x05refId\x12,\n" +
+	"\x12receiver_vip_level\x18\b \x01(\rR\x10receiverVipLevel\"j\n" +
 	"\x10TransferResponse\x12,\n" +
 	"\x12from_balance_after\x18\x01 \x01(\x04R\x10fromBalanceAfter\x12(\n" +
 	"\x10to_balance_after\x18\x02 \x01(\x04R\x0etoBalanceAfter*C\n" +
