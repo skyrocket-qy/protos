@@ -24,26 +24,18 @@ pub mod __buffa {
     }
     /// Register this package's `Any` type entries and extension entries.
     pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
-        reg.register_json_any(super::__ROOM_INFO_JSON_ANY);
-        reg.register_json_any(super::__WALLET_JSON_ANY);
-        reg.register_json_any(super::__COIN_JSON_ANY);
         reg.register_json_any(super::__EVENTS_JSON_ANY);
         reg.register_json_any(super::__EVENT_JSON_ANY);
         reg.register_json_any(super::__BUY_FG_REQ_JSON_ANY);
         reg.register_json_any(super::__BUY_FG_RESP_JSON_ANY);
-        reg.register_json_any(super::__ROOM_STATISTIC_INFO_JSON_ANY);
-        reg.register_json_any(super::__GET_ROOM_INFO_REQ_JSON_ANY);
-        reg.register_json_any(super::__GET_ROOM_INFO_RESP_JSON_ANY);
         reg.register_json_any(super::__TABLE_JSON_ANY);
         reg.register_json_any(super::__REEL_JSON_ANY);
-        reg.register_json_any(super::__COORDINATE_JSON_ANY);
+        reg.register_json_any(super::__POS_JSON_ANY);
         reg.register_json_any(super::__SPIN_REQ_JSON_ANY);
         reg.register_json_any(super::__SPIN_RESP_JSON_ANY);
-        reg.register_json_any(super::__JP_OUT_JSON_ANY);
         reg.register_json_any(super::__FROZEN_QUEEN_JSON_ANY);
         reg.register_json_any(super::frozen_queen::__EVENT_EA_JSON_ANY);
         reg.register_json_any(super::__POS_VAL_JSON_ANY);
-        reg.register_json_any(super::__POS_JSON_ANY);
         reg.register_json_any(super::__MAMMOTH_JSON_ANY);
         reg.register_json_any(super::__ROLL_BONUS_JSON_ANY);
         reg.register_json_any(super::__BONUS_ENTRY_JSON_ANY);
@@ -59,12 +51,6 @@ pub mod __buffa {
     }
 }
 #[doc(inline)]
-pub use self::__buffa::view::RoomInfoView;
-#[doc(inline)]
-pub use self::__buffa::view::WalletView;
-#[doc(inline)]
-pub use self::__buffa::view::CoinView;
-#[doc(inline)]
 pub use self::__buffa::view::EventsView;
 #[doc(inline)]
 pub use self::__buffa::view::EventView;
@@ -73,29 +59,19 @@ pub use self::__buffa::view::BuyFgReqView;
 #[doc(inline)]
 pub use self::__buffa::view::BuyFgRespView;
 #[doc(inline)]
-pub use self::__buffa::view::RoomStatisticInfoView;
-#[doc(inline)]
-pub use self::__buffa::view::GetRoomInfoReqView;
-#[doc(inline)]
-pub use self::__buffa::view::GetRoomInfoRespView;
-#[doc(inline)]
 pub use self::__buffa::view::TableView;
 #[doc(inline)]
 pub use self::__buffa::view::ReelView;
 #[doc(inline)]
-pub use self::__buffa::view::CoordinateView;
+pub use self::__buffa::view::PosView;
 #[doc(inline)]
 pub use self::__buffa::view::SpinReqView;
 #[doc(inline)]
 pub use self::__buffa::view::SpinRespView;
 #[doc(inline)]
-pub use self::__buffa::view::JpOutView;
-#[doc(inline)]
 pub use self::__buffa::view::FrozenQueenView;
 #[doc(inline)]
 pub use self::__buffa::view::PosValView;
-#[doc(inline)]
-pub use self::__buffa::view::PosView;
 #[doc(inline)]
 pub use self::__buffa::view::MammothView;
 #[doc(inline)]

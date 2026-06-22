@@ -10,72 +10,25 @@ service SlotService {
   rpc BuyFg(BuyFgReq) returns (BuyFgResp);
 }
 
-message RoomInfo {
-  uint64 room_id = 1;
-  RoomType room_type = 2;
-  uint64 user_id = 3;
-}
-
-enum RoomType {
-  ROOM_TYPE_UNSPECIFIED = 0;
-  EXPERIENCE = 1; // 試玩廳
-  NEWBIE = 2;     // 新手廳
-  GENERALLY = 3;  // 一般廳
-  VIP = 4;        // 貴賓廳
-  BOSS = 5;       // 頭家廳
-}
-
-message Wallet { repeated Coin coins = 1; }
-
-message Coin {
-  uint64 amount = 1;
-  CoinType type = 2;
-}
-
-enum CoinType {
-  COIN_TYPE_UNSPECIFIED = 0;
-  GOLDEN = 1;
-  TOKEN = 2;
-}
-
-message Events {
-  repeated Event events = 1;
-}
+message Events { repeated Event events = 1; }
 
 message Event {
   uint32 code = 1;
   bytes data = 2;
-  uint64 win_coin = 3;
+  uint32 win = 3;
 }
 
-message BuyFgReq { uint32 bet_amount = 1; }
+message BuyFgReq {}
 
 message BuyFgResp {
   Events events = 1;
-  uint64 balance = 2;
-}
-
-message RoomStatisticInfo {
-  float rtp = 1;
-  uint64 fg_cnt = 2;
-}
-
-message GetRoomInfoReq {
-  uint32 bet_amount = 1;
-  uint32 room_id = 2;
-}
-
-message GetRoomInfoResp {
-  bytes data = 1;
-  RoomStatisticInfo today = 2;
-  RoomStatisticInfo week = 3;
-  RoomStatisticInfo month = 4;
+  uint32 win = 2;
 }
 
 message Table { repeated Reel reels = 1; }
 message Reel { repeated string symbols = 1; }
 
-message Coordinate {
+message Pos {
   int32 x = 1;
   int32 y = 2;
 }
@@ -87,19 +40,6 @@ message SpinReq {
 
 message SpinResp {
   Events events = 1;
-  uint64 balance = 2;
+  uint32 win = 2;
   optional bytes omen = 3;
-}
-
-message JpOut {
-  Table table = 1;
-  uint64 score = 2;
-  JPType type = 3;
-}
-
-enum JPType {
-  JP_TYPE_UNSPECIFIED = 0;
-  MINOR = 1;
-  MAJOR = 2;
-  GRAND = 3;
 }

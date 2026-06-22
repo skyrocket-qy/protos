@@ -4,81 +4,15 @@
 // @generated from file slotpb/slot.proto (package slotpb, syntax proto3)
 /* eslint-disable */
 
-import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file slotpb/slot.proto.
  */
 export const file_slotpb_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIlEKCFJvb21JbmZvEg8KB3Jvb21faWQYASABKAQSIwoJcm9vbV90eXBlGAIgASgOMhAuc2xvdHBiLlJvb21UeXBlEg8KB3VzZXJfaWQYAyABKAQiJQoGV2FsbGV0EhsKBWNvaW5zGAEgAygLMgwuc2xvdHBiLkNvaW4iNgoEQ29pbhIOCgZhbW91bnQYASABKAQSHgoEdHlwZRgCIAEoDjIQLnNsb3RwYi5Db2luVHlwZSInCgZFdmVudHMSHQoGZXZlbnRzGAEgAygLMg0uc2xvdHBiLkV2ZW50IjUKBUV2ZW50EgwKBGNvZGUYASABKA0SDAoEZGF0YRgCIAEoDBIQCgh3aW5fY29pbhgDIAEoBCIeCghCdXlGZ1JlcRISCgpiZXRfYW1vdW50GAEgASgNIjwKCUJ1eUZnUmVzcBIeCgZldmVudHMYASABKAsyDi5zbG90cGIuRXZlbnRzEg8KB2JhbGFuY2UYAiABKAQiMAoRUm9vbVN0YXRpc3RpY0luZm8SCwoDcnRwGAEgASgCEg4KBmZnX2NudBgCIAEoBCI1Cg5HZXRSb29tSW5mb1JlcRISCgpiZXRfYW1vdW50GAEgASgNEg8KB3Jvb21faWQYAiABKA0inAEKD0dldFJvb21JbmZvUmVzcBIMCgRkYXRhGAEgASgMEigKBXRvZGF5GAIgASgLMhkuc2xvdHBiLlJvb21TdGF0aXN0aWNJbmZvEicKBHdlZWsYAyABKAsyGS5zbG90cGIuUm9vbVN0YXRpc3RpY0luZm8SKAoFbW9udGgYBCABKAsyGS5zbG90cGIuUm9vbVN0YXRpc3RpY0luZm8iJAoFVGFibGUSGwoFcmVlbHMYASADKAsyDC5zbG90cGIuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiIgoKQ29vcmRpbmF0ZRIJCgF4GAEgASgFEgkKAXkYAiABKAUiNgoHU3BpblJlcRIPCgdnYW1lX2lkGAEgASgNEhEKBG9tZW4YAiABKAxIAIgBAUIHCgVfb21lbiJXCghTcGluUmVzcBIeCgZldmVudHMYASABKAsyDi5zbG90cGIuRXZlbnRzEg8KB2JhbGFuY2UYAiABKAQSEQoEb21lbhgDIAEoDEgAiAEBQgcKBV9vbWVuIlIKBUpwT3V0EhwKBXRhYmxlGAEgASgLMg0uc2xvdHBiLlRhYmxlEg0KBXNjb3JlGAIgASgEEhwKBHR5cGUYAyABKA4yDi5zbG90cGIuSlBUeXBlKmMKCFJvb21UeXBlEhkKFVJPT01fVFlQRV9VTlNQRUNJRklFRBAAEg4KCkVYUEVSSUVOQ0UQARIKCgZORVdCSUUQAhINCglHRU5FUkFMTFkQAxIHCgNWSVAQBBIICgRCT1NTEAUqPAoIQ29pblR5cGUSGQoVQ09JTl9UWVBFX1VOU1BFQ0lGSUVEEAASCgoGR09MREVOEAESCQoFVE9LRU4QAipCCgZKUFR5cGUSFwoTSlBfVFlQRV9VTlNQRUNJRklFRBAAEgkKBU1JTk9SEAESCQoFTUFKT1IQAhIJCgVHUkFORBADMmYKC1Nsb3RTZXJ2aWNlEikKBFNwaW4SDy5zbG90cGIuU3BpblJlcRoQLnNsb3RwYi5TcGluUmVzcBIsCgVCdXlGZxIQLnNsb3RwYi5CdXlGZ1JlcRoRLnNsb3RwYi5CdXlGZ1Jlc3BCgQEKCmNvbS5zbG90cGJCCVNsb3RQcm90b1ABWjBnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYjtzbG90cGKiAgNTWFiqAgZTbG90cGLKAgZTbG90cGLiAhJTbG90cGJcR1BCTWV0YWRhdGHqAgZTbG90cGJiBnByb3RvMw");
-
-/**
- * @generated from message slotpb.RoomInfo
- */
-export type RoomInfo = Message<"slotpb.RoomInfo"> & {
-  /**
-   * @generated from field: uint64 room_id = 1;
-   */
-  roomId: bigint;
-
-  /**
-   * @generated from field: slotpb.RoomType room_type = 2;
-   */
-  roomType: RoomType;
-
-  /**
-   * @generated from field: uint64 user_id = 3;
-   */
-  userId: bigint;
-};
-
-/**
- * Describes the message slotpb.RoomInfo.
- * Use `create(RoomInfoSchema)` to create a new message.
- */
-export const RoomInfoSchema: GenMessage<RoomInfo> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 0);
-
-/**
- * @generated from message slotpb.Wallet
- */
-export type Wallet = Message<"slotpb.Wallet"> & {
-  /**
-   * @generated from field: repeated slotpb.Coin coins = 1;
-   */
-  coins: Coin[];
-};
-
-/**
- * Describes the message slotpb.Wallet.
- * Use `create(WalletSchema)` to create a new message.
- */
-export const WalletSchema: GenMessage<Wallet> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 1);
-
-/**
- * @generated from message slotpb.Coin
- */
-export type Coin = Message<"slotpb.Coin"> & {
-  /**
-   * @generated from field: uint64 amount = 1;
-   */
-  amount: bigint;
-
-  /**
-   * @generated from field: slotpb.CoinType type = 2;
-   */
-  type: CoinType;
-};
-
-/**
- * Describes the message slotpb.Coin.
- * Use `create(CoinSchema)` to create a new message.
- */
-export const CoinSchema: GenMessage<Coin> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 2);
+  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIicKBkV2ZW50cxIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiMAoFRXZlbnQSDAoEY29kZRgBIAEoDRIMCgRkYXRhGAIgASgMEgsKA3dpbhgDIAEoDSIKCghCdXlGZ1JlcSI4CglCdXlGZ1Jlc3ASHgoGZXZlbnRzGAEgASgLMg4uc2xvdHBiLkV2ZW50cxILCgN3aW4YAiABKA0iJAoFVGFibGUSGwoFcmVlbHMYASADKAsyDC5zbG90cGIuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiGwoDUG9zEgkKAXgYASABKAUSCQoBeRgCIAEoBSI2CgdTcGluUmVxEg8KB2dhbWVfaWQYASABKA0SEQoEb21lbhgCIAEoDEgAiAEBQgcKBV9vbWVuIlMKCFNwaW5SZXNwEh4KBmV2ZW50cxgBIAEoCzIOLnNsb3RwYi5FdmVudHMSCwoDd2luGAIgASgNEhEKBG9tZW4YAyABKAxIAIgBAUIHCgVfb21lbjJmCgtTbG90U2VydmljZRIpCgRTcGluEg8uc2xvdHBiLlNwaW5SZXEaEC5zbG90cGIuU3BpblJlc3ASLAoFQnV5RmcSEC5zbG90cGIuQnV5RmdSZXEaES5zbG90cGIuQnV5RmdSZXNwQoEBCgpjb20uc2xvdHBiQglTbG90UHJvdG9QAVowZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGI7c2xvdHBiogIDU1hYqgIGU2xvdHBiygIGU2xvdHBi4gISU2xvdHBiXEdQQk1ldGFkYXRh6gIGU2xvdHBiYgZwcm90bzM");
 
 /**
  * @generated from message slotpb.Events
@@ -95,7 +29,7 @@ export type Events = Message<"slotpb.Events"> & {
  * Use `create(EventsSchema)` to create a new message.
  */
 export const EventsSchema: GenMessage<Events> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 3);
+  messageDesc(file_slotpb_slot, 0);
 
 /**
  * @generated from message slotpb.Event
@@ -112,9 +46,9 @@ export type Event = Message<"slotpb.Event"> & {
   data: Uint8Array;
 
   /**
-   * @generated from field: uint64 win_coin = 3;
+   * @generated from field: uint32 win = 3;
    */
-  winCoin: bigint;
+  win: number;
 };
 
 /**
@@ -122,16 +56,12 @@ export type Event = Message<"slotpb.Event"> & {
  * Use `create(EventSchema)` to create a new message.
  */
 export const EventSchema: GenMessage<Event> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 4);
+  messageDesc(file_slotpb_slot, 1);
 
 /**
  * @generated from message slotpb.BuyFgReq
  */
 export type BuyFgReq = Message<"slotpb.BuyFgReq"> & {
-  /**
-   * @generated from field: uint32 bet_amount = 1;
-   */
-  betAmount: number;
 };
 
 /**
@@ -139,7 +69,7 @@ export type BuyFgReq = Message<"slotpb.BuyFgReq"> & {
  * Use `create(BuyFgReqSchema)` to create a new message.
  */
 export const BuyFgReqSchema: GenMessage<BuyFgReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 5);
+  messageDesc(file_slotpb_slot, 2);
 
 /**
  * @generated from message slotpb.BuyFgResp
@@ -151,9 +81,9 @@ export type BuyFgResp = Message<"slotpb.BuyFgResp"> & {
   events?: Events;
 
   /**
-   * @generated from field: uint64 balance = 2;
+   * @generated from field: uint32 win = 2;
    */
-  balance: bigint;
+  win: number;
 };
 
 /**
@@ -161,83 +91,7 @@ export type BuyFgResp = Message<"slotpb.BuyFgResp"> & {
  * Use `create(BuyFgRespSchema)` to create a new message.
  */
 export const BuyFgRespSchema: GenMessage<BuyFgResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 6);
-
-/**
- * @generated from message slotpb.RoomStatisticInfo
- */
-export type RoomStatisticInfo = Message<"slotpb.RoomStatisticInfo"> & {
-  /**
-   * @generated from field: float rtp = 1;
-   */
-  rtp: number;
-
-  /**
-   * @generated from field: uint64 fg_cnt = 2;
-   */
-  fgCnt: bigint;
-};
-
-/**
- * Describes the message slotpb.RoomStatisticInfo.
- * Use `create(RoomStatisticInfoSchema)` to create a new message.
- */
-export const RoomStatisticInfoSchema: GenMessage<RoomStatisticInfo> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 7);
-
-/**
- * @generated from message slotpb.GetRoomInfoReq
- */
-export type GetRoomInfoReq = Message<"slotpb.GetRoomInfoReq"> & {
-  /**
-   * @generated from field: uint32 bet_amount = 1;
-   */
-  betAmount: number;
-
-  /**
-   * @generated from field: uint32 room_id = 2;
-   */
-  roomId: number;
-};
-
-/**
- * Describes the message slotpb.GetRoomInfoReq.
- * Use `create(GetRoomInfoReqSchema)` to create a new message.
- */
-export const GetRoomInfoReqSchema: GenMessage<GetRoomInfoReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 8);
-
-/**
- * @generated from message slotpb.GetRoomInfoResp
- */
-export type GetRoomInfoResp = Message<"slotpb.GetRoomInfoResp"> & {
-  /**
-   * @generated from field: bytes data = 1;
-   */
-  data: Uint8Array;
-
-  /**
-   * @generated from field: slotpb.RoomStatisticInfo today = 2;
-   */
-  today?: RoomStatisticInfo;
-
-  /**
-   * @generated from field: slotpb.RoomStatisticInfo week = 3;
-   */
-  week?: RoomStatisticInfo;
-
-  /**
-   * @generated from field: slotpb.RoomStatisticInfo month = 4;
-   */
-  month?: RoomStatisticInfo;
-};
-
-/**
- * Describes the message slotpb.GetRoomInfoResp.
- * Use `create(GetRoomInfoRespSchema)` to create a new message.
- */
-export const GetRoomInfoRespSchema: GenMessage<GetRoomInfoResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 9);
+  messageDesc(file_slotpb_slot, 3);
 
 /**
  * @generated from message slotpb.Table
@@ -254,7 +108,7 @@ export type Table = Message<"slotpb.Table"> & {
  * Use `create(TableSchema)` to create a new message.
  */
 export const TableSchema: GenMessage<Table> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 10);
+  messageDesc(file_slotpb_slot, 4);
 
 /**
  * @generated from message slotpb.Reel
@@ -271,12 +125,12 @@ export type Reel = Message<"slotpb.Reel"> & {
  * Use `create(ReelSchema)` to create a new message.
  */
 export const ReelSchema: GenMessage<Reel> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 11);
+  messageDesc(file_slotpb_slot, 5);
 
 /**
- * @generated from message slotpb.Coordinate
+ * @generated from message slotpb.Pos
  */
-export type Coordinate = Message<"slotpb.Coordinate"> & {
+export type Pos = Message<"slotpb.Pos"> & {
   /**
    * @generated from field: int32 x = 1;
    */
@@ -289,11 +143,11 @@ export type Coordinate = Message<"slotpb.Coordinate"> & {
 };
 
 /**
- * Describes the message slotpb.Coordinate.
- * Use `create(CoordinateSchema)` to create a new message.
+ * Describes the message slotpb.Pos.
+ * Use `create(PosSchema)` to create a new message.
  */
-export const CoordinateSchema: GenMessage<Coordinate> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 12);
+export const PosSchema: GenMessage<Pos> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot, 6);
 
 /**
  * @generated from message slotpb.SpinReq
@@ -315,7 +169,7 @@ export type SpinReq = Message<"slotpb.SpinReq"> & {
  * Use `create(SpinReqSchema)` to create a new message.
  */
 export const SpinReqSchema: GenMessage<SpinReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 13);
+  messageDesc(file_slotpb_slot, 7);
 
 /**
  * @generated from message slotpb.SpinResp
@@ -327,9 +181,9 @@ export type SpinResp = Message<"slotpb.SpinResp"> & {
   events?: Events;
 
   /**
-   * @generated from field: uint64 balance = 2;
+   * @generated from field: uint32 win = 2;
    */
-  balance: bigint;
+  win: number;
 
   /**
    * @generated from field: optional bytes omen = 3;
@@ -342,142 +196,7 @@ export type SpinResp = Message<"slotpb.SpinResp"> & {
  * Use `create(SpinRespSchema)` to create a new message.
  */
 export const SpinRespSchema: GenMessage<SpinResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 14);
-
-/**
- * @generated from message slotpb.JpOut
- */
-export type JpOut = Message<"slotpb.JpOut"> & {
-  /**
-   * @generated from field: slotpb.Table table = 1;
-   */
-  table?: Table;
-
-  /**
-   * @generated from field: uint64 score = 2;
-   */
-  score: bigint;
-
-  /**
-   * @generated from field: slotpb.JPType type = 3;
-   */
-  type: JPType;
-};
-
-/**
- * Describes the message slotpb.JpOut.
- * Use `create(JpOutSchema)` to create a new message.
- */
-export const JpOutSchema: GenMessage<JpOut> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 15);
-
-/**
- * @generated from enum slotpb.RoomType
- */
-export enum RoomType {
-  /**
-   * @generated from enum value: ROOM_TYPE_UNSPECIFIED = 0;
-   */
-  ROOM_TYPE_UNSPECIFIED = 0,
-
-  /**
-   * 試玩廳
-   *
-   * @generated from enum value: EXPERIENCE = 1;
-   */
-  EXPERIENCE = 1,
-
-  /**
-   * 新手廳
-   *
-   * @generated from enum value: NEWBIE = 2;
-   */
-  NEWBIE = 2,
-
-  /**
-   * 一般廳
-   *
-   * @generated from enum value: GENERALLY = 3;
-   */
-  GENERALLY = 3,
-
-  /**
-   * 貴賓廳
-   *
-   * @generated from enum value: VIP = 4;
-   */
-  VIP = 4,
-
-  /**
-   * 頭家廳
-   *
-   * @generated from enum value: BOSS = 5;
-   */
-  BOSS = 5,
-}
-
-/**
- * Describes the enum slotpb.RoomType.
- */
-export const RoomTypeSchema: GenEnum<RoomType> = /*@__PURE__*/
-  enumDesc(file_slotpb_slot, 0);
-
-/**
- * @generated from enum slotpb.CoinType
- */
-export enum CoinType {
-  /**
-   * @generated from enum value: COIN_TYPE_UNSPECIFIED = 0;
-   */
-  COIN_TYPE_UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: GOLDEN = 1;
-   */
-  GOLDEN = 1,
-
-  /**
-   * @generated from enum value: TOKEN = 2;
-   */
-  TOKEN = 2,
-}
-
-/**
- * Describes the enum slotpb.CoinType.
- */
-export const CoinTypeSchema: GenEnum<CoinType> = /*@__PURE__*/
-  enumDesc(file_slotpb_slot, 1);
-
-/**
- * @generated from enum slotpb.JPType
- */
-export enum JPType {
-  /**
-   * @generated from enum value: JP_TYPE_UNSPECIFIED = 0;
-   */
-  JP_TYPE_UNSPECIFIED = 0,
-
-  /**
-   * @generated from enum value: MINOR = 1;
-   */
-  MINOR = 1,
-
-  /**
-   * @generated from enum value: MAJOR = 2;
-   */
-  MAJOR = 2,
-
-  /**
-   * @generated from enum value: GRAND = 3;
-   */
-  GRAND = 3,
-}
-
-/**
- * Describes the enum slotpb.JPType.
- */
-export const JPTypeSchema: GenEnum<JPType> = /*@__PURE__*/
-  enumDesc(file_slotpb_slot, 2);
+  messageDesc(file_slotpb_slot, 8);
 
 /**
  * @generated from service slotpb.SlotService

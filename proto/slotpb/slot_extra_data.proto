@@ -21,11 +21,6 @@ message PosVal {
   string symbol = 2;
 }
 
-message Pos {
-  int32 x = 1;
-  int32 y = 2;
-}
-
 message Mammoth {
   int32 left_game_cnt = 1;
   Table table = 2;                  // spin + 隨機彩金事件

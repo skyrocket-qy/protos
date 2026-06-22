@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pkgpb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/pkgpb;pkgpb";
+
+import "google/protobuf/struct.proto";
+
+message AppError {
+  string code = 1;
+  string message = 2;
+  google.protobuf.Struct details = 3;
+  bool recorded = 4;
+}
