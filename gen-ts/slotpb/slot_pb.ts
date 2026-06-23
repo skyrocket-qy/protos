@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/slot.proto.
  */
 export const file_slotpb_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIicKBkV2ZW50cxIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiMAoFRXZlbnQSDAoEY29kZRgBIAEoDRIMCgRkYXRhGAIgASgMEgsKA3dpbhgDIAEoDSIbCghCdXlGZ1JlcRIPCgdnYW1lX2lkGAEgASgNIjgKCUJ1eUZnUmVzcBIeCgZldmVudHMYASABKAsyDi5zbG90cGIuRXZlbnRzEgsKA3dpbhgCIAEoDSIkCgVUYWJsZRIbCgVyZWVscxgBIAMoCzIMLnNsb3RwYi5SZWVsIhcKBFJlZWwSDwoHc3ltYm9scxgBIAMoCSIbCgNQb3MSCQoBeBgBIAEoBRIJCgF5GAIgASgFIjYKB1NwaW5SZXESDwoHZ2FtZV9pZBgBIAEoDRIRCgRvbWVuGAIgASgMSACIAQFCBwoFX29tZW4iUwoIU3BpblJlc3ASHgoGZXZlbnRzGAEgASgLMg4uc2xvdHBiLkV2ZW50cxILCgN3aW4YAiABKA0SEQoEb21lbhgDIAEoDEgAiAEBQgcKBV9vbWVuMmYKC1Nsb3RTZXJ2aWNlEikKBFNwaW4SDy5zbG90cGIuU3BpblJlcRoQLnNsb3RwYi5TcGluUmVzcBIsCgVCdXlGZxIQLnNsb3RwYi5CdXlGZ1JlcRoRLnNsb3RwYi5CdXlGZ1Jlc3BCgQEKCmNvbS5zbG90cGJCCVNsb3RQcm90b1ABWjBnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYjtzbG90cGKiAgNTWFiqAgZTbG90cGLKAgZTbG90cGLiAhJTbG90cGJcR1BCTWV0YWRhdGHqAgZTbG90cGJiBnByb3RvMw");
+  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIicKBkV2ZW50cxIdCgZldmVudHMYASADKAsyDS5zbG90cGIuRXZlbnQiMAoFRXZlbnQSDAoEY29kZRgBIAEoDRIMCgRkYXRhGAIgASgMEgsKA3dpbhgDIAEoDSIkCgVUYWJsZRIbCgVyZWVscxgBIAMoCzIMLnNsb3RwYi5SZWVsIhcKBFJlZWwSDwoHc3ltYm9scxgBIAMoCSIbCgNQb3MSCQoBeBgBIAEoBRIJCgF5GAIgASgFIjYKB1NwaW5SZXESDwoHZ2FtZV9pZBgBIAEoDRIRCgRvbWVuGAIgASgMSACIAQFCBwoFX29tZW4iUwoIU3BpblJlc3ASHgoGZXZlbnRzGAEgASgLMg4uc2xvdHBiLkV2ZW50cxILCgN3aW4YAiABKA0SEQoEb21lbhgDIAEoDEgAiAEBQgcKBV9vbWVuMjgKC1Nsb3RTZXJ2aWNlEikKBFNwaW4SDy5zbG90cGIuU3BpblJlcRoQLnNsb3RwYi5TcGluUmVzcEKBAQoKY29tLnNsb3RwYkIJU2xvdFByb3RvUAFaMGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiO3Nsb3RwYqICA1NYWKoCBlNsb3RwYsoCBlNsb3RwYuICElNsb3RwYlxHUEJNZXRhZGF0YeoCBlNsb3RwYmIGcHJvdG8z");
 
 /**
  * @generated from message slotpb.Events
@@ -59,45 +59,6 @@ export const EventSchema: GenMessage<Event> = /*@__PURE__*/
   messageDesc(file_slotpb_slot, 1);
 
 /**
- * @generated from message slotpb.BuyFgReq
- */
-export type BuyFgReq = Message<"slotpb.BuyFgReq"> & {
-  /**
-   * @generated from field: uint32 game_id = 1;
-   */
-  gameId: number;
-};
-
-/**
- * Describes the message slotpb.BuyFgReq.
- * Use `create(BuyFgReqSchema)` to create a new message.
- */
-export const BuyFgReqSchema: GenMessage<BuyFgReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 2);
-
-/**
- * @generated from message slotpb.BuyFgResp
- */
-export type BuyFgResp = Message<"slotpb.BuyFgResp"> & {
-  /**
-   * @generated from field: slotpb.Events events = 1;
-   */
-  events?: Events;
-
-  /**
-   * @generated from field: uint32 win = 2;
-   */
-  win: number;
-};
-
-/**
- * Describes the message slotpb.BuyFgResp.
- * Use `create(BuyFgRespSchema)` to create a new message.
- */
-export const BuyFgRespSchema: GenMessage<BuyFgResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 3);
-
-/**
  * @generated from message slotpb.Table
  */
 export type Table = Message<"slotpb.Table"> & {
@@ -112,7 +73,7 @@ export type Table = Message<"slotpb.Table"> & {
  * Use `create(TableSchema)` to create a new message.
  */
 export const TableSchema: GenMessage<Table> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 4);
+  messageDesc(file_slotpb_slot, 2);
 
 /**
  * @generated from message slotpb.Reel
@@ -129,7 +90,7 @@ export type Reel = Message<"slotpb.Reel"> & {
  * Use `create(ReelSchema)` to create a new message.
  */
 export const ReelSchema: GenMessage<Reel> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 5);
+  messageDesc(file_slotpb_slot, 3);
 
 /**
  * @generated from message slotpb.Pos
@@ -151,7 +112,7 @@ export type Pos = Message<"slotpb.Pos"> & {
  * Use `create(PosSchema)` to create a new message.
  */
 export const PosSchema: GenMessage<Pos> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 6);
+  messageDesc(file_slotpb_slot, 4);
 
 /**
  * @generated from message slotpb.SpinReq
@@ -173,7 +134,7 @@ export type SpinReq = Message<"slotpb.SpinReq"> & {
  * Use `create(SpinReqSchema)` to create a new message.
  */
 export const SpinReqSchema: GenMessage<SpinReq> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 7);
+  messageDesc(file_slotpb_slot, 5);
 
 /**
  * @generated from message slotpb.SpinResp
@@ -200,7 +161,7 @@ export type SpinResp = Message<"slotpb.SpinResp"> & {
  * Use `create(SpinRespSchema)` to create a new message.
  */
 export const SpinRespSchema: GenMessage<SpinResp> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot, 8);
+  messageDesc(file_slotpb_slot, 6);
 
 /**
  * @generated from service slotpb.SlotService
@@ -213,14 +174,6 @@ export const SlotService: GenService<{
     methodKind: "unary";
     input: typeof SpinReqSchema;
     output: typeof SpinRespSchema;
-  },
-  /**
-   * @generated from rpc slotpb.SlotService.BuyFg
-   */
-  buyFg: {
-    methodKind: "unary";
-    input: typeof BuyFgReqSchema;
-    output: typeof BuyFgRespSchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_slotpb_slot, 0);

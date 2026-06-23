@@ -5,10 +5,7 @@ package slotpb;
 
 option go_package = "github.com/skyrocket-qy/protos/gen/slotpb;slotpb";
 
-service SlotService {
-  rpc Spin(SpinReq) returns (SpinResp);
-  rpc BuyFg(BuyFgReq) returns (BuyFgResp);
-}
+service SlotService { rpc Spin(SpinReq) returns (SpinResp); }
 
 message Events { repeated Event events = 1; }
 
@@ -16,13 +13,6 @@ message Event {
   uint32 code = 1;
   bytes data = 2;
   uint32 win = 3;
-}
-
-message BuyFgReq { uint32 game_id = 1; }
-
-message BuyFgResp {
-  Events events = 1;
-  uint32 win = 2;
 }
 
 message Table { repeated Reel reels = 1; }

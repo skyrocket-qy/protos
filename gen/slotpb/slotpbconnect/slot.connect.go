@@ -37,14 +37,11 @@ const (
 const (
 	// SlotServiceSpinProcedure is the fully-qualified name of the SlotService's Spin RPC.
 	SlotServiceSpinProcedure = "/slotpb.SlotService/Spin"
-	// SlotServiceBuyFgProcedure is the fully-qualified name of the SlotService's BuyFg RPC.
-	SlotServiceBuyFgProcedure = "/slotpb.SlotService/BuyFg"
 )
 
 // SlotServiceClient is a client for the slotpb.SlotService service.
 type SlotServiceClient interface {
 	Spin(context.Context, *connect.Request[slotpb.SpinReq]) (*connect.Response[slotpb.SpinResp], error)
-	BuyFg(context.Context, *connect.Request[slotpb.BuyFgReq]) (*connect.Response[slotpb.BuyFgResp], error)
 }
 
 // NewSlotServiceClient constructs a client for the slotpb.SlotService service. By default, it uses
@@ -64,19 +61,12 @@ func NewSlotServiceClient(httpClient connect.HTTPClient, baseURL string, opts ..
 			connect.WithSchema(slotServiceMethods.ByName("Spin")),
 			connect.WithClientOptions(opts...),
 		),
-		buyFg: connect.NewClient[slotpb.BuyFgReq, slotpb.BuyFgResp](
-			httpClient,
-			baseURL+SlotServiceBuyFgProcedure,
-			connect.WithSchema(slotServiceMethods.ByName("BuyFg")),
-			connect.WithClientOptions(opts...),
-		),
 	}
 }
 
 // slotServiceClient implements SlotServiceClient.
 type slotServiceClient struct {
-	spin  *connect.Client[slotpb.SpinReq, slotpb.SpinResp]
-	buyFg *connect.Client[slotpb.BuyFgReq, slotpb.BuyFgResp]
+	spin *connect.Client[slotpb.SpinReq, slotpb.SpinResp]
 }
 
 // Spin calls slotpb.SlotService.Spin.
@@ -84,15 +74,9 @@ func (c *slotServiceClient) Spin(ctx context.Context, req *connect.Request[slotp
 	return c.spin.CallUnary(ctx, req)
 }
 
-// BuyFg calls slotpb.SlotService.BuyFg.
-func (c *slotServiceClient) BuyFg(ctx context.Context, req *connect.Request[slotpb.BuyFgReq]) (*connect.Response[slotpb.BuyFgResp], error) {
-	return c.buyFg.CallUnary(ctx, req)
-}
-
 // SlotServiceHandler is an implementation of the slotpb.SlotService service.
 type SlotServiceHandler interface {
 	Spin(context.Context, *connect.Request[slotpb.SpinReq]) (*connect.Response[slotpb.SpinResp], error)
-	BuyFg(context.Context, *connect.Request[slotpb.BuyFgReq]) (*connect.Response[slotpb.BuyFgResp], error)
 }
 
 // NewSlotServiceHandler builds an HTTP handler from the service implementation. It returns the path
@@ -108,18 +92,10 @@ func NewSlotServiceHandler(svc SlotServiceHandler, opts ...connect.HandlerOption
 		connect.WithSchema(slotServiceMethods.ByName("Spin")),
 		connect.WithHandlerOptions(opts...),
 	)
-	slotServiceBuyFgHandler := connect.NewUnaryHandler(
-		SlotServiceBuyFgProcedure,
-		svc.BuyFg,
-		connect.WithSchema(slotServiceMethods.ByName("BuyFg")),
-		connect.WithHandlerOptions(opts...),
-	)
 	return "/slotpb.SlotService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
 		case SlotServiceSpinProcedure:
 			slotServiceSpinHandler.ServeHTTP(w, r)
-		case SlotServiceBuyFgProcedure:
-			slotServiceBuyFgHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -131,8 +107,4 @@ type UnimplementedSlotServiceHandler struct{}
 
 func (UnimplementedSlotServiceHandler) Spin(context.Context, *connect.Request[slotpb.SpinReq]) (*connect.Response[slotpb.SpinResp], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.SlotService.Spin is not implemented"))
-}
-
-func (UnimplementedSlotServiceHandler) BuyFg(context.Context, *connect.Request[slotpb.BuyFgReq]) (*connect.Response[slotpb.BuyFgResp], error) {
-	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("slotpb.SlotService.BuyFg is not implemented"))
 }

@@ -6,14 +6,6 @@ pub type OwnedSpinReqView = ::buffa::view::OwnedView<
 pub type OwnedSpinRespView = ::buffa::view::OwnedView<
     crate::gen_rust::slotpb::__buffa::view::SpinRespView<'static>,
 >;
-///Shorthand for `OwnedView<BuyFgReqView<'static>>`.
-pub type OwnedBuyFgReqView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::__buffa::view::BuyFgReqView<'static>,
->;
-///Shorthand for `OwnedView<BuyFgRespView<'static>>`.
-pub type OwnedBuyFgRespView = ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::__buffa::view::BuyFgRespView<'static>,
->;
 impl ::connectrpc::Encodable<crate::gen_rust::slotpb::SpinResp>
 for crate::gen_rust::slotpb::__buffa::view::SpinRespView<'_> {
     fn encode(
@@ -34,26 +26,6 @@ for ::buffa::view::OwnedView<
         ::connectrpc::__codegen::encode_view_body(&**self, codec)
     }
 }
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::BuyFgResp>
-for crate::gen_rust::slotpb::__buffa::view::BuyFgRespView<'_> {
-    fn encode(
-        &self,
-        codec: ::connectrpc::CodecFormat,
-    ) -> ::std::result::Result<::buffa::bytes::Bytes, ::connectrpc::ConnectError> {
-        ::connectrpc::__codegen::encode_view_body(self, codec)
-    }
-}
-impl ::connectrpc::Encodable<crate::gen_rust::slotpb::BuyFgResp>
-for ::buffa::view::OwnedView<
-    crate::gen_rust::slotpb::__buffa::view::BuyFgRespView<'static>,
-> {
-    fn encode(
-        &self,
-        codec: ::connectrpc::CodecFormat,
-    ) -> ::std::result::Result<::buffa::bytes::Bytes, ::connectrpc::ConnectError> {
-        ::connectrpc::__codegen::encode_view_body(&**self, codec)
-    }
-}
 /// Full service name for this service.
 pub const SLOT_SERVICE_SERVICE_NAME: &str = "slotpb.SlotService";
 /// Static [`Spec`](::connectrpc::Spec) for the server-side `Spin` RPC.
@@ -62,15 +34,6 @@ pub const SLOT_SERVICE_SERVICE_NAME: &str = "slotpb.SlotService";
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
 pub const SLOT_SERVICE_SPIN_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
         "/slotpb.SlotService/Spin",
-        ::connectrpc::StreamType::Unary,
-    )
-    .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
-/// Static [`Spec`](::connectrpc::Spec) for the server-side `BuyFg` RPC.
-///
-/// The dispatcher surfaces this on
-/// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
-pub const SLOT_SERVICE_BUY_FG_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
-        "/slotpb.SlotService/BuyFg",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
@@ -125,20 +88,6 @@ pub trait SlotService: Send + Sync + 'static {
             > + Send + use<'a, Self>,
         >,
     > + Send;
-    /// Handle the BuyFg RPC.
-    ///
-    /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
-    fn buy_fg<'a>(
-        &'a self,
-        ctx: ::connectrpc::RequestContext,
-        request: OwnedBuyFgReqView,
-    ) -> impl ::std::future::Future<
-        Output = ::connectrpc::ServiceResult<
-            impl ::connectrpc::Encodable<
-                crate::gen_rust::slotpb::BuyFgResp,
-            > + Send + use<'a, Self>,
-        >,
-    > + Send;
 }
 /// Extension trait for registering a service implementation with a Router.
 ///
@@ -184,22 +133,6 @@ impl<S: SlotService> SlotServiceExt for S {
                 },
             )
             .with_spec(SLOT_SERVICE_SPIN_SPEC)
-            .route_view(
-                SLOT_SERVICE_SERVICE_NAME,
-                "BuyFg",
-                {
-                    let svc = ::std::sync::Arc::clone(&self);
-                    ::connectrpc::view_handler_fn(move |ctx, req, format| {
-                        let svc = ::std::sync::Arc::clone(&svc);
-                        async move {
-                            svc.buy_fg(ctx, req)
-                                .await?
-                                .encode::<crate::gen_rust::slotpb::BuyFgResp>(format)
-                        }
-                    })
-                },
-            )
-            .with_spec(SLOT_SERVICE_BUY_FG_SPEC)
     }
 }
 /// Monomorphic dispatcher for `SlotService`.
@@ -251,12 +184,6 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
                         .with_spec(SLOT_SERVICE_SPIN_SPEC),
                 )
             }
-            "BuyFg" => {
-                Some(
-                    ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
-                        .with_spec(SLOT_SERVICE_BUY_FG_SPEC),
-                )
-            }
             _ => None,
         }
     }
@@ -281,17 +208,6 @@ impl<T: SlotService> ::connectrpc::Dispatcher for SlotServiceServer<T> {
                     svc.spin(ctx, req)
                         .await?
                         .encode::<crate::gen_rust::slotpb::SpinResp>(format)
-                })
-            }
-            "BuyFg" => {
-                let svc = ::std::sync::Arc::clone(&self.inner);
-                Box::pin(async move {
-                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
-                        crate::gen_rust::slotpb::__buffa::view::BuyFgReqView,
-                    >(request.encoded()?, format)?;
-                    svc.buy_fg(ctx, req)
-                        .await?
-                        .encode::<crate::gen_rust::slotpb::BuyFgResp>(format)
                 })
             }
             _ => ::connectrpc::dispatcher::codegen::unimplemented_unary(path),
@@ -447,44 +363,6 @@ where
                 &self.config,
                 SLOT_SERVICE_SERVICE_NAME,
                 "Spin",
-                request,
-                options,
-            )
-            .await
-    }
-    /// Call the BuyFg RPC. Sends a request to /slotpb.SlotService/BuyFg.
-    pub async fn buy_fg(
-        &self,
-        request: crate::gen_rust::slotpb::BuyFgReq,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::__buffa::view::BuyFgRespView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        self.buy_fg_with_options(request, ::connectrpc::client::CallOptions::default())
-            .await
-    }
-    /// Call the BuyFg RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
-    pub async fn buy_fg_with_options(
-        &self,
-        request: crate::gen_rust::slotpb::BuyFgReq,
-        options: ::connectrpc::client::CallOptions,
-    ) -> Result<
-        ::connectrpc::client::UnaryResponse<
-            ::buffa::view::OwnedView<
-                crate::gen_rust::slotpb::__buffa::view::BuyFgRespView<'static>,
-            >,
-        >,
-        ::connectrpc::ConnectError,
-    > {
-        ::connectrpc::client::call_unary(
-                &self.transport,
-                &self.config,
-                SLOT_SERVICE_SERVICE_NAME,
-                "BuyFg",
                 request,
                 options,
             )

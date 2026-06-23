@@ -26,8 +26,6 @@ pub mod __buffa {
     pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
         reg.register_json_any(super::__EVENTS_JSON_ANY);
         reg.register_json_any(super::__EVENT_JSON_ANY);
-        reg.register_json_any(super::__BUY_FG_REQ_JSON_ANY);
-        reg.register_json_any(super::__BUY_FG_RESP_JSON_ANY);
         reg.register_json_any(super::__TABLE_JSON_ANY);
         reg.register_json_any(super::__REEL_JSON_ANY);
         reg.register_json_any(super::__POS_JSON_ANY);
@@ -54,10 +52,6 @@ pub mod __buffa {
 pub use self::__buffa::view::EventsView;
 #[doc(inline)]
 pub use self::__buffa::view::EventView;
-#[doc(inline)]
-pub use self::__buffa::view::BuyFgReqView;
-#[doc(inline)]
-pub use self::__buffa::view::BuyFgRespView;
 #[doc(inline)]
 pub use self::__buffa::view::TableView;
 #[doc(inline)]

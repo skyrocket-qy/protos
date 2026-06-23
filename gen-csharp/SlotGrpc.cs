@@ -51,10 +51,6 @@ namespace Slotpb {
     static readonly grpc::Marshaller<global::Slotpb.SpinReq> __Marshaller_slotpb_SpinReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.SpinReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Slotpb.SpinResp> __Marshaller_slotpb_SpinResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.SpinResp.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Slotpb.BuyFgReq> __Marshaller_slotpb_BuyFgReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.BuyFgReq.Parser));
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Slotpb.BuyFgResp> __Marshaller_slotpb_BuyFgResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Slotpb.BuyFgResp.Parser));
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Slotpb.SpinReq, global::Slotpb.SpinResp> __Method_Spin = new grpc::Method<global::Slotpb.SpinReq, global::Slotpb.SpinResp>(
@@ -63,14 +59,6 @@ namespace Slotpb {
         "Spin",
         __Marshaller_slotpb_SpinReq,
         __Marshaller_slotpb_SpinResp);
-
-    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Method<global::Slotpb.BuyFgReq, global::Slotpb.BuyFgResp> __Method_BuyFg = new grpc::Method<global::Slotpb.BuyFgReq, global::Slotpb.BuyFgResp>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "BuyFg",
-        __Marshaller_slotpb_BuyFgReq,
-        __Marshaller_slotpb_BuyFgResp);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -84,12 +72,6 @@ namespace Slotpb {
     {
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Slotpb.SpinResp> Spin(global::Slotpb.SpinReq request, grpc::ServerCallContext context)
-      {
-        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
-      }
-
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::System.Threading.Tasks.Task<global::Slotpb.BuyFgResp> BuyFg(global::Slotpb.BuyFgReq request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -143,26 +125,6 @@ namespace Slotpb {
       {
         return CallInvoker.AsyncUnaryCall(__Method_Spin, null, options, request);
       }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Slotpb.BuyFgResp BuyFg(global::Slotpb.BuyFgReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return BuyFg(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual global::Slotpb.BuyFgResp BuyFg(global::Slotpb.BuyFgReq request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_BuyFg, null, options, request);
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Slotpb.BuyFgResp> BuyFgAsync(global::Slotpb.BuyFgReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return BuyFgAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-      public virtual grpc::AsyncUnaryCall<global::Slotpb.BuyFgResp> BuyFgAsync(global::Slotpb.BuyFgReq request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_BuyFg, null, options, request);
-      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override SlotServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -177,8 +139,7 @@ namespace Slotpb {
     public static grpc::ServerServiceDefinition BindService(SlotServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_Spin, serviceImpl.Spin)
-          .AddMethod(__Method_BuyFg, serviceImpl.BuyFg).Build();
+          .AddMethod(__Method_Spin, serviceImpl.Spin).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -189,7 +150,6 @@ namespace Slotpb {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, SlotServiceBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_Spin, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.SpinReq, global::Slotpb.SpinResp>(serviceImpl.Spin));
-      serviceBinder.AddMethod(__Method_BuyFg, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Slotpb.BuyFgReq, global::Slotpb.BuyFgResp>(serviceImpl.BuyFg));
     }
 
   }
