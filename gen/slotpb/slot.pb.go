@@ -129,6 +129,7 @@ func (x *Event) GetWin() uint32 {
 
 type BuyFgReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
+	GameId        uint32                 `protobuf:"varint,1,opt,name=game_id,json=gameId,proto3" json:"game_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -161,6 +162,13 @@ func (x *BuyFgReq) ProtoReflect() protoreflect.Message {
 // Deprecated: Use BuyFgReq.ProtoReflect.Descriptor instead.
 func (*BuyFgReq) Descriptor() ([]byte, []int) {
 	return file_slotpb_slot_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *BuyFgReq) GetGameId() uint32 {
+	if x != nil {
+		return x.GameId
+	}
+	return 0
 }
 
 type BuyFgResp struct {
@@ -477,9 +485,9 @@ const file_slotpb_slot_proto_rawDesc = "" +
 	"\x05Event\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\rR\x04code\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\x12\x10\n" +
-	"\x03win\x18\x03 \x01(\rR\x03win\"\n" +
-	"\n" +
-	"\bBuyFgReq\"E\n" +
+	"\x03win\x18\x03 \x01(\rR\x03win\"#\n" +
+	"\bBuyFgReq\x12\x17\n" +
+	"\agame_id\x18\x01 \x01(\rR\x06gameId\"E\n" +
 	"\tBuyFgResp\x12&\n" +
 	"\x06events\x18\x01 \x01(\v2\x0e.slotpb.EventsR\x06events\x12\x10\n" +
 	"\x03win\x18\x02 \x01(\rR\x03win\"+\n" +

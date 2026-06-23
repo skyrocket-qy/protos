@@ -339,13 +339,21 @@ pub const __EVENT_JSON_ANY: ::buffa::type_registry::JsonAnyEntry = ::buffa::type
 #[derive(::serde::Serialize, ::serde::Deserialize)]
 #[serde(default)]
 pub struct BuyFgReq {
+    /// Field 1: `game_id`
+    #[serde(
+        rename = "gameId",
+        alias = "game_id",
+        with = "::buffa::json_helpers::uint32",
+        skip_serializing_if = "::buffa::json_helpers::skip_if::is_zero_u32"
+    )]
+    pub game_id: u32,
     #[serde(skip)]
     #[doc(hidden)]
     pub __buffa_unknown_fields: ::buffa::UnknownFields,
 }
 impl ::core::fmt::Debug for BuyFgReq {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("BuyFgReq").finish()
+        f.debug_struct("BuyFgReq").field("game_id", &self.game_id).finish()
     }
 }
 impl BuyFgReq {
@@ -378,6 +386,9 @@ impl ::buffa::Message for BuyFgReq {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
+        if self.game_id != 0u32 {
+            size += 1u32 + ::buffa::types::uint32_encoded_len(self.game_id) as u32;
+        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -388,6 +399,11 @@ impl ::buffa::Message for BuyFgReq {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
+        if self.game_id != 0u32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.game_id, buf);
+        }
         self.__buffa_unknown_fields.write_to(buf);
     }
     fn merge_field(
@@ -401,6 +417,16 @@ impl ::buffa::Message for BuyFgReq {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         match tag.field_number() {
+            1u32 => {
+                if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                    return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                        field_number: 1u32,
+                        expected: 0u8,
+                        actual: tag.wire_type() as u8,
+                    });
+                }
+                self.game_id = ::buffa::types::decode_uint32(buf)?;
+            }
             _ => {
                 self.__buffa_unknown_fields
                     .push(::buffa::encoding::decode_unknown_field(tag, buf, depth)?);
@@ -409,6 +435,7 @@ impl ::buffa::Message for BuyFgReq {
         ::core::result::Result::Ok(())
     }
     fn clear(&mut self) {
+        self.game_id = 0u32;
         self.__buffa_unknown_fields.clear();
     }
 }

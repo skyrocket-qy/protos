@@ -450,6 +450,8 @@ impl ::buffa::ViewReborrow for EventView<'static> {
 }
 #[derive(Clone, Debug, Default)]
 pub struct BuyFgReqView<'a> {
+    /// Field 1: `game_id`
+    pub game_id: u32,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
 impl<'a> BuyFgReqView<'a> {
@@ -490,6 +492,16 @@ impl<'a> BuyFgReqView<'a> {
             let before_tag = cur;
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.game_id = ::buffa::types::decode_uint32(&mut cur)?;
+                }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
                     let span_len = before_tag.len() - cur.len();
@@ -523,6 +535,7 @@ impl<'a> ::buffa::MessageView<'a> for BuyFgReqView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::BuyFgReq {
+            game_id: self.game_id,
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -538,6 +551,9 @@ impl<'a> ::buffa::ViewEncode<'a> for BuyFgReqView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
+        if self.game_id != 0u32 {
+            size += 1u32 + ::buffa::types::uint32_encoded_len(self.game_id) as u32;
+        }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
     }
@@ -549,6 +565,11 @@ impl<'a> ::buffa::ViewEncode<'a> for BuyFgReqView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
+        if self.game_id != 0u32 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint32(self.game_id, buf);
+        }
         self.__buffa_unknown_fields.write_to(buf);
     }
 }
@@ -570,6 +591,18 @@ impl<'__a> ::serde::Serialize for BuyFgReqView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u32(&self.game_id) {
+            struct _W(u32);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint32::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("gameId", &_W(self.game_id))?;
+        }
         __map.end()
     }
 }
