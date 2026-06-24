@@ -127,3 +127,44 @@ message JaguarTemple {
   Table table = 2;
   repeated string collectors = 3;
 }
+
+message RuneStorm {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  int32 right_scatters = 3;
+  repeated string left_runes = 4;
+  repeated RuneStormAction actions = 5;
+  repeated RuneStormRunes rune_on_symbols = 6;
+  optional RuneStormFgUpgrade fg_upgrade = 7;
+}
+
+message RuneStormAction {
+  repeated RuneStormAdd adds = 1;
+}
+
+message RuneStormAdd {
+  int32 x = 1;
+  int32 y = 2;
+  int32 val = 3;
+}
+
+message RuneStormRunes {
+  repeated string runes = 1;
+  int32 x = 2;
+  int32 y = 3;
+}
+
+message RuneStormFgUpgrade {
+  repeated string cards = 1;
+  repeated string runes = 2;
+  repeated RuneStormAction actions = 3;
+}
+
+message PowerWealthGod {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  optional Table table2 = 3; // after processing bingoed xx_E to wild
+  int32 ladder = 4;
+  optional int32 cum_ss = 5;
+  bool is_drop = 6;
+}

@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/slot_extra_data.proto.
  */
 export const file_slotpb_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iKAoPRnJvemVuUXVlZW5PbWVuEhUKDXNjYXR0ZXJfY291bnQYASABKAMiMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAUirAEKA1VmbxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEhYKCWViMV9zY29yZRgDIAEoA0gAiAEBEhYKCWViMl9zY29yZRgEIAEoA0gBiAEBEhYKCWViM19zY29yZRgFIAEoA0gCiAEBQgwKCl9lYjFfc2NvcmVCDAoKX2ViMl9zY29yZUIMCgpfZWIzX3Njb3JlIgkKB1Vmb09tZW4iPAoLTWFtbW90aE9tZW4SFQoNbGVmdF9lbGVwaGFudBgBIAEoBRIWCg5yaWdodF9lbGVwaGFudBgCIAEoBSJXCgxKYWd1YXJUZW1wbGUSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRISCgpjb2xsZWN0b3JzGAMgAygJQooBCgpjb20uc2xvdHBiQhJTbG90RXh0cmFEYXRhUHJvdG9QAVowZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGI7c2xvdHBiogIDU1hYqgIGU2xvdHBiygIGU2xvdHBi4gISU2xvdHBiXEdQQk1ldGFkYXRh6gIGU2xvdHBiYgZwcm90bzM", [file_slotpb_slot]);
+  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iKAoPRnJvemVuUXVlZW5PbWVuEhUKDXNjYXR0ZXJfY291bnQYASABKAMiMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAUirAEKA1VmbxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEhYKCWViMV9zY29yZRgDIAEoA0gAiAEBEhYKCWViMl9zY29yZRgEIAEoA0gBiAEBEhYKCWViM19zY29yZRgFIAEoA0gCiAEBQgwKCl9lYjFfc2NvcmVCDAoKX2ViMl9zY29yZUIMCgpfZWIzX3Njb3JlIgkKB1Vmb09tZW4iPAoLTWFtbW90aE9tZW4SFQoNbGVmdF9lbGVwaGFudBgBIAEoBRIWCg5yaWdodF9lbGVwaGFudBgCIAEoBSJXCgxKYWd1YXJUZW1wbGUSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRISCgpjb2xsZWN0b3JzGAMgAygJIosCCglSdW5lU3Rvcm0SFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIWCg5yaWdodF9zY2F0dGVycxgDIAEoBRISCgpsZWZ0X3J1bmVzGAQgAygJEigKB2FjdGlvbnMYBSADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uEi8KD3J1bmVfb25fc3ltYm9scxgGIAMoCzIWLnNsb3RwYi5SdW5lU3Rvcm1SdW5lcxIzCgpmZ191cGdyYWRlGAcgASgLMhouc2xvdHBiLlJ1bmVTdG9ybUZnVXBncmFkZUgAiAEBQg0KC19mZ191cGdyYWRlIjUKD1J1bmVTdG9ybUFjdGlvbhIiCgRhZGRzGAEgAygLMhQuc2xvdHBiLlJ1bmVTdG9ybUFkZCIxCgxSdW5lU3Rvcm1BZGQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA3ZhbBgDIAEoBSI1Cg5SdW5lU3Rvcm1SdW5lcxINCgVydW5lcxgBIAMoCRIJCgF4GAIgASgFEgkKAXkYAyABKAUiXAoSUnVuZVN0b3JtRmdVcGdyYWRlEg0KBWNhcmRzGAEgAygJEg0KBXJ1bmVzGAIgAygJEigKB2FjdGlvbnMYAyADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uIrUBCg5Qb3dlcldlYWx0aEdvZBIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiIKBnRhYmxlMhgDIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBEg4KBmxhZGRlchgEIAEoBRITCgZjdW1fc3MYBSABKAVIAYgBARIPCgdpc19kcm9wGAYgASgIQgkKB190YWJsZTJCCQoHX2N1bV9zc0KKAQoKY29tLnNsb3RwYkISU2xvdEV4dHJhRGF0YVByb3RvUAFaMGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiO3Nsb3RwYqICA1NYWKoCBlNsb3RwYsoCBlNsb3RwYuICElNsb3RwYlxHUEJNZXRhZGF0YeoCBlNsb3RwYmIGcHJvdG8z", [file_slotpb_slot]);
 
 /**
  * @generated from message slotpb.FrozenQueen
@@ -608,4 +608,193 @@ export type JaguarTemple = Message<"slotpb.JaguarTemple"> & {
  */
 export const JaguarTempleSchema: GenMessage<JaguarTemple> = /*@__PURE__*/
   messageDesc(file_slotpb_slot_extra_data, 18);
+
+/**
+ * @generated from message slotpb.RuneStorm
+ */
+export type RuneStorm = Message<"slotpb.RuneStorm"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: int32 right_scatters = 3;
+   */
+  rightScatters: number;
+
+  /**
+   * @generated from field: repeated string left_runes = 4;
+   */
+  leftRunes: string[];
+
+  /**
+   * @generated from field: repeated slotpb.RuneStormAction actions = 5;
+   */
+  actions: RuneStormAction[];
+
+  /**
+   * @generated from field: repeated slotpb.RuneStormRunes rune_on_symbols = 6;
+   */
+  runeOnSymbols: RuneStormRunes[];
+
+  /**
+   * @generated from field: optional slotpb.RuneStormFgUpgrade fg_upgrade = 7;
+   */
+  fgUpgrade?: RuneStormFgUpgrade;
+};
+
+/**
+ * Describes the message slotpb.RuneStorm.
+ * Use `create(RuneStormSchema)` to create a new message.
+ */
+export const RuneStormSchema: GenMessage<RuneStorm> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 19);
+
+/**
+ * @generated from message slotpb.RuneStormAction
+ */
+export type RuneStormAction = Message<"slotpb.RuneStormAction"> & {
+  /**
+   * @generated from field: repeated slotpb.RuneStormAdd adds = 1;
+   */
+  adds: RuneStormAdd[];
+};
+
+/**
+ * Describes the message slotpb.RuneStormAction.
+ * Use `create(RuneStormActionSchema)` to create a new message.
+ */
+export const RuneStormActionSchema: GenMessage<RuneStormAction> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 20);
+
+/**
+ * @generated from message slotpb.RuneStormAdd
+ */
+export type RuneStormAdd = Message<"slotpb.RuneStormAdd"> & {
+  /**
+   * @generated from field: int32 x = 1;
+   */
+  x: number;
+
+  /**
+   * @generated from field: int32 y = 2;
+   */
+  y: number;
+
+  /**
+   * @generated from field: int32 val = 3;
+   */
+  val: number;
+};
+
+/**
+ * Describes the message slotpb.RuneStormAdd.
+ * Use `create(RuneStormAddSchema)` to create a new message.
+ */
+export const RuneStormAddSchema: GenMessage<RuneStormAdd> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 21);
+
+/**
+ * @generated from message slotpb.RuneStormRunes
+ */
+export type RuneStormRunes = Message<"slotpb.RuneStormRunes"> & {
+  /**
+   * @generated from field: repeated string runes = 1;
+   */
+  runes: string[];
+
+  /**
+   * @generated from field: int32 x = 2;
+   */
+  x: number;
+
+  /**
+   * @generated from field: int32 y = 3;
+   */
+  y: number;
+};
+
+/**
+ * Describes the message slotpb.RuneStormRunes.
+ * Use `create(RuneStormRunesSchema)` to create a new message.
+ */
+export const RuneStormRunesSchema: GenMessage<RuneStormRunes> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 22);
+
+/**
+ * @generated from message slotpb.RuneStormFgUpgrade
+ */
+export type RuneStormFgUpgrade = Message<"slotpb.RuneStormFgUpgrade"> & {
+  /**
+   * @generated from field: repeated string cards = 1;
+   */
+  cards: string[];
+
+  /**
+   * @generated from field: repeated string runes = 2;
+   */
+  runes: string[];
+
+  /**
+   * @generated from field: repeated slotpb.RuneStormAction actions = 3;
+   */
+  actions: RuneStormAction[];
+};
+
+/**
+ * Describes the message slotpb.RuneStormFgUpgrade.
+ * Use `create(RuneStormFgUpgradeSchema)` to create a new message.
+ */
+export const RuneStormFgUpgradeSchema: GenMessage<RuneStormFgUpgrade> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 23);
+
+/**
+ * @generated from message slotpb.PowerWealthGod
+ */
+export type PowerWealthGod = Message<"slotpb.PowerWealthGod"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * after processing bingoed xx_E to wild
+   *
+   * @generated from field: optional slotpb.Table table2 = 3;
+   */
+  table2?: Table;
+
+  /**
+   * @generated from field: int32 ladder = 4;
+   */
+  ladder: number;
+
+  /**
+   * @generated from field: optional int32 cum_ss = 5;
+   */
+  cumSs?: number;
+
+  /**
+   * @generated from field: bool is_drop = 6;
+   */
+  isDrop: boolean;
+};
+
+/**
+ * Describes the message slotpb.PowerWealthGod.
+ * Use `create(PowerWealthGodSchema)` to create a new message.
+ */
+export const PowerWealthGodSchema: GenMessage<PowerWealthGod> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 24);
 

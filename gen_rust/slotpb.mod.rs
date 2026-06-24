@@ -50,6 +50,12 @@ pub mod __buffa {
         reg.register_json_any(super::__UFO_OMEN_JSON_ANY);
         reg.register_json_any(super::__MAMMOTH_OMEN_JSON_ANY);
         reg.register_json_any(super::__JAGUAR_TEMPLE_JSON_ANY);
+        reg.register_json_any(super::__RUNE_STORM_JSON_ANY);
+        reg.register_json_any(super::__RUNE_STORM_ACTION_JSON_ANY);
+        reg.register_json_any(super::__RUNE_STORM_ADD_JSON_ANY);
+        reg.register_json_any(super::__RUNE_STORM_RUNES_JSON_ANY);
+        reg.register_json_any(super::__RUNE_STORM_FG_UPGRADE_JSON_ANY);
+        reg.register_json_any(super::__POWER_WEALTH_GOD_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -102,5 +108,17 @@ pub use self::__buffa::view::UfoOmenView;
 pub use self::__buffa::view::MammothOmenView;
 #[doc(inline)]
 pub use self::__buffa::view::JaguarTempleView;
+#[doc(inline)]
+pub use self::__buffa::view::RuneStormView;
+#[doc(inline)]
+pub use self::__buffa::view::RuneStormActionView;
+#[doc(inline)]
+pub use self::__buffa::view::RuneStormAddView;
+#[doc(inline)]
+pub use self::__buffa::view::RuneStormRunesView;
+#[doc(inline)]
+pub use self::__buffa::view::RuneStormFgUpgradeView;
+#[doc(inline)]
+pub use self::__buffa::view::PowerWealthGodView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

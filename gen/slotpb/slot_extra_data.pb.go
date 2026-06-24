@@ -1226,6 +1226,406 @@ func (x *JaguarTemple) GetCollectors() []string {
 	return nil
 }
 
+type RuneStorm struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt   int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Table         *Table                 `protobuf:"bytes,2,opt,name=table,proto3" json:"table,omitempty"`
+	RightScatters int32                  `protobuf:"varint,3,opt,name=right_scatters,json=rightScatters,proto3" json:"right_scatters,omitempty"`
+	LeftRunes     []string               `protobuf:"bytes,4,rep,name=left_runes,json=leftRunes,proto3" json:"left_runes,omitempty"`
+	Actions       []*RuneStormAction     `protobuf:"bytes,5,rep,name=actions,proto3" json:"actions,omitempty"`
+	RuneOnSymbols []*RuneStormRunes      `protobuf:"bytes,6,rep,name=rune_on_symbols,json=runeOnSymbols,proto3" json:"rune_on_symbols,omitempty"`
+	FgUpgrade     *RuneStormFgUpgrade    `protobuf:"bytes,7,opt,name=fg_upgrade,json=fgUpgrade,proto3,oneof" json:"fg_upgrade,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RuneStorm) Reset() {
+	*x = RuneStorm{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[19]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RuneStorm) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RuneStorm) ProtoMessage() {}
+
+func (x *RuneStorm) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[19]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RuneStorm.ProtoReflect.Descriptor instead.
+func (*RuneStorm) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *RuneStorm) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *RuneStorm) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *RuneStorm) GetRightScatters() int32 {
+	if x != nil {
+		return x.RightScatters
+	}
+	return 0
+}
+
+func (x *RuneStorm) GetLeftRunes() []string {
+	if x != nil {
+		return x.LeftRunes
+	}
+	return nil
+}
+
+func (x *RuneStorm) GetActions() []*RuneStormAction {
+	if x != nil {
+		return x.Actions
+	}
+	return nil
+}
+
+func (x *RuneStorm) GetRuneOnSymbols() []*RuneStormRunes {
+	if x != nil {
+		return x.RuneOnSymbols
+	}
+	return nil
+}
+
+func (x *RuneStorm) GetFgUpgrade() *RuneStormFgUpgrade {
+	if x != nil {
+		return x.FgUpgrade
+	}
+	return nil
+}
+
+type RuneStormAction struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Adds          []*RuneStormAdd        `protobuf:"bytes,1,rep,name=adds,proto3" json:"adds,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RuneStormAction) Reset() {
+	*x = RuneStormAction{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[20]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RuneStormAction) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RuneStormAction) ProtoMessage() {}
+
+func (x *RuneStormAction) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[20]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RuneStormAction.ProtoReflect.Descriptor instead.
+func (*RuneStormAction) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *RuneStormAction) GetAdds() []*RuneStormAdd {
+	if x != nil {
+		return x.Adds
+	}
+	return nil
+}
+
+type RuneStormAdd struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	X             int32                  `protobuf:"varint,1,opt,name=x,proto3" json:"x,omitempty"`
+	Y             int32                  `protobuf:"varint,2,opt,name=y,proto3" json:"y,omitempty"`
+	Val           int32                  `protobuf:"varint,3,opt,name=val,proto3" json:"val,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RuneStormAdd) Reset() {
+	*x = RuneStormAdd{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[21]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RuneStormAdd) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RuneStormAdd) ProtoMessage() {}
+
+func (x *RuneStormAdd) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[21]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RuneStormAdd.ProtoReflect.Descriptor instead.
+func (*RuneStormAdd) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *RuneStormAdd) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *RuneStormAdd) GetY() int32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+func (x *RuneStormAdd) GetVal() int32 {
+	if x != nil {
+		return x.Val
+	}
+	return 0
+}
+
+type RuneStormRunes struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Runes         []string               `protobuf:"bytes,1,rep,name=runes,proto3" json:"runes,omitempty"`
+	X             int32                  `protobuf:"varint,2,opt,name=x,proto3" json:"x,omitempty"`
+	Y             int32                  `protobuf:"varint,3,opt,name=y,proto3" json:"y,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RuneStormRunes) Reset() {
+	*x = RuneStormRunes{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[22]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RuneStormRunes) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RuneStormRunes) ProtoMessage() {}
+
+func (x *RuneStormRunes) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[22]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RuneStormRunes.ProtoReflect.Descriptor instead.
+func (*RuneStormRunes) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *RuneStormRunes) GetRunes() []string {
+	if x != nil {
+		return x.Runes
+	}
+	return nil
+}
+
+func (x *RuneStormRunes) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
+func (x *RuneStormRunes) GetY() int32 {
+	if x != nil {
+		return x.Y
+	}
+	return 0
+}
+
+type RuneStormFgUpgrade struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Cards         []string               `protobuf:"bytes,1,rep,name=cards,proto3" json:"cards,omitempty"`
+	Runes         []string               `protobuf:"bytes,2,rep,name=runes,proto3" json:"runes,omitempty"`
+	Actions       []*RuneStormAction     `protobuf:"bytes,3,rep,name=actions,proto3" json:"actions,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *RuneStormFgUpgrade) Reset() {
+	*x = RuneStormFgUpgrade{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[23]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RuneStormFgUpgrade) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RuneStormFgUpgrade) ProtoMessage() {}
+
+func (x *RuneStormFgUpgrade) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[23]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RuneStormFgUpgrade.ProtoReflect.Descriptor instead.
+func (*RuneStormFgUpgrade) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *RuneStormFgUpgrade) GetCards() []string {
+	if x != nil {
+		return x.Cards
+	}
+	return nil
+}
+
+func (x *RuneStormFgUpgrade) GetRunes() []string {
+	if x != nil {
+		return x.Runes
+	}
+	return nil
+}
+
+func (x *RuneStormFgUpgrade) GetActions() []*RuneStormAction {
+	if x != nil {
+		return x.Actions
+	}
+	return nil
+}
+
+type PowerWealthGod struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt   int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Table         *Table                 `protobuf:"bytes,2,opt,name=table,proto3" json:"table,omitempty"`
+	Table2        *Table                 `protobuf:"bytes,3,opt,name=table2,proto3,oneof" json:"table2,omitempty"` // after processing bingoed xx_E to wild
+	Ladder        int32                  `protobuf:"varint,4,opt,name=ladder,proto3" json:"ladder,omitempty"`
+	CumSs         *int32                 `protobuf:"varint,5,opt,name=cum_ss,json=cumSs,proto3,oneof" json:"cum_ss,omitempty"`
+	IsDrop        bool                   `protobuf:"varint,6,opt,name=is_drop,json=isDrop,proto3" json:"is_drop,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PowerWealthGod) Reset() {
+	*x = PowerWealthGod{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[24]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PowerWealthGod) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PowerWealthGod) ProtoMessage() {}
+
+func (x *PowerWealthGod) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[24]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PowerWealthGod.ProtoReflect.Descriptor instead.
+func (*PowerWealthGod) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *PowerWealthGod) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *PowerWealthGod) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *PowerWealthGod) GetTable2() *Table {
+	if x != nil {
+		return x.Table2
+	}
+	return nil
+}
+
+func (x *PowerWealthGod) GetLadder() int32 {
+	if x != nil {
+		return x.Ladder
+	}
+	return 0
+}
+
+func (x *PowerWealthGod) GetCumSs() int32 {
+	if x != nil && x.CumSs != nil {
+		return *x.CumSs
+	}
+	return 0
+}
+
+func (x *PowerWealthGod) GetIsDrop() bool {
+	if x != nil {
+		return x.IsDrop
+	}
+	return false
+}
+
 type FrozenQueen_EventEa struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PosVal        []*PosVal              `protobuf:"bytes,1,rep,name=pos_val,json=posVal,proto3" json:"pos_val,omitempty"`
@@ -1235,7 +1635,7 @@ type FrozenQueen_EventEa struct {
 
 func (x *FrozenQueen_EventEa) Reset() {
 	*x = FrozenQueen_EventEa{}
-	mi := &file_slotpb_slot_extra_data_proto_msgTypes[19]
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1247,7 +1647,7 @@ func (x *FrozenQueen_EventEa) String() string {
 func (*FrozenQueen_EventEa) ProtoMessage() {}
 
 func (x *FrozenQueen_EventEa) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_extra_data_proto_msgTypes[19]
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1388,7 +1788,41 @@ const file_slotpb_slot_extra_data_proto_rawDesc = "" +
 	"\x05table\x18\x02 \x01(\v2\r.slotpb.TableR\x05table\x12\x1e\n" +
 	"\n" +
 	"collectors\x18\x03 \x03(\tR\n" +
-	"collectorsB\x8a\x01\n" +
+	"collectors\"\xdc\x02\n" +
+	"\tRuneStorm\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12#\n" +
+	"\x05table\x18\x02 \x01(\v2\r.slotpb.TableR\x05table\x12%\n" +
+	"\x0eright_scatters\x18\x03 \x01(\x05R\rrightScatters\x12\x1d\n" +
+	"\n" +
+	"left_runes\x18\x04 \x03(\tR\tleftRunes\x121\n" +
+	"\aactions\x18\x05 \x03(\v2\x17.slotpb.RuneStormActionR\aactions\x12>\n" +
+	"\x0frune_on_symbols\x18\x06 \x03(\v2\x16.slotpb.RuneStormRunesR\rruneOnSymbols\x12>\n" +
+	"\n" +
+	"fg_upgrade\x18\a \x01(\v2\x1a.slotpb.RuneStormFgUpgradeH\x00R\tfgUpgrade\x88\x01\x01B\r\n" +
+	"\v_fg_upgrade\";\n" +
+	"\x0fRuneStormAction\x12(\n" +
+	"\x04adds\x18\x01 \x03(\v2\x14.slotpb.RuneStormAddR\x04adds\"<\n" +
+	"\fRuneStormAdd\x12\f\n" +
+	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\x12\x10\n" +
+	"\x03val\x18\x03 \x01(\x05R\x03val\"B\n" +
+	"\x0eRuneStormRunes\x12\x14\n" +
+	"\x05runes\x18\x01 \x03(\tR\x05runes\x12\f\n" +
+	"\x01x\x18\x02 \x01(\x05R\x01x\x12\f\n" +
+	"\x01y\x18\x03 \x01(\x05R\x01y\"s\n" +
+	"\x12RuneStormFgUpgrade\x12\x14\n" +
+	"\x05cards\x18\x01 \x03(\tR\x05cards\x12\x14\n" +
+	"\x05runes\x18\x02 \x03(\tR\x05runes\x121\n" +
+	"\aactions\x18\x03 \x03(\v2\x17.slotpb.RuneStormActionR\aactions\"\xe8\x01\n" +
+	"\x0ePowerWealthGod\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12#\n" +
+	"\x05table\x18\x02 \x01(\v2\r.slotpb.TableR\x05table\x12*\n" +
+	"\x06table2\x18\x03 \x01(\v2\r.slotpb.TableH\x00R\x06table2\x88\x01\x01\x12\x16\n" +
+	"\x06ladder\x18\x04 \x01(\x05R\x06ladder\x12\x1a\n" +
+	"\x06cum_ss\x18\x05 \x01(\x05H\x01R\x05cumSs\x88\x01\x01\x12\x17\n" +
+	"\ais_drop\x18\x06 \x01(\bR\x06isDropB\t\n" +
+	"\a_table2B\t\n" +
+	"\a_cum_ssB\x8a\x01\n" +
 	"\n" +
 	"com.slotpbB\x12SlotExtraDataProtoP\x01Z0github.com/skyrocket-qy/protos/gen/slotpb;slotpb\xa2\x02\x03SXX\xaa\x02\x06Slotpb\xca\x02\x06Slotpb\xe2\x02\x12Slotpb\\GPBMetadata\xea\x02\x06Slotpbb\x06proto3"
 
@@ -1404,7 +1838,7 @@ func file_slotpb_slot_extra_data_proto_rawDescGZIP() []byte {
 	return file_slotpb_slot_extra_data_proto_rawDescData
 }
 
-var file_slotpb_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 20)
+var file_slotpb_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
 var file_slotpb_slot_extra_data_proto_goTypes = []any{
 	(*FrozenQueen)(nil),         // 0: slotpb.FrozenQueen
 	(*FrozenQueenOmen)(nil),     // 1: slotpb.FrozenQueenOmen
@@ -1425,43 +1859,57 @@ var file_slotpb_slot_extra_data_proto_goTypes = []any{
 	(*UfoOmen)(nil),             // 16: slotpb.UfoOmen
 	(*MammothOmen)(nil),         // 17: slotpb.MammothOmen
 	(*JaguarTemple)(nil),        // 18: slotpb.JaguarTemple
-	(*FrozenQueen_EventEa)(nil), // 19: slotpb.FrozenQueen.EventEa
-	(*Table)(nil),               // 20: slotpb.Table
-	(*Pos)(nil),                 // 21: slotpb.Pos
+	(*RuneStorm)(nil),           // 19: slotpb.RuneStorm
+	(*RuneStormAction)(nil),     // 20: slotpb.RuneStormAction
+	(*RuneStormAdd)(nil),        // 21: slotpb.RuneStormAdd
+	(*RuneStormRunes)(nil),      // 22: slotpb.RuneStormRunes
+	(*RuneStormFgUpgrade)(nil),  // 23: slotpb.RuneStormFgUpgrade
+	(*PowerWealthGod)(nil),      // 24: slotpb.PowerWealthGod
+	(*FrozenQueen_EventEa)(nil), // 25: slotpb.FrozenQueen.EventEa
+	(*Table)(nil),               // 26: slotpb.Table
+	(*Pos)(nil),                 // 27: slotpb.Pos
 }
 var file_slotpb_slot_extra_data_proto_depIdxs = []int32{
-	20, // 0: slotpb.FrozenQueen.table:type_name -> slotpb.Table
-	19, // 1: slotpb.FrozenQueen.event_ea:type_name -> slotpb.FrozenQueen.EventEa
-	21, // 2: slotpb.PosVal.pos:type_name -> slotpb.Pos
-	20, // 3: slotpb.Mammoth.table:type_name -> slotpb.Table
+	26, // 0: slotpb.FrozenQueen.table:type_name -> slotpb.Table
+	25, // 1: slotpb.FrozenQueen.event_ea:type_name -> slotpb.FrozenQueen.EventEa
+	27, // 2: slotpb.PosVal.pos:type_name -> slotpb.Pos
+	26, // 3: slotpb.Mammoth.table:type_name -> slotpb.Table
 	4,  // 4: slotpb.Mammoth.event1:type_name -> slotpb.RollBonus
 	6,  // 5: slotpb.Mammoth.event2:type_name -> slotpb.MammonEvent2
 	4,  // 6: slotpb.Mammoth.event3:type_name -> slotpb.RollBonus
 	4,  // 7: slotpb.Mammoth.event4:type_name -> slotpb.RollBonus
 	7,  // 8: slotpb.Mammoth.emit_fireball:type_name -> slotpb.MammoEmitFIreball
 	5,  // 9: slotpb.RollBonus.changed_bonuses:type_name -> slotpb.BonusEntry
-	20, // 10: slotpb.RollBonus.table:type_name -> slotpb.Table
-	21, // 11: slotpb.BonusEntry.pos:type_name -> slotpb.Pos
-	20, // 12: slotpb.PrincessSun.table:type_name -> slotpb.Table
+	26, // 10: slotpb.RollBonus.table:type_name -> slotpb.Table
+	27, // 11: slotpb.BonusEntry.pos:type_name -> slotpb.Pos
+	26, // 12: slotpb.PrincessSun.table:type_name -> slotpb.Table
 	9,  // 13: slotpb.PrincessSun.sun_light:type_name -> slotpb.PrincessSunLight
-	20, // 14: slotpb.PrincessSunLight.table:type_name -> slotpb.Table
-	20, // 15: slotpb.WestChili.table:type_name -> slotpb.Table
+	26, // 14: slotpb.PrincessSunLight.table:type_name -> slotpb.Table
+	26, // 15: slotpb.WestChili.table:type_name -> slotpb.Table
 	11, // 16: slotpb.WestChili.cum:type_name -> slotpb.WestChiliCum
-	20, // 17: slotpb.WestChili.table2:type_name -> slotpb.Table
-	21, // 18: slotpb.WestChili.which_ea_to_sfg:type_name -> slotpb.Pos
-	20, // 19: slotpb.ElementalMask.table:type_name -> slotpb.Table
+	26, // 17: slotpb.WestChili.table2:type_name -> slotpb.Table
+	27, // 18: slotpb.WestChili.which_ea_to_sfg:type_name -> slotpb.Pos
+	26, // 19: slotpb.ElementalMask.table:type_name -> slotpb.Table
 	13, // 20: slotpb.ElementalMask.moves:type_name -> slotpb.ElementalMaskMove
 	14, // 21: slotpb.ElementalMask.merges:type_name -> slotpb.ElementalMaskMerge
-	21, // 22: slotpb.ElementalMaskMerge.froms:type_name -> slotpb.Pos
-	21, // 23: slotpb.ElementalMaskMerge.to:type_name -> slotpb.Pos
-	20, // 24: slotpb.Ufo.table:type_name -> slotpb.Table
-	20, // 25: slotpb.JaguarTemple.table:type_name -> slotpb.Table
-	2,  // 26: slotpb.FrozenQueen.EventEa.pos_val:type_name -> slotpb.PosVal
-	27, // [27:27] is the sub-list for method output_type
-	27, // [27:27] is the sub-list for method input_type
-	27, // [27:27] is the sub-list for extension type_name
-	27, // [27:27] is the sub-list for extension extendee
-	0,  // [0:27] is the sub-list for field type_name
+	27, // 22: slotpb.ElementalMaskMerge.froms:type_name -> slotpb.Pos
+	27, // 23: slotpb.ElementalMaskMerge.to:type_name -> slotpb.Pos
+	26, // 24: slotpb.Ufo.table:type_name -> slotpb.Table
+	26, // 25: slotpb.JaguarTemple.table:type_name -> slotpb.Table
+	26, // 26: slotpb.RuneStorm.table:type_name -> slotpb.Table
+	20, // 27: slotpb.RuneStorm.actions:type_name -> slotpb.RuneStormAction
+	22, // 28: slotpb.RuneStorm.rune_on_symbols:type_name -> slotpb.RuneStormRunes
+	23, // 29: slotpb.RuneStorm.fg_upgrade:type_name -> slotpb.RuneStormFgUpgrade
+	21, // 30: slotpb.RuneStormAction.adds:type_name -> slotpb.RuneStormAdd
+	20, // 31: slotpb.RuneStormFgUpgrade.actions:type_name -> slotpb.RuneStormAction
+	26, // 32: slotpb.PowerWealthGod.table:type_name -> slotpb.Table
+	26, // 33: slotpb.PowerWealthGod.table2:type_name -> slotpb.Table
+	2,  // 34: slotpb.FrozenQueen.EventEa.pos_val:type_name -> slotpb.PosVal
+	35, // [35:35] is the sub-list for method output_type
+	35, // [35:35] is the sub-list for method input_type
+	35, // [35:35] is the sub-list for extension type_name
+	35, // [35:35] is the sub-list for extension extendee
+	0,  // [0:35] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_slot_extra_data_proto_init() }
@@ -1476,13 +1924,15 @@ func file_slotpb_slot_extra_data_proto_init() {
 	file_slotpb_slot_extra_data_proto_msgTypes[8].OneofWrappers = []any{}
 	file_slotpb_slot_extra_data_proto_msgTypes[10].OneofWrappers = []any{}
 	file_slotpb_slot_extra_data_proto_msgTypes[15].OneofWrappers = []any{}
+	file_slotpb_slot_extra_data_proto_msgTypes[19].OneofWrappers = []any{}
+	file_slotpb_slot_extra_data_proto_msgTypes[24].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_slot_extra_data_proto_rawDesc), len(file_slotpb_slot_extra_data_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   20,
+			NumMessages:   26,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
