@@ -23,50 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Events struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Events) Reset() {
-	*x = Events{}
-	mi := &file_slotpb_slot_proto_msgTypes[0]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Events) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Events) ProtoMessage() {}
-
-func (x *Events) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[0]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Events.ProtoReflect.Descriptor instead.
-func (*Events) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *Events) GetEvents() []*Event {
-	if x != nil {
-		return x.Events
-	}
-	return nil
-}
-
 type Event struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Code          uint32                 `protobuf:"varint,1,opt,name=code,proto3" json:"code,omitempty"`
@@ -78,7 +34,7 @@ type Event struct {
 
 func (x *Event) Reset() {
 	*x = Event{}
-	mi := &file_slotpb_slot_proto_msgTypes[1]
+	mi := &file_slotpb_slot_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -90,7 +46,7 @@ func (x *Event) String() string {
 func (*Event) ProtoMessage() {}
 
 func (x *Event) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[1]
+	mi := &file_slotpb_slot_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -103,7 +59,7 @@ func (x *Event) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Event.ProtoReflect.Descriptor instead.
 func (*Event) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{1}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Event) GetCode() uint32 {
@@ -136,7 +92,7 @@ type Table struct {
 
 func (x *Table) Reset() {
 	*x = Table{}
-	mi := &file_slotpb_slot_proto_msgTypes[2]
+	mi := &file_slotpb_slot_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -148,7 +104,7 @@ func (x *Table) String() string {
 func (*Table) ProtoMessage() {}
 
 func (x *Table) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[2]
+	mi := &file_slotpb_slot_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -161,7 +117,7 @@ func (x *Table) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Table.ProtoReflect.Descriptor instead.
 func (*Table) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{2}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Table) GetReels() []*Reel {
@@ -180,7 +136,7 @@ type Reel struct {
 
 func (x *Reel) Reset() {
 	*x = Reel{}
-	mi := &file_slotpb_slot_proto_msgTypes[3]
+	mi := &file_slotpb_slot_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -192,7 +148,7 @@ func (x *Reel) String() string {
 func (*Reel) ProtoMessage() {}
 
 func (x *Reel) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[3]
+	mi := &file_slotpb_slot_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -205,7 +161,7 @@ func (x *Reel) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Reel.ProtoReflect.Descriptor instead.
 func (*Reel) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{3}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Reel) GetSymbols() []string {
@@ -225,7 +181,7 @@ type Pos struct {
 
 func (x *Pos) Reset() {
 	*x = Pos{}
-	mi := &file_slotpb_slot_proto_msgTypes[4]
+	mi := &file_slotpb_slot_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -237,7 +193,7 @@ func (x *Pos) String() string {
 func (*Pos) ProtoMessage() {}
 
 func (x *Pos) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[4]
+	mi := &file_slotpb_slot_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -250,7 +206,7 @@ func (x *Pos) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Pos.ProtoReflect.Descriptor instead.
 func (*Pos) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{4}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Pos) GetX() int32 {
@@ -271,13 +227,14 @@ type SpinReq struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	GameId        uint32                 `protobuf:"varint,1,opt,name=game_id,json=gameId,proto3" json:"game_id,omitempty"`
 	Omen          []byte                 `protobuf:"bytes,2,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
+	Strategy      string                 `protobuf:"bytes,3,opt,name=strategy,proto3" json:"strategy,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *SpinReq) Reset() {
 	*x = SpinReq{}
-	mi := &file_slotpb_slot_proto_msgTypes[5]
+	mi := &file_slotpb_slot_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -289,7 +246,7 @@ func (x *SpinReq) String() string {
 func (*SpinReq) ProtoMessage() {}
 
 func (x *SpinReq) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[5]
+	mi := &file_slotpb_slot_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -302,7 +259,7 @@ func (x *SpinReq) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpinReq.ProtoReflect.Descriptor instead.
 func (*SpinReq) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{5}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *SpinReq) GetGameId() uint32 {
@@ -319,9 +276,16 @@ func (x *SpinReq) GetOmen() []byte {
 	return nil
 }
 
+func (x *SpinReq) GetStrategy() string {
+	if x != nil {
+		return x.Strategy
+	}
+	return ""
+}
+
 type SpinResp struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Events        *Events                `protobuf:"bytes,1,opt,name=events,proto3" json:"events,omitempty"`
+	Events        []*Event               `protobuf:"bytes,1,rep,name=events,proto3" json:"events,omitempty"`
 	Win           uint32                 `protobuf:"varint,2,opt,name=win,proto3" json:"win,omitempty"`
 	Omen          []byte                 `protobuf:"bytes,3,opt,name=omen,proto3,oneof" json:"omen,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -330,7 +294,7 @@ type SpinResp struct {
 
 func (x *SpinResp) Reset() {
 	*x = SpinResp{}
-	mi := &file_slotpb_slot_proto_msgTypes[6]
+	mi := &file_slotpb_slot_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -342,7 +306,7 @@ func (x *SpinResp) String() string {
 func (*SpinResp) ProtoMessage() {}
 
 func (x *SpinResp) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_proto_msgTypes[6]
+	mi := &file_slotpb_slot_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -355,10 +319,10 @@ func (x *SpinResp) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SpinResp.ProtoReflect.Descriptor instead.
 func (*SpinResp) Descriptor() ([]byte, []int) {
-	return file_slotpb_slot_proto_rawDescGZIP(), []int{6}
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{5}
 }
 
-func (x *SpinResp) GetEvents() *Events {
+func (x *SpinResp) GetEvents() []*Event {
 	if x != nil {
 		return x.Events
 	}
@@ -383,9 +347,7 @@ var File_slotpb_slot_proto protoreflect.FileDescriptor
 
 const file_slotpb_slot_proto_rawDesc = "" +
 	"\n" +
-	"\x11slotpb/slot.proto\x12\x06slotpb\"/\n" +
-	"\x06Events\x12%\n" +
-	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\"A\n" +
+	"\x11slotpb/slot.proto\x12\x06slotpb\"A\n" +
 	"\x05Event\x12\x12\n" +
 	"\x04code\x18\x01 \x01(\rR\x04code\x12\x12\n" +
 	"\x04data\x18\x02 \x01(\fR\x04data\x12\x10\n" +
@@ -396,13 +358,14 @@ const file_slotpb_slot_proto_rawDesc = "" +
 	"\asymbols\x18\x01 \x03(\tR\asymbols\"!\n" +
 	"\x03Pos\x12\f\n" +
 	"\x01x\x18\x01 \x01(\x05R\x01x\x12\f\n" +
-	"\x01y\x18\x02 \x01(\x05R\x01y\"D\n" +
+	"\x01y\x18\x02 \x01(\x05R\x01y\"`\n" +
 	"\aSpinReq\x12\x17\n" +
 	"\agame_id\x18\x01 \x01(\rR\x06gameId\x12\x17\n" +
-	"\x04omen\x18\x02 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
-	"\x05_omen\"f\n" +
-	"\bSpinResp\x12&\n" +
-	"\x06events\x18\x01 \x01(\v2\x0e.slotpb.EventsR\x06events\x12\x10\n" +
+	"\x04omen\x18\x02 \x01(\fH\x00R\x04omen\x88\x01\x01\x12\x1a\n" +
+	"\bstrategy\x18\x03 \x01(\tR\bstrategyB\a\n" +
+	"\x05_omen\"e\n" +
+	"\bSpinResp\x12%\n" +
+	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\x12\x10\n" +
 	"\x03win\x18\x02 \x01(\rR\x03win\x12\x17\n" +
 	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
 	"\x05_omen28\n" +
@@ -423,27 +386,25 @@ func file_slotpb_slot_proto_rawDescGZIP() []byte {
 	return file_slotpb_slot_proto_rawDescData
 }
 
-var file_slotpb_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_slotpb_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_slotpb_slot_proto_goTypes = []any{
-	(*Events)(nil),   // 0: slotpb.Events
-	(*Event)(nil),    // 1: slotpb.Event
-	(*Table)(nil),    // 2: slotpb.Table
-	(*Reel)(nil),     // 3: slotpb.Reel
-	(*Pos)(nil),      // 4: slotpb.Pos
-	(*SpinReq)(nil),  // 5: slotpb.SpinReq
-	(*SpinResp)(nil), // 6: slotpb.SpinResp
+	(*Event)(nil),    // 0: slotpb.Event
+	(*Table)(nil),    // 1: slotpb.Table
+	(*Reel)(nil),     // 2: slotpb.Reel
+	(*Pos)(nil),      // 3: slotpb.Pos
+	(*SpinReq)(nil),  // 4: slotpb.SpinReq
+	(*SpinResp)(nil), // 5: slotpb.SpinResp
 }
 var file_slotpb_slot_proto_depIdxs = []int32{
-	1, // 0: slotpb.Events.events:type_name -> slotpb.Event
-	3, // 1: slotpb.Table.reels:type_name -> slotpb.Reel
-	0, // 2: slotpb.SpinResp.events:type_name -> slotpb.Events
-	5, // 3: slotpb.SlotService.Spin:input_type -> slotpb.SpinReq
-	6, // 4: slotpb.SlotService.Spin:output_type -> slotpb.SpinResp
-	4, // [4:5] is the sub-list for method output_type
-	3, // [3:4] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	2, // 0: slotpb.Table.reels:type_name -> slotpb.Reel
+	0, // 1: slotpb.SpinResp.events:type_name -> slotpb.Event
+	4, // 2: slotpb.SlotService.Spin:input_type -> slotpb.SpinReq
+	5, // 3: slotpb.SlotService.Spin:output_type -> slotpb.SpinResp
+	3, // [3:4] is the sub-list for method output_type
+	2, // [2:3] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_slot_proto_init() }
@@ -451,15 +412,15 @@ func file_slotpb_slot_proto_init() {
 	if File_slotpb_slot_proto != nil {
 		return
 	}
+	file_slotpb_slot_proto_msgTypes[4].OneofWrappers = []any{}
 	file_slotpb_slot_proto_msgTypes[5].OneofWrappers = []any{}
-	file_slotpb_slot_proto_msgTypes[6].OneofWrappers = []any{}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_slot_proto_rawDesc), len(file_slotpb_slot_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

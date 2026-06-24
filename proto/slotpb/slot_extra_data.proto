@@ -16,6 +16,10 @@ message FrozenQueen {
   message EventEa { repeated PosVal pos_val = 1; }
 }
 
+message FrozenQueenOmen {
+  int64 scatter_count = 1;
+}
+
 message PosVal {
   Pos pos = 1;
   string symbol = 2;
@@ -101,4 +105,25 @@ message ElementalMaskMerge {
   repeated Pos froms = 1;
   Pos to = 2;
   int32 final_rate = 3;
+}
+
+message Ufo {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  optional int64 eb1_score = 3;
+  optional int64 eb2_score = 4;
+  optional int64 eb3_score = 5;
+}
+
+message UfoOmen {}
+
+message MammothOmen {
+  int32 left_elephant = 1;
+  int32 right_elephant = 2;
+}
+
+message JaguarTemple {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+  repeated string collectors = 3;
 }

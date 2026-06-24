@@ -24,7 +24,6 @@ pub mod __buffa {
     }
     /// Register this package's `Any` type entries and extension entries.
     pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
-        reg.register_json_any(super::__EVENTS_JSON_ANY);
         reg.register_json_any(super::__EVENT_JSON_ANY);
         reg.register_json_any(super::__TABLE_JSON_ANY);
         reg.register_json_any(super::__REEL_JSON_ANY);
@@ -33,6 +32,7 @@ pub mod __buffa {
         reg.register_json_any(super::__SPIN_RESP_JSON_ANY);
         reg.register_json_any(super::__FROZEN_QUEEN_JSON_ANY);
         reg.register_json_any(super::frozen_queen::__EVENT_EA_JSON_ANY);
+        reg.register_json_any(super::__FROZEN_QUEEN_OMEN_JSON_ANY);
         reg.register_json_any(super::__POS_VAL_JSON_ANY);
         reg.register_json_any(super::__MAMMOTH_JSON_ANY);
         reg.register_json_any(super::__ROLL_BONUS_JSON_ANY);
@@ -46,10 +46,12 @@ pub mod __buffa {
         reg.register_json_any(super::__ELEMENTAL_MASK_JSON_ANY);
         reg.register_json_any(super::__ELEMENTAL_MASK_MOVE_JSON_ANY);
         reg.register_json_any(super::__ELEMENTAL_MASK_MERGE_JSON_ANY);
+        reg.register_json_any(super::__UFO_JSON_ANY);
+        reg.register_json_any(super::__UFO_OMEN_JSON_ANY);
+        reg.register_json_any(super::__MAMMOTH_OMEN_JSON_ANY);
+        reg.register_json_any(super::__JAGUAR_TEMPLE_JSON_ANY);
     }
 }
-#[doc(inline)]
-pub use self::__buffa::view::EventsView;
 #[doc(inline)]
 pub use self::__buffa::view::EventView;
 #[doc(inline)]
@@ -64,6 +66,8 @@ pub use self::__buffa::view::SpinReqView;
 pub use self::__buffa::view::SpinRespView;
 #[doc(inline)]
 pub use self::__buffa::view::FrozenQueenView;
+#[doc(inline)]
+pub use self::__buffa::view::FrozenQueenOmenView;
 #[doc(inline)]
 pub use self::__buffa::view::PosValView;
 #[doc(inline)]
@@ -90,5 +94,13 @@ pub use self::__buffa::view::ElementalMaskView;
 pub use self::__buffa::view::ElementalMaskMoveView;
 #[doc(inline)]
 pub use self::__buffa::view::ElementalMaskMergeView;
+#[doc(inline)]
+pub use self::__buffa::view::UfoView;
+#[doc(inline)]
+pub use self::__buffa::view::UfoOmenView;
+#[doc(inline)]
+pub use self::__buffa::view::MammothOmenView;
+#[doc(inline)]
+pub use self::__buffa::view::JaguarTempleView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

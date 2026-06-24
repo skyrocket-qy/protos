@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/slot_extra_data.proto.
  */
 export const file_slotpb_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAVCigEKCmNvbS5zbG90cGJCElNsb3RFeHRyYURhdGFQcm90b1ABWjBnaXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL3Nsb3RwYjtzbG90cGKiAgNTWFiqAgZTbG90cGLKAgZTbG90cGLiAhJTbG90cGJcR1BCTWV0YWRhdGHqAgZTbG90cGJiBnByb3RvMw", [file_slotpb_slot]);
+  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iKAoPRnJvemVuUXVlZW5PbWVuEhUKDXNjYXR0ZXJfY291bnQYASABKAMiMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAUirAEKA1VmbxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEhYKCWViMV9zY29yZRgDIAEoA0gAiAEBEhYKCWViMl9zY29yZRgEIAEoA0gBiAEBEhYKCWViM19zY29yZRgFIAEoA0gCiAEBQgwKCl9lYjFfc2NvcmVCDAoKX2ViMl9zY29yZUIMCgpfZWIzX3Njb3JlIgkKB1Vmb09tZW4iPAoLTWFtbW90aE9tZW4SFQoNbGVmdF9lbGVwaGFudBgBIAEoBRIWCg5yaWdodF9lbGVwaGFudBgCIAEoBSJXCgxKYWd1YXJUZW1wbGUSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRISCgpjb2xsZWN0b3JzGAMgAygJQooBCgpjb20uc2xvdHBiQhJTbG90RXh0cmFEYXRhUHJvdG9QAVowZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGI7c2xvdHBiogIDU1hYqgIGU2xvdHBiygIGU2xvdHBi4gISU2xvdHBiXEdQQk1ldGFkYXRh6gIGU2xvdHBiYgZwcm90bzM", [file_slotpb_slot]);
 
 /**
  * @generated from message slotpb.FrozenQueen
@@ -69,6 +69,23 @@ export const FrozenQueen_EventEaSchema: GenMessage<FrozenQueen_EventEa> = /*@__P
   messageDesc(file_slotpb_slot_extra_data, 0, 0);
 
 /**
+ * @generated from message slotpb.FrozenQueenOmen
+ */
+export type FrozenQueenOmen = Message<"slotpb.FrozenQueenOmen"> & {
+  /**
+   * @generated from field: int64 scatter_count = 1;
+   */
+  scatterCount: bigint;
+};
+
+/**
+ * Describes the message slotpb.FrozenQueenOmen.
+ * Use `create(FrozenQueenOmenSchema)` to create a new message.
+ */
+export const FrozenQueenOmenSchema: GenMessage<FrozenQueenOmen> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 1);
+
+/**
  * @generated from message slotpb.PosVal
  */
 export type PosVal = Message<"slotpb.PosVal"> & {
@@ -88,7 +105,7 @@ export type PosVal = Message<"slotpb.PosVal"> & {
  * Use `create(PosValSchema)` to create a new message.
  */
 export const PosValSchema: GenMessage<PosVal> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 1);
+  messageDesc(file_slotpb_slot_extra_data, 2);
 
 /**
  * @generated from message slotpb.Mammoth
@@ -145,7 +162,7 @@ export type Mammoth = Message<"slotpb.Mammoth"> & {
  * Use `create(MammothSchema)` to create a new message.
  */
 export const MammothSchema: GenMessage<Mammoth> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 2);
+  messageDesc(file_slotpb_slot_extra_data, 3);
 
 /**
  * @generated from message slotpb.RollBonus
@@ -169,7 +186,7 @@ export type RollBonus = Message<"slotpb.RollBonus"> & {
  * Use `create(RollBonusSchema)` to create a new message.
  */
 export const RollBonusSchema: GenMessage<RollBonus> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 3);
+  messageDesc(file_slotpb_slot_extra_data, 4);
 
 /**
  * @generated from message slotpb.BonusEntry
@@ -191,7 +208,7 @@ export type BonusEntry = Message<"slotpb.BonusEntry"> & {
  * Use `create(BonusEntrySchema)` to create a new message.
  */
 export const BonusEntrySchema: GenMessage<BonusEntry> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 4);
+  messageDesc(file_slotpb_slot_extra_data, 5);
 
 /**
  * @generated from message slotpb.MammonEvent2
@@ -215,7 +232,7 @@ export type MammonEvent2 = Message<"slotpb.MammonEvent2"> & {
  * Use `create(MammonEvent2Schema)` to create a new message.
  */
 export const MammonEvent2Schema: GenMessage<MammonEvent2> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 5);
+  messageDesc(file_slotpb_slot_extra_data, 6);
 
 /**
  * for x_action, if elephant stage is 3(cannot upgrade), do nothing
@@ -253,7 +270,7 @@ export type MammoEmitFIreball = Message<"slotpb.MammoEmitFIreball"> & {
  * Use `create(MammoEmitFIreballSchema)` to create a new message.
  */
 export const MammoEmitFIreballSchema: GenMessage<MammoEmitFIreball> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 6);
+  messageDesc(file_slotpb_slot_extra_data, 7);
 
 /**
  * @generated from message slotpb.PrincessSun
@@ -280,7 +297,7 @@ export type PrincessSun = Message<"slotpb.PrincessSun"> & {
  * Use `create(PrincessSunSchema)` to create a new message.
  */
 export const PrincessSunSchema: GenMessage<PrincessSun> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 7);
+  messageDesc(file_slotpb_slot_extra_data, 8);
 
 /**
  * @generated from message slotpb.PrincessSunLight
@@ -319,7 +336,7 @@ export type PrincessSunLight = Message<"slotpb.PrincessSunLight"> & {
  * Use `create(PrincessSunLightSchema)` to create a new message.
  */
 export const PrincessSunLightSchema: GenMessage<PrincessSunLight> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 8);
+  messageDesc(file_slotpb_slot_extra_data, 9);
 
 /**
  * @generated from message slotpb.WestChili
@@ -368,7 +385,7 @@ export type WestChili = Message<"slotpb.WestChili"> & {
  * Use `create(WestChiliSchema)` to create a new message.
  */
 export const WestChiliSchema: GenMessage<WestChili> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 9);
+  messageDesc(file_slotpb_slot_extra_data, 10);
 
 /**
  * @generated from message slotpb.WestChiliCum
@@ -400,7 +417,7 @@ export type WestChiliCum = Message<"slotpb.WestChiliCum"> & {
  * Use `create(WestChiliCumSchema)` to create a new message.
  */
 export const WestChiliCumSchema: GenMessage<WestChiliCum> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 10);
+  messageDesc(file_slotpb_slot_extra_data, 11);
 
 /**
  * @generated from message slotpb.ElementalMask
@@ -432,7 +449,7 @@ export type ElementalMask = Message<"slotpb.ElementalMask"> & {
  * Use `create(ElementalMaskSchema)` to create a new message.
  */
 export const ElementalMaskSchema: GenMessage<ElementalMask> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 11);
+  messageDesc(file_slotpb_slot_extra_data, 12);
 
 /**
  * @generated from message slotpb.ElementalMaskMove
@@ -464,7 +481,7 @@ export type ElementalMaskMove = Message<"slotpb.ElementalMaskMove"> & {
  * Use `create(ElementalMaskMoveSchema)` to create a new message.
  */
 export const ElementalMaskMoveSchema: GenMessage<ElementalMaskMove> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 12);
+  messageDesc(file_slotpb_slot_extra_data, 13);
 
 /**
  * @generated from message slotpb.ElementalMaskMerge
@@ -491,5 +508,104 @@ export type ElementalMaskMerge = Message<"slotpb.ElementalMaskMerge"> & {
  * Use `create(ElementalMaskMergeSchema)` to create a new message.
  */
 export const ElementalMaskMergeSchema: GenMessage<ElementalMaskMerge> = /*@__PURE__*/
-  messageDesc(file_slotpb_slot_extra_data, 13);
+  messageDesc(file_slotpb_slot_extra_data, 14);
+
+/**
+ * @generated from message slotpb.Ufo
+ */
+export type Ufo = Message<"slotpb.Ufo"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: optional int64 eb1_score = 3;
+   */
+  eb1Score?: bigint;
+
+  /**
+   * @generated from field: optional int64 eb2_score = 4;
+   */
+  eb2Score?: bigint;
+
+  /**
+   * @generated from field: optional int64 eb3_score = 5;
+   */
+  eb3Score?: bigint;
+};
+
+/**
+ * Describes the message slotpb.Ufo.
+ * Use `create(UfoSchema)` to create a new message.
+ */
+export const UfoSchema: GenMessage<Ufo> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 15);
+
+/**
+ * @generated from message slotpb.UfoOmen
+ */
+export type UfoOmen = Message<"slotpb.UfoOmen"> & {
+};
+
+/**
+ * Describes the message slotpb.UfoOmen.
+ * Use `create(UfoOmenSchema)` to create a new message.
+ */
+export const UfoOmenSchema: GenMessage<UfoOmen> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 16);
+
+/**
+ * @generated from message slotpb.MammothOmen
+ */
+export type MammothOmen = Message<"slotpb.MammothOmen"> & {
+  /**
+   * @generated from field: int32 left_elephant = 1;
+   */
+  leftElephant: number;
+
+  /**
+   * @generated from field: int32 right_elephant = 2;
+   */
+  rightElephant: number;
+};
+
+/**
+ * Describes the message slotpb.MammothOmen.
+ * Use `create(MammothOmenSchema)` to create a new message.
+ */
+export const MammothOmenSchema: GenMessage<MammothOmen> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 17);
+
+/**
+ * @generated from message slotpb.JaguarTemple
+ */
+export type JaguarTemple = Message<"slotpb.JaguarTemple"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.Table table = 2;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: repeated string collectors = 3;
+   */
+  collectors: string[];
+};
+
+/**
+ * Describes the message slotpb.JaguarTemple.
+ * Use `create(JaguarTempleSchema)` to create a new message.
+ */
+export const JaguarTempleSchema: GenMessage<JaguarTemple> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 18);
 

@@ -2,202 +2,6 @@
 // source: slotpb/slot.proto
 
 #[derive(Clone, Debug, Default)]
-pub struct EventsView<'a> {
-    /// Field 1: `events`
-    pub events: ::buffa::RepeatedView<'a, super::super::__buffa::view::EventView<'a>>,
-    pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
-}
-impl<'a> EventsView<'a> {
-    /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
-    ///
-    /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
-    /// and by generated sub-message decode arms with `depth - 1`.
-    ///
-    /// **Not part of the public API.** Named with a leading underscore to
-    /// signal that it is for generated-code use only.
-    #[doc(hidden)]
-    pub fn _decode_depth(
-        buf: &'a [u8],
-        depth: u32,
-    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
-        let mut view = Self::default();
-        view._merge_into_view(buf, depth)?;
-        ::core::result::Result::Ok(view)
-    }
-    /// Merge fields from `buf` into this view (proto merge semantics).
-    ///
-    /// Repeated fields append; singular fields last-wins; singular
-    /// MESSAGE fields merge recursively. Used by sub-message decode
-    /// arms when the same field appears multiple times on the wire.
-    ///
-    /// **Not part of the public API.**
-    #[doc(hidden)]
-    pub fn _merge_into_view(
-        &mut self,
-        buf: &'a [u8],
-        depth: u32,
-    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
-        let _ = depth;
-        #[allow(unused_variables)]
-        let view = self;
-        let mut cur: &'a [u8] = buf;
-        while !cur.is_empty() {
-            let before_tag = cur;
-            let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
-            match tag.field_number() {
-                1u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
-                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                            field_number: 1u32,
-                            expected: 2u8,
-                            actual: tag.wire_type() as u8,
-                        });
-                    }
-                    if depth == 0 {
-                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
-                    }
-                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
-                    view.events
-                        .push(
-                            super::super::__buffa::view::EventView::_decode_depth(
-                                sub,
-                                depth - 1,
-                            )?,
-                        );
-                }
-                _ => {
-                    ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
-                    let span_len = before_tag.len() - cur.len();
-                    view.__buffa_unknown_fields.push_raw(&before_tag[..span_len]);
-                }
-            }
-        }
-        ::core::result::Result::Ok(())
-    }
-}
-impl<'a> ::buffa::MessageView<'a> for EventsView<'a> {
-    type Owned = super::super::Events;
-    fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
-        Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
-    }
-    fn decode_view_with_limit(
-        buf: &'a [u8],
-        depth: u32,
-    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
-        Self::_decode_depth(buf, depth)
-    }
-    fn to_owned_message(&self) -> super::super::Events {
-        self.to_owned_from_source(None)
-    }
-    #[allow(clippy::useless_conversion, clippy::needless_update)]
-    fn to_owned_from_source(
-        &self,
-        __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
-    ) -> super::super::Events {
-        #[allow(unused_imports)]
-        use ::buffa::alloc::string::ToString as _;
-        let _ = __buffa_src;
-        super::super::Events {
-            events: self
-                .events
-                .iter()
-                .map(|v| v.to_owned_from_source(__buffa_src))
-                .collect(),
-            __buffa_unknown_fields: self
-                .__buffa_unknown_fields
-                .to_owned()
-                .unwrap_or_default()
-                .into(),
-            ..::core::default::Default::default()
-        }
-    }
-}
-impl<'a> ::buffa::ViewEncode<'a> for EventsView<'a> {
-    #[allow(clippy::needless_borrow, clippy::let_and_return)]
-    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
-        #[allow(unused_imports)]
-        use ::buffa::Enumeration as _;
-        let mut size = 0u32;
-        for v in &self.events {
-            let __slot = __cache.reserve();
-            let inner_size = v.compute_size(__cache);
-            __cache.set(__slot, inner_size);
-            size
-                += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
-                    + inner_size;
-        }
-        size += self.__buffa_unknown_fields.encoded_len() as u32;
-        size
-    }
-    #[allow(clippy::needless_borrow)]
-    fn write_to(
-        &self,
-        __cache: &mut ::buffa::SizeCache,
-        buf: &mut impl ::buffa::bytes::BufMut,
-    ) {
-        #[allow(unused_imports)]
-        use ::buffa::Enumeration as _;
-        for v in &self.events {
-            ::buffa::encoding::Tag::new(
-                    1u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
-            v.write_to(__cache, buf);
-        }
-        self.__buffa_unknown_fields.write_to(buf);
-    }
-}
-/// Serializes this view as protobuf JSON.
-///
-/// Implicit-presence fields with default values are omitted, `required`
-/// fields are always emitted, explicit-presence (`optional`) fields are
-/// emitted only when set, bytes fields are base64-encoded, and enum
-/// values are their proto name strings.
-///
-/// This impl uses `serialize_map(None)` because the number of emitted
-/// fields depends on default-omission rules; serializers that require
-/// known map lengths (e.g. `bincode`) will return a runtime error.
-/// Use the owned message type for those formats.
-impl<'__a> ::serde::Serialize for EventsView<'__a> {
-    fn serialize<__S: ::serde::Serializer>(
-        &self,
-        __s: __S,
-    ) -> ::core::result::Result<__S::Ok, __S::Error> {
-        use ::serde::ser::SerializeMap as _;
-        let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !self.events.is_empty() {
-            __map.serialize_entry("events", &*self.events)?;
-        }
-        __map.end()
-    }
-}
-impl<'a> ::buffa::MessageName for EventsView<'a> {
-    const PACKAGE: &'static str = "slotpb";
-    const NAME: &'static str = "Events";
-    const FULL_NAME: &'static str = "slotpb.Events";
-    const TYPE_URL: &'static str = "type.googleapis.com/slotpb.Events";
-}
-impl<'v> ::buffa::DefaultViewInstance for EventsView<'v> {
-    fn default_view_instance<'a>() -> &'a Self
-    where
-        Self: 'a,
-    {
-        static VALUE: ::buffa::__private::OnceBox<EventsView<'static>> = ::buffa::__private::OnceBox::new();
-        VALUE
-            .get_or_init(|| ::buffa::alloc::boxed::Box::new(
-                <EventsView<'static>>::default(),
-            ))
-    }
-}
-impl ::buffa::ViewReborrow for EventsView<'static> {
-    type Reborrowed<'b> = EventsView<'b>;
-    fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
-        this
-    }
-}
-#[derive(Clone, Debug, Default)]
 pub struct EventView<'a> {
     /// Field 1: `code`
     pub code: u32,
@@ -1041,6 +845,8 @@ pub struct SpinReqView<'a> {
     pub game_id: u32,
     /// Field 2: `omen`
     pub omen: ::core::option::Option<&'a [u8]>,
+    /// Field 3: `strategy`
+    pub strategy: &'a str,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
 impl<'a> SpinReqView<'a> {
@@ -1101,6 +907,16 @@ impl<'a> SpinReqView<'a> {
                     }
                     view.omen = Some(::buffa::types::borrow_bytes(&mut cur)?);
                 }
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.strategy = ::buffa::types::borrow_str(&mut cur)?;
+                }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
                     let span_len = before_tag.len() - cur.len();
@@ -1136,6 +952,7 @@ impl<'a> ::buffa::MessageView<'a> for SpinReqView<'a> {
         super::super::SpinReq {
             game_id: self.game_id,
             omen: self.omen.map(|b| (b).to_vec()),
+            strategy: self.strategy.to_string(),
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -1156,6 +973,9 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinReqView<'a> {
         }
         if let Some(ref v) = self.omen {
             size += 1u32 + ::buffa::types::bytes_encoded_len(v) as u32;
+        }
+        if !self.strategy.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.strategy) as u32;
         }
         size += self.__buffa_unknown_fields.encoded_len() as u32;
         size
@@ -1180,6 +1000,14 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinReqView<'a> {
                 )
                 .encode(buf);
             ::buffa::types::encode_bytes(v, buf);
+        }
+        if !self.strategy.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.strategy, buf);
         }
         self.__buffa_unknown_fields.write_to(buf);
     }
@@ -1226,6 +1054,9 @@ impl<'__a> ::serde::Serialize for SpinReqView<'__a> {
             }
             __map.serialize_entry("omen", &_W(__v))?;
         }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.strategy) {
+            __map.serialize_entry("strategy", self.strategy)?;
+        }
         __map.end()
     }
 }
@@ -1256,7 +1087,7 @@ impl ::buffa::ViewReborrow for SpinReqView<'static> {
 #[derive(Clone, Debug, Default)]
 pub struct SpinRespView<'a> {
     /// Field 1: `events`
-    pub events: ::buffa::MessageFieldView<super::super::__buffa::view::EventsView<'a>>,
+    pub events: ::buffa::RepeatedView<'a, super::super::__buffa::view::EventView<'a>>,
     /// Field 2: `win`
     pub win: u32,
     /// Field 3: `omen`
@@ -1301,30 +1132,6 @@ impl<'a> SpinRespView<'a> {
             let before_tag = cur;
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
-                1u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
-                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
-                            field_number: 1u32,
-                            expected: 2u8,
-                            actual: tag.wire_type() as u8,
-                        });
-                    }
-                    if depth == 0 {
-                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
-                    }
-                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
-                    match view.events.as_mut() {
-                        Some(existing) => existing._merge_into_view(sub, depth - 1)?,
-                        None => {
-                            view.events = ::buffa::MessageFieldView::set(
-                                super::super::__buffa::view::EventsView::_decode_depth(
-                                    sub,
-                                    depth - 1,
-                                )?,
-                            );
-                        }
-                    }
-                }
                 2u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::Varint {
                         return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
@@ -1344,6 +1151,26 @@ impl<'a> SpinRespView<'a> {
                         });
                     }
                     view.omen = Some(::buffa::types::borrow_bytes(&mut cur)?);
+                }
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    if depth == 0 {
+                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
+                    }
+                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
+                    view.events
+                        .push(
+                            super::super::__buffa::view::EventView::_decode_depth(
+                                sub,
+                                depth - 1,
+                            )?,
+                        );
                 }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
@@ -1378,14 +1205,11 @@ impl<'a> ::buffa::MessageView<'a> for SpinRespView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::SpinResp {
-            events: match self.events.as_option() {
-                Some(v) => {
-                    ::buffa::MessageField::<
-                        super::super::Events,
-                    >::some(v.to_owned_from_source(__buffa_src))
-                }
-                None => ::buffa::MessageField::none(),
-            },
+            events: self
+                .events
+                .iter()
+                .map(|v| v.to_owned_from_source(__buffa_src))
+                .collect(),
             win: self.win,
             omen: self.omen.map(|b| (b).to_vec()),
             __buffa_unknown_fields: self
@@ -1403,9 +1227,9 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinRespView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        if self.events.is_set() {
+        for v in &self.events {
             let __slot = __cache.reserve();
-            let inner_size = self.events.compute_size(__cache);
+            let inner_size = v.compute_size(__cache);
             __cache.set(__slot, inner_size);
             size
                 += 1u32 + ::buffa::encoding::varint_len(inner_size as u64) as u32
@@ -1428,14 +1252,14 @@ impl<'a> ::buffa::ViewEncode<'a> for SpinRespView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if self.events.is_set() {
+        for v in &self.events {
             ::buffa::encoding::Tag::new(
                     1u32,
                     ::buffa::encoding::WireType::LengthDelimited,
                 )
                 .encode(buf);
             ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
-            self.events.write_to(__cache, buf);
+            v.write_to(__cache, buf);
         }
         if self.win != 0u32 {
             ::buffa::encoding::Tag::new(2u32, ::buffa::encoding::WireType::Varint)
@@ -1471,10 +1295,8 @@ impl<'__a> ::serde::Serialize for SpinRespView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        {
-            if let ::core::option::Option::Some(__v) = self.events.as_option() {
-                __map.serialize_entry("events", __v)?;
-            }
+        if !self.events.is_empty() {
+            __map.serialize_entry("events", &*self.events)?;
         }
         if !::buffa::json_helpers::skip_if::is_zero_u32(&self.win) {
             struct _W(u32);
