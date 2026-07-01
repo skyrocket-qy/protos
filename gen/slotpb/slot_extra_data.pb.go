@@ -1626,6 +1626,724 @@ func (x *PowerWealthGod) GetIsDrop() bool {
 	return false
 }
 
+type Athena struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt   int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Table         *Table                 `protobuf:"bytes,2,opt,name=table,proto3" json:"table,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Athena) Reset() {
+	*x = Athena{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Athena) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Athena) ProtoMessage() {}
+
+func (x *Athena) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Athena.ProtoReflect.Descriptor instead.
+func (*Athena) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{25}
+}
+
+func (x *Athena) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *Athena) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+type PharaohTreasure struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Table         *Table                 `protobuf:"bytes,1,opt,name=table,proto3" json:"table,omitempty"`
+	LeftGameCnt   int32                  `protobuf:"varint,2,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Muls          []string               `protobuf:"bytes,3,rep,name=muls,proto3" json:"muls,omitempty"`
+	MulSum        int32                  `protobuf:"varint,4,opt,name=mul_sum,json=mulSum,proto3" json:"mul_sum,omitempty"`
+	IsDrop        bool                   `protobuf:"varint,5,opt,name=is_drop,json=isDrop,proto3" json:"is_drop,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *PharaohTreasure) Reset() {
+	*x = PharaohTreasure{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[26]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *PharaohTreasure) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*PharaohTreasure) ProtoMessage() {}
+
+func (x *PharaohTreasure) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[26]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use PharaohTreasure.ProtoReflect.Descriptor instead.
+func (*PharaohTreasure) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *PharaohTreasure) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *PharaohTreasure) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *PharaohTreasure) GetMuls() []string {
+	if x != nil {
+		return x.Muls
+	}
+	return nil
+}
+
+func (x *PharaohTreasure) GetMulSum() int32 {
+	if x != nil {
+		return x.MulSum
+	}
+	return 0
+}
+
+func (x *PharaohTreasure) GetIsDrop() bool {
+	if x != nil {
+		return x.IsDrop
+	}
+	return false
+}
+
+type Lucifer struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Table         *Table                 `protobuf:"bytes,1,opt,name=table,proto3" json:"table,omitempty"`
+	LeftGameCnt   int32                  `protobuf:"varint,2,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Lucifer) Reset() {
+	*x = Lucifer{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[27]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Lucifer) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Lucifer) ProtoMessage() {}
+
+func (x *Lucifer) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[27]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Lucifer.ProtoReflect.Descriptor instead.
+func (*Lucifer) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *Lucifer) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *Lucifer) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+type Halloween struct {
+	state             protoimpl.MessageState `protogen:"open.v1"`
+	Table             *Table                 `protobuf:"bytes,1,opt,name=table,proto3" json:"table,omitempty"`
+	SecondTable       *Table                 `protobuf:"bytes,2,opt,name=second_table,json=secondTable,proto3,oneof" json:"second_table,omitempty"`
+	Mini              int32                  `protobuf:"varint,3,opt,name=mini,proto3" json:"mini,omitempty"`
+	Minor             int32                  `protobuf:"varint,4,opt,name=minor,proto3" json:"minor,omitempty"`
+	Major             int32                  `protobuf:"varint,5,opt,name=major,proto3" json:"major,omitempty"`
+	Grand             int32                  `protobuf:"varint,6,opt,name=grand,proto3" json:"grand,omitempty"`
+	LeftSpinCnt       int32                  `protobuf:"varint,7,opt,name=left_spin_cnt,json=leftSpinCnt,proto3" json:"left_spin_cnt,omitempty"`
+	SecondLeftSpinCnt *int32                 `protobuf:"varint,8,opt,name=second_left_spin_cnt,json=secondLeftSpinCnt,proto3,oneof" json:"second_left_spin_cnt,omitempty"`
+	IsExtra           bool                   `protobuf:"varint,9,opt,name=is_extra,json=isExtra,proto3" json:"is_extra,omitempty"`
+	IsDouble          bool                   `protobuf:"varint,10,opt,name=is_double,json=isDouble,proto3" json:"is_double,omitempty"`
+	IsMulti           bool                   `protobuf:"varint,11,opt,name=is_multi,json=isMulti,proto3" json:"is_multi,omitempty"`
+	unknownFields     protoimpl.UnknownFields
+	sizeCache         protoimpl.SizeCache
+}
+
+func (x *Halloween) Reset() {
+	*x = Halloween{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[28]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Halloween) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Halloween) ProtoMessage() {}
+
+func (x *Halloween) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[28]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Halloween.ProtoReflect.Descriptor instead.
+func (*Halloween) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *Halloween) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *Halloween) GetSecondTable() *Table {
+	if x != nil {
+		return x.SecondTable
+	}
+	return nil
+}
+
+func (x *Halloween) GetMini() int32 {
+	if x != nil {
+		return x.Mini
+	}
+	return 0
+}
+
+func (x *Halloween) GetMinor() int32 {
+	if x != nil {
+		return x.Minor
+	}
+	return 0
+}
+
+func (x *Halloween) GetMajor() int32 {
+	if x != nil {
+		return x.Major
+	}
+	return 0
+}
+
+func (x *Halloween) GetGrand() int32 {
+	if x != nil {
+		return x.Grand
+	}
+	return 0
+}
+
+func (x *Halloween) GetLeftSpinCnt() int32 {
+	if x != nil {
+		return x.LeftSpinCnt
+	}
+	return 0
+}
+
+func (x *Halloween) GetSecondLeftSpinCnt() int32 {
+	if x != nil && x.SecondLeftSpinCnt != nil {
+		return *x.SecondLeftSpinCnt
+	}
+	return 0
+}
+
+func (x *Halloween) GetIsExtra() bool {
+	if x != nil {
+		return x.IsExtra
+	}
+	return false
+}
+
+func (x *Halloween) GetIsDouble() bool {
+	if x != nil {
+		return x.IsDouble
+	}
+	return false
+}
+
+func (x *Halloween) GetIsMulti() bool {
+	if x != nil {
+		return x.IsMulti
+	}
+	return false
+}
+
+type Arthur struct {
+	state       protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	// Types that are valid to be assigned to Data:
+	//
+	//	*Arthur_Fg
+	//	*Arthur_Bg
+	//	*Arthur_Sbg
+	Data          isArthur_Data `protobuf_oneof:"data"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Arthur) Reset() {
+	*x = Arthur{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[29]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Arthur) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Arthur) ProtoMessage() {}
+
+func (x *Arthur) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[29]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Arthur.ProtoReflect.Descriptor instead.
+func (*Arthur) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{29}
+}
+
+func (x *Arthur) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *Arthur) GetData() isArthur_Data {
+	if x != nil {
+		return x.Data
+	}
+	return nil
+}
+
+func (x *Arthur) GetFg() *ArthurFg {
+	if x != nil {
+		if x, ok := x.Data.(*Arthur_Fg); ok {
+			return x.Fg
+		}
+	}
+	return nil
+}
+
+func (x *Arthur) GetBg() *ArthurBg {
+	if x != nil {
+		if x, ok := x.Data.(*Arthur_Bg); ok {
+			return x.Bg
+		}
+	}
+	return nil
+}
+
+func (x *Arthur) GetSbg() *ArthurBg {
+	if x != nil {
+		if x, ok := x.Data.(*Arthur_Sbg); ok {
+			return x.Sbg
+		}
+	}
+	return nil
+}
+
+type isArthur_Data interface {
+	isArthur_Data()
+}
+
+type Arthur_Fg struct {
+	Fg *ArthurFg `protobuf:"bytes,2,opt,name=fg,proto3,oneof"`
+}
+
+type Arthur_Bg struct {
+	Bg *ArthurBg `protobuf:"bytes,3,opt,name=bg,proto3,oneof"`
+}
+
+type Arthur_Sbg struct {
+	Sbg *ArthurBg `protobuf:"bytes,4,opt,name=sbg,proto3,oneof"`
+}
+
+func (*Arthur_Fg) isArthur_Data() {}
+
+func (*Arthur_Bg) isArthur_Data() {}
+
+func (*Arthur_Sbg) isArthur_Data() {}
+
+type ArthurFg struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Table1        *Table                 `protobuf:"bytes,1,opt,name=table1,proto3" json:"table1,omitempty"`
+	Table2        *Table                 `protobuf:"bytes,2,opt,name=table2,proto3" json:"table2,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArthurFg) Reset() {
+	*x = ArthurFg{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[30]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArthurFg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArthurFg) ProtoMessage() {}
+
+func (x *ArthurFg) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[30]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArthurFg.ProtoReflect.Descriptor instead.
+func (*ArthurFg) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *ArthurFg) GetTable1() *Table {
+	if x != nil {
+		return x.Table1
+	}
+	return nil
+}
+
+func (x *ArthurFg) GetTable2() *Table {
+	if x != nil {
+		return x.Table2
+	}
+	return nil
+}
+
+type ArthurBg struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Table         *Table                 `protobuf:"bytes,1,opt,name=table,proto3" json:"table,omitempty"`
+	LeftSpinCnt   int32                  `protobuf:"varint,2,opt,name=left_spin_cnt,json=leftSpinCnt,proto3" json:"left_spin_cnt,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *ArthurBg) Reset() {
+	*x = ArthurBg{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[31]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *ArthurBg) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ArthurBg) ProtoMessage() {}
+
+func (x *ArthurBg) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[31]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ArthurBg.ProtoReflect.Descriptor instead.
+func (*ArthurBg) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{31}
+}
+
+func (x *ArthurBg) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+func (x *ArthurBg) GetLeftSpinCnt() int32 {
+	if x != nil {
+		return x.LeftSpinCnt
+	}
+	return 0
+}
+
+type FishDragon struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	LeftGameCnt   int32                  `protobuf:"varint,1,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	Rolls         []string               `protobuf:"bytes,2,rep,name=rolls,proto3" json:"rolls,omitempty"`
+	Table         *Table                 `protobuf:"bytes,3,opt,name=table,proto3" json:"table,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *FishDragon) Reset() {
+	*x = FishDragon{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[32]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *FishDragon) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*FishDragon) ProtoMessage() {}
+
+func (x *FishDragon) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[32]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use FishDragon.ProtoReflect.Descriptor instead.
+func (*FishDragon) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *FishDragon) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *FishDragon) GetRolls() []string {
+	if x != nil {
+		return x.Rolls
+	}
+	return nil
+}
+
+func (x *FishDragon) GetTable() *Table {
+	if x != nil {
+		return x.Table
+	}
+	return nil
+}
+
+type Desperateraid struct {
+	state          protoimpl.MessageState `protogen:"open.v1"`
+	OriginalResult *Table                 `protobuf:"bytes,1,opt,name=original_result,json=originalResult,proto3" json:"original_result,omitempty"`
+	EventResult    *Table                 `protobuf:"bytes,2,opt,name=event_result,json=eventResult,proto3" json:"event_result,omitempty"`
+	LeftGameCnt    int32                  `protobuf:"varint,3,opt,name=left_game_cnt,json=leftGameCnt,proto3" json:"left_game_cnt,omitempty"`
+	MulInfos       []*DesperateaidMulInfo `protobuf:"bytes,4,rep,name=mul_infos,json=mulInfos,proto3" json:"mul_infos,omitempty"`
+	unknownFields  protoimpl.UnknownFields
+	sizeCache      protoimpl.SizeCache
+}
+
+func (x *Desperateraid) Reset() {
+	*x = Desperateraid{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[33]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Desperateraid) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Desperateraid) ProtoMessage() {}
+
+func (x *Desperateraid) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[33]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Desperateraid.ProtoReflect.Descriptor instead.
+func (*Desperateraid) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *Desperateraid) GetOriginalResult() *Table {
+	if x != nil {
+		return x.OriginalResult
+	}
+	return nil
+}
+
+func (x *Desperateraid) GetEventResult() *Table {
+	if x != nil {
+		return x.EventResult
+	}
+	return nil
+}
+
+func (x *Desperateraid) GetLeftGameCnt() int32 {
+	if x != nil {
+		return x.LeftGameCnt
+	}
+	return 0
+}
+
+func (x *Desperateraid) GetMulInfos() []*DesperateaidMulInfo {
+	if x != nil {
+		return x.MulInfos
+	}
+	return nil
+}
+
+type DesperateaidMulInfo struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Win           int32                  `protobuf:"varint,1,opt,name=win,proto3" json:"win,omitempty"`
+	UpMul         int32                  `protobuf:"varint,2,opt,name=up_mul,json=upMul,proto3" json:"up_mul,omitempty"`
+	MidMul        int32                  `protobuf:"varint,3,opt,name=mid_mul,json=midMul,proto3" json:"mid_mul,omitempty"`
+	DowMul        int32                  `protobuf:"varint,4,opt,name=dow_mul,json=dowMul,proto3" json:"dow_mul,omitempty"`
+	X             int32                  `protobuf:"varint,5,opt,name=x,proto3" json:"x,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *DesperateaidMulInfo) Reset() {
+	*x = DesperateaidMulInfo{}
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[34]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *DesperateaidMulInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DesperateaidMulInfo) ProtoMessage() {}
+
+func (x *DesperateaidMulInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[34]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DesperateaidMulInfo.ProtoReflect.Descriptor instead.
+func (*DesperateaidMulInfo) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_extra_data_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *DesperateaidMulInfo) GetWin() int32 {
+	if x != nil {
+		return x.Win
+	}
+	return 0
+}
+
+func (x *DesperateaidMulInfo) GetUpMul() int32 {
+	if x != nil {
+		return x.UpMul
+	}
+	return 0
+}
+
+func (x *DesperateaidMulInfo) GetMidMul() int32 {
+	if x != nil {
+		return x.MidMul
+	}
+	return 0
+}
+
+func (x *DesperateaidMulInfo) GetDowMul() int32 {
+	if x != nil {
+		return x.DowMul
+	}
+	return 0
+}
+
+func (x *DesperateaidMulInfo) GetX() int32 {
+	if x != nil {
+		return x.X
+	}
+	return 0
+}
+
 type FrozenQueen_EventEa struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	PosVal        []*PosVal              `protobuf:"bytes,1,rep,name=pos_val,json=posVal,proto3" json:"pos_val,omitempty"`
@@ -1635,7 +2353,7 @@ type FrozenQueen_EventEa struct {
 
 func (x *FrozenQueen_EventEa) Reset() {
 	*x = FrozenQueen_EventEa{}
-	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1647,7 +2365,7 @@ func (x *FrozenQueen_EventEa) String() string {
 func (*FrozenQueen_EventEa) ProtoMessage() {}
 
 func (x *FrozenQueen_EventEa) ProtoReflect() protoreflect.Message {
-	mi := &file_slotpb_slot_extra_data_proto_msgTypes[25]
+	mi := &file_slotpb_slot_extra_data_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1822,7 +2540,62 @@ const file_slotpb_slot_extra_data_proto_rawDesc = "" +
 	"\x06cum_ss\x18\x05 \x01(\x05H\x01R\x05cumSs\x88\x01\x01\x12\x17\n" +
 	"\ais_drop\x18\x06 \x01(\bR\x06isDropB\t\n" +
 	"\a_table2B\t\n" +
-	"\a_cum_ssB\x8a\x01\n" +
+	"\a_cum_ss\"Q\n" +
+	"\x06Athena\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12#\n" +
+	"\x05table\x18\x02 \x01(\v2\r.slotpb.TableR\x05table\"\xa0\x01\n" +
+	"\x0fPharaohTreasure\x12#\n" +
+	"\x05table\x18\x01 \x01(\v2\r.slotpb.TableR\x05table\x12\"\n" +
+	"\rleft_game_cnt\x18\x02 \x01(\x05R\vleftGameCnt\x12\x12\n" +
+	"\x04muls\x18\x03 \x03(\tR\x04muls\x12\x17\n" +
+	"\amul_sum\x18\x04 \x01(\x05R\x06mulSum\x12\x17\n" +
+	"\ais_drop\x18\x05 \x01(\bR\x06isDrop\"R\n" +
+	"\aLucifer\x12#\n" +
+	"\x05table\x18\x01 \x01(\v2\r.slotpb.TableR\x05table\x12\"\n" +
+	"\rleft_game_cnt\x18\x02 \x01(\x05R\vleftGameCnt\"\x94\x03\n" +
+	"\tHalloween\x12#\n" +
+	"\x05table\x18\x01 \x01(\v2\r.slotpb.TableR\x05table\x125\n" +
+	"\fsecond_table\x18\x02 \x01(\v2\r.slotpb.TableH\x00R\vsecondTable\x88\x01\x01\x12\x12\n" +
+	"\x04mini\x18\x03 \x01(\x05R\x04mini\x12\x14\n" +
+	"\x05minor\x18\x04 \x01(\x05R\x05minor\x12\x14\n" +
+	"\x05major\x18\x05 \x01(\x05R\x05major\x12\x14\n" +
+	"\x05grand\x18\x06 \x01(\x05R\x05grand\x12\"\n" +
+	"\rleft_spin_cnt\x18\a \x01(\x05R\vleftSpinCnt\x124\n" +
+	"\x14second_left_spin_cnt\x18\b \x01(\x05H\x01R\x11secondLeftSpinCnt\x88\x01\x01\x12\x19\n" +
+	"\bis_extra\x18\t \x01(\bR\aisExtra\x12\x1b\n" +
+	"\tis_double\x18\n" +
+	" \x01(\bR\bisDouble\x12\x19\n" +
+	"\bis_multi\x18\v \x01(\bR\aisMultiB\x0f\n" +
+	"\r_second_tableB\x17\n" +
+	"\x15_second_left_spin_cnt\"\xa2\x01\n" +
+	"\x06Arthur\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12\"\n" +
+	"\x02fg\x18\x02 \x01(\v2\x10.slotpb.ArthurFgH\x00R\x02fg\x12\"\n" +
+	"\x02bg\x18\x03 \x01(\v2\x10.slotpb.ArthurBgH\x00R\x02bg\x12$\n" +
+	"\x03sbg\x18\x04 \x01(\v2\x10.slotpb.ArthurBgH\x00R\x03sbgB\x06\n" +
+	"\x04data\"X\n" +
+	"\bArthurFg\x12%\n" +
+	"\x06table1\x18\x01 \x01(\v2\r.slotpb.TableR\x06table1\x12%\n" +
+	"\x06table2\x18\x02 \x01(\v2\r.slotpb.TableR\x06table2\"S\n" +
+	"\bArthurBg\x12#\n" +
+	"\x05table\x18\x01 \x01(\v2\r.slotpb.TableR\x05table\x12\"\n" +
+	"\rleft_spin_cnt\x18\x02 \x01(\x05R\vleftSpinCnt\"k\n" +
+	"\n" +
+	"FishDragon\x12\"\n" +
+	"\rleft_game_cnt\x18\x01 \x01(\x05R\vleftGameCnt\x12\x14\n" +
+	"\x05rolls\x18\x02 \x03(\tR\x05rolls\x12#\n" +
+	"\x05table\x18\x03 \x01(\v2\r.slotpb.TableR\x05table\"\xd7\x01\n" +
+	"\rDesperateraid\x126\n" +
+	"\x0foriginal_result\x18\x01 \x01(\v2\r.slotpb.TableR\x0eoriginalResult\x120\n" +
+	"\fevent_result\x18\x02 \x01(\v2\r.slotpb.TableR\veventResult\x12\"\n" +
+	"\rleft_game_cnt\x18\x03 \x01(\x05R\vleftGameCnt\x128\n" +
+	"\tmul_infos\x18\x04 \x03(\v2\x1b.slotpb.DesperateaidMulInfoR\bmulInfos\"~\n" +
+	"\x13DesperateaidMulInfo\x12\x10\n" +
+	"\x03win\x18\x01 \x01(\x05R\x03win\x12\x15\n" +
+	"\x06up_mul\x18\x02 \x01(\x05R\x05upMul\x12\x17\n" +
+	"\amid_mul\x18\x03 \x01(\x05R\x06midMul\x12\x17\n" +
+	"\adow_mul\x18\x04 \x01(\x05R\x06dowMul\x12\f\n" +
+	"\x01x\x18\x05 \x01(\x05R\x01xB\x8a\x01\n" +
 	"\n" +
 	"com.slotpbB\x12SlotExtraDataProtoP\x01Z0github.com/skyrocket-qy/protos/gen/slotpb;slotpb\xa2\x02\x03SXX\xaa\x02\x06Slotpb\xca\x02\x06Slotpb\xe2\x02\x12Slotpb\\GPBMetadata\xea\x02\x06Slotpbb\x06proto3"
 
@@ -1838,7 +2611,7 @@ func file_slotpb_slot_extra_data_proto_rawDescGZIP() []byte {
 	return file_slotpb_slot_extra_data_proto_rawDescData
 }
 
-var file_slotpb_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 26)
+var file_slotpb_slot_extra_data_proto_msgTypes = make([]protoimpl.MessageInfo, 36)
 var file_slotpb_slot_extra_data_proto_goTypes = []any{
 	(*FrozenQueen)(nil),         // 0: slotpb.FrozenQueen
 	(*FrozenQueenOmen)(nil),     // 1: slotpb.FrozenQueenOmen
@@ -1865,51 +2638,76 @@ var file_slotpb_slot_extra_data_proto_goTypes = []any{
 	(*RuneStormRunes)(nil),      // 22: slotpb.RuneStormRunes
 	(*RuneStormFgUpgrade)(nil),  // 23: slotpb.RuneStormFgUpgrade
 	(*PowerWealthGod)(nil),      // 24: slotpb.PowerWealthGod
-	(*FrozenQueen_EventEa)(nil), // 25: slotpb.FrozenQueen.EventEa
-	(*Table)(nil),               // 26: slotpb.Table
-	(*Pos)(nil),                 // 27: slotpb.Pos
+	(*Athena)(nil),              // 25: slotpb.Athena
+	(*PharaohTreasure)(nil),     // 26: slotpb.PharaohTreasure
+	(*Lucifer)(nil),             // 27: slotpb.Lucifer
+	(*Halloween)(nil),           // 28: slotpb.Halloween
+	(*Arthur)(nil),              // 29: slotpb.Arthur
+	(*ArthurFg)(nil),            // 30: slotpb.ArthurFg
+	(*ArthurBg)(nil),            // 31: slotpb.ArthurBg
+	(*FishDragon)(nil),          // 32: slotpb.FishDragon
+	(*Desperateraid)(nil),       // 33: slotpb.Desperateraid
+	(*DesperateaidMulInfo)(nil), // 34: slotpb.DesperateaidMulInfo
+	(*FrozenQueen_EventEa)(nil), // 35: slotpb.FrozenQueen.EventEa
+	(*Table)(nil),               // 36: slotpb.Table
+	(*Pos)(nil),                 // 37: slotpb.Pos
 }
 var file_slotpb_slot_extra_data_proto_depIdxs = []int32{
-	26, // 0: slotpb.FrozenQueen.table:type_name -> slotpb.Table
-	25, // 1: slotpb.FrozenQueen.event_ea:type_name -> slotpb.FrozenQueen.EventEa
-	27, // 2: slotpb.PosVal.pos:type_name -> slotpb.Pos
-	26, // 3: slotpb.Mammoth.table:type_name -> slotpb.Table
+	36, // 0: slotpb.FrozenQueen.table:type_name -> slotpb.Table
+	35, // 1: slotpb.FrozenQueen.event_ea:type_name -> slotpb.FrozenQueen.EventEa
+	37, // 2: slotpb.PosVal.pos:type_name -> slotpb.Pos
+	36, // 3: slotpb.Mammoth.table:type_name -> slotpb.Table
 	4,  // 4: slotpb.Mammoth.event1:type_name -> slotpb.RollBonus
 	6,  // 5: slotpb.Mammoth.event2:type_name -> slotpb.MammonEvent2
 	4,  // 6: slotpb.Mammoth.event3:type_name -> slotpb.RollBonus
 	4,  // 7: slotpb.Mammoth.event4:type_name -> slotpb.RollBonus
 	7,  // 8: slotpb.Mammoth.emit_fireball:type_name -> slotpb.MammoEmitFIreball
 	5,  // 9: slotpb.RollBonus.changed_bonuses:type_name -> slotpb.BonusEntry
-	26, // 10: slotpb.RollBonus.table:type_name -> slotpb.Table
-	27, // 11: slotpb.BonusEntry.pos:type_name -> slotpb.Pos
-	26, // 12: slotpb.PrincessSun.table:type_name -> slotpb.Table
+	36, // 10: slotpb.RollBonus.table:type_name -> slotpb.Table
+	37, // 11: slotpb.BonusEntry.pos:type_name -> slotpb.Pos
+	36, // 12: slotpb.PrincessSun.table:type_name -> slotpb.Table
 	9,  // 13: slotpb.PrincessSun.sun_light:type_name -> slotpb.PrincessSunLight
-	26, // 14: slotpb.PrincessSunLight.table:type_name -> slotpb.Table
-	26, // 15: slotpb.WestChili.table:type_name -> slotpb.Table
+	36, // 14: slotpb.PrincessSunLight.table:type_name -> slotpb.Table
+	36, // 15: slotpb.WestChili.table:type_name -> slotpb.Table
 	11, // 16: slotpb.WestChili.cum:type_name -> slotpb.WestChiliCum
-	26, // 17: slotpb.WestChili.table2:type_name -> slotpb.Table
-	27, // 18: slotpb.WestChili.which_ea_to_sfg:type_name -> slotpb.Pos
-	26, // 19: slotpb.ElementalMask.table:type_name -> slotpb.Table
+	36, // 17: slotpb.WestChili.table2:type_name -> slotpb.Table
+	37, // 18: slotpb.WestChili.which_ea_to_sfg:type_name -> slotpb.Pos
+	36, // 19: slotpb.ElementalMask.table:type_name -> slotpb.Table
 	13, // 20: slotpb.ElementalMask.moves:type_name -> slotpb.ElementalMaskMove
 	14, // 21: slotpb.ElementalMask.merges:type_name -> slotpb.ElementalMaskMerge
-	27, // 22: slotpb.ElementalMaskMerge.froms:type_name -> slotpb.Pos
-	27, // 23: slotpb.ElementalMaskMerge.to:type_name -> slotpb.Pos
-	26, // 24: slotpb.Ufo.table:type_name -> slotpb.Table
-	26, // 25: slotpb.JaguarTemple.table:type_name -> slotpb.Table
-	26, // 26: slotpb.RuneStorm.table:type_name -> slotpb.Table
+	37, // 22: slotpb.ElementalMaskMerge.froms:type_name -> slotpb.Pos
+	37, // 23: slotpb.ElementalMaskMerge.to:type_name -> slotpb.Pos
+	36, // 24: slotpb.Ufo.table:type_name -> slotpb.Table
+	36, // 25: slotpb.JaguarTemple.table:type_name -> slotpb.Table
+	36, // 26: slotpb.RuneStorm.table:type_name -> slotpb.Table
 	20, // 27: slotpb.RuneStorm.actions:type_name -> slotpb.RuneStormAction
 	22, // 28: slotpb.RuneStorm.rune_on_symbols:type_name -> slotpb.RuneStormRunes
 	23, // 29: slotpb.RuneStorm.fg_upgrade:type_name -> slotpb.RuneStormFgUpgrade
 	21, // 30: slotpb.RuneStormAction.adds:type_name -> slotpb.RuneStormAdd
 	20, // 31: slotpb.RuneStormFgUpgrade.actions:type_name -> slotpb.RuneStormAction
-	26, // 32: slotpb.PowerWealthGod.table:type_name -> slotpb.Table
-	26, // 33: slotpb.PowerWealthGod.table2:type_name -> slotpb.Table
-	2,  // 34: slotpb.FrozenQueen.EventEa.pos_val:type_name -> slotpb.PosVal
-	35, // [35:35] is the sub-list for method output_type
-	35, // [35:35] is the sub-list for method input_type
-	35, // [35:35] is the sub-list for extension type_name
-	35, // [35:35] is the sub-list for extension extendee
-	0,  // [0:35] is the sub-list for field type_name
+	36, // 32: slotpb.PowerWealthGod.table:type_name -> slotpb.Table
+	36, // 33: slotpb.PowerWealthGod.table2:type_name -> slotpb.Table
+	36, // 34: slotpb.Athena.table:type_name -> slotpb.Table
+	36, // 35: slotpb.PharaohTreasure.table:type_name -> slotpb.Table
+	36, // 36: slotpb.Lucifer.table:type_name -> slotpb.Table
+	36, // 37: slotpb.Halloween.table:type_name -> slotpb.Table
+	36, // 38: slotpb.Halloween.second_table:type_name -> slotpb.Table
+	30, // 39: slotpb.Arthur.fg:type_name -> slotpb.ArthurFg
+	31, // 40: slotpb.Arthur.bg:type_name -> slotpb.ArthurBg
+	31, // 41: slotpb.Arthur.sbg:type_name -> slotpb.ArthurBg
+	36, // 42: slotpb.ArthurFg.table1:type_name -> slotpb.Table
+	36, // 43: slotpb.ArthurFg.table2:type_name -> slotpb.Table
+	36, // 44: slotpb.ArthurBg.table:type_name -> slotpb.Table
+	36, // 45: slotpb.FishDragon.table:type_name -> slotpb.Table
+	36, // 46: slotpb.Desperateraid.original_result:type_name -> slotpb.Table
+	36, // 47: slotpb.Desperateraid.event_result:type_name -> slotpb.Table
+	34, // 48: slotpb.Desperateraid.mul_infos:type_name -> slotpb.DesperateaidMulInfo
+	2,  // 49: slotpb.FrozenQueen.EventEa.pos_val:type_name -> slotpb.PosVal
+	50, // [50:50] is the sub-list for method output_type
+	50, // [50:50] is the sub-list for method input_type
+	50, // [50:50] is the sub-list for extension type_name
+	50, // [50:50] is the sub-list for extension extendee
+	0,  // [0:50] is the sub-list for field type_name
 }
 
 func init() { file_slotpb_slot_extra_data_proto_init() }
@@ -1926,13 +2724,19 @@ func file_slotpb_slot_extra_data_proto_init() {
 	file_slotpb_slot_extra_data_proto_msgTypes[15].OneofWrappers = []any{}
 	file_slotpb_slot_extra_data_proto_msgTypes[19].OneofWrappers = []any{}
 	file_slotpb_slot_extra_data_proto_msgTypes[24].OneofWrappers = []any{}
+	file_slotpb_slot_extra_data_proto_msgTypes[28].OneofWrappers = []any{}
+	file_slotpb_slot_extra_data_proto_msgTypes[29].OneofWrappers = []any{
+		(*Arthur_Fg)(nil),
+		(*Arthur_Bg)(nil),
+		(*Arthur_Sbg)(nil),
+	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_slot_extra_data_proto_rawDesc), len(file_slotpb_slot_extra_data_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   26,
+			NumMessages:   36,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

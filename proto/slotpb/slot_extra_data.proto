@@ -168,3 +168,75 @@ message PowerWealthGod {
   optional int32 cum_ss = 5;
   bool is_drop = 6;
 }
+
+message Athena {
+  int32 left_game_cnt = 1;
+  Table table = 2;
+}
+
+message PharaohTreasure {
+  Table table = 1;
+  int32 left_game_cnt = 2;
+  repeated string muls = 3;
+  int32 mul_sum = 4;
+  bool is_drop = 5;
+}
+
+message Lucifer {
+  Table table = 1;
+  int32 left_game_cnt = 2;
+}
+
+message Halloween {
+  Table table = 1;
+  optional Table second_table = 2;
+  int32 mini = 3;
+  int32 minor = 4;
+  int32 major = 5;
+  int32 grand = 6;
+  int32 left_spin_cnt = 7;
+  optional int32 second_left_spin_cnt = 8;
+  bool is_extra = 9;
+  bool is_double = 10;
+  bool is_multi = 11;
+}
+
+message Arthur {
+  int32 left_game_cnt = 1;
+  oneof data {
+    ArthurFg fg = 2;
+    ArthurBg bg = 3;
+    ArthurBg sbg = 4;
+  }
+}
+
+message ArthurFg {
+  Table table1 = 1;
+  Table table2 = 2;
+}
+
+message ArthurBg {
+  Table table = 1;
+  int32 left_spin_cnt = 2;
+}
+
+message FishDragon {
+  int32 left_game_cnt = 1;
+  repeated string rolls = 2;
+  Table table = 3;
+}
+
+message Desperateraid {
+  Table original_result = 1;
+  Table event_result = 2;
+  int32 left_game_cnt = 3;
+  repeated DesperateaidMulInfo mul_infos = 4;
+}
+
+message DesperateaidMulInfo {
+  int32 win = 1;
+  int32 up_mul = 2;
+  int32 mid_mul = 3;
+  int32 dow_mul = 4;
+  int32 x = 5;
+}

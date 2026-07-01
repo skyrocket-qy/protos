@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/slot_extra_data.proto.
  */
 export const file_slotpb_slot_extra_data: GenFile = /*@__PURE__*/
-  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iKAoPRnJvemVuUXVlZW5PbWVuEhUKDXNjYXR0ZXJfY291bnQYASABKAMiMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAUirAEKA1VmbxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEhYKCWViMV9zY29yZRgDIAEoA0gAiAEBEhYKCWViMl9zY29yZRgEIAEoA0gBiAEBEhYKCWViM19zY29yZRgFIAEoA0gCiAEBQgwKCl9lYjFfc2NvcmVCDAoKX2ViMl9zY29yZUIMCgpfZWIzX3Njb3JlIgkKB1Vmb09tZW4iPAoLTWFtbW90aE9tZW4SFQoNbGVmdF9lbGVwaGFudBgBIAEoBRIWCg5yaWdodF9lbGVwaGFudBgCIAEoBSJXCgxKYWd1YXJUZW1wbGUSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRISCgpjb2xsZWN0b3JzGAMgAygJIosCCglSdW5lU3Rvcm0SFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIWCg5yaWdodF9zY2F0dGVycxgDIAEoBRISCgpsZWZ0X3J1bmVzGAQgAygJEigKB2FjdGlvbnMYBSADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uEi8KD3J1bmVfb25fc3ltYm9scxgGIAMoCzIWLnNsb3RwYi5SdW5lU3Rvcm1SdW5lcxIzCgpmZ191cGdyYWRlGAcgASgLMhouc2xvdHBiLlJ1bmVTdG9ybUZnVXBncmFkZUgAiAEBQg0KC19mZ191cGdyYWRlIjUKD1J1bmVTdG9ybUFjdGlvbhIiCgRhZGRzGAEgAygLMhQuc2xvdHBiLlJ1bmVTdG9ybUFkZCIxCgxSdW5lU3Rvcm1BZGQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA3ZhbBgDIAEoBSI1Cg5SdW5lU3Rvcm1SdW5lcxINCgVydW5lcxgBIAMoCRIJCgF4GAIgASgFEgkKAXkYAyABKAUiXAoSUnVuZVN0b3JtRmdVcGdyYWRlEg0KBWNhcmRzGAEgAygJEg0KBXJ1bmVzGAIgAygJEigKB2FjdGlvbnMYAyADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uIrUBCg5Qb3dlcldlYWx0aEdvZBIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiIKBnRhYmxlMhgDIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBEg4KBmxhZGRlchgEIAEoBRITCgZjdW1fc3MYBSABKAVIAYgBARIPCgdpc19kcm9wGAYgASgIQgkKB190YWJsZTJCCQoHX2N1bV9zc0KKAQoKY29tLnNsb3RwYkISU2xvdEV4dHJhRGF0YVByb3RvUAFaMGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiO3Nsb3RwYqICA1NYWKoCBlNsb3RwYsoCBlNsb3RwYuICElNsb3RwYlxHUEJNZXRhZGF0YeoCBlNsb3RwYmIGcHJvdG8z", [file_slotpb_slot]);
+  fileDesc("ChxzbG90cGIvc2xvdF9leHRyYV9kYXRhLnByb3RvEgZzbG90cGIilwIKC0Zyb3plblF1ZWVuEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSMgoIZXZlbnRfZWEYAyABKAsyGy5zbG90cGIuRnJvemVuUXVlZW4uRXZlbnRFYUgAiAEBEiMKFmxlZnRfaG9sZF9hbmRfc3Bpbl9jbnQYBCABKAVIAYgBARIXCgppc19iaWdfd2luGAUgASgISAKIAQEaKgoHRXZlbnRFYRIfCgdwb3NfdmFsGAEgAygLMg4uc2xvdHBiLlBvc1ZhbEILCglfZXZlbnRfZWFCGQoXX2xlZnRfaG9sZF9hbmRfc3Bpbl9jbnRCDQoLX2lzX2JpZ193aW4iKAoPRnJvemVuUXVlZW5PbWVuEhUKDXNjYXR0ZXJfY291bnQYASABKAMiMgoGUG9zVmFsEhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJItYCCgdNYW1tb3RoEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSHAoFdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGUSJgoGZXZlbnQxGAMgASgLMhEuc2xvdHBiLlJvbGxCb251c0gAiAEBEikKBmV2ZW50MhgEIAEoCzIULnNsb3RwYi5NYW1tb25FdmVudDJIAYgBARImCgZldmVudDMYBSABKAsyES5zbG90cGIuUm9sbEJvbnVzSAKIAQESJgoGZXZlbnQ0GAYgASgLMhEuc2xvdHBiLlJvbGxCb251c0gDiAEBEjUKDWVtaXRfZmlyZWJhbGwYByABKAsyGS5zbG90cGIuTWFtbW9FbWl0RklyZWJhbGxIBIgBAUIJCgdfZXZlbnQxQgkKB19ldmVudDJCCQoHX2V2ZW50M0IJCgdfZXZlbnQ0QhAKDl9lbWl0X2ZpcmViYWxsImUKCVJvbGxCb251cxIrCg9jaGFuZ2VkX2JvbnVzZXMYASADKAsyEi5zbG90cGIuQm9udXNFbnRyeRIhCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBQggKBl90YWJsZSI2CgpCb251c0VudHJ5EhgKA3BvcxgBIAEoCzILLnNsb3RwYi5Qb3MSDgoGc3ltYm9sGAIgASgJIi8KDE1hbW1vbkV2ZW50MhIPCgdpc193aWxkGAEgASgIEg4KBnN5bWJvbBgCIAEoCSJjChFNYW1tb0VtaXRGSXJlYmFsbBIQCghsZWZ0X2NudBgBIAEoBRITCgtsZWZ0X2FjdGlvbhgCIAEoBRIRCglyaWdodF9jbnQYAyABKAUSFAoMcmlnaHRfYWN0aW9uGAQgASgFIoIBCgtQcmluY2Vzc1N1bhIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEjAKCXN1bl9saWdodBgDIAEoCzIYLnNsb3RwYi5QcmluY2Vzc1N1bkxpZ2h0SACIAQFCDAoKX3N1bl9saWdodCJiChBQcmluY2Vzc1N1bkxpZ2h0EgkKAXgYASABKAUSCQoBeRgCIAEoBRILCgNkaXIYAyABKAUSDQoFc2NvcmUYBCABKAMSHAoFdGFibGUYBSABKAsyDS5zbG90cGIuVGFibGUi2AIKCVdlc3RDaGlsaRIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiYKA2N1bRgDIAEoCzIULnNsb3RwYi5XZXN0Q2hpbGlDdW1IAIgBARIiCgZ0YWJsZTIYBCABKAsyDS5zbG90cGIuVGFibGVIAYgBARIpCg93aGljaF9lYV90b19zZmcYBSABKAsyCy5zbG90cGIuUG9zSAKIAQESJQoYZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlGAYgASgDSAOIAQESHgoRbm93X3NjYXR0ZXJfY291bnQYByABKANIBIgBAUIGCgRfY3VtQgkKB190YWJsZTJCEgoQX3doaWNoX2VhX3RvX3NmZ0IbChlfZmFsbGluZ190cmVlX2V2ZW50X3Njb3JlQhQKEl9ub3dfc2NhdHRlcl9jb3VudCI+CgxXZXN0Q2hpbGlDdW0SCgoCc2EYASABKAUSCgoCc2IYAiABKAUSCgoCc2MYAyABKAUSCgoCc2QYBCABKAUimgEKDUVsZW1lbnRhbE1hc2sSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIoCgVtb3ZlcxgDIAMoCzIZLnNsb3RwYi5FbGVtZW50YWxNYXNrTW92ZRIqCgZtZXJnZXMYBCADKAsyGi5zbG90cGIuRWxlbWVudGFsTWFza01lcmdlIk8KEUVsZW1lbnRhbE1hc2tNb3ZlEg4KBmZyb21feBgBIAEoBRIOCgZmcm9tX3kYAiABKAUSDAoEdG9feBgDIAEoBRIMCgR0b195GAQgASgFIl0KEkVsZW1lbnRhbE1hc2tNZXJnZRIaCgVmcm9tcxgBIAMoCzILLnNsb3RwYi5Qb3MSFwoCdG8YAiABKAsyCy5zbG90cGIuUG9zEhIKCmZpbmFsX3JhdGUYAyABKAUirAEKA1VmbxIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEhYKCWViMV9zY29yZRgDIAEoA0gAiAEBEhYKCWViMl9zY29yZRgEIAEoA0gBiAEBEhYKCWViM19zY29yZRgFIAEoA0gCiAEBQgwKCl9lYjFfc2NvcmVCDAoKX2ViMl9zY29yZUIMCgpfZWIzX3Njb3JlIgkKB1Vmb09tZW4iPAoLTWFtbW90aE9tZW4SFQoNbGVmdF9lbGVwaGFudBgBIAEoBRIWCg5yaWdodF9lbGVwaGFudBgCIAEoBSJXCgxKYWd1YXJUZW1wbGUSFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRISCgpjb2xsZWN0b3JzGAMgAygJIosCCglSdW5lU3Rvcm0SFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZRIWCg5yaWdodF9zY2F0dGVycxgDIAEoBRISCgpsZWZ0X3J1bmVzGAQgAygJEigKB2FjdGlvbnMYBSADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uEi8KD3J1bmVfb25fc3ltYm9scxgGIAMoCzIWLnNsb3RwYi5SdW5lU3Rvcm1SdW5lcxIzCgpmZ191cGdyYWRlGAcgASgLMhouc2xvdHBiLlJ1bmVTdG9ybUZnVXBncmFkZUgAiAEBQg0KC19mZ191cGdyYWRlIjUKD1J1bmVTdG9ybUFjdGlvbhIiCgRhZGRzGAEgAygLMhQuc2xvdHBiLlJ1bmVTdG9ybUFkZCIxCgxSdW5lU3Rvcm1BZGQSCQoBeBgBIAEoBRIJCgF5GAIgASgFEgsKA3ZhbBgDIAEoBSI1Cg5SdW5lU3Rvcm1SdW5lcxINCgVydW5lcxgBIAMoCRIJCgF4GAIgASgFEgkKAXkYAyABKAUiXAoSUnVuZVN0b3JtRmdVcGdyYWRlEg0KBWNhcmRzGAEgAygJEg0KBXJ1bmVzGAIgAygJEigKB2FjdGlvbnMYAyADKAsyFy5zbG90cGIuUnVuZVN0b3JtQWN0aW9uIrUBCg5Qb3dlcldlYWx0aEdvZBIVCg1sZWZ0X2dhbWVfY250GAEgASgFEhwKBXRhYmxlGAIgASgLMg0uc2xvdHBiLlRhYmxlEiIKBnRhYmxlMhgDIAEoCzINLnNsb3RwYi5UYWJsZUgAiAEBEg4KBmxhZGRlchgEIAEoBRITCgZjdW1fc3MYBSABKAVIAYgBARIPCgdpc19kcm9wGAYgASgIQgkKB190YWJsZTJCCQoHX2N1bV9zcyI9CgZBdGhlbmESFQoNbGVmdF9nYW1lX2NudBgBIAEoBRIcCgV0YWJsZRgCIAEoCzINLnNsb3RwYi5UYWJsZSJ2Cg9QaGFyYW9oVHJlYXN1cmUSHAoFdGFibGUYASABKAsyDS5zbG90cGIuVGFibGUSFQoNbGVmdF9nYW1lX2NudBgCIAEoBRIMCgRtdWxzGAMgAygJEg8KB211bF9zdW0YBCABKAUSDwoHaXNfZHJvcBgFIAEoCCI+CgdMdWNpZmVyEhwKBXRhYmxlGAEgASgLMg0uc2xvdHBiLlRhYmxlEhUKDWxlZnRfZ2FtZV9jbnQYAiABKAUiqQIKCUhhbGxvd2VlbhIcCgV0YWJsZRgBIAEoCzINLnNsb3RwYi5UYWJsZRIoCgxzZWNvbmRfdGFibGUYAiABKAsyDS5zbG90cGIuVGFibGVIAIgBARIMCgRtaW5pGAMgASgFEg0KBW1pbm9yGAQgASgFEg0KBW1ham9yGAUgASgFEg0KBWdyYW5kGAYgASgFEhUKDWxlZnRfc3Bpbl9jbnQYByABKAUSIQoUc2Vjb25kX2xlZnRfc3Bpbl9jbnQYCCABKAVIAYgBARIQCghpc19leHRyYRgJIAEoCBIRCglpc19kb3VibGUYCiABKAgSEAoIaXNfbXVsdGkYCyABKAhCDwoNX3NlY29uZF90YWJsZUIXChVfc2Vjb25kX2xlZnRfc3Bpbl9jbnQiiAEKBkFydGh1chIVCg1sZWZ0X2dhbWVfY250GAEgASgFEh4KAmZnGAIgASgLMhAuc2xvdHBiLkFydGh1ckZnSAASHgoCYmcYAyABKAsyEC5zbG90cGIuQXJ0aHVyQmdIABIfCgNzYmcYBCABKAsyEC5zbG90cGIuQXJ0aHVyQmdIAEIGCgRkYXRhIkgKCEFydGh1ckZnEh0KBnRhYmxlMRgBIAEoCzINLnNsb3RwYi5UYWJsZRIdCgZ0YWJsZTIYAiABKAsyDS5zbG90cGIuVGFibGUiPwoIQXJ0aHVyQmcSHAoFdGFibGUYASABKAsyDS5zbG90cGIuVGFibGUSFQoNbGVmdF9zcGluX2NudBgCIAEoBSJQCgpGaXNoRHJhZ29uEhUKDWxlZnRfZ2FtZV9jbnQYASABKAUSDQoFcm9sbHMYAiADKAkSHAoFdGFibGUYAyABKAsyDS5zbG90cGIuVGFibGUiowEKDURlc3BlcmF0ZXJhaWQSJgoPb3JpZ2luYWxfcmVzdWx0GAEgASgLMg0uc2xvdHBiLlRhYmxlEiMKDGV2ZW50X3Jlc3VsdBgCIAEoCzINLnNsb3RwYi5UYWJsZRIVCg1sZWZ0X2dhbWVfY250GAMgASgFEi4KCW11bF9pbmZvcxgEIAMoCzIbLnNsb3RwYi5EZXNwZXJhdGVhaWRNdWxJbmZvIl8KE0Rlc3BlcmF0ZWFpZE11bEluZm8SCwoDd2luGAEgASgFEg4KBnVwX211bBgCIAEoBRIPCgdtaWRfbXVsGAMgASgFEg8KB2Rvd19tdWwYBCABKAUSCQoBeBgFIAEoBUKKAQoKY29tLnNsb3RwYkISU2xvdEV4dHJhRGF0YVByb3RvUAFaMGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiO3Nsb3RwYqICA1NYWKoCBlNsb3RwYsoCBlNsb3RwYuICElNsb3RwYlxHUEJNZXRhZGF0YeoCBlNsb3RwYmIGcHJvdG8z", [file_slotpb_slot]);
 
 /**
  * @generated from message slotpb.FrozenQueen
@@ -797,4 +797,332 @@ export type PowerWealthGod = Message<"slotpb.PowerWealthGod"> & {
  */
 export const PowerWealthGodSchema: GenMessage<PowerWealthGod> = /*@__PURE__*/
   messageDesc(file_slotpb_slot_extra_data, 24);
+
+/**
+ * @generated from message slotpb.Athena
+ */
+export type Athena = Message<"slotpb.Athena"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: slotpb.Table table = 2;
+   */
+  table?: Table;
+};
+
+/**
+ * Describes the message slotpb.Athena.
+ * Use `create(AthenaSchema)` to create a new message.
+ */
+export const AthenaSchema: GenMessage<Athena> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 25);
+
+/**
+ * @generated from message slotpb.PharaohTreasure
+ */
+export type PharaohTreasure = Message<"slotpb.PharaohTreasure"> & {
+  /**
+   * @generated from field: slotpb.Table table = 1;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: int32 left_game_cnt = 2;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: repeated string muls = 3;
+   */
+  muls: string[];
+
+  /**
+   * @generated from field: int32 mul_sum = 4;
+   */
+  mulSum: number;
+
+  /**
+   * @generated from field: bool is_drop = 5;
+   */
+  isDrop: boolean;
+};
+
+/**
+ * Describes the message slotpb.PharaohTreasure.
+ * Use `create(PharaohTreasureSchema)` to create a new message.
+ */
+export const PharaohTreasureSchema: GenMessage<PharaohTreasure> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 26);
+
+/**
+ * @generated from message slotpb.Lucifer
+ */
+export type Lucifer = Message<"slotpb.Lucifer"> & {
+  /**
+   * @generated from field: slotpb.Table table = 1;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: int32 left_game_cnt = 2;
+   */
+  leftGameCnt: number;
+};
+
+/**
+ * Describes the message slotpb.Lucifer.
+ * Use `create(LuciferSchema)` to create a new message.
+ */
+export const LuciferSchema: GenMessage<Lucifer> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 27);
+
+/**
+ * @generated from message slotpb.Halloween
+ */
+export type Halloween = Message<"slotpb.Halloween"> & {
+  /**
+   * @generated from field: slotpb.Table table = 1;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: optional slotpb.Table second_table = 2;
+   */
+  secondTable?: Table;
+
+  /**
+   * @generated from field: int32 mini = 3;
+   */
+  mini: number;
+
+  /**
+   * @generated from field: int32 minor = 4;
+   */
+  minor: number;
+
+  /**
+   * @generated from field: int32 major = 5;
+   */
+  major: number;
+
+  /**
+   * @generated from field: int32 grand = 6;
+   */
+  grand: number;
+
+  /**
+   * @generated from field: int32 left_spin_cnt = 7;
+   */
+  leftSpinCnt: number;
+
+  /**
+   * @generated from field: optional int32 second_left_spin_cnt = 8;
+   */
+  secondLeftSpinCnt?: number;
+
+  /**
+   * @generated from field: bool is_extra = 9;
+   */
+  isExtra: boolean;
+
+  /**
+   * @generated from field: bool is_double = 10;
+   */
+  isDouble: boolean;
+
+  /**
+   * @generated from field: bool is_multi = 11;
+   */
+  isMulti: boolean;
+};
+
+/**
+ * Describes the message slotpb.Halloween.
+ * Use `create(HalloweenSchema)` to create a new message.
+ */
+export const HalloweenSchema: GenMessage<Halloween> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 28);
+
+/**
+ * @generated from message slotpb.Arthur
+ */
+export type Arthur = Message<"slotpb.Arthur"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from oneof slotpb.Arthur.data
+   */
+  data: {
+    /**
+     * @generated from field: slotpb.ArthurFg fg = 2;
+     */
+    value: ArthurFg;
+    case: "fg";
+  } | {
+    /**
+     * @generated from field: slotpb.ArthurBg bg = 3;
+     */
+    value: ArthurBg;
+    case: "bg";
+  } | {
+    /**
+     * @generated from field: slotpb.ArthurBg sbg = 4;
+     */
+    value: ArthurBg;
+    case: "sbg";
+  } | { case: undefined; value?: undefined };
+};
+
+/**
+ * Describes the message slotpb.Arthur.
+ * Use `create(ArthurSchema)` to create a new message.
+ */
+export const ArthurSchema: GenMessage<Arthur> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 29);
+
+/**
+ * @generated from message slotpb.ArthurFg
+ */
+export type ArthurFg = Message<"slotpb.ArthurFg"> & {
+  /**
+   * @generated from field: slotpb.Table table1 = 1;
+   */
+  table1?: Table;
+
+  /**
+   * @generated from field: slotpb.Table table2 = 2;
+   */
+  table2?: Table;
+};
+
+/**
+ * Describes the message slotpb.ArthurFg.
+ * Use `create(ArthurFgSchema)` to create a new message.
+ */
+export const ArthurFgSchema: GenMessage<ArthurFg> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 30);
+
+/**
+ * @generated from message slotpb.ArthurBg
+ */
+export type ArthurBg = Message<"slotpb.ArthurBg"> & {
+  /**
+   * @generated from field: slotpb.Table table = 1;
+   */
+  table?: Table;
+
+  /**
+   * @generated from field: int32 left_spin_cnt = 2;
+   */
+  leftSpinCnt: number;
+};
+
+/**
+ * Describes the message slotpb.ArthurBg.
+ * Use `create(ArthurBgSchema)` to create a new message.
+ */
+export const ArthurBgSchema: GenMessage<ArthurBg> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 31);
+
+/**
+ * @generated from message slotpb.FishDragon
+ */
+export type FishDragon = Message<"slotpb.FishDragon"> & {
+  /**
+   * @generated from field: int32 left_game_cnt = 1;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: repeated string rolls = 2;
+   */
+  rolls: string[];
+
+  /**
+   * @generated from field: slotpb.Table table = 3;
+   */
+  table?: Table;
+};
+
+/**
+ * Describes the message slotpb.FishDragon.
+ * Use `create(FishDragonSchema)` to create a new message.
+ */
+export const FishDragonSchema: GenMessage<FishDragon> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 32);
+
+/**
+ * @generated from message slotpb.Desperateraid
+ */
+export type Desperateraid = Message<"slotpb.Desperateraid"> & {
+  /**
+   * @generated from field: slotpb.Table original_result = 1;
+   */
+  originalResult?: Table;
+
+  /**
+   * @generated from field: slotpb.Table event_result = 2;
+   */
+  eventResult?: Table;
+
+  /**
+   * @generated from field: int32 left_game_cnt = 3;
+   */
+  leftGameCnt: number;
+
+  /**
+   * @generated from field: repeated slotpb.DesperateaidMulInfo mul_infos = 4;
+   */
+  mulInfos: DesperateaidMulInfo[];
+};
+
+/**
+ * Describes the message slotpb.Desperateraid.
+ * Use `create(DesperateraidSchema)` to create a new message.
+ */
+export const DesperateraidSchema: GenMessage<Desperateraid> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 33);
+
+/**
+ * @generated from message slotpb.DesperateaidMulInfo
+ */
+export type DesperateaidMulInfo = Message<"slotpb.DesperateaidMulInfo"> & {
+  /**
+   * @generated from field: int32 win = 1;
+   */
+  win: number;
+
+  /**
+   * @generated from field: int32 up_mul = 2;
+   */
+  upMul: number;
+
+  /**
+   * @generated from field: int32 mid_mul = 3;
+   */
+  midMul: number;
+
+  /**
+   * @generated from field: int32 dow_mul = 4;
+   */
+  dowMul: number;
+
+  /**
+   * @generated from field: int32 x = 5;
+   */
+  x: number;
+};
+
+/**
+ * Describes the message slotpb.DesperateaidMulInfo.
+ * Use `create(DesperateaidMulInfoSchema)` to create a new message.
+ */
+export const DesperateaidMulInfoSchema: GenMessage<DesperateaidMulInfo> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot_extra_data, 34);
 

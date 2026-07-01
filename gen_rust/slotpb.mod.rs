@@ -21,6 +21,16 @@ pub mod __buffa {
         use super::*;
         include!("slotpb.slot.__view.rs");
         include!("slotpb.slot_extra_data.__view.rs");
+        pub mod oneof {
+            #[allow(unused_imports)]
+            use super::*;
+            include!("slotpb.slot_extra_data.__view_oneof.rs");
+        }
+    }
+    pub mod oneof {
+        #[allow(unused_imports)]
+        use super::*;
+        include!("slotpb.slot_extra_data.__oneof.rs");
     }
     /// Register this package's `Any` type entries and extension entries.
     pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
@@ -56,6 +66,16 @@ pub mod __buffa {
         reg.register_json_any(super::__RUNE_STORM_RUNES_JSON_ANY);
         reg.register_json_any(super::__RUNE_STORM_FG_UPGRADE_JSON_ANY);
         reg.register_json_any(super::__POWER_WEALTH_GOD_JSON_ANY);
+        reg.register_json_any(super::__ATHENA_JSON_ANY);
+        reg.register_json_any(super::__PHARAOH_TREASURE_JSON_ANY);
+        reg.register_json_any(super::__LUCIFER_JSON_ANY);
+        reg.register_json_any(super::__HALLOWEEN_JSON_ANY);
+        reg.register_json_any(super::__ARTHUR_JSON_ANY);
+        reg.register_json_any(super::__ARTHUR_FG_JSON_ANY);
+        reg.register_json_any(super::__ARTHUR_BG_JSON_ANY);
+        reg.register_json_any(super::__FISH_DRAGON_JSON_ANY);
+        reg.register_json_any(super::__DESPERATERAID_JSON_ANY);
+        reg.register_json_any(super::__DESPERATEAID_MUL_INFO_JSON_ANY);
     }
 }
 #[doc(inline)]
@@ -120,5 +140,25 @@ pub use self::__buffa::view::RuneStormRunesView;
 pub use self::__buffa::view::RuneStormFgUpgradeView;
 #[doc(inline)]
 pub use self::__buffa::view::PowerWealthGodView;
+#[doc(inline)]
+pub use self::__buffa::view::AthenaView;
+#[doc(inline)]
+pub use self::__buffa::view::PharaohTreasureView;
+#[doc(inline)]
+pub use self::__buffa::view::LuciferView;
+#[doc(inline)]
+pub use self::__buffa::view::HalloweenView;
+#[doc(inline)]
+pub use self::__buffa::view::ArthurView;
+#[doc(inline)]
+pub use self::__buffa::view::ArthurFgView;
+#[doc(inline)]
+pub use self::__buffa::view::ArthurBgView;
+#[doc(inline)]
+pub use self::__buffa::view::FishDragonView;
+#[doc(inline)]
+pub use self::__buffa::view::DesperateraidView;
+#[doc(inline)]
+pub use self::__buffa::view::DesperateaidMulInfoView;
 #[doc(inline)]
 pub use self::__buffa::register_types;
