@@ -32,3 +32,8 @@ message SpinResp {
   uint32 win = 2;
   optional bytes omen = 3;
 }
+
+message BigSym {
+  uint32 id = 1;
+  uint32 len = 2;
+}
