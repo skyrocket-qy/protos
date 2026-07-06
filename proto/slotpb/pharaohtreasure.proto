@@ -1,0 +1,8 @@
+syntax = "proto3";
+package pharaohtreasure;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/pharaohtreasure";
+
+message PharaohtreasureCell {
+  string symb = 1;
+}

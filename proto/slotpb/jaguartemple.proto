@@ -1,0 +1,8 @@
+syntax = "proto3";
+package jaguartemple;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/jaguartemple";
+
+message JaguartempleCell {
+  string symb = 1;
+}

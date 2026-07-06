@@ -1,0 +1,8 @@
+syntax = "proto3";
+package elementalmask;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/elementalmask";
+
+message ElementalmaskCell {
+  string symb = 1;
+}

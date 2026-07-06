@@ -1,0 +1,8 @@
+syntax = "proto3";
+package desperateraid;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/desperateraid";
+
+message DesperateraidCell {
+  string symb = 1;
+}

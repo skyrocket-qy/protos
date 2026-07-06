@@ -1,0 +1,8 @@
+syntax = "proto3";
+package lucifer;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/lucifer";
+
+message LuciferCell {
+  string symb = 1;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package frozenqueen;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/frozenqueen";
+
+message FrozenqueenCell {
+  string symb = 1;
+}

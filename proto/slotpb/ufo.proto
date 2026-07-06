@@ -1,0 +1,12 @@
+syntax = "proto3";
+package ufo;
+
+// Points to the module path inside your slot-compute project
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/ufo";
+
+message UfoCell {
+  string symb = 1;
+  int32 cnt = 2;
+  int32 val = 3;
+  int32 score = 4;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package fishdragon;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/fishdragon";
+
+message FishdragonCell {
+  string symb = 1;
+}

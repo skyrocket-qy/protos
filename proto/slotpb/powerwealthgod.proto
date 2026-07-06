@@ -1,0 +1,8 @@
+syntax = "proto3";
+package powerwealthgod;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/powerwealthgod";
+
+message PowerwealthgodCell {
+  string symb = 1;
+}

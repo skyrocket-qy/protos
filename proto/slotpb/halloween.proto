@@ -1,0 +1,8 @@
+syntax = "proto3";
+package halloween;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/halloween";
+
+message HalloweenCell {
+  string symb = 1;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+package westchili;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/westchili";
+
+message WestchiliCell {
+  string symb = 1;
+}

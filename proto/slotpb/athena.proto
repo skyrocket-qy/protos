@@ -1,0 +1,8 @@
+syntax = "proto3";
+package athena;
+
+option go_package = "github.com/skyrocket-qy/slot/internal/svc/slot/athena";
+
+message AthenaCell {
+  string symb = 1;
+}
