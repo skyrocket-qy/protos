@@ -46,15 +46,31 @@ namespace Iampb {
     }
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
-    static readonly grpc::Marshaller<global::Iampb.LoginReq> __Marshaller_iampb_LoginReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.LoginReq.Parser));
+    static readonly grpc::Marshaller<global::Iampb.RegisterReq> __Marshaller_iampb_RegisterReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.RegisterReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Iampb.LoginResp> __Marshaller_iampb_LoginResp = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.LoginResp.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Iampb.LoginReq> __Marshaller_iampb_LoginReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.LoginReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Iampb.LoginByGuestReq> __Marshaller_iampb_LoginByGuestReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.LoginByGuestReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Iampb.VerifySMSLoginReq> __Marshaller_iampb_VerifySMSLoginReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.VerifySMSLoginReq.Parser));
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Marshaller<global::Iampb.VerifyOAuthReq> __Marshaller_iampb_VerifyOAuthReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.VerifyOAuthReq.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Iampb.ChangePasswordReq> __Marshaller_iampb_ChangePasswordReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.ChangePasswordReq.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Google.Protobuf.WellKnownTypes.Empty> __Marshaller_google_protobuf_Empty = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Google.Protobuf.WellKnownTypes.Empty.Parser));
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Marshaller<global::Iampb.ResetPasswordReq> __Marshaller_iampb_ResetPasswordReq = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::Iampb.ResetPasswordReq.Parser));
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Iampb.RegisterReq, global::Iampb.LoginResp> __Method_Register = new grpc::Method<global::Iampb.RegisterReq, global::Iampb.LoginResp>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "Register",
+        __Marshaller_iampb_RegisterReq,
+        __Marshaller_iampb_LoginResp);
 
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     static readonly grpc::Method<global::Iampb.LoginReq, global::Iampb.LoginResp> __Method_Login = new grpc::Method<global::Iampb.LoginReq, global::Iampb.LoginResp>(
@@ -88,6 +104,22 @@ namespace Iampb {
         __Marshaller_iampb_VerifyOAuthReq,
         __Marshaller_iampb_LoginResp);
 
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Iampb.ChangePasswordReq, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ChangePassword = new grpc::Method<global::Iampb.ChangePasswordReq, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ChangePassword",
+        __Marshaller_iampb_ChangePasswordReq,
+        __Marshaller_google_protobuf_Empty);
+
+    [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+    static readonly grpc::Method<global::Iampb.ResetPasswordReq, global::Google.Protobuf.WellKnownTypes.Empty> __Method_ResetPassword = new grpc::Method<global::Iampb.ResetPasswordReq, global::Google.Protobuf.WellKnownTypes.Empty>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "ResetPassword",
+        __Marshaller_iampb_ResetPasswordReq,
+        __Marshaller_google_protobuf_Empty);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -98,6 +130,12 @@ namespace Iampb {
     [grpc::BindServiceMethod(typeof(IamService), "BindService")]
     public abstract partial class IamServiceBase
     {
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Iampb.LoginResp> Register(global::Iampb.RegisterReq request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Iampb.LoginResp> Login(global::Iampb.LoginReq request, grpc::ServerCallContext context)
       {
@@ -118,6 +156,18 @@ namespace Iampb {
 
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::System.Threading.Tasks.Task<global::Iampb.LoginResp> VerifyOAuth(global::Iampb.VerifyOAuthReq request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> ChangePassword(global::Iampb.ChangePasswordReq request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::System.Threading.Tasks.Task<global::Google.Protobuf.WellKnownTypes.Empty> ResetPassword(global::Iampb.ResetPasswordReq request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -151,6 +201,26 @@ namespace Iampb {
       {
       }
 
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Iampb.LoginResp Register(global::Iampb.RegisterReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return Register(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Iampb.LoginResp Register(global::Iampb.RegisterReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_Register, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Iampb.LoginResp> RegisterAsync(global::Iampb.RegisterReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return RegisterAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Iampb.LoginResp> RegisterAsync(global::Iampb.RegisterReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_Register, null, options, request);
+      }
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       public virtual global::Iampb.LoginResp Login(global::Iampb.LoginReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
@@ -231,6 +301,46 @@ namespace Iampb {
       {
         return CallInvoker.AsyncUnaryCall(__Method_VerifyOAuth, null, options, request);
       }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty ChangePassword(global::Iampb.ChangePasswordReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ChangePassword(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty ChangePassword(global::Iampb.ChangePasswordReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ChangePassword, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ChangePasswordAsync(global::Iampb.ChangePasswordReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ChangePasswordAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ChangePasswordAsync(global::Iampb.ChangePasswordReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ChangePassword, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty ResetPassword(global::Iampb.ResetPasswordReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ResetPassword(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual global::Google.Protobuf.WellKnownTypes.Empty ResetPassword(global::Iampb.ResetPasswordReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_ResetPassword, null, options, request);
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ResetPasswordAsync(global::Iampb.ResetPasswordReq request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return ResetPasswordAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
+      public virtual grpc::AsyncUnaryCall<global::Google.Protobuf.WellKnownTypes.Empty> ResetPasswordAsync(global::Iampb.ResetPasswordReq request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_ResetPassword, null, options, request);
+      }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
       protected override IamServiceClient NewInstance(ClientBaseConfiguration configuration)
@@ -245,10 +355,13 @@ namespace Iampb {
     public static grpc::ServerServiceDefinition BindService(IamServiceBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
+          .AddMethod(__Method_Register, serviceImpl.Register)
           .AddMethod(__Method_Login, serviceImpl.Login)
           .AddMethod(__Method_LoginByGuest, serviceImpl.LoginByGuest)
           .AddMethod(__Method_VerifySMSLogin, serviceImpl.VerifySMSLogin)
-          .AddMethod(__Method_VerifyOAuth, serviceImpl.VerifyOAuth).Build();
+          .AddMethod(__Method_VerifyOAuth, serviceImpl.VerifyOAuth)
+          .AddMethod(__Method_ChangePassword, serviceImpl.ChangePassword)
+          .AddMethod(__Method_ResetPassword, serviceImpl.ResetPassword).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the service binding logic.
@@ -258,10 +371,13 @@ namespace Iampb {
     [global::System.CodeDom.Compiler.GeneratedCode("grpc_csharp_plugin", null)]
     public static void BindService(grpc::ServiceBinderBase serviceBinder, IamServiceBase serviceImpl)
     {
+      serviceBinder.AddMethod(__Method_Register, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.RegisterReq, global::Iampb.LoginResp>(serviceImpl.Register));
       serviceBinder.AddMethod(__Method_Login, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.LoginReq, global::Iampb.LoginResp>(serviceImpl.Login));
       serviceBinder.AddMethod(__Method_LoginByGuest, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.LoginByGuestReq, global::Iampb.LoginResp>(serviceImpl.LoginByGuest));
       serviceBinder.AddMethod(__Method_VerifySMSLogin, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.VerifySMSLoginReq, global::Iampb.LoginResp>(serviceImpl.VerifySMSLogin));
       serviceBinder.AddMethod(__Method_VerifyOAuth, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.VerifyOAuthReq, global::Iampb.LoginResp>(serviceImpl.VerifyOAuth));
+      serviceBinder.AddMethod(__Method_ChangePassword, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.ChangePasswordReq, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.ChangePassword));
+      serviceBinder.AddMethod(__Method_ResetPassword, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::Iampb.ResetPasswordReq, global::Google.Protobuf.WellKnownTypes.Empty>(serviceImpl.ResetPassword));
     }
 
   }

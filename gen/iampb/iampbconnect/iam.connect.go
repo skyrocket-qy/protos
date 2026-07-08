@@ -9,6 +9,7 @@ import (
 	context "context"
 	errors "errors"
 	iampb "github.com/skyrocket-qy/protos/gen/iampb"
+	emptypb "google.golang.org/protobuf/types/known/emptypb"
 	http "net/http"
 	strings "strings"
 )
@@ -33,6 +34,8 @@ const (
 // reflection-formatted method names, remove the leading slash and convert the remaining slash to a
 // period.
 const (
+	// IamServiceRegisterProcedure is the fully-qualified name of the IamService's Register RPC.
+	IamServiceRegisterProcedure = "/iampb.IamService/Register"
 	// IamServiceLoginProcedure is the fully-qualified name of the IamService's Login RPC.
 	IamServiceLoginProcedure = "/iampb.IamService/Login"
 	// IamServiceLoginByGuestProcedure is the fully-qualified name of the IamService's LoginByGuest RPC.
@@ -42,14 +45,23 @@ const (
 	IamServiceVerifySMSLoginProcedure = "/iampb.IamService/VerifySMSLogin"
 	// IamServiceVerifyOAuthProcedure is the fully-qualified name of the IamService's VerifyOAuth RPC.
 	IamServiceVerifyOAuthProcedure = "/iampb.IamService/VerifyOAuth"
+	// IamServiceChangePasswordProcedure is the fully-qualified name of the IamService's ChangePassword
+	// RPC.
+	IamServiceChangePasswordProcedure = "/iampb.IamService/ChangePassword"
+	// IamServiceResetPasswordProcedure is the fully-qualified name of the IamService's ResetPassword
+	// RPC.
+	IamServiceResetPasswordProcedure = "/iampb.IamService/ResetPassword"
 )
 
 // IamServiceClient is a client for the iampb.IamService service.
 type IamServiceClient interface {
+	Register(context.Context, *connect.Request[iampb.RegisterReq]) (*connect.Response[iampb.LoginResp], error)
 	Login(context.Context, *connect.Request[iampb.LoginReq]) (*connect.Response[iampb.LoginResp], error)
 	LoginByGuest(context.Context, *connect.Request[iampb.LoginByGuestReq]) (*connect.Response[iampb.LoginResp], error)
 	VerifySMSLogin(context.Context, *connect.Request[iampb.VerifySMSLoginReq]) (*connect.Response[iampb.LoginResp], error)
 	VerifyOAuth(context.Context, *connect.Request[iampb.VerifyOAuthReq]) (*connect.Response[iampb.LoginResp], error)
+	ChangePassword(context.Context, *connect.Request[iampb.ChangePasswordReq]) (*connect.Response[emptypb.Empty], error)
+	ResetPassword(context.Context, *connect.Request[iampb.ResetPasswordReq]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewIamServiceClient constructs a client for the iampb.IamService service. By default, it uses the
@@ -63,6 +75,12 @@ func NewIamServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...
 	baseURL = strings.TrimRight(baseURL, "/")
 	iamServiceMethods := iampb.File_iampb_iam_proto.Services().ByName("IamService").Methods()
 	return &iamServiceClient{
+		register: connect.NewClient[iampb.RegisterReq, iampb.LoginResp](
+			httpClient,
+			baseURL+IamServiceRegisterProcedure,
+			connect.WithSchema(iamServiceMethods.ByName("Register")),
+			connect.WithClientOptions(opts...),
+		),
 		login: connect.NewClient[iampb.LoginReq, iampb.LoginResp](
 			httpClient,
 			baseURL+IamServiceLoginProcedure,
@@ -87,15 +105,35 @@ func NewIamServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...
 			connect.WithSchema(iamServiceMethods.ByName("VerifyOAuth")),
 			connect.WithClientOptions(opts...),
 		),
+		changePassword: connect.NewClient[iampb.ChangePasswordReq, emptypb.Empty](
+			httpClient,
+			baseURL+IamServiceChangePasswordProcedure,
+			connect.WithSchema(iamServiceMethods.ByName("ChangePassword")),
+			connect.WithClientOptions(opts...),
+		),
+		resetPassword: connect.NewClient[iampb.ResetPasswordReq, emptypb.Empty](
+			httpClient,
+			baseURL+IamServiceResetPasswordProcedure,
+			connect.WithSchema(iamServiceMethods.ByName("ResetPassword")),
+			connect.WithClientOptions(opts...),
+		),
 	}
 }
 
 // iamServiceClient implements IamServiceClient.
 type iamServiceClient struct {
+	register       *connect.Client[iampb.RegisterReq, iampb.LoginResp]
 	login          *connect.Client[iampb.LoginReq, iampb.LoginResp]
 	loginByGuest   *connect.Client[iampb.LoginByGuestReq, iampb.LoginResp]
 	verifySMSLogin *connect.Client[iampb.VerifySMSLoginReq, iampb.LoginResp]
 	verifyOAuth    *connect.Client[iampb.VerifyOAuthReq, iampb.LoginResp]
+	changePassword *connect.Client[iampb.ChangePasswordReq, emptypb.Empty]
+	resetPassword  *connect.Client[iampb.ResetPasswordReq, emptypb.Empty]
+}
+
+// Register calls iampb.IamService.Register.
+func (c *iamServiceClient) Register(ctx context.Context, req *connect.Request[iampb.RegisterReq]) (*connect.Response[iampb.LoginResp], error) {
+	return c.register.CallUnary(ctx, req)
 }
 
 // Login calls iampb.IamService.Login.
@@ -118,12 +156,25 @@ func (c *iamServiceClient) VerifyOAuth(ctx context.Context, req *connect.Request
 	return c.verifyOAuth.CallUnary(ctx, req)
 }
 
+// ChangePassword calls iampb.IamService.ChangePassword.
+func (c *iamServiceClient) ChangePassword(ctx context.Context, req *connect.Request[iampb.ChangePasswordReq]) (*connect.Response[emptypb.Empty], error) {
+	return c.changePassword.CallUnary(ctx, req)
+}
+
+// ResetPassword calls iampb.IamService.ResetPassword.
+func (c *iamServiceClient) ResetPassword(ctx context.Context, req *connect.Request[iampb.ResetPasswordReq]) (*connect.Response[emptypb.Empty], error) {
+	return c.resetPassword.CallUnary(ctx, req)
+}
+
 // IamServiceHandler is an implementation of the iampb.IamService service.
 type IamServiceHandler interface {
+	Register(context.Context, *connect.Request[iampb.RegisterReq]) (*connect.Response[iampb.LoginResp], error)
 	Login(context.Context, *connect.Request[iampb.LoginReq]) (*connect.Response[iampb.LoginResp], error)
 	LoginByGuest(context.Context, *connect.Request[iampb.LoginByGuestReq]) (*connect.Response[iampb.LoginResp], error)
 	VerifySMSLogin(context.Context, *connect.Request[iampb.VerifySMSLoginReq]) (*connect.Response[iampb.LoginResp], error)
 	VerifyOAuth(context.Context, *connect.Request[iampb.VerifyOAuthReq]) (*connect.Response[iampb.LoginResp], error)
+	ChangePassword(context.Context, *connect.Request[iampb.ChangePasswordReq]) (*connect.Response[emptypb.Empty], error)
+	ResetPassword(context.Context, *connect.Request[iampb.ResetPasswordReq]) (*connect.Response[emptypb.Empty], error)
 }
 
 // NewIamServiceHandler builds an HTTP handler from the service implementation. It returns the path
@@ -133,6 +184,12 @@ type IamServiceHandler interface {
 // and JSON codecs. They also support gzip compression.
 func NewIamServiceHandler(svc IamServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
 	iamServiceMethods := iampb.File_iampb_iam_proto.Services().ByName("IamService").Methods()
+	iamServiceRegisterHandler := connect.NewUnaryHandler(
+		IamServiceRegisterProcedure,
+		svc.Register,
+		connect.WithSchema(iamServiceMethods.ByName("Register")),
+		connect.WithHandlerOptions(opts...),
+	)
 	iamServiceLoginHandler := connect.NewUnaryHandler(
 		IamServiceLoginProcedure,
 		svc.Login,
@@ -157,8 +214,22 @@ func NewIamServiceHandler(svc IamServiceHandler, opts ...connect.HandlerOption) 
 		connect.WithSchema(iamServiceMethods.ByName("VerifyOAuth")),
 		connect.WithHandlerOptions(opts...),
 	)
+	iamServiceChangePasswordHandler := connect.NewUnaryHandler(
+		IamServiceChangePasswordProcedure,
+		svc.ChangePassword,
+		connect.WithSchema(iamServiceMethods.ByName("ChangePassword")),
+		connect.WithHandlerOptions(opts...),
+	)
+	iamServiceResetPasswordHandler := connect.NewUnaryHandler(
+		IamServiceResetPasswordProcedure,
+		svc.ResetPassword,
+		connect.WithSchema(iamServiceMethods.ByName("ResetPassword")),
+		connect.WithHandlerOptions(opts...),
+	)
 	return "/iampb.IamService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		switch r.URL.Path {
+		case IamServiceRegisterProcedure:
+			iamServiceRegisterHandler.ServeHTTP(w, r)
 		case IamServiceLoginProcedure:
 			iamServiceLoginHandler.ServeHTTP(w, r)
 		case IamServiceLoginByGuestProcedure:
@@ -167,6 +238,10 @@ func NewIamServiceHandler(svc IamServiceHandler, opts ...connect.HandlerOption) 
 			iamServiceVerifySMSLoginHandler.ServeHTTP(w, r)
 		case IamServiceVerifyOAuthProcedure:
 			iamServiceVerifyOAuthHandler.ServeHTTP(w, r)
+		case IamServiceChangePasswordProcedure:
+			iamServiceChangePasswordHandler.ServeHTTP(w, r)
+		case IamServiceResetPasswordProcedure:
+			iamServiceResetPasswordHandler.ServeHTTP(w, r)
 		default:
 			http.NotFound(w, r)
 		}
@@ -175,6 +250,10 @@ func NewIamServiceHandler(svc IamServiceHandler, opts ...connect.HandlerOption) 
 
 // UnimplementedIamServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedIamServiceHandler struct{}
+
+func (UnimplementedIamServiceHandler) Register(context.Context, *connect.Request[iampb.RegisterReq]) (*connect.Response[iampb.LoginResp], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("iampb.IamService.Register is not implemented"))
+}
 
 func (UnimplementedIamServiceHandler) Login(context.Context, *connect.Request[iampb.LoginReq]) (*connect.Response[iampb.LoginResp], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("iampb.IamService.Login is not implemented"))
@@ -190,4 +269,12 @@ func (UnimplementedIamServiceHandler) VerifySMSLogin(context.Context, *connect.R
 
 func (UnimplementedIamServiceHandler) VerifyOAuth(context.Context, *connect.Request[iampb.VerifyOAuthReq]) (*connect.Response[iampb.LoginResp], error) {
 	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("iampb.IamService.VerifyOAuth is not implemented"))
+}
+
+func (UnimplementedIamServiceHandler) ChangePassword(context.Context, *connect.Request[iampb.ChangePasswordReq]) (*connect.Response[emptypb.Empty], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("iampb.IamService.ChangePassword is not implemented"))
+}
+
+func (UnimplementedIamServiceHandler) ResetPassword(context.Context, *connect.Request[iampb.ResetPasswordReq]) (*connect.Response[emptypb.Empty], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("iampb.IamService.ResetPassword is not implemented"))
 }

@@ -1,10 +1,14 @@
-///Shorthand for `OwnedView<LoginReqView<'static>>`.
-pub type OwnedLoginReqView = ::buffa::view::OwnedView<
-    crate::gen_rust::iampb::__buffa::view::LoginReqView<'static>,
+///Shorthand for `OwnedView<RegisterReqView<'static>>`.
+pub type OwnedRegisterReqView = ::buffa::view::OwnedView<
+    crate::gen_rust::iampb::__buffa::view::RegisterReqView<'static>,
 >;
 ///Shorthand for `OwnedView<LoginRespView<'static>>`.
 pub type OwnedLoginRespView = ::buffa::view::OwnedView<
     crate::gen_rust::iampb::__buffa::view::LoginRespView<'static>,
+>;
+///Shorthand for `OwnedView<LoginReqView<'static>>`.
+pub type OwnedLoginReqView = ::buffa::view::OwnedView<
+    crate::gen_rust::iampb::__buffa::view::LoginReqView<'static>,
 >;
 ///Shorthand for `OwnedView<LoginByGuestReqView<'static>>`.
 pub type OwnedLoginByGuestReqView = ::buffa::view::OwnedView<
@@ -17,6 +21,18 @@ pub type OwnedVerifySmsLoginReqView = ::buffa::view::OwnedView<
 ///Shorthand for `OwnedView<VerifyOAuthReqView<'static>>`.
 pub type OwnedVerifyOAuthReqView = ::buffa::view::OwnedView<
     crate::gen_rust::iampb::__buffa::view::VerifyOAuthReqView<'static>,
+>;
+///Shorthand for `OwnedView<ChangePasswordReqView<'static>>`.
+pub type OwnedChangePasswordReqView = ::buffa::view::OwnedView<
+    crate::gen_rust::iampb::__buffa::view::ChangePasswordReqView<'static>,
+>;
+///Shorthand for `OwnedView<EmptyView<'static>>`.
+pub type OwnedEmptyView = ::buffa::view::OwnedView<
+    ::buffa_types::google::protobuf::__buffa::view::EmptyView<'static>,
+>;
+///Shorthand for `OwnedView<ResetPasswordReqView<'static>>`.
+pub type OwnedResetPasswordReqView = ::buffa::view::OwnedView<
+    crate::gen_rust::iampb::__buffa::view::ResetPasswordReqView<'static>,
 >;
 impl ::connectrpc::Encodable<crate::gen_rust::iampb::LoginResp>
 for crate::gen_rust::iampb::__buffa::view::LoginRespView<'_> {
@@ -40,6 +56,15 @@ for ::buffa::view::OwnedView<
 }
 /// Full service name for this service.
 pub const IAM_SERVICE_SERVICE_NAME: &str = "iampb.IamService";
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `Register` RPC.
+///
+/// The dispatcher surfaces this on
+/// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
+pub const IAM_SERVICE_REGISTER_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/iampb.IamService/Register",
+        ::connectrpc::StreamType::Unary,
+    )
+    .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
 /// Static [`Spec`](::connectrpc::Spec) for the server-side `Login` RPC.
 ///
 /// The dispatcher surfaces this on
@@ -73,6 +98,24 @@ pub const IAM_SERVICE_VERIFY_SMS_LOGIN_SPEC: ::connectrpc::Spec = ::connectrpc::
 /// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
 pub const IAM_SERVICE_VERIFY_O_AUTH_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
         "/iampb.IamService/VerifyOAuth",
+        ::connectrpc::StreamType::Unary,
+    )
+    .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `ChangePassword` RPC.
+///
+/// The dispatcher surfaces this on
+/// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
+pub const IAM_SERVICE_CHANGE_PASSWORD_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/iampb.IamService/ChangePassword",
+        ::connectrpc::StreamType::Unary,
+    )
+    .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
+/// Static [`Spec`](::connectrpc::Spec) for the server-side `ResetPassword` RPC.
+///
+/// The dispatcher surfaces this on
+/// [`RequestContext::spec`](::connectrpc::RequestContext::spec).
+pub const IAM_SERVICE_RESET_PASSWORD_SPEC: ::connectrpc::Spec = ::connectrpc::Spec::server(
+        "/iampb.IamService/ResetPassword",
         ::connectrpc::StreamType::Unary,
     )
     .with_idempotency_level(::connectrpc::IdempotencyLevel::Unknown);
@@ -113,6 +156,20 @@ pub const IAM_SERVICE_VERIFY_O_AUTH_SPEC: ::connectrpc::Spec = ::connectrpc::Spe
 /// example` doc.
 #[allow(clippy::type_complexity)]
 pub trait IamService: Send + Sync + 'static {
+    /// Handle the Register RPC.
+    ///
+    /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
+    fn register<'a>(
+        &'a self,
+        ctx: ::connectrpc::RequestContext,
+        request: OwnedRegisterReqView,
+    ) -> impl ::std::future::Future<
+        Output = ::connectrpc::ServiceResult<
+            impl ::connectrpc::Encodable<
+                crate::gen_rust::iampb::LoginResp,
+            > + Send + use<'a, Self>,
+        >,
+    > + Send;
     /// Handle the Login RPC.
     ///
     /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
@@ -169,6 +226,34 @@ pub trait IamService: Send + Sync + 'static {
             > + Send + use<'a, Self>,
         >,
     > + Send;
+    /// Handle the ChangePassword RPC.
+    ///
+    /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
+    fn change_password<'a>(
+        &'a self,
+        ctx: ::connectrpc::RequestContext,
+        request: OwnedChangePasswordReqView,
+    ) -> impl ::std::future::Future<
+        Output = ::connectrpc::ServiceResult<
+            impl ::connectrpc::Encodable<
+                ::buffa_types::google::protobuf::Empty,
+            > + Send + use<'a, Self>,
+        >,
+    > + Send;
+    /// Handle the ResetPassword RPC.
+    ///
+    /// `'a` lets the response body borrow from `&self` (e.g. server-resident state).
+    fn reset_password<'a>(
+        &'a self,
+        ctx: ::connectrpc::RequestContext,
+        request: OwnedResetPasswordReqView,
+    ) -> impl ::std::future::Future<
+        Output = ::connectrpc::ServiceResult<
+            impl ::connectrpc::Encodable<
+                ::buffa_types::google::protobuf::Empty,
+            > + Send + use<'a, Self>,
+        >,
+    > + Send;
 }
 /// Extension trait for registering a service implementation with a Router.
 ///
@@ -198,6 +283,22 @@ impl<S: IamService> IamServiceExt for S {
         router: ::connectrpc::Router,
     ) -> ::connectrpc::Router {
         router
+            .route_view(
+                IAM_SERVICE_SERVICE_NAME,
+                "Register",
+                {
+                    let svc = ::std::sync::Arc::clone(&self);
+                    ::connectrpc::view_handler_fn(move |ctx, req, format| {
+                        let svc = ::std::sync::Arc::clone(&svc);
+                        async move {
+                            svc.register(ctx, req)
+                                .await?
+                                .encode::<crate::gen_rust::iampb::LoginResp>(format)
+                        }
+                    })
+                },
+            )
+            .with_spec(IAM_SERVICE_REGISTER_SPEC)
             .route_view(
                 IAM_SERVICE_SERVICE_NAME,
                 "Login",
@@ -262,6 +363,38 @@ impl<S: IamService> IamServiceExt for S {
                 },
             )
             .with_spec(IAM_SERVICE_VERIFY_O_AUTH_SPEC)
+            .route_view(
+                IAM_SERVICE_SERVICE_NAME,
+                "ChangePassword",
+                {
+                    let svc = ::std::sync::Arc::clone(&self);
+                    ::connectrpc::view_handler_fn(move |ctx, req, format| {
+                        let svc = ::std::sync::Arc::clone(&svc);
+                        async move {
+                            svc.change_password(ctx, req)
+                                .await?
+                                .encode::<::buffa_types::google::protobuf::Empty>(format)
+                        }
+                    })
+                },
+            )
+            .with_spec(IAM_SERVICE_CHANGE_PASSWORD_SPEC)
+            .route_view(
+                IAM_SERVICE_SERVICE_NAME,
+                "ResetPassword",
+                {
+                    let svc = ::std::sync::Arc::clone(&self);
+                    ::connectrpc::view_handler_fn(move |ctx, req, format| {
+                        let svc = ::std::sync::Arc::clone(&svc);
+                        async move {
+                            svc.reset_password(ctx, req)
+                                .await?
+                                .encode::<::buffa_types::google::protobuf::Empty>(format)
+                        }
+                    })
+                },
+            )
+            .with_spec(IAM_SERVICE_RESET_PASSWORD_SPEC)
     }
 }
 /// Monomorphic dispatcher for `IamService`.
@@ -307,6 +440,12 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
     ) -> Option<::connectrpc::dispatcher::codegen::MethodDescriptor> {
         let method = path.strip_prefix("iampb.IamService/")?;
         match method {
+            "Register" => {
+                Some(
+                    ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
+                        .with_spec(IAM_SERVICE_REGISTER_SPEC),
+                )
+            }
             "Login" => {
                 Some(
                     ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
@@ -331,6 +470,18 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
                         .with_spec(IAM_SERVICE_VERIFY_O_AUTH_SPEC),
                 )
             }
+            "ChangePassword" => {
+                Some(
+                    ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
+                        .with_spec(IAM_SERVICE_CHANGE_PASSWORD_SPEC),
+                )
+            }
+            "ResetPassword" => {
+                Some(
+                    ::connectrpc::dispatcher::codegen::MethodDescriptor::unary(false)
+                        .with_spec(IAM_SERVICE_RESET_PASSWORD_SPEC),
+                )
+            }
             _ => None,
         }
     }
@@ -346,6 +497,17 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
         };
         let _ = (&ctx, &request, &format);
         match method {
+            "Register" => {
+                let svc = ::std::sync::Arc::clone(&self.inner);
+                Box::pin(async move {
+                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
+                        crate::gen_rust::iampb::__buffa::view::RegisterReqView,
+                    >(request.encoded()?, format)?;
+                    svc.register(ctx, req)
+                        .await?
+                        .encode::<crate::gen_rust::iampb::LoginResp>(format)
+                })
+            }
             "Login" => {
                 let svc = ::std::sync::Arc::clone(&self.inner);
                 Box::pin(async move {
@@ -388,6 +550,28 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
                     svc.verify_o_auth(ctx, req)
                         .await?
                         .encode::<crate::gen_rust::iampb::LoginResp>(format)
+                })
+            }
+            "ChangePassword" => {
+                let svc = ::std::sync::Arc::clone(&self.inner);
+                Box::pin(async move {
+                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
+                        crate::gen_rust::iampb::__buffa::view::ChangePasswordReqView,
+                    >(request.encoded()?, format)?;
+                    svc.change_password(ctx, req)
+                        .await?
+                        .encode::<::buffa_types::google::protobuf::Empty>(format)
+                })
+            }
+            "ResetPassword" => {
+                let svc = ::std::sync::Arc::clone(&self.inner);
+                Box::pin(async move {
+                    let req = ::connectrpc::dispatcher::codegen::decode_request_view::<
+                        crate::gen_rust::iampb::__buffa::view::ResetPasswordReqView,
+                    >(request.encoded()?, format)?;
+                    svc.reset_password(ctx, req)
+                        .await?
+                        .encode::<::buffa_types::google::protobuf::Empty>(format)
                 })
             }
             _ => ::connectrpc::dispatcher::codegen::unimplemented_unary(path),
@@ -457,7 +641,7 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
 /// let config = ClientConfig::new(uri).with_protocol(Protocol::Grpc);
 ///
 /// let client = IamServiceClient::new(conn, config);
-/// let response = client.login(request).await?;
+/// let response = client.register(request).await?;
 /// ```
 ///
 /// # Example (Connect / HTTP/1.1 or ALPN)
@@ -469,7 +653,7 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
 /// let config = ClientConfig::new("http://localhost:8080".parse()?);
 ///
 /// let client = IamServiceClient::new(http, config);
-/// let response = client.login(request).await?;
+/// let response = client.register(request).await?;
 /// ```
 ///
 /// # Working with the response
@@ -478,7 +662,7 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
 /// The `OwnedView` derefs to the view, so field access is zero-copy:
 ///
 /// ```rust,ignore
-/// let resp = client.login(request).await?.into_view();
+/// let resp = client.register(request).await?.into_view();
 /// let name: &str = resp.name;  // borrow into the response buffer
 /// ```
 ///
@@ -486,7 +670,7 @@ impl<T: IamService> ::connectrpc::Dispatcher for IamServiceServer<T> {
 /// [`into_owned()`](::connectrpc::client::UnaryResponse::into_owned):
 ///
 /// ```rust,ignore
-/// let owned = client.login(request).await?.into_owned();
+/// let owned = client.register(request).await?.into_owned();
 /// ```
 #[derive(Clone)]
 pub struct IamServiceClient<T> {
@@ -509,6 +693,44 @@ where
     /// Get a mutable reference to the client configuration.
     pub fn config_mut(&mut self) -> &mut ::connectrpc::client::ClientConfig {
         &mut self.config
+    }
+    /// Call the Register RPC. Sends a request to /iampb.IamService/Register.
+    pub async fn register(
+        &self,
+        request: crate::gen_rust::iampb::RegisterReq,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                crate::gen_rust::iampb::__buffa::view::LoginRespView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        self.register_with_options(request, ::connectrpc::client::CallOptions::default())
+            .await
+    }
+    /// Call the Register RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn register_with_options(
+        &self,
+        request: crate::gen_rust::iampb::RegisterReq,
+        options: ::connectrpc::client::CallOptions,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                crate::gen_rust::iampb::__buffa::view::LoginRespView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        ::connectrpc::client::call_unary(
+                &self.transport,
+                &self.config,
+                IAM_SERVICE_SERVICE_NAME,
+                "Register",
+                request,
+                options,
+            )
+            .await
     }
     /// Call the Login RPC. Sends a request to /iampb.IamService/Login.
     pub async fn login(
@@ -666,6 +888,88 @@ where
                 &self.config,
                 IAM_SERVICE_SERVICE_NAME,
                 "VerifyOAuth",
+                request,
+                options,
+            )
+            .await
+    }
+    /// Call the ChangePassword RPC. Sends a request to /iampb.IamService/ChangePassword.
+    pub async fn change_password(
+        &self,
+        request: crate::gen_rust::iampb::ChangePasswordReq,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                ::buffa_types::google::protobuf::__buffa::view::EmptyView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        self.change_password_with_options(
+                request,
+                ::connectrpc::client::CallOptions::default(),
+            )
+            .await
+    }
+    /// Call the ChangePassword RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn change_password_with_options(
+        &self,
+        request: crate::gen_rust::iampb::ChangePasswordReq,
+        options: ::connectrpc::client::CallOptions,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                ::buffa_types::google::protobuf::__buffa::view::EmptyView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        ::connectrpc::client::call_unary(
+                &self.transport,
+                &self.config,
+                IAM_SERVICE_SERVICE_NAME,
+                "ChangePassword",
+                request,
+                options,
+            )
+            .await
+    }
+    /// Call the ResetPassword RPC. Sends a request to /iampb.IamService/ResetPassword.
+    pub async fn reset_password(
+        &self,
+        request: crate::gen_rust::iampb::ResetPasswordReq,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                ::buffa_types::google::protobuf::__buffa::view::EmptyView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        self.reset_password_with_options(
+                request,
+                ::connectrpc::client::CallOptions::default(),
+            )
+            .await
+    }
+    /// Call the ResetPassword RPC with explicit per-call options. Options override [`ClientConfig`](::connectrpc::client::ClientConfig) defaults.
+    pub async fn reset_password_with_options(
+        &self,
+        request: crate::gen_rust::iampb::ResetPasswordReq,
+        options: ::connectrpc::client::CallOptions,
+    ) -> Result<
+        ::connectrpc::client::UnaryResponse<
+            ::buffa::view::OwnedView<
+                ::buffa_types::google::protobuf::__buffa::view::EmptyView<'static>,
+            >,
+        >,
+        ::connectrpc::ConnectError,
+    > {
+        ::connectrpc::client::call_unary(
+                &self.transport,
+                &self.config,
+                IAM_SERVICE_SERVICE_NAME,
+                "ResetPassword",
                 request,
                 options,
             )

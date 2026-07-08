@@ -1,14 +1,19 @@
 syntax = "proto3";
 
+import "google/protobuf/empty.proto";
+
 package iampb;
 
 option go_package = "github.com/skyrocket-qy/protos/gen/iampb;iampb";
 
 service IamService {
+  rpc Register (RegisterReq) returns (LoginResp);
   rpc Login (LoginReq) returns (LoginResp);
   rpc LoginByGuest (LoginByGuestReq) returns (LoginResp);
   rpc VerifySMSLogin (VerifySMSLoginReq) returns (LoginResp);
   rpc VerifyOAuth (VerifyOAuthReq) returns (LoginResp);
+  rpc ChangePassword (ChangePasswordReq) returns (google.protobuf.Empty);
+  rpc ResetPassword (ResetPasswordReq) returns (google.protobuf.Empty);
 }
 
 message UserInfo {
@@ -16,9 +21,26 @@ message UserInfo {
   string nickname = 2;
 }
 
+message Phone {
+  string country_code = 1;
+  string number = 2;
+}
+
 message LoginReq {
-  string identifier = 1;
-  string password = 2;
+  oneof credential {
+    string email = 1;
+    Phone phone = 2;
+  }
+  string password = 3;
+}
+
+message RegisterReq {
+  oneof credential {
+    string email = 1;
+    Phone phone = 2;
+  }
+  string password = 3;
+  string nickname = 4;
 }
 
 message LoginByGuestReq {
@@ -30,13 +52,35 @@ message VerifySMSLoginReq {
   string cell_phone = 2;
   string code = 3;
 }
+enum OAuthProvider {
+  OAUTH_PROVIDER_UNSPECIFIED = 0;
+  GOOGLE = 1;
+  LINE = 2;
+  FACEBOOK = 3;
+  APPLE = 4;
+}
 
 message VerifyOAuthReq {
-  string provider = 1;
+  OAuthProvider provider = 1;
   string token = 2;
 }
 
 message LoginResp {
   string token = 1;
   UserInfo user = 2;
+}
+
+message ChangePasswordReq {
+  uint64 user_id = 1;
+  string old_password = 2;
+  string new_password = 3;
+}
+
+message ResetPasswordReq {
+  oneof credential {
+    string email = 1;
+    Phone phone = 2;
+  }
+  string code = 3;
+  string new_password = 4;
 }

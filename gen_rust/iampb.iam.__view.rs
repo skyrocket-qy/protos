@@ -211,14 +211,14 @@ impl ::buffa::ViewReborrow for UserInfoView<'static> {
     }
 }
 #[derive(Clone, Debug, Default)]
-pub struct LoginReqView<'a> {
-    /// Field 1: `identifier`
-    pub identifier: &'a str,
-    /// Field 2: `password`
-    pub password: &'a str,
+pub struct PhoneView<'a> {
+    /// Field 1: `country_code`
+    pub country_code: &'a str,
+    /// Field 2: `number`
+    pub number: &'a str,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
 }
-impl<'a> LoginReqView<'a> {
+impl<'a> PhoneView<'a> {
     /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
     ///
     /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
@@ -264,7 +264,7 @@ impl<'a> LoginReqView<'a> {
                             actual: tag.wire_type() as u8,
                         });
                     }
-                    view.identifier = ::buffa::types::borrow_str(&mut cur)?;
+                    view.country_code = ::buffa::types::borrow_str(&mut cur)?;
                 }
                 2u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
@@ -274,7 +274,247 @@ impl<'a> LoginReqView<'a> {
                             actual: tag.wire_type() as u8,
                         });
                     }
+                    view.number = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                _ => {
+                    ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
+                    let span_len = before_tag.len() - cur.len();
+                    view.__buffa_unknown_fields.push_raw(&before_tag[..span_len]);
+                }
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+}
+impl<'a> ::buffa::MessageView<'a> for PhoneView<'a> {
+    type Owned = super::super::Phone;
+    fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
+    }
+    fn decode_view_with_limit(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, depth)
+    }
+    fn to_owned_message(&self) -> super::super::Phone {
+        self.to_owned_from_source(None)
+    }
+    #[allow(clippy::useless_conversion, clippy::needless_update)]
+    fn to_owned_from_source(
+        &self,
+        __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
+    ) -> super::super::Phone {
+        #[allow(unused_imports)]
+        use ::buffa::alloc::string::ToString as _;
+        let _ = __buffa_src;
+        super::super::Phone {
+            country_code: self.country_code.to_string(),
+            number: self.number.to_string(),
+            __buffa_unknown_fields: self
+                .__buffa_unknown_fields
+                .to_owned()
+                .unwrap_or_default()
+                .into(),
+            ..::core::default::Default::default()
+        }
+    }
+}
+impl<'a> ::buffa::ViewEncode<'a> for PhoneView<'a> {
+    #[allow(clippy::needless_borrow, clippy::let_and_return)]
+    fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if !self.country_code.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.country_code) as u32;
+        }
+        if !self.number.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.number) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    #[allow(clippy::needless_borrow)]
+    fn write_to(
+        &self,
+        _cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if !self.country_code.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    1u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.country_code, buf);
+        }
+        if !self.number.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    2u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.number, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for PhoneView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.country_code) {
+            __map.serialize_entry("countryCode", self.country_code)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.number) {
+            __map.serialize_entry("number", self.number)?;
+        }
+        __map.end()
+    }
+}
+impl<'a> ::buffa::MessageName for PhoneView<'a> {
+    const PACKAGE: &'static str = "iampb";
+    const NAME: &'static str = "Phone";
+    const FULL_NAME: &'static str = "iampb.Phone";
+    const TYPE_URL: &'static str = "type.googleapis.com/iampb.Phone";
+}
+impl<'v> ::buffa::DefaultViewInstance for PhoneView<'v> {
+    fn default_view_instance<'a>() -> &'a Self
+    where
+        Self: 'a,
+    {
+        static VALUE: ::buffa::__private::OnceBox<PhoneView<'static>> = ::buffa::__private::OnceBox::new();
+        VALUE
+            .get_or_init(|| ::buffa::alloc::boxed::Box::new(
+                <PhoneView<'static>>::default(),
+            ))
+    }
+}
+impl ::buffa::ViewReborrow for PhoneView<'static> {
+    type Reborrowed<'b> = PhoneView<'b>;
+    fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
+        this
+    }
+}
+#[derive(Clone, Debug, Default)]
+pub struct LoginReqView<'a> {
+    /// Field 3: `password`
+    pub password: &'a str,
+    pub credential: ::core::option::Option<
+        super::super::__buffa::view::oneof::login_req::Credential<'a>,
+    >,
+    pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
+}
+impl<'a> LoginReqView<'a> {
+    /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
+    ///
+    /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
+    /// and by generated sub-message decode arms with `depth - 1`.
+    ///
+    /// **Not part of the public API.** Named with a leading underscore to
+    /// signal that it is for generated-code use only.
+    #[doc(hidden)]
+    pub fn _decode_depth(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        let mut view = Self::default();
+        view._merge_into_view(buf, depth)?;
+        ::core::result::Result::Ok(view)
+    }
+    /// Merge fields from `buf` into this view (proto merge semantics).
+    ///
+    /// Repeated fields append; singular fields last-wins; singular
+    /// MESSAGE fields merge recursively. Used by sub-message decode
+    /// arms when the same field appears multiple times on the wire.
+    ///
+    /// **Not part of the public API.**
+    #[doc(hidden)]
+    pub fn _merge_into_view(
+        &mut self,
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        let _ = depth;
+        #[allow(unused_variables)]
+        let view = self;
+        let mut cur: &'a [u8] = buf;
+        while !cur.is_empty() {
+            let before_tag = cur;
+            let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
+            match tag.field_number() {
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
                     view.password = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.credential = Some(
+                        super::super::__buffa::view::oneof::login_req::Credential::Email(
+                            ::buffa::types::borrow_str(&mut cur)?,
+                        ),
+                    );
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    if depth == 0 {
+                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
+                    }
+                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
+                    if let Some(
+                        super::super::__buffa::view::oneof::login_req::Credential::Phone(
+                            ref mut existing,
+                        ),
+                    ) = view.credential
+                    {
+                        existing._merge_into_view(sub, depth - 1)?;
+                    } else {
+                        view.credential = Some(
+                            super::super::__buffa::view::oneof::login_req::Credential::Phone(
+                                ::buffa::alloc::boxed::Box::new(
+                                    super::super::__buffa::view::PhoneView::_decode_depth(
+                                        sub,
+                                        depth - 1,
+                                    )?,
+                                ),
+                            ),
+                        );
+                    }
                 }
                 _ => {
                     ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
@@ -309,8 +549,28 @@ impl<'a> ::buffa::MessageView<'a> for LoginReqView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::LoginReq {
-            identifier: self.identifier.to_string(),
             password: self.password.to_string(),
+            credential: self
+                .credential
+                .as_ref()
+                .map(|v| match v {
+                    super::super::__buffa::view::oneof::login_req::Credential::Email(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::login_req::Credential::Email(
+                            v.to_string(),
+                        )
+                    }
+                    super::super::__buffa::view::oneof::login_req::Credential::Phone(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::login_req::Credential::Phone(
+                            ::buffa::alloc::boxed::Box::new(
+                                v.to_owned_from_source(__buffa_src),
+                            ),
+                        )
+                    }
+                }),
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
                 .to_owned()
@@ -322,12 +582,24 @@ impl<'a> ::buffa::MessageView<'a> for LoginReqView<'a> {
 }
 impl<'a> ::buffa::ViewEncode<'a> for LoginReqView<'a> {
     #[allow(clippy::needless_borrow, clippy::let_and_return)]
-    fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        if !self.identifier.is_empty() {
-            size += 1u32 + ::buffa::types::string_encoded_len(&self.identifier) as u32;
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::login_req::Credential::Email(x) => {
+                    size += 1u32 + ::buffa::types::string_encoded_len(x) as u32;
+                }
+                super::super::__buffa::view::oneof::login_req::Credential::Phone(x) => {
+                    let __slot = __cache.reserve();
+                    let inner = x.compute_size(__cache);
+                    __cache.set(__slot, inner);
+                    size
+                        += 1u32 + ::buffa::encoding::varint_len(inner as u64) as u32
+                            + inner;
+                }
+            }
         }
         if !self.password.is_empty() {
             size += 1u32 + ::buffa::types::string_encoded_len(&self.password) as u32;
@@ -338,22 +610,35 @@ impl<'a> ::buffa::ViewEncode<'a> for LoginReqView<'a> {
     #[allow(clippy::needless_borrow)]
     fn write_to(
         &self,
-        _cache: &mut ::buffa::SizeCache,
+        __cache: &mut ::buffa::SizeCache,
         buf: &mut impl ::buffa::bytes::BufMut,
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if !self.identifier.is_empty() {
-            ::buffa::encoding::Tag::new(
-                    1u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_string(&self.identifier, buf);
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::login_req::Credential::Email(x) => {
+                    ::buffa::encoding::Tag::new(
+                            1u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::types::encode_string(x, buf);
+                }
+                super::super::__buffa::view::oneof::login_req::Credential::Phone(x) => {
+                    ::buffa::encoding::Tag::new(
+                            2u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+                    x.write_to(__cache, buf);
+                }
+            }
         }
         if !self.password.is_empty() {
             ::buffa::encoding::Tag::new(
-                    2u32,
+                    3u32,
                     ::buffa::encoding::WireType::LengthDelimited,
                 )
                 .encode(buf);
@@ -380,11 +665,18 @@ impl<'__a> ::serde::Serialize for LoginReqView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !::buffa::json_helpers::skip_if::is_empty_str(self.identifier) {
-            __map.serialize_entry("identifier", self.identifier)?;
-        }
         if !::buffa::json_helpers::skip_if::is_empty_str(self.password) {
             __map.serialize_entry("password", self.password)?;
+        }
+        if let ::core::option::Option::Some(ref __ov) = self.credential {
+            match __ov {
+                super::super::__buffa::view::oneof::login_req::Credential::Email(v) => {
+                    __map.serialize_entry("email", v)?;
+                }
+                super::super::__buffa::view::oneof::login_req::Credential::Phone(v) => {
+                    __map.serialize_entry("phone", v)?;
+                }
+            }
         }
         __map.end()
     }
@@ -409,6 +701,337 @@ impl<'v> ::buffa::DefaultViewInstance for LoginReqView<'v> {
 }
 impl ::buffa::ViewReborrow for LoginReqView<'static> {
     type Reborrowed<'b> = LoginReqView<'b>;
+    fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
+        this
+    }
+}
+#[derive(Clone, Debug, Default)]
+pub struct RegisterReqView<'a> {
+    /// Field 3: `password`
+    pub password: &'a str,
+    /// Field 4: `nickname`
+    pub nickname: &'a str,
+    pub credential: ::core::option::Option<
+        super::super::__buffa::view::oneof::register_req::Credential<'a>,
+    >,
+    pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
+}
+impl<'a> RegisterReqView<'a> {
+    /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
+    ///
+    /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
+    /// and by generated sub-message decode arms with `depth - 1`.
+    ///
+    /// **Not part of the public API.** Named with a leading underscore to
+    /// signal that it is for generated-code use only.
+    #[doc(hidden)]
+    pub fn _decode_depth(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        let mut view = Self::default();
+        view._merge_into_view(buf, depth)?;
+        ::core::result::Result::Ok(view)
+    }
+    /// Merge fields from `buf` into this view (proto merge semantics).
+    ///
+    /// Repeated fields append; singular fields last-wins; singular
+    /// MESSAGE fields merge recursively. Used by sub-message decode
+    /// arms when the same field appears multiple times on the wire.
+    ///
+    /// **Not part of the public API.**
+    #[doc(hidden)]
+    pub fn _merge_into_view(
+        &mut self,
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        let _ = depth;
+        #[allow(unused_variables)]
+        let view = self;
+        let mut cur: &'a [u8] = buf;
+        while !cur.is_empty() {
+            let before_tag = cur;
+            let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
+            match tag.field_number() {
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.password = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                4u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 4u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.nickname = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.credential = Some(
+                        super::super::__buffa::view::oneof::register_req::Credential::Email(
+                            ::buffa::types::borrow_str(&mut cur)?,
+                        ),
+                    );
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    if depth == 0 {
+                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
+                    }
+                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
+                    if let Some(
+                        super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                            ref mut existing,
+                        ),
+                    ) = view.credential
+                    {
+                        existing._merge_into_view(sub, depth - 1)?;
+                    } else {
+                        view.credential = Some(
+                            super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                                ::buffa::alloc::boxed::Box::new(
+                                    super::super::__buffa::view::PhoneView::_decode_depth(
+                                        sub,
+                                        depth - 1,
+                                    )?,
+                                ),
+                            ),
+                        );
+                    }
+                }
+                _ => {
+                    ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
+                    let span_len = before_tag.len() - cur.len();
+                    view.__buffa_unknown_fields.push_raw(&before_tag[..span_len]);
+                }
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+}
+impl<'a> ::buffa::MessageView<'a> for RegisterReqView<'a> {
+    type Owned = super::super::RegisterReq;
+    fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
+    }
+    fn decode_view_with_limit(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, depth)
+    }
+    fn to_owned_message(&self) -> super::super::RegisterReq {
+        self.to_owned_from_source(None)
+    }
+    #[allow(clippy::useless_conversion, clippy::needless_update)]
+    fn to_owned_from_source(
+        &self,
+        __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
+    ) -> super::super::RegisterReq {
+        #[allow(unused_imports)]
+        use ::buffa::alloc::string::ToString as _;
+        let _ = __buffa_src;
+        super::super::RegisterReq {
+            password: self.password.to_string(),
+            nickname: self.nickname.to_string(),
+            credential: self
+                .credential
+                .as_ref()
+                .map(|v| match v {
+                    super::super::__buffa::view::oneof::register_req::Credential::Email(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::register_req::Credential::Email(
+                            v.to_string(),
+                        )
+                    }
+                    super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::register_req::Credential::Phone(
+                            ::buffa::alloc::boxed::Box::new(
+                                v.to_owned_from_source(__buffa_src),
+                            ),
+                        )
+                    }
+                }),
+            __buffa_unknown_fields: self
+                .__buffa_unknown_fields
+                .to_owned()
+                .unwrap_or_default()
+                .into(),
+            ..::core::default::Default::default()
+        }
+    }
+}
+impl<'a> ::buffa::ViewEncode<'a> for RegisterReqView<'a> {
+    #[allow(clippy::needless_borrow, clippy::let_and_return)]
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::register_req::Credential::Email(
+                    x,
+                ) => {
+                    size += 1u32 + ::buffa::types::string_encoded_len(x) as u32;
+                }
+                super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                    x,
+                ) => {
+                    let __slot = __cache.reserve();
+                    let inner = x.compute_size(__cache);
+                    __cache.set(__slot, inner);
+                    size
+                        += 1u32 + ::buffa::encoding::varint_len(inner as u64) as u32
+                            + inner;
+                }
+            }
+        }
+        if !self.password.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.password) as u32;
+        }
+        if !self.nickname.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.nickname) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    #[allow(clippy::needless_borrow)]
+    fn write_to(
+        &self,
+        __cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::register_req::Credential::Email(
+                    x,
+                ) => {
+                    ::buffa::encoding::Tag::new(
+                            1u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::types::encode_string(x, buf);
+                }
+                super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                    x,
+                ) => {
+                    ::buffa::encoding::Tag::new(
+                            2u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+                    x.write_to(__cache, buf);
+                }
+            }
+        }
+        if !self.password.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.password, buf);
+        }
+        if !self.nickname.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    4u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.nickname, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for RegisterReqView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.password) {
+            __map.serialize_entry("password", self.password)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.nickname) {
+            __map.serialize_entry("nickname", self.nickname)?;
+        }
+        if let ::core::option::Option::Some(ref __ov) = self.credential {
+            match __ov {
+                super::super::__buffa::view::oneof::register_req::Credential::Email(
+                    v,
+                ) => {
+                    __map.serialize_entry("email", v)?;
+                }
+                super::super::__buffa::view::oneof::register_req::Credential::Phone(
+                    v,
+                ) => {
+                    __map.serialize_entry("phone", v)?;
+                }
+            }
+        }
+        __map.end()
+    }
+}
+impl<'a> ::buffa::MessageName for RegisterReqView<'a> {
+    const PACKAGE: &'static str = "iampb";
+    const NAME: &'static str = "RegisterReq";
+    const FULL_NAME: &'static str = "iampb.RegisterReq";
+    const TYPE_URL: &'static str = "type.googleapis.com/iampb.RegisterReq";
+}
+impl<'v> ::buffa::DefaultViewInstance for RegisterReqView<'v> {
+    fn default_view_instance<'a>() -> &'a Self
+    where
+        Self: 'a,
+    {
+        static VALUE: ::buffa::__private::OnceBox<RegisterReqView<'static>> = ::buffa::__private::OnceBox::new();
+        VALUE
+            .get_or_init(|| ::buffa::alloc::boxed::Box::new(
+                <RegisterReqView<'static>>::default(),
+            ))
+    }
+}
+impl ::buffa::ViewReborrow for RegisterReqView<'static> {
+    type Reborrowed<'b> = RegisterReqView<'b>;
     fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
         this
     }
@@ -822,7 +1445,7 @@ impl ::buffa::ViewReborrow for VerifySMSLoginReqView<'static> {
 #[derive(Clone, Debug, Default)]
 pub struct VerifyOAuthReqView<'a> {
     /// Field 1: `provider`
-    pub provider: &'a str,
+    pub provider: ::buffa::EnumValue<super::super::OAuthProvider>,
     /// Field 2: `token`
     pub token: &'a str,
     pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
@@ -866,14 +1489,16 @@ impl<'a> VerifyOAuthReqView<'a> {
             let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
             match tag.field_number() {
                 1u32 => {
-                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
                         return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
                             field_number: 1u32,
-                            expected: 2u8,
+                            expected: 0u8,
                             actual: tag.wire_type() as u8,
                         });
                     }
-                    view.provider = ::buffa::types::borrow_str(&mut cur)?;
+                    view.provider = ::buffa::EnumValue::from(
+                        ::buffa::types::decode_int32(&mut cur)?,
+                    );
                 }
                 2u32 => {
                     if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
@@ -918,7 +1543,7 @@ impl<'a> ::buffa::MessageView<'a> for VerifyOAuthReqView<'a> {
         use ::buffa::alloc::string::ToString as _;
         let _ = __buffa_src;
         super::super::VerifyOAuthReq {
-            provider: self.provider.to_string(),
+            provider: self.provider,
             token: self.token.to_string(),
             __buffa_unknown_fields: self
                 .__buffa_unknown_fields
@@ -935,8 +1560,11 @@ impl<'a> ::buffa::ViewEncode<'a> for VerifyOAuthReqView<'a> {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
         let mut size = 0u32;
-        if !self.provider.is_empty() {
-            size += 1u32 + ::buffa::types::string_encoded_len(&self.provider) as u32;
+        {
+            let val = self.provider.to_i32();
+            if val != 0 {
+                size += 1u32 + ::buffa::types::int32_encoded_len(val) as u32;
+            }
         }
         if !self.token.is_empty() {
             size += 1u32 + ::buffa::types::string_encoded_len(&self.token) as u32;
@@ -952,13 +1580,13 @@ impl<'a> ::buffa::ViewEncode<'a> for VerifyOAuthReqView<'a> {
     ) {
         #[allow(unused_imports)]
         use ::buffa::Enumeration as _;
-        if !self.provider.is_empty() {
-            ::buffa::encoding::Tag::new(
-                    1u32,
-                    ::buffa::encoding::WireType::LengthDelimited,
-                )
-                .encode(buf);
-            ::buffa::types::encode_string(&self.provider, buf);
+        {
+            let val = self.provider.to_i32();
+            if val != 0 {
+                ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                    .encode(buf);
+                ::buffa::types::encode_int32(val, buf);
+            }
         }
         if !self.token.is_empty() {
             ::buffa::encoding::Tag::new(
@@ -989,8 +1617,8 @@ impl<'__a> ::serde::Serialize for VerifyOAuthReqView<'__a> {
     ) -> ::core::result::Result<__S::Ok, __S::Error> {
         use ::serde::ser::SerializeMap as _;
         let mut __map = __s.serialize_map(::core::option::Option::None)?;
-        if !::buffa::json_helpers::skip_if::is_empty_str(self.provider) {
-            __map.serialize_entry("provider", self.provider)?;
+        if !::buffa::json_helpers::skip_if::is_default_enum_value(&self.provider) {
+            __map.serialize_entry("provider", &self.provider)?;
         }
         if !::buffa::json_helpers::skip_if::is_empty_str(self.token) {
             __map.serialize_entry("token", self.token)?;
@@ -1250,6 +1878,573 @@ impl<'v> ::buffa::DefaultViewInstance for LoginRespView<'v> {
 }
 impl ::buffa::ViewReborrow for LoginRespView<'static> {
     type Reborrowed<'b> = LoginRespView<'b>;
+    fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
+        this
+    }
+}
+#[derive(Clone, Debug, Default)]
+pub struct ChangePasswordReqView<'a> {
+    /// Field 1: `user_id`
+    pub user_id: u64,
+    /// Field 2: `old_password`
+    pub old_password: &'a str,
+    /// Field 3: `new_password`
+    pub new_password: &'a str,
+    pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
+}
+impl<'a> ChangePasswordReqView<'a> {
+    /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
+    ///
+    /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
+    /// and by generated sub-message decode arms with `depth - 1`.
+    ///
+    /// **Not part of the public API.** Named with a leading underscore to
+    /// signal that it is for generated-code use only.
+    #[doc(hidden)]
+    pub fn _decode_depth(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        let mut view = Self::default();
+        view._merge_into_view(buf, depth)?;
+        ::core::result::Result::Ok(view)
+    }
+    /// Merge fields from `buf` into this view (proto merge semantics).
+    ///
+    /// Repeated fields append; singular fields last-wins; singular
+    /// MESSAGE fields merge recursively. Used by sub-message decode
+    /// arms when the same field appears multiple times on the wire.
+    ///
+    /// **Not part of the public API.**
+    #[doc(hidden)]
+    pub fn _merge_into_view(
+        &mut self,
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        let _ = depth;
+        #[allow(unused_variables)]
+        let view = self;
+        let mut cur: &'a [u8] = buf;
+        while !cur.is_empty() {
+            let before_tag = cur;
+            let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
+            match tag.field_number() {
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::Varint {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 0u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.user_id = ::buffa::types::decode_uint64(&mut cur)?;
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.old_password = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.new_password = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                _ => {
+                    ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
+                    let span_len = before_tag.len() - cur.len();
+                    view.__buffa_unknown_fields.push_raw(&before_tag[..span_len]);
+                }
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+}
+impl<'a> ::buffa::MessageView<'a> for ChangePasswordReqView<'a> {
+    type Owned = super::super::ChangePasswordReq;
+    fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
+    }
+    fn decode_view_with_limit(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, depth)
+    }
+    fn to_owned_message(&self) -> super::super::ChangePasswordReq {
+        self.to_owned_from_source(None)
+    }
+    #[allow(clippy::useless_conversion, clippy::needless_update)]
+    fn to_owned_from_source(
+        &self,
+        __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
+    ) -> super::super::ChangePasswordReq {
+        #[allow(unused_imports)]
+        use ::buffa::alloc::string::ToString as _;
+        let _ = __buffa_src;
+        super::super::ChangePasswordReq {
+            user_id: self.user_id,
+            old_password: self.old_password.to_string(),
+            new_password: self.new_password.to_string(),
+            __buffa_unknown_fields: self
+                .__buffa_unknown_fields
+                .to_owned()
+                .unwrap_or_default()
+                .into(),
+            ..::core::default::Default::default()
+        }
+    }
+}
+impl<'a> ::buffa::ViewEncode<'a> for ChangePasswordReqView<'a> {
+    #[allow(clippy::needless_borrow, clippy::let_and_return)]
+    fn compute_size(&self, _cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if self.user_id != 0u64 {
+            size += 1u32 + ::buffa::types::uint64_encoded_len(self.user_id) as u32;
+        }
+        if !self.old_password.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.old_password) as u32;
+        }
+        if !self.new_password.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.new_password) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    #[allow(clippy::needless_borrow)]
+    fn write_to(
+        &self,
+        _cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if self.user_id != 0u64 {
+            ::buffa::encoding::Tag::new(1u32, ::buffa::encoding::WireType::Varint)
+                .encode(buf);
+            ::buffa::types::encode_uint64(self.user_id, buf);
+        }
+        if !self.old_password.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    2u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.old_password, buf);
+        }
+        if !self.new_password.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.new_password, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ChangePasswordReqView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_zero_u64(&self.user_id) {
+            struct _W(u64);
+            impl ::serde::Serialize for _W {
+                fn serialize<__S: ::serde::Serializer>(
+                    &self,
+                    __s: __S,
+                ) -> ::core::result::Result<__S::Ok, __S::Error> {
+                    ::buffa::json_helpers::uint64::serialize(&self.0, __s)
+                }
+            }
+            __map.serialize_entry("userId", &_W(self.user_id))?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.old_password) {
+            __map.serialize_entry("oldPassword", self.old_password)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.new_password) {
+            __map.serialize_entry("newPassword", self.new_password)?;
+        }
+        __map.end()
+    }
+}
+impl<'a> ::buffa::MessageName for ChangePasswordReqView<'a> {
+    const PACKAGE: &'static str = "iampb";
+    const NAME: &'static str = "ChangePasswordReq";
+    const FULL_NAME: &'static str = "iampb.ChangePasswordReq";
+    const TYPE_URL: &'static str = "type.googleapis.com/iampb.ChangePasswordReq";
+}
+impl<'v> ::buffa::DefaultViewInstance for ChangePasswordReqView<'v> {
+    fn default_view_instance<'a>() -> &'a Self
+    where
+        Self: 'a,
+    {
+        static VALUE: ::buffa::__private::OnceBox<ChangePasswordReqView<'static>> = ::buffa::__private::OnceBox::new();
+        VALUE
+            .get_or_init(|| ::buffa::alloc::boxed::Box::new(
+                <ChangePasswordReqView<'static>>::default(),
+            ))
+    }
+}
+impl ::buffa::ViewReborrow for ChangePasswordReqView<'static> {
+    type Reborrowed<'b> = ChangePasswordReqView<'b>;
+    fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
+        this
+    }
+}
+#[derive(Clone, Debug, Default)]
+pub struct ResetPasswordReqView<'a> {
+    /// Field 3: `code`
+    pub code: &'a str,
+    /// Field 4: `new_password`
+    pub new_password: &'a str,
+    pub credential: ::core::option::Option<
+        super::super::__buffa::view::oneof::reset_password_req::Credential<'a>,
+    >,
+    pub __buffa_unknown_fields: ::buffa::UnknownFieldsView<'a>,
+}
+impl<'a> ResetPasswordReqView<'a> {
+    /// Decode from `buf`, enforcing a recursion depth limit for nested messages.
+    ///
+    /// Called by [`::buffa::MessageView::decode_view`] with [`::buffa::RECURSION_LIMIT`]
+    /// and by generated sub-message decode arms with `depth - 1`.
+    ///
+    /// **Not part of the public API.** Named with a leading underscore to
+    /// signal that it is for generated-code use only.
+    #[doc(hidden)]
+    pub fn _decode_depth(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        let mut view = Self::default();
+        view._merge_into_view(buf, depth)?;
+        ::core::result::Result::Ok(view)
+    }
+    /// Merge fields from `buf` into this view (proto merge semantics).
+    ///
+    /// Repeated fields append; singular fields last-wins; singular
+    /// MESSAGE fields merge recursively. Used by sub-message decode
+    /// arms when the same field appears multiple times on the wire.
+    ///
+    /// **Not part of the public API.**
+    #[doc(hidden)]
+    pub fn _merge_into_view(
+        &mut self,
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<(), ::buffa::DecodeError> {
+        let _ = depth;
+        #[allow(unused_variables)]
+        let view = self;
+        let mut cur: &'a [u8] = buf;
+        while !cur.is_empty() {
+            let before_tag = cur;
+            let tag = ::buffa::encoding::Tag::decode(&mut cur)?;
+            match tag.field_number() {
+                3u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 3u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.code = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                4u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 4u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.new_password = ::buffa::types::borrow_str(&mut cur)?;
+                }
+                1u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 1u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    view.credential = Some(
+                        super::super::__buffa::view::oneof::reset_password_req::Credential::Email(
+                            ::buffa::types::borrow_str(&mut cur)?,
+                        ),
+                    );
+                }
+                2u32 => {
+                    if tag.wire_type() != ::buffa::encoding::WireType::LengthDelimited {
+                        return ::core::result::Result::Err(::buffa::DecodeError::WireTypeMismatch {
+                            field_number: 2u32,
+                            expected: 2u8,
+                            actual: tag.wire_type() as u8,
+                        });
+                    }
+                    if depth == 0 {
+                        return Err(::buffa::DecodeError::RecursionLimitExceeded);
+                    }
+                    let sub = ::buffa::types::borrow_bytes(&mut cur)?;
+                    if let Some(
+                        super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                            ref mut existing,
+                        ),
+                    ) = view.credential
+                    {
+                        existing._merge_into_view(sub, depth - 1)?;
+                    } else {
+                        view.credential = Some(
+                            super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                                ::buffa::alloc::boxed::Box::new(
+                                    super::super::__buffa::view::PhoneView::_decode_depth(
+                                        sub,
+                                        depth - 1,
+                                    )?,
+                                ),
+                            ),
+                        );
+                    }
+                }
+                _ => {
+                    ::buffa::encoding::skip_field_depth(tag, &mut cur, depth)?;
+                    let span_len = before_tag.len() - cur.len();
+                    view.__buffa_unknown_fields.push_raw(&before_tag[..span_len]);
+                }
+            }
+        }
+        ::core::result::Result::Ok(())
+    }
+}
+impl<'a> ::buffa::MessageView<'a> for ResetPasswordReqView<'a> {
+    type Owned = super::super::ResetPasswordReq;
+    fn decode_view(buf: &'a [u8]) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, ::buffa::RECURSION_LIMIT)
+    }
+    fn decode_view_with_limit(
+        buf: &'a [u8],
+        depth: u32,
+    ) -> ::core::result::Result<Self, ::buffa::DecodeError> {
+        Self::_decode_depth(buf, depth)
+    }
+    fn to_owned_message(&self) -> super::super::ResetPasswordReq {
+        self.to_owned_from_source(None)
+    }
+    #[allow(clippy::useless_conversion, clippy::needless_update)]
+    fn to_owned_from_source(
+        &self,
+        __buffa_src: ::core::option::Option<&::buffa::bytes::Bytes>,
+    ) -> super::super::ResetPasswordReq {
+        #[allow(unused_imports)]
+        use ::buffa::alloc::string::ToString as _;
+        let _ = __buffa_src;
+        super::super::ResetPasswordReq {
+            code: self.code.to_string(),
+            new_password: self.new_password.to_string(),
+            credential: self
+                .credential
+                .as_ref()
+                .map(|v| match v {
+                    super::super::__buffa::view::oneof::reset_password_req::Credential::Email(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::reset_password_req::Credential::Email(
+                            v.to_string(),
+                        )
+                    }
+                    super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                        v,
+                    ) => {
+                        super::super::__buffa::oneof::reset_password_req::Credential::Phone(
+                            ::buffa::alloc::boxed::Box::new(
+                                v.to_owned_from_source(__buffa_src),
+                            ),
+                        )
+                    }
+                }),
+            __buffa_unknown_fields: self
+                .__buffa_unknown_fields
+                .to_owned()
+                .unwrap_or_default()
+                .into(),
+            ..::core::default::Default::default()
+        }
+    }
+}
+impl<'a> ::buffa::ViewEncode<'a> for ResetPasswordReqView<'a> {
+    #[allow(clippy::needless_borrow, clippy::let_and_return)]
+    fn compute_size(&self, __cache: &mut ::buffa::SizeCache) -> u32 {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        let mut size = 0u32;
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Email(
+                    x,
+                ) => {
+                    size += 1u32 + ::buffa::types::string_encoded_len(x) as u32;
+                }
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                    x,
+                ) => {
+                    let __slot = __cache.reserve();
+                    let inner = x.compute_size(__cache);
+                    __cache.set(__slot, inner);
+                    size
+                        += 1u32 + ::buffa::encoding::varint_len(inner as u64) as u32
+                            + inner;
+                }
+            }
+        }
+        if !self.code.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.code) as u32;
+        }
+        if !self.new_password.is_empty() {
+            size += 1u32 + ::buffa::types::string_encoded_len(&self.new_password) as u32;
+        }
+        size += self.__buffa_unknown_fields.encoded_len() as u32;
+        size
+    }
+    #[allow(clippy::needless_borrow)]
+    fn write_to(
+        &self,
+        __cache: &mut ::buffa::SizeCache,
+        buf: &mut impl ::buffa::bytes::BufMut,
+    ) {
+        #[allow(unused_imports)]
+        use ::buffa::Enumeration as _;
+        if let ::core::option::Option::Some(ref v) = self.credential {
+            match v {
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Email(
+                    x,
+                ) => {
+                    ::buffa::encoding::Tag::new(
+                            1u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::types::encode_string(x, buf);
+                }
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                    x,
+                ) => {
+                    ::buffa::encoding::Tag::new(
+                            2u32,
+                            ::buffa::encoding::WireType::LengthDelimited,
+                        )
+                        .encode(buf);
+                    ::buffa::encoding::encode_varint(__cache.consume_next() as u64, buf);
+                    x.write_to(__cache, buf);
+                }
+            }
+        }
+        if !self.code.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    3u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.code, buf);
+        }
+        if !self.new_password.is_empty() {
+            ::buffa::encoding::Tag::new(
+                    4u32,
+                    ::buffa::encoding::WireType::LengthDelimited,
+                )
+                .encode(buf);
+            ::buffa::types::encode_string(&self.new_password, buf);
+        }
+        self.__buffa_unknown_fields.write_to(buf);
+    }
+}
+/// Serializes this view as protobuf JSON.
+///
+/// Implicit-presence fields with default values are omitted, `required`
+/// fields are always emitted, explicit-presence (`optional`) fields are
+/// emitted only when set, bytes fields are base64-encoded, and enum
+/// values are their proto name strings.
+///
+/// This impl uses `serialize_map(None)` because the number of emitted
+/// fields depends on default-omission rules; serializers that require
+/// known map lengths (e.g. `bincode`) will return a runtime error.
+/// Use the owned message type for those formats.
+impl<'__a> ::serde::Serialize for ResetPasswordReqView<'__a> {
+    fn serialize<__S: ::serde::Serializer>(
+        &self,
+        __s: __S,
+    ) -> ::core::result::Result<__S::Ok, __S::Error> {
+        use ::serde::ser::SerializeMap as _;
+        let mut __map = __s.serialize_map(::core::option::Option::None)?;
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.code) {
+            __map.serialize_entry("code", self.code)?;
+        }
+        if !::buffa::json_helpers::skip_if::is_empty_str(self.new_password) {
+            __map.serialize_entry("newPassword", self.new_password)?;
+        }
+        if let ::core::option::Option::Some(ref __ov) = self.credential {
+            match __ov {
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Email(
+                    v,
+                ) => {
+                    __map.serialize_entry("email", v)?;
+                }
+                super::super::__buffa::view::oneof::reset_password_req::Credential::Phone(
+                    v,
+                ) => {
+                    __map.serialize_entry("phone", v)?;
+                }
+            }
+        }
+        __map.end()
+    }
+}
+impl<'a> ::buffa::MessageName for ResetPasswordReqView<'a> {
+    const PACKAGE: &'static str = "iampb";
+    const NAME: &'static str = "ResetPasswordReq";
+    const FULL_NAME: &'static str = "iampb.ResetPasswordReq";
+    const TYPE_URL: &'static str = "type.googleapis.com/iampb.ResetPasswordReq";
+}
+impl<'v> ::buffa::DefaultViewInstance for ResetPasswordReqView<'v> {
+    fn default_view_instance<'a>() -> &'a Self
+    where
+        Self: 'a,
+    {
+        static VALUE: ::buffa::__private::OnceBox<ResetPasswordReqView<'static>> = ::buffa::__private::OnceBox::new();
+        VALUE
+            .get_or_init(|| ::buffa::alloc::boxed::Box::new(
+                <ResetPasswordReqView<'static>>::default(),
+            ))
+    }
+}
+impl ::buffa::ViewReborrow for ResetPasswordReqView<'static> {
+    type Reborrowed<'b> = ResetPasswordReqView<'b>;
     fn reborrow<'b>(this: &'b Self) -> &'b Self::Reborrowed<'b> {
         this
     }

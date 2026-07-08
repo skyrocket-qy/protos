@@ -19,21 +19,39 @@ pub mod __buffa {
         #[allow(unused_imports)]
         use super::*;
         include!("iampb.iam.__view.rs");
+        pub mod oneof {
+            #[allow(unused_imports)]
+            use super::*;
+            include!("iampb.iam.__view_oneof.rs");
+        }
+    }
+    pub mod oneof {
+        #[allow(unused_imports)]
+        use super::*;
+        include!("iampb.iam.__oneof.rs");
     }
     /// Register this package's `Any` type entries and extension entries.
     pub fn register_types(reg: &mut ::buffa::type_registry::TypeRegistry) {
         reg.register_json_any(super::__USER_INFO_JSON_ANY);
+        reg.register_json_any(super::__PHONE_JSON_ANY);
         reg.register_json_any(super::__LOGIN_REQ_JSON_ANY);
+        reg.register_json_any(super::__REGISTER_REQ_JSON_ANY);
         reg.register_json_any(super::__LOGIN_BY_GUEST_REQ_JSON_ANY);
         reg.register_json_any(super::__VERIFY_SMS_LOGIN_REQ_JSON_ANY);
         reg.register_json_any(super::__VERIFY_O_AUTH_REQ_JSON_ANY);
         reg.register_json_any(super::__LOGIN_RESP_JSON_ANY);
+        reg.register_json_any(super::__CHANGE_PASSWORD_REQ_JSON_ANY);
+        reg.register_json_any(super::__RESET_PASSWORD_REQ_JSON_ANY);
     }
 }
 #[doc(inline)]
 pub use self::__buffa::view::UserInfoView;
 #[doc(inline)]
+pub use self::__buffa::view::PhoneView;
+#[doc(inline)]
 pub use self::__buffa::view::LoginReqView;
+#[doc(inline)]
+pub use self::__buffa::view::RegisterReqView;
 #[doc(inline)]
 pub use self::__buffa::view::LoginByGuestReqView;
 #[doc(inline)]
@@ -42,5 +60,9 @@ pub use self::__buffa::view::VerifySMSLoginReqView;
 pub use self::__buffa::view::VerifyOAuthReqView;
 #[doc(inline)]
 pub use self::__buffa::view::LoginRespView;
+#[doc(inline)]
+pub use self::__buffa::view::ChangePasswordReqView;
+#[doc(inline)]
+pub use self::__buffa::view::ResetPasswordReqView;
 #[doc(inline)]
 pub use self::__buffa::register_types;

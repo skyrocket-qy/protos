@@ -2,15 +2,17 @@
 // @generated from file iampb/iam.proto (package iampb, syntax proto3)
 /* eslint-disable */
 
-import type { GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
-import { fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv2";
+import { enumDesc, fileDesc, messageDesc, serviceDesc } from "@bufbuild/protobuf/codegenv2";
+import type { EmptySchema } from "@bufbuild/protobuf/wkt";
+import { file_google_protobuf_empty } from "@bufbuild/protobuf/wkt";
 import type { Message } from "@bufbuild/protobuf";
 
 /**
  * Describes the file iampb/iam.proto.
  */
 export const file_iampb_iam: GenFile = /*@__PURE__*/
-  fileDesc("Cg9pYW1wYi9pYW0ucHJvdG8SBWlhbXBiIi0KCFVzZXJJbmZvEg8KB3VzZXJfaWQYASABKAQSEAoIbmlja25hbWUYAiABKAkiMAoITG9naW5SZXESEgoKaWRlbnRpZmllchgBIAEoCRIQCghwYXNzd29yZBgCIAEoCSIkCg9Mb2dpbkJ5R3Vlc3RSZXESEQoJZGV2aWNlX2lkGAEgASgJIksKEVZlcmlmeVNNU0xvZ2luUmVxEhQKDGNvdW50cnlfY29kZRgBIAEoCRISCgpjZWxsX3Bob25lGAIgASgJEgwKBGNvZGUYAyABKAkiMQoOVmVyaWZ5T0F1dGhSZXESEAoIcHJvdmlkZXIYASABKAkSDQoFdG9rZW4YAiABKAkiOQoJTG9naW5SZXNwEg0KBXRva2VuGAEgASgJEh0KBHVzZXIYAiABKAsyDy5pYW1wYi5Vc2VySW5mbzLoAQoKSWFtU2VydmljZRIqCgVMb2dpbhIPLmlhbXBiLkxvZ2luUmVxGhAuaWFtcGIuTG9naW5SZXNwEjgKDExvZ2luQnlHdWVzdBIWLmlhbXBiLkxvZ2luQnlHdWVzdFJlcRoQLmlhbXBiLkxvZ2luUmVzcBI8Cg5WZXJpZnlTTVNMb2dpbhIYLmlhbXBiLlZlcmlmeVNNU0xvZ2luUmVxGhAuaWFtcGIuTG9naW5SZXNwEjYKC1ZlcmlmeU9BdXRoEhUuaWFtcGIuVmVyaWZ5T0F1dGhSZXEaEC5pYW1wYi5Mb2dpblJlc3BCeQoJY29tLmlhbXBiQghJYW1Qcm90b1ABWi5naXRodWIuY29tL3NreXJvY2tldC1xeS9wcm90b3MvZ2VuL2lhbXBiO2lhbXBiogIDSVhYqgIFSWFtcGLKAgVJYW1wYuICEUlhbXBiXEdQQk1ldGFkYXRh6gIFSWFtcGJiBnByb3RvMw");
+  fileDesc("Cg9pYW1wYi9pYW0ucHJvdG8SBWlhbXBiIi0KCFVzZXJJbmZvEg8KB3VzZXJfaWQYASABKAQSEAoIbmlja25hbWUYAiABKAkiLQoFUGhvbmUSFAoMY291bnRyeV9jb2RlGAEgASgJEg4KBm51bWJlchgCIAEoCSJaCghMb2dpblJlcRIPCgVlbWFpbBgBIAEoCUgAEh0KBXBob25lGAIgASgLMgwuaWFtcGIuUGhvbmVIABIQCghwYXNzd29yZBgDIAEoCUIMCgpjcmVkZW50aWFsIm8KC1JlZ2lzdGVyUmVxEg8KBWVtYWlsGAEgASgJSAASHQoFcGhvbmUYAiABKAsyDC5pYW1wYi5QaG9uZUgAEhAKCHBhc3N3b3JkGAMgASgJEhAKCG5pY2tuYW1lGAQgASgJQgwKCmNyZWRlbnRpYWwiJAoPTG9naW5CeUd1ZXN0UmVxEhEKCWRldmljZV9pZBgBIAEoCSJLChFWZXJpZnlTTVNMb2dpblJlcRIUCgxjb3VudHJ5X2NvZGUYASABKAkSEgoKY2VsbF9waG9uZRgCIAEoCRIMCgRjb2RlGAMgASgJIkcKDlZlcmlmeU9BdXRoUmVxEiYKCHByb3ZpZGVyGAEgASgOMhQuaWFtcGIuT0F1dGhQcm92aWRlchINCgV0b2tlbhgCIAEoCSI5CglMb2dpblJlc3ASDQoFdG9rZW4YASABKAkSHQoEdXNlchgCIAEoCzIPLmlhbXBiLlVzZXJJbmZvIlAKEUNoYW5nZVBhc3N3b3JkUmVxEg8KB3VzZXJfaWQYASABKAQSFAoMb2xkX3Bhc3N3b3JkGAIgASgJEhQKDG5ld19wYXNzd29yZBgDIAEoCSJ0ChBSZXNldFBhc3N3b3JkUmVxEg8KBWVtYWlsGAEgASgJSAASHQoFcGhvbmUYAiABKAsyDC5pYW1wYi5QaG9uZUgAEgwKBGNvZGUYAyABKAkSFAoMbmV3X3Bhc3N3b3JkGAQgASgJQgwKCmNyZWRlbnRpYWwqXgoNT0F1dGhQcm92aWRlchIeChpPQVVUSF9QUk9WSURFUl9VTlNQRUNJRklFRBAAEgoKBkdPT0dMRRABEggKBExJTkUQAhIMCghGQUNFQk9PSxADEgkKBUFQUExFEAQyoAMKCklhbVNlcnZpY2USMAoIUmVnaXN0ZXISEi5pYW1wYi5SZWdpc3RlclJlcRoQLmlhbXBiLkxvZ2luUmVzcBIqCgVMb2dpbhIPLmlhbXBiLkxvZ2luUmVxGhAuaWFtcGIuTG9naW5SZXNwEjgKDExvZ2luQnlHdWVzdBIWLmlhbXBiLkxvZ2luQnlHdWVzdFJlcRoQLmlhbXBiLkxvZ2luUmVzcBI8Cg5WZXJpZnlTTVNMb2dpbhIYLmlhbXBiLlZlcmlmeVNNU0xvZ2luUmVxGhAuaWFtcGIuTG9naW5SZXNwEjYKC1ZlcmlmeU9BdXRoEhUuaWFtcGIuVmVyaWZ5T0F1dGhSZXEaEC5pYW1wYi5Mb2dpblJlc3ASQgoOQ2hhbmdlUGFzc3dvcmQSGC5pYW1wYi5DaGFuZ2VQYXNzd29yZFJlcRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eRJACg1SZXNldFBhc3N3b3JkEhcuaWFtcGIuUmVzZXRQYXNzd29yZFJlcRoWLmdvb2dsZS5wcm90b2J1Zi5FbXB0eUJ5Cgljb20uaWFtcGJCCElhbVByb3RvUAFaLmdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vaWFtcGI7aWFtcGKiAgNJWFiqAgVJYW1wYsoCBUlhbXBi4gIRSWFtcGJcR1BCTWV0YWRhdGHqAgVJYW1wYmIGcHJvdG8z", [file_google_protobuf_empty]);
 
 /**
  * @generated from message iampb.UserInfo
@@ -35,16 +37,50 @@ export const UserInfoSchema: GenMessage<UserInfo> = /*@__PURE__*/
   messageDesc(file_iampb_iam, 0);
 
 /**
+ * @generated from message iampb.Phone
+ */
+export type Phone = Message<"iampb.Phone"> & {
+  /**
+   * @generated from field: string country_code = 1;
+   */
+  countryCode: string;
+
+  /**
+   * @generated from field: string number = 2;
+   */
+  number: string;
+};
+
+/**
+ * Describes the message iampb.Phone.
+ * Use `create(PhoneSchema)` to create a new message.
+ */
+export const PhoneSchema: GenMessage<Phone> = /*@__PURE__*/
+  messageDesc(file_iampb_iam, 1);
+
+/**
  * @generated from message iampb.LoginReq
  */
 export type LoginReq = Message<"iampb.LoginReq"> & {
   /**
-   * @generated from field: string identifier = 1;
+   * @generated from oneof iampb.LoginReq.credential
    */
-  identifier: string;
+  credential: {
+    /**
+     * @generated from field: string email = 1;
+     */
+    value: string;
+    case: "email";
+  } | {
+    /**
+     * @generated from field: iampb.Phone phone = 2;
+     */
+    value: Phone;
+    case: "phone";
+  } | { case: undefined; value?: undefined };
 
   /**
-   * @generated from field: string password = 2;
+   * @generated from field: string password = 3;
    */
   password: string;
 };
@@ -54,7 +90,46 @@ export type LoginReq = Message<"iampb.LoginReq"> & {
  * Use `create(LoginReqSchema)` to create a new message.
  */
 export const LoginReqSchema: GenMessage<LoginReq> = /*@__PURE__*/
-  messageDesc(file_iampb_iam, 1);
+  messageDesc(file_iampb_iam, 2);
+
+/**
+ * @generated from message iampb.RegisterReq
+ */
+export type RegisterReq = Message<"iampb.RegisterReq"> & {
+  /**
+   * @generated from oneof iampb.RegisterReq.credential
+   */
+  credential: {
+    /**
+     * @generated from field: string email = 1;
+     */
+    value: string;
+    case: "email";
+  } | {
+    /**
+     * @generated from field: iampb.Phone phone = 2;
+     */
+    value: Phone;
+    case: "phone";
+  } | { case: undefined; value?: undefined };
+
+  /**
+   * @generated from field: string password = 3;
+   */
+  password: string;
+
+  /**
+   * @generated from field: string nickname = 4;
+   */
+  nickname: string;
+};
+
+/**
+ * Describes the message iampb.RegisterReq.
+ * Use `create(RegisterReqSchema)` to create a new message.
+ */
+export const RegisterReqSchema: GenMessage<RegisterReq> = /*@__PURE__*/
+  messageDesc(file_iampb_iam, 3);
 
 /**
  * @generated from message iampb.LoginByGuestReq
@@ -71,7 +146,7 @@ export type LoginByGuestReq = Message<"iampb.LoginByGuestReq"> & {
  * Use `create(LoginByGuestReqSchema)` to create a new message.
  */
 export const LoginByGuestReqSchema: GenMessage<LoginByGuestReq> = /*@__PURE__*/
-  messageDesc(file_iampb_iam, 2);
+  messageDesc(file_iampb_iam, 4);
 
 /**
  * @generated from message iampb.VerifySMSLoginReq
@@ -98,16 +173,16 @@ export type VerifySMSLoginReq = Message<"iampb.VerifySMSLoginReq"> & {
  * Use `create(VerifySMSLoginReqSchema)` to create a new message.
  */
 export const VerifySMSLoginReqSchema: GenMessage<VerifySMSLoginReq> = /*@__PURE__*/
-  messageDesc(file_iampb_iam, 3);
+  messageDesc(file_iampb_iam, 5);
 
 /**
  * @generated from message iampb.VerifyOAuthReq
  */
 export type VerifyOAuthReq = Message<"iampb.VerifyOAuthReq"> & {
   /**
-   * @generated from field: string provider = 1;
+   * @generated from field: iampb.OAuthProvider provider = 1;
    */
-  provider: string;
+  provider: OAuthProvider;
 
   /**
    * @generated from field: string token = 2;
@@ -120,7 +195,7 @@ export type VerifyOAuthReq = Message<"iampb.VerifyOAuthReq"> & {
  * Use `create(VerifyOAuthReqSchema)` to create a new message.
  */
 export const VerifyOAuthReqSchema: GenMessage<VerifyOAuthReq> = /*@__PURE__*/
-  messageDesc(file_iampb_iam, 4);
+  messageDesc(file_iampb_iam, 6);
 
 /**
  * @generated from message iampb.LoginResp
@@ -142,12 +217,122 @@ export type LoginResp = Message<"iampb.LoginResp"> & {
  * Use `create(LoginRespSchema)` to create a new message.
  */
 export const LoginRespSchema: GenMessage<LoginResp> = /*@__PURE__*/
-  messageDesc(file_iampb_iam, 5);
+  messageDesc(file_iampb_iam, 7);
+
+/**
+ * @generated from message iampb.ChangePasswordReq
+ */
+export type ChangePasswordReq = Message<"iampb.ChangePasswordReq"> & {
+  /**
+   * @generated from field: uint64 user_id = 1;
+   */
+  userId: bigint;
+
+  /**
+   * @generated from field: string old_password = 2;
+   */
+  oldPassword: string;
+
+  /**
+   * @generated from field: string new_password = 3;
+   */
+  newPassword: string;
+};
+
+/**
+ * Describes the message iampb.ChangePasswordReq.
+ * Use `create(ChangePasswordReqSchema)` to create a new message.
+ */
+export const ChangePasswordReqSchema: GenMessage<ChangePasswordReq> = /*@__PURE__*/
+  messageDesc(file_iampb_iam, 8);
+
+/**
+ * @generated from message iampb.ResetPasswordReq
+ */
+export type ResetPasswordReq = Message<"iampb.ResetPasswordReq"> & {
+  /**
+   * @generated from oneof iampb.ResetPasswordReq.credential
+   */
+  credential: {
+    /**
+     * @generated from field: string email = 1;
+     */
+    value: string;
+    case: "email";
+  } | {
+    /**
+     * @generated from field: iampb.Phone phone = 2;
+     */
+    value: Phone;
+    case: "phone";
+  } | { case: undefined; value?: undefined };
+
+  /**
+   * @generated from field: string code = 3;
+   */
+  code: string;
+
+  /**
+   * @generated from field: string new_password = 4;
+   */
+  newPassword: string;
+};
+
+/**
+ * Describes the message iampb.ResetPasswordReq.
+ * Use `create(ResetPasswordReqSchema)` to create a new message.
+ */
+export const ResetPasswordReqSchema: GenMessage<ResetPasswordReq> = /*@__PURE__*/
+  messageDesc(file_iampb_iam, 9);
+
+/**
+ * @generated from enum iampb.OAuthProvider
+ */
+export enum OAuthProvider {
+  /**
+   * @generated from enum value: OAUTH_PROVIDER_UNSPECIFIED = 0;
+   */
+  OAUTH_PROVIDER_UNSPECIFIED = 0,
+
+  /**
+   * @generated from enum value: GOOGLE = 1;
+   */
+  GOOGLE = 1,
+
+  /**
+   * @generated from enum value: LINE = 2;
+   */
+  LINE = 2,
+
+  /**
+   * @generated from enum value: FACEBOOK = 3;
+   */
+  FACEBOOK = 3,
+
+  /**
+   * @generated from enum value: APPLE = 4;
+   */
+  APPLE = 4,
+}
+
+/**
+ * Describes the enum iampb.OAuthProvider.
+ */
+export const OAuthProviderSchema: GenEnum<OAuthProvider> = /*@__PURE__*/
+  enumDesc(file_iampb_iam, 0);
 
 /**
  * @generated from service iampb.IamService
  */
 export const IamService: GenService<{
+  /**
+   * @generated from rpc iampb.IamService.Register
+   */
+  register: {
+    methodKind: "unary";
+    input: typeof RegisterReqSchema;
+    output: typeof LoginRespSchema;
+  },
   /**
    * @generated from rpc iampb.IamService.Login
    */
@@ -179,6 +364,22 @@ export const IamService: GenService<{
     methodKind: "unary";
     input: typeof VerifyOAuthReqSchema;
     output: typeof LoginRespSchema;
+  },
+  /**
+   * @generated from rpc iampb.IamService.ChangePassword
+   */
+  changePassword: {
+    methodKind: "unary";
+    input: typeof ChangePasswordReqSchema;
+    output: typeof EmptySchema;
+  },
+  /**
+   * @generated from rpc iampb.IamService.ResetPassword
+   */
+  resetPassword: {
+    methodKind: "unary";
+    input: typeof ResetPasswordReqSchema;
+    output: typeof EmptySchema;
   },
 }> = /*@__PURE__*/
   serviceDesc(file_iampb_iam, 0);
