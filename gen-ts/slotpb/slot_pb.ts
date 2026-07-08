@@ -12,7 +12,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file slotpb/slot.proto.
  */
 export const file_slotpb_slot: GenFile = /*@__PURE__*/
-  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIjAKBUV2ZW50EgwKBGNvZGUYASABKA0SDAoEZGF0YRgCIAEoDBILCgN3aW4YAyABKA0iJAoFVGFibGUSGwoFcmVlbHMYASADKAsyDC5zbG90cGIuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiGwoDUG9zEgkKAXgYASABKAUSCQoBeRgCIAEoBSJICgdTcGluUmVxEg8KB2dhbWVfaWQYASABKA0SEQoEb21lbhgCIAEoDEgAiAEBEhAKCHN0cmF0ZWd5GAMgASgJQgcKBV9vbWVuIlIKCFNwaW5SZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudBILCgN3aW4YAiABKA0SEQoEb21lbhgDIAEoDEgAiAEBQgcKBV9vbWVuMjgKC1Nsb3RTZXJ2aWNlEikKBFNwaW4SDy5zbG90cGIuU3BpblJlcRoQLnNsb3RwYi5TcGluUmVzcEKBAQoKY29tLnNsb3RwYkIJU2xvdFByb3RvUAFaMGdpdGh1Yi5jb20vc2t5cm9ja2V0LXF5L3Byb3Rvcy9nZW4vc2xvdHBiO3Nsb3RwYqICA1NYWKoCBlNsb3RwYsoCBlNsb3RwYuICElNsb3RwYlxHUEJNZXRhZGF0YeoCBlNsb3RwYmIGcHJvdG8z");
+  fileDesc("ChFzbG90cGIvc2xvdC5wcm90bxIGc2xvdHBiIjAKBUV2ZW50EgwKBGNvZGUYASABKA0SDAoEZGF0YRgCIAEoDBILCgN3aW4YAyABKA0iJAoFVGFibGUSGwoFcmVlbHMYASADKAsyDC5zbG90cGIuUmVlbCIXCgRSZWVsEg8KB3N5bWJvbHMYASADKAkiGwoDUG9zEgkKAXgYASABKAUSCQoBeRgCIAEoBSJICgdTcGluUmVxEg8KB2dhbWVfaWQYASABKA0SEQoEb21lbhgCIAEoDEgAiAEBEhAKCHN0cmF0ZWd5GAMgASgJQgcKBV9vbWVuIlIKCFNwaW5SZXNwEh0KBmV2ZW50cxgBIAMoCzINLnNsb3RwYi5FdmVudBILCgN3aW4YAiABKA0SEQoEb21lbhgDIAEoDEgAiAEBQgcKBV9vbWVuIiEKBkJpZ1N5bRIKCgJpZBgBIAEoDRILCgNsZW4YAiABKA0yOAoLU2xvdFNlcnZpY2USKQoEU3BpbhIPLnNsb3RwYi5TcGluUmVxGhAuc2xvdHBiLlNwaW5SZXNwQoEBCgpjb20uc2xvdHBiQglTbG90UHJvdG9QAVowZ2l0aHViLmNvbS9za3lyb2NrZXQtcXkvcHJvdG9zL2dlbi9zbG90cGI7c2xvdHBiogIDU1hYqgIGU2xvdHBiygIGU2xvdHBi4gISU2xvdHBiXEdQQk1ldGFkYXRh6gIGU2xvdHBiYgZwcm90bzM");
 
 /**
  * @generated from message slotpb.Event
@@ -150,6 +150,28 @@ export type SpinResp = Message<"slotpb.SpinResp"> & {
  */
 export const SpinRespSchema: GenMessage<SpinResp> = /*@__PURE__*/
   messageDesc(file_slotpb_slot, 5);
+
+/**
+ * @generated from message slotpb.BigSym
+ */
+export type BigSym = Message<"slotpb.BigSym"> & {
+  /**
+   * @generated from field: uint32 id = 1;
+   */
+  id: number;
+
+  /**
+   * @generated from field: uint32 len = 2;
+   */
+  len: number;
+};
+
+/**
+ * Describes the message slotpb.BigSym.
+ * Use `create(BigSymSchema)` to create a new message.
+ */
+export const BigSymSchema: GenMessage<BigSym> = /*@__PURE__*/
+  messageDesc(file_slotpb_slot, 6);
 
 /**
  * @generated from service slotpb.SlotService

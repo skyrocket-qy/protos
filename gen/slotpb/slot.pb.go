@@ -343,6 +343,58 @@ func (x *SpinResp) GetOmen() []byte {
 	return nil
 }
 
+type BigSym struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Id            uint32                 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+	Len           uint32                 `protobuf:"varint,2,opt,name=len,proto3" json:"len,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *BigSym) Reset() {
+	*x = BigSym{}
+	mi := &file_slotpb_slot_proto_msgTypes[6]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *BigSym) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*BigSym) ProtoMessage() {}
+
+func (x *BigSym) ProtoReflect() protoreflect.Message {
+	mi := &file_slotpb_slot_proto_msgTypes[6]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use BigSym.ProtoReflect.Descriptor instead.
+func (*BigSym) Descriptor() ([]byte, []int) {
+	return file_slotpb_slot_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *BigSym) GetId() uint32 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+func (x *BigSym) GetLen() uint32 {
+	if x != nil {
+		return x.Len
+	}
+	return 0
+}
+
 var File_slotpb_slot_proto protoreflect.FileDescriptor
 
 const file_slotpb_slot_proto_rawDesc = "" +
@@ -368,7 +420,10 @@ const file_slotpb_slot_proto_rawDesc = "" +
 	"\x06events\x18\x01 \x03(\v2\r.slotpb.EventR\x06events\x12\x10\n" +
 	"\x03win\x18\x02 \x01(\rR\x03win\x12\x17\n" +
 	"\x04omen\x18\x03 \x01(\fH\x00R\x04omen\x88\x01\x01B\a\n" +
-	"\x05_omen28\n" +
+	"\x05_omen\"*\n" +
+	"\x06BigSym\x12\x0e\n" +
+	"\x02id\x18\x01 \x01(\rR\x02id\x12\x10\n" +
+	"\x03len\x18\x02 \x01(\rR\x03len28\n" +
 	"\vSlotService\x12)\n" +
 	"\x04Spin\x12\x0f.slotpb.SpinReq\x1a\x10.slotpb.SpinRespB\x81\x01\n" +
 	"\n" +
@@ -386,7 +441,7 @@ func file_slotpb_slot_proto_rawDescGZIP() []byte {
 	return file_slotpb_slot_proto_rawDescData
 }
 
-var file_slotpb_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_slotpb_slot_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_slotpb_slot_proto_goTypes = []any{
 	(*Event)(nil),    // 0: slotpb.Event
 	(*Table)(nil),    // 1: slotpb.Table
@@ -394,6 +449,7 @@ var file_slotpb_slot_proto_goTypes = []any{
 	(*Pos)(nil),      // 3: slotpb.Pos
 	(*SpinReq)(nil),  // 4: slotpb.SpinReq
 	(*SpinResp)(nil), // 5: slotpb.SpinResp
+	(*BigSym)(nil),   // 6: slotpb.BigSym
 }
 var file_slotpb_slot_proto_depIdxs = []int32{
 	2, // 0: slotpb.Table.reels:type_name -> slotpb.Reel
@@ -420,7 +476,7 @@ func file_slotpb_slot_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_slotpb_slot_proto_rawDesc), len(file_slotpb_slot_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

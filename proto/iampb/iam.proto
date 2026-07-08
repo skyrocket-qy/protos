@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package iampb;
+
+option go_package = "github.com/skyrocket-qy/protos/gen/iampb;iampb";
+
+service IamService {
+  rpc Login (LoginReq) returns (LoginResp);
+  rpc LoginByGuest (LoginByGuestReq) returns (LoginResp);
+  rpc VerifySMSLogin (VerifySMSLoginReq) returns (LoginResp);
+  rpc VerifyOAuth (VerifyOAuthReq) returns (LoginResp);
+}
+
+message UserInfo {
+  uint64 user_id = 1;
+  string nickname = 2;
+}
+
+message LoginReq {
+  string identifier = 1;
+  string password = 2;
+}
+
+message LoginByGuestReq {
+  string device_id = 1;
+}
+
+message VerifySMSLoginReq {
+  string country_code = 1;
+  string cell_phone = 2;
+  string code = 3;
+}
+
+message VerifyOAuthReq {
+  string provider = 1;
+  string token = 2;
+}
+
+message LoginResp {
+  string token = 1;
+  UserInfo user = 2;
+}

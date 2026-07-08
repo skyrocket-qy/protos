@@ -40,6 +40,7 @@ pub mod __buffa {
         reg.register_json_any(super::__POS_JSON_ANY);
         reg.register_json_any(super::__SPIN_REQ_JSON_ANY);
         reg.register_json_any(super::__SPIN_RESP_JSON_ANY);
+        reg.register_json_any(super::__BIG_SYM_JSON_ANY);
         reg.register_json_any(super::__FROZEN_QUEEN_JSON_ANY);
         reg.register_json_any(super::frozen_queen::__EVENT_EA_JSON_ANY);
         reg.register_json_any(super::__FROZEN_QUEEN_OMEN_JSON_ANY);
@@ -90,6 +91,8 @@ pub use self::__buffa::view::PosView;
 pub use self::__buffa::view::SpinReqView;
 #[doc(inline)]
 pub use self::__buffa::view::SpinRespView;
+#[doc(inline)]
+pub use self::__buffa::view::BigSymView;
 #[doc(inline)]
 pub use self::__buffa::view::FrozenQueenView;
 #[doc(inline)]
