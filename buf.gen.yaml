@@ -36,4 +36,19 @@ plugins:
 inputs:
   - directory: proto
     exclude_paths:
+      - proto/slotpb/arthur.proto
+      - proto/slotpb/athena.proto
+      - proto/slotpb/desperateraid.proto
+      - proto/slotpb/elementalmask.proto
+      - proto/slotpb/fishdragon.proto
+      - proto/slotpb/frozenqueen.proto
+      - proto/slotpb/halloween.proto
+      - proto/slotpb/jaguartemple.proto
+      - proto/slotpb/lucifer.proto
+      - proto/slotpb/mammoth.proto
+      - proto/slotpb/pharaohtreasure.proto
+      - proto/slotpb/powerwealthgod.proto
+      - proto/slotpb/princesssun.proto
+      - proto/slotpb/runestorm.proto
       - proto/slotpb/ufo.proto
+      - proto/slotpb/westchili.proto
